@@ -1,8 +1,5 @@
-// Gera páginas estáticas de SEO (ideologias, países, personalidades) em PT e EN
-// a partir dos JSONs do backend. Roda após o `vite build` e escreve direto em dist/.
-// Fonte estrutural: backend/src/main/resources/data (PT). Textos EN vêm dos
-// overlays em data/i18n/en/*.json (chaveados por id, com fallback para PT).
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+// Generate English catalog pages from the backend data after the Vite build.
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ideologiesIndexPage, IDEOLOGIES_CSS } from './ideologies-index.mjs';
@@ -37,61 +34,11 @@ const ideologyProfiles = new Map(readJson('ideology-profiles.json').map((p) => [
 const countryProfiles = new Map(readJson('countries-profiles.json').map((p) => [p.countryId, p.vector]));
 const personalityProfiles = new Map(readJson('personality-profiles.json').map((p) => [p.personalityId, p.vector]));
 
-function overlay(base, locale, file) {
-  if (locale === 'pt') return base;
-  const path = join(DATA_DIR, 'i18n', locale, file);
-  if (!existsSync(path)) {
-    console.warn(`[i18n] overlay ausente: ${locale}/${file} — usando PT`);
-    return base;
-  }
-  const byId = new Map(JSON.parse(readFileSync(path, 'utf8')).map((item) => [item.id, item]));
-  return base.map((item) => {
-    const tr = byId.get(item.id);
-    if (!tr) console.warn(`[i18n] sem tradução ${locale}: ${file} → ${item.id} (fallback PT)`);
-    return tr ? { ...item, ...tr } : item;
-  });
-}
-
 const STR = {
-  pt: {
-    htmlLang: 'pt-BR',
-    ogLocale: 'pt_BR',
-    prefix: '',
-    home: 'Início',
-    navIdeologies: 'Ideologias',
-    navCountries: 'Países',
-    navPersonalities: 'Personalidades',
-    takeTheTest: 'Fazer o teste',
-    axesTitle: 'Perfil nos 12 eixos',
-    ctaTitle: 'E você, onde está no espectro político?',
-    ctaText: 'Responda ao quiz e descubra suas compatibilidades com ideologias, países e personalidades nos 12 eixos.',
-    currentCountry: 'País atual',
-    historicalRegime: (period) => `Regime histórico${period ? ` · ${period}` : ''}`,
-    flagAlt: (name) => `Bandeira: ${name}`,
-    imageSource: 'Fonte da imagem',
-    homeAria: '12 Axes — página inicial',
-    balanced: 'Equilibrado',
-    intensity: ['Equilibrado', 'Inclinado', 'Forte', 'Muito forte'],
-    subjectPrefix: (name, kind) => (kind === 'ideology' ? `o ${name}` : name),
-    ideologyTitle: (name) => `${name} — o que é e posição nos 12 eixos políticos | 12 Axes`,
-    countryTitle: (name) => `${name} — perfil político nos 12 eixos | 12 Axes`,
-    personalityTitle: (name) => `${name} — posição política nos 12 eixos | 12 Axes`,
-    ideologyHeadline: (name) => `${name} — posição política nos 12 eixos`,
-    countryHeadline: (name) => `${name} — perfil político nos 12 eixos`,
-    ideologiesIndexTitle: (n) => `Ideologias políticas: lista completa com ${n} correntes | 12 Axes`,
-    ideologiesIndexDesc: (n) => `Explore ${n} ideologias políticas — do comunismo ao libertarianismo — com descrição e posição em 12 eixos. Descubra a sua com o quiz político 12 Axes.`,
-    ideologiesIndexHeading: 'Ideologias políticas',
-    countriesIndexTitle: (n) => `Perfis políticos de ${n} países e regimes históricos | 12 Axes`,
-    countriesIndexDesc: (n) => `Compare o perfil político de ${n} países e regimes históricos em 12 eixos — democracia, economia, liberdades e mais. Descubra seu país mais compatível.`,
-    countriesIndexHeading: 'Países e regimes',
-    personalitiesIndexTitle: (n) => `${n} personalidades políticas e suas posições | 12 Axes`,
-    personalitiesIndexDesc: (n) => `Veja a posição política de ${n} personalidades históricas e contemporâneas em 12 eixos. Descubra com quem você mais se parece no quiz 12 Axes.`,
-    personalitiesIndexHeading: 'Personalidades políticas'
-  },
   en: {
     htmlLang: 'en',
     ogLocale: 'en_US',
-    prefix: '/en',
+    prefix: '',
     home: 'Home',
     navIdeologies: 'Ideologies',
     navCountries: 'Countries',
@@ -125,7 +72,7 @@ const STR = {
   }
 };
 
-const LOCALES = ['pt', 'en'];
+const LOCALES = ['en'];
 
 function groupBy(list, keyFn) {
   const map = new Map();
@@ -188,13 +135,13 @@ function buildIndexes(L) {
 
 // ── Montagem por locale ─────────────────────────────────────────────────────
 function buildLocaleContext(locale) {
-  const ideologies = overlay(baseIdeologies, locale, 'ideologies.json');
-  const countries = overlay(baseCountries, locale, 'countries.json');
-  const personalities = overlay(basePersonalities, locale, 'personalities.json');
+  const ideologies = baseIdeologies;
+  const countries = baseCountries;
+  const personalities = basePersonalities;
   return {
     locale,
     s: STR[locale],
-    axes: overlay(baseAxes, locale, 'axes.json'),
+    axes: baseAxes,
     ideologies,
     countries,
     personalities,
@@ -212,163 +159,12 @@ function writePage(prefix, { basePath, html }) {
   return prefix + basePath;
 }
 
-// ── Homes /en e /br ─────────────────────────────────────────────────────────
-// dist/en.html: cópia do index compilado com todo o SEO trocado para inglês
-// (título, description, OG, JSON-LD) e canonical próprio — é o que o Google
-// mostra para quem busca em inglês. dist/br.html: cópia fiel do index (o
-// canonical continua apontando para /, então não cria conteúdo duplicado);
-// o idioma forçado em ambos vem do caminho, resolvido pelo app.
-function replaceBetween(html, startMarker, endMarker, replacement) {
-  const start = html.indexOf(startMarker);
-  const end = html.indexOf(endMarker, start);
-  if (start === -1 || end === -1) {
-    throw new Error(`Marcador não encontrado no index.html: ${startMarker} … ${endMarker}`);
-  }
-  return html.slice(0, start) + replacement + html.slice(end);
-}
-
-function buildHomeVariants() {
+// App routes keep the English home metadata; shared results have their own URL.
+function buildAppRoutes() {
   const index = readFileSync(join(DIST, 'index.html'), 'utf8');
-
-  writeFileSync(join(DIST, 'br.html'), index);
-
-  // Rotas do app servidas como arquivos físicos (via cleanUrls), sem depender
-  // do rewrite de SPA. results.html fica sem canonical/hreflang para que cada
-  // URL de resultado compartilhado possa ser indexada individualmente.
   writeFileSync(join(DIST, '240questions.html'), index);
-  const results = index
-    .replace(/^\s*<link rel="canonical"[^\n]*\n/m, '')
-    .replace(/^\s*<link rel="alternate" hreflang=[^\n]*\n/gm, '');
+  const results = index.replace(/^\s*<link rel="canonical"[^\n]*\n/m, '');
   writeFileSync(join(DIST, 'results.html'), results);
-
-  const enSeoBlock = `<!-- Primary SEO -->
-    <title>12 Axes — Political Quiz and Ideology Test across 12 Axes</title>
-    <meta
-      name="description"
-      content="Discover your political position in 5 minutes with 12 Axes. A free political quiz and ideology test that maps your political spectrum — left, right, center — across 12 axes."
-    />
-    <meta
-      name="keywords"
-      content="political test, ideology test, political spectrum, political position, political ideology, left, right, center, liberalism, conservatism, progressivism, libertarianism, socialism, capitalism, democracy, federalism, immigration, international trade, religion in politics, economic policy, political representation, 12 axes, 12axes, political quiz, elections, monarchy, political compass"
-    />
-    <meta name="author" content="12 Axes" />
-    <meta name="application-name" content="12 Axes" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="language" content="English" />
-    <link rel="canonical" href="https://12axes.vercel.app/en" />
-    <link rel="alternate" hreflang="pt-BR" href="https://12axes.vercel.app/" />
-    <link rel="alternate" hreflang="en" href="https://12axes.vercel.app/en" />
-    <link rel="alternate" hreflang="x-default" href="https://12axes.vercel.app/en" />
-
-    `;
-
-  const enOgBlock = `<!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="12 Axes" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://12axes.vercel.app/en" />
-    <meta property="og:title" content="12 Axes — Political Quiz and Ideology Test across 12 Axes" />
-    <meta
-      property="og:description"
-      content="Discover your political position in 5 minutes. A free political quiz that maps your political spectrum, political ideology, and 12 axes."
-    />
-    <meta property="og:image" content="https://12axes.vercel.app/logo.png" />
-    <meta property="og:image:width" content="512" />
-    <meta property="og:image:height" content="512" />
-    <meta property="og:image:alt" content="12 Axes logo — a 12-axis political quiz" />
-
-    `;
-
-  const enTwitterBlock = `<!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="12 Axes — Political Quiz and Ideology Test across 12 Axes" />
-    <meta
-      name="twitter:description"
-      content="Discover your political position in 5 minutes with a free political quiz in English."
-    />
-    <meta name="twitter:image" content="https://12axes.vercel.app/logo.png" />
-
-    `;
-
-  const enWebApp = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: '12 Axes',
-    alternateName: ['12 Axes Political Quiz', '12 Axes Ideology Test'],
-    url: 'https://12axes.vercel.app/en',
-    description:
-      'A political quiz and ideology test that maps your political position across 12 axes and returns your political spectrum, compatible ideologies, closest country, and related personality.',
-    applicationCategory: 'EducationApplication',
-    operatingSystem: 'Web',
-    inLanguage: 'en',
-    isAccessibleForFree: true,
-    image: 'https://12axes.vercel.app/logo.png',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    keywords:
-      'political test, ideology test, political spectrum, political position, political ideology, left, right, center, liberalism, conservatism, progressivism, libertarianism, socialism, capitalism, democracy, federalism, immigration, international trade, religion in politics, economic policy, political representation, 12 axes, political quiz, elections, monarchy',
-    about: [
-      'Political structure',
-      'Democratic representation',
-      'Elections',
-      'Monarchy',
-      'Civil liberties',
-      'Immigration',
-      'Diplomacy',
-      'Intervention',
-      'Economic policy',
-      'Capitalism',
-      'Socialism',
-      'Free markets',
-      'International trade',
-      'Religion in politics',
-      'Morality',
-      'Technology',
-      'Liberalism',
-      'Conservatism',
-      'Progressivism',
-      'Libertarianism'
-    ]
-  };
-
-  const enFaq = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      ['Is the test reliable?', 'The 12 Axes political test is reliable as a tool for reading and comparing political positions. It uses questions spread across 12 axes to reduce single-topic bias, but it does not replace study, debate, or academic analysis.'],
-      ['How long does it take?', 'The short version takes about 5 minutes. The full version takes roughly 9 minutes. The extreme version, with 240 questions, can take about 30 minutes.'],
-      ['Can I retake it?', 'Yes. You can retake the political quiz as many times as you like, including choosing another depth to compare whether your result changes.'],
-      ['Is there a right answer?', 'There is no right answer. The ideology test measures preferences about democracy, monarchy, federalism, immigration, religion in politics, economic policy, international trade, liberalism, conservatism, progressivism, and other topics.'],
-      ['How does the algorithm calculate?', 'Each answer adds points to a specific pole. The algorithm calculates percentages per axis, compares your ideological vector with the profiles of political currents, countries, and personalities, and returns the highest compatibilities.'],
-      ['Does the result change?', 'It can change if your opinions change, if you answer with more nuance, or if you take a longer version. The extreme version tends to reduce fluctuations by using more questions.'],
-      ['Is the test scientific?', '12 Axes is not a clinically validated scientific instrument. It is an educational political test, inspired by political spectrum models and ideology quizzes, useful for reflection and comparison.'],
-      ['Can I share it?', 'Yes. When you finish, you can share your result to discuss political ideology, the political spectrum, left, right, center, and the 12 axes with other people.'],
-      ['Does the test collect data?', 'The test is anonymous and requires no sign-up. Answers are used to calculate the result at quiz time, without asking for your name, email, or personal identification.'],
-      ['Can I take it on my phone?', 'Yes. The interface was designed for mobile and desktop, so you can take the political test in your smartphone browser.']
-    ].map(([question, answer]) => ({
-      '@type': 'Question',
-      name: question,
-      acceptedAnswer: { '@type': 'Answer', text: answer }
-    }))
-  };
-
-  const enJsonLdBlocks = [JSON.stringify(enWebApp), JSON.stringify(enFaq)];
-
-  let en = index.replace('<html lang="pt-BR">', '<html lang="en">');
-  en = replaceBetween(en, '<!-- Primary SEO -->', '<!-- Icons -->', enSeoBlock);
-  en = replaceBetween(en, '<!-- Open Graph -->', '<!-- Twitter -->', enOgBlock);
-  en = replaceBetween(en, '<!-- Twitter -->', '<style>', enTwitterBlock);
-  // Troca apenas o conteúdo dos dois blocos ld+json (WebApplication e FAQ),
-  // preservando os scripts do app que o Vite injeta no <head>.
-  let ldIndex = 0;
-  en = en.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, (block) =>
-    ldIndex < enJsonLdBlocks.length
-      ? `<script type="application/ld+json">${enJsonLdBlocks[ldIndex++]}</script>`
-      : block
-  );
-  if (ldIndex !== enJsonLdBlocks.length) {
-    throw new Error(`Esperava 2 blocos ld+json no index.html, encontrei ${ldIndex}`);
-  }
-  writeFileSync(join(DIST, 'en.html'), en);
 }
 
 const allPaths = [];
@@ -391,7 +187,7 @@ for (const locale of LOCALES) {
   for (const page of pages) allPaths.push(writePage(L.s.prefix, page));
 }
 
-if (!CATALOGUE_ONLY) buildHomeVariants();
+if (!CATALOGUE_ONLY) buildAppRoutes();
 
 writeFileSync(join(DIST, 'ideologies.css'), IDEOLOGIES_CSS);
 writeFileSync(join(DIST, 'personalities.css'), PERSONALITIES_CSS);
@@ -399,7 +195,7 @@ writeFileSync(join(DIST, 'profile.css'), PROFILE_CSS + COUNTRY_PAGE_CSS);
 writeFileSync(join(DIST, 'countries.css'), COUNTRIES_CSS);
 
 const today = new Date().toISOString().slice(0, 10);
-const sitemapUrls = ['/', '/en', ...allPaths]
+const sitemapUrls = ['/', ...allPaths]
   .map((p) => `  <url><loc>${SITE}${p}</loc><lastmod>${today}</lastmod></url>`)
   .join('\n');
 writeFileSync(

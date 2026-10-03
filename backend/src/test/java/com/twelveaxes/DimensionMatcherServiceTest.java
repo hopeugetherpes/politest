@@ -56,7 +56,7 @@ class DimensionMatcherServiceTest {
 
     @Test
     void returnsThePoliticalSocialAndEconomicDimensions() {
-        var dimensoes = dimensionMatcherService.findAll(perfilDeTeste(), QuizDataService.LANG_PT);
+        var dimensoes = dimensionMatcherService.findAll(perfilDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(dimensoes).hasSize(3);
         assertThat(dimensoes).extracting(DimensionMatch::dimension)
@@ -73,8 +73,8 @@ class DimensionMatcherServiceTest {
     @Test
     void dimensionScoresDifferFromTheOverallScore() {
         var axes = perfilDeTeste();
-        var geral = personalityMatcherService.findTopMatch(axes, QuizDataService.LANG_PT);
-        var dimensoes = dimensionMatcherService.findAll(axes, QuizDataService.LANG_PT);
+        var geral = personalityMatcherService.findTopMatch(axes, QuizDataService.LANG_EN);
+        var dimensoes = dimensionMatcherService.findAll(axes, QuizDataService.LANG_EN);
 
         assertThat(dimensoes)
                 .as("ao menos uma dimensao deve dar nota diferente da geral")
@@ -87,8 +87,8 @@ class DimensionMatcherServiceTest {
     @Test
     void dimensionMatchesNeverRepeatTheTopMatch() {
         var axes = perfilDeTeste();
-        var top = personalityMatcherService.findTopMatch(axes, QuizDataService.LANG_PT);
-        var dimensoes = dimensionMatcherService.findAll(axes, QuizDataService.LANG_PT, top.personalityId());
+        var top = personalityMatcherService.findTopMatch(axes, QuizDataService.LANG_EN);
+        var dimensoes = dimensionMatcherService.findAll(axes, QuizDataService.LANG_EN, top.personalityId());
 
         assertThat(dimensoes)
                 .isNotEmpty()
@@ -97,7 +97,7 @@ class DimensionMatcherServiceTest {
 
     @Test
     void dimensionMatchesNeverRepeatEachOther() {
-        var dimensoes = dimensionMatcherService.findAll(perfilDeTeste(), QuizDataService.LANG_PT);
+        var dimensoes = dimensionMatcherService.findAll(perfilDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(dimensoes)
                 .extracting(dimensao -> dimensao.match().personalityId())
@@ -106,7 +106,7 @@ class DimensionMatcherServiceTest {
 
     @Test
     void everyDimensionMatchCarriesCategoryAndPortrait() {
-        var dimensoes = dimensionMatcherService.findAll(perfilDeTeste(), QuizDataService.LANG_PT);
+        var dimensoes = dimensionMatcherService.findAll(perfilDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(dimensoes).allSatisfy(dimensao -> {
             assertThat(dimensao.match().category()).isNotBlank();
@@ -118,7 +118,7 @@ class DimensionMatcherServiceTest {
     @Test
     void bestPerCategoryCoversEveryCategoryInTheCatalog() {
         var porCategoria = personalityMatcherService.findBestPerCategory(
-                perfilDeTeste(), QuizDataService.LANG_PT);
+                perfilDeTeste(), QuizDataService.LANG_EN);
         var categoriasDoCatalogo = dataService.getPersonalities().stream()
                 .map(personality -> personality.category())
                 .distinct()
@@ -133,7 +133,7 @@ class DimensionMatcherServiceTest {
     @Test
     void bestPerCategoryIsSortedByCompatibility() {
         var porCategoria = personalityMatcherService.findBestPerCategory(
-                perfilDeTeste(), QuizDataService.LANG_PT);
+                perfilDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(porCategoria).isSortedAccordingTo(
                 java.util.Comparator.comparingDouble(

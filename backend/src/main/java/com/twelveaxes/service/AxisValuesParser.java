@@ -17,11 +17,11 @@ public final class AxisValuesParser {
                     .map(Double::parseDouble)
                     .toList();
             if (parsed.stream().anyMatch(value -> value.isNaN() || value < 0 || value > 100)) {
-                throw new NumberFormatException("fora do intervalo 0-100");
+                throw new NumberFormatException("outside the 0-100 range");
             }
             return parsed;
         } catch (NumberFormatException exception) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Vetor de eixos inválido");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid axis vector");
         }
     }
 }

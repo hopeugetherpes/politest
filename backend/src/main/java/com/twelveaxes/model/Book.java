@@ -6,8 +6,8 @@ import java.util.Map;
 /**
  * Livro de referencia de uma personalidade (um por personalidade).
  *
- * @param title titulo por idioma ("pt", "en")
- * @param url link direto de afiliado por idioma; vazio cai numa busca na Amazon
+ * @param title English book title
+ * @param url direct English affiliate link; blank uses an Amazon search
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Book(

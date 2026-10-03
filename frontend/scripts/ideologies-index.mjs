@@ -39,43 +39,6 @@ export const CATEGORY_KEY = {
 };
 
 const STR = {
-  pt: {
-    skip: 'Pular para a lista',
-    catalogNav: 'Catálogo',
-    homeAria: '12 axes, página inicial',
-    eyebrow: 'Catálogo',
-    lead: (n) => `As ${n} correntes políticas mapeadas pelo 12 Axes, organizadas por espectro. Cada uma tem descrição e perfil completo nos 12 eixos.`,
-    stats: ['correntes', 'espectros', 'eixos por perfil'],
-    distribution: 'Distribuição no espectro',
-    distributionAria: (label, n) => `${label}: ${n} ideologias`,
-    searchLabel: 'Buscar ideologia',
-    searchPlaceholder: 'Buscar ideologia…  ( / )',
-    filterAria: 'Filtrar por espectro',
-    count: 'correntes',
-    viewProfile: 'Ver perfil',
-    dnaNote:
-      '<b>Como ler a faixa de 12 ícones:</b> cada ícone é um eixo e mostra o polo para onde a ideologia pende. Quanto mais forte o ícone, mais intensa a posição. Passe o mouse para ver os valores.',
-    legendAria: 'Polos de cada eixo, na ordem da faixa',
-    emptyTitle: 'Nenhuma ideologia encontrada',
-    emptyText: 'Tente outro termo ou limpe os filtros.',
-    found: ['ideologia encontrada', 'ideologias encontradas'],
-    clear: 'Limpar filtros',
-    ctaTitle: 'E você, onde se encaixa?',
-    ctaText: (n) => `Responda ao quiz e veja com quais dessas ${n} ideologias você é mais compatível.`,
-    takeTheTest: 'Fazer o teste',
-    footer: 'Quiz político independente · 12axes.vercel.app',
-    otherLang: { label: 'English', href: '/en/ideologies' },
-    descriptions: {
-      'esq-radical': 'Comunismo revolucionário ou de partido único, com economia planificada e forte concentração do poder do Estado.',
-      esquerda: 'Social-democracia, progressismo e maior intervenção do Estado na economia dentro da democracia liberal.',
-      centro: 'Equilíbrio entre mercado e Estado, reformas e estabilidade, com posicionamento moderado ou pragmático.',
-      direita: 'Conservadorismo, liberalismo econômico e nacionalismo moderado dentro da democracia liberal.',
-      'ext-direita': 'Rejeição explícita da democracia liberal, nacionalismo radical e concentração autoritária do poder.',
-      terceira: 'Síntese nacionalista e corporativista que rejeita tanto o capitalismo liberal quanto o marxismo.',
-      libertario: 'Estado mínimo, livre mercado, propriedade privada e liberdades individuais, sem abolir o Estado.',
-      anarquismo: 'Rejeição do Estado e de toda autoridade coercitiva, com organização social livre e voluntária.'
-    }
-  },
   en: {
     skip: 'Skip to the list',
     catalogNav: 'Catalog',
@@ -101,7 +64,6 @@ const STR = {
     ctaText: (n) => `Take the quiz and see which of these ${n} ideologies you are most compatible with.`,
     takeTheTest: 'Take the test',
     footer: 'Independent political quiz · 12axes.vercel.app',
-    otherLang: { label: 'Português', href: '/ideologies' },
     descriptions: {
       'esq-radical': 'Revolutionary or one-party communism, with a planned economy and strong concentration of state power.',
       esquerda: 'Social democracy, progressivism and greater state intervention in the economy within liberal democracy.',
@@ -210,9 +172,6 @@ export function ideologiesIndexPage(L, { locale, site, gaSnippet, escapeHtml, pr
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${url}" />
-    <link rel="alternate" hreflang="pt-BR" href="${site}${basePath}" />
-    <link rel="alternate" hreflang="en" href="${site}/en${basePath}" />
-    <link rel="alternate" hreflang="x-default" href="${site}/en${basePath}" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -267,7 +226,7 @@ ${poleSprite(L.axes)}
   <div class="empty" id="empty"><h2>${escapeHtml(t.emptyTitle)}</h2><p>${escapeHtml(t.emptyText)}</p></div>
   <aside class="cta"><div><h2>${escapeHtml(t.ctaTitle)}</h2><p>${escapeHtml(t.ctaText(n))}</p></div><a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a></aside>
 </main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)} · <a href="${t.otherLang.href}">${escapeHtml(t.otherLang.label)}</a></p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)}</p></div></footer>
 <script>
 const S=${scriptStrings};
 const q=document.getElementById('q'),chips=[...document.querySelectorAll('.chip')],cats=[...document.querySelectorAll('.cat')];

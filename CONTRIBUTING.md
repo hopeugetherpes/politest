@@ -6,7 +6,7 @@ Thanks for taking the time to help. Issues and pull requests are both welcome, a
 
 - Bug reports, with the steps to reproduce, what you expected, and what happened.
 - Corrections to a profile's description, category, or links, ideally with a source.
-- Fixes to the Portuguese or English text of the quiz, results, or catalog pages.
+- Fixes to the English text of the quiz, results, or catalog pages.
 - Frontend and backend improvements.
 - New ideologies, countries, or personalities, following the audit process below.
 
@@ -23,9 +23,9 @@ The [README](README.md#running-locally) covers the requirements and how to run t
 Keep each pull request to one change. Before asking for a review:
 
 1. After backend or catalog changes, run `mvn test` in `backend/`.
-2. After catalog text changes, run `python scripts/check_i18n.py` from the repository root so every entry has its English version.
-3. After frontend or translation changes, run `npm ci`, `npm test`, and `npm run build` in `frontend/`. The build also generates the static catalog pages, so it catches broken profile data.
-4. In the description, say what changed, how you tested it, and which entries still need a translation, if any.
+2. After catalog text changes, run `python scripts/check_catalogs.py` from the repository root to validate catalog fields and English text.
+3. After frontend or text changes, run `npm ci`, `npm test`, and `npm run build` in `frontend/`. The build also generates the static catalog pages, so it catches broken profile data.
+4. In the description, say what changed, how you tested it, and which catalog entries were affected.
 5. For text changes, check the quiz, the results screen, the share card, and the generated pages in both languages.
 
 CI runs the same checks on every pull request, and `main` only receives changes through reviewed pull requests with passing CI.
@@ -36,7 +36,7 @@ Profiles are never placed on the axes by hand. Each one answers the 240 question
 
 A profile pull request needs:
 
-- metadata in both `data/*.json` (Portuguese) and `data/i18n/en/*.json` (English), with Brazil-specific references generalized in English;
+- English metadata in `data/*.json`, with country-specific references generalized in quiz questions;
 - the 240 answers archived in `profile-audit/answers/<catalog>/<id>.json`;
 - a clean run of `python profile-audit/validate.py <catalog> <id>`;
 - a `religions` tag that follows the rule in `NEW_PROFILE.md`;

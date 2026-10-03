@@ -8,16 +8,6 @@ import { poleSprite } from './pole-icons.mjs';
 export const AREA_ORDER = ['politico', 'teorico', 'filosofo', 'economista', 'intelectual', 'ativista', 'religioso', 'empresario'];
 
 export const AREA_LABELS = {
-  pt: {
-    politico: 'Política',
-    religioso: 'Religião',
-    economista: 'Economia',
-    filosofo: 'Filosofia',
-    teorico: 'Teoria política',
-    empresario: 'Empresariado',
-    intelectual: 'Vida intelectual',
-    ativista: 'Ativismo'
-  },
   en: {
     politico: 'Politics',
     religioso: 'Religion',
@@ -31,44 +21,6 @@ export const AREA_LABELS = {
 };
 
 const STR = {
-  pt: {
-    skip: 'Pular para a lista',
-    catalogNav: 'Catálogo',
-    homeAria: '12 axes, página inicial',
-    eyebrow: 'Catálogo',
-    lead: (n) => `${n} líderes, pensadores, economistas e ativistas mapeados pelo 12 Axes, organizados por área de atuação. Cada um tem foto, biografia curta e perfil completo nos 12 eixos.`,
-    stats: ['personalidades', 'áreas de atuação', 'eixos por perfil'],
-    areasAria: 'Áreas de atuação',
-    searchLabel: 'Buscar personalidade',
-    searchPlaceholder: 'Buscar nome, cargo ou época',
-    filterAria: 'Filtrar por área de atuação',
-    count: ['personalidade', 'personalidades'],
-    viewProfile: 'Ver perfil',
-    dnaNote:
-      '<b>Como ler a faixa de 12 ícones:</b> cada ícone é um eixo e mostra o polo para onde a pessoa pende. Quanto mais forte o ícone, mais intensa a posição. Passe o mouse para ver os valores.',
-    legendAria: 'Polos de cada eixo, na ordem da faixa',
-    emptyTitle: 'Nenhuma personalidade encontrada',
-    emptyText: 'Tente outro termo ou limpe os filtros.',
-    found: ['personalidade encontrada', 'personalidades encontradas'],
-    clear: 'Limpar filtros',
-    credit: 'Retratos: Wikimedia Commons / Wikipédia, conforme a fonte indicada em cada perfil.',
-    portraitAlt: (name) => `Retrato de ${name}`,
-    ctaTitle: 'Com quem você mais se parece?',
-    ctaText: (n) => `Responda ao quiz e descubra quais destas ${n} personalidades pensam mais como você.`,
-    takeTheTest: 'Fazer o teste',
-    footer: 'Quiz político independente · 12axes.vercel.app',
-    otherLang: { label: 'English', href: '/en/personalities' },
-    descriptions: {
-      politico: 'Chefes de Estado, parlamentares, revolucionários e líderes partidários que exerceram o poder ou disputaram-no.',
-      teorico: 'Autores que formularam doutrinas, programas e conceitos que orientam movimentos e governos.',
-      filosofo: 'Pensadores que discutiram justiça, liberdade, autoridade e a natureza do Estado.',
-      economista: 'Economistas cujas ideias moldaram políticas monetárias, fiscais e o debate entre mercado e Estado.',
-      intelectual: 'Escritores, historiadores, jornalistas e acadêmicos que influenciaram o debate público.',
-      ativista: 'Militantes e líderes de movimentos sociais, de direitos civis, sindicais e de causas específicas.',
-      religioso: 'Líderes e pensadores religiosos com influência direta na vida política e moral.',
-      empresario: 'Empreendedores e executivos com atuação ou influência relevante na política.'
-    }
-  },
   en: {
     skip: 'Skip to the list',
     catalogNav: 'Catalog',
@@ -95,7 +47,6 @@ const STR = {
     ctaText: (n) => `Take the quiz and find out which of these ${n} personalities think most like you.`,
     takeTheTest: 'Take the test',
     footer: 'Independent political quiz · 12axes.vercel.app',
-    otherLang: { label: 'Português', href: '/personalities' },
     descriptions: {
       politico: 'Heads of state, lawmakers, revolutionaries and party leaders who held power or fought for it.',
       teorico: 'Authors who formulated the doctrines, programs and concepts that guide movements and governments.',
@@ -128,9 +79,6 @@ export function catalogHead(L, { site, basePath, title, description, ogType, ogI
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${url}" />
-    <link rel="alternate" hreflang="pt-BR" href="${site}${basePath}" />
-    <link rel="alternate" hreflang="en" href="${site}/en${basePath}" />
-    <link rel="alternate" hreflang="x-default" href="${site}/en${basePath}" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -242,7 +190,7 @@ ${poleSprite(L.axes)}
   <p class="credit">${escapeHtml(t.credit)}</p>
   <aside class="cta"><div><h2>${escapeHtml(t.ctaTitle)}</h2><p>${escapeHtml(t.ctaText(n))}</p></div><a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a></aside>
 </main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)} · <a href="${t.otherLang.href}">${escapeHtml(t.otherLang.label)}</a></p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)}</p></div></footer>
 <script>
 const S=${scriptStrings};
 const q=document.getElementById('q'),chips=[...document.querySelectorAll('.chip')],cats=[...document.querySelectorAll('.cat')];

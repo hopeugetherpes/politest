@@ -29,8 +29,8 @@ class IdeologyBottomMatchTest {
     @Test
     void bottomMatchIsLessCompatibleThanEveryTopMatch() {
         var axes = axesDeTeste();
-        var oposta = matcherService.findBottomMatch(axes, QuizDataService.LANG_PT);
-        var topo = matcherService.findMatches(axes, QuizDataService.LANG_PT);
+        var oposta = matcherService.findBottomMatch(axes, QuizDataService.LANG_EN);
+        var topo = matcherService.findMatches(axes, QuizDataService.LANG_EN);
 
         assertThat(topo).isNotEmpty();
         assertThat(topo)
@@ -41,6 +41,6 @@ class IdeologyBottomMatchTest {
     // A secao de outras ideologias nao muda de tamanho.
     @Test
     void topMatchesStillReturnFour() {
-        assertThat(matcherService.findMatches(axesDeTeste(), QuizDataService.LANG_PT)).hasSize(4);
+        assertThat(matcherService.findMatches(axesDeTeste(), QuizDataService.LANG_EN)).hasSize(4);
     }
 }

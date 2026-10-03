@@ -31,7 +31,7 @@ class PersonalityCategoryMatchTest {
 
     @Test
     void categoryMatchesReturnThreeDistinctCategories() {
-        var categorias = matcherService.findCategoryMatches(axesDeTeste(), QuizDataService.LANG_PT).stream()
+        var categorias = matcherService.findCategoryMatches(axesDeTeste(), QuizDataService.LANG_EN).stream()
                 .map(PersonalityMatch::category)
                 .toList();
 
@@ -41,8 +41,8 @@ class PersonalityCategoryMatchTest {
     @Test
     void categoryMatchesExcludeTopMatchAndItsCategory() {
         var axes = axesDeTeste();
-        var top = matcherService.findTopMatch(axes, QuizDataService.LANG_PT);
-        var porCategoria = matcherService.findCategoryMatches(axes, QuizDataService.LANG_PT);
+        var top = matcherService.findTopMatch(axes, QuizDataService.LANG_EN);
+        var porCategoria = matcherService.findCategoryMatches(axes, QuizDataService.LANG_EN);
 
         assertThat(porCategoria)
                 .noneMatch(match -> match.personalityId().equals(top.personalityId()))
@@ -52,8 +52,8 @@ class PersonalityCategoryMatchTest {
     @Test
     void bottomMatchesAreTheLeastCompatibleInAscendingOrder() {
         var axes = axesDeTeste();
-        var opostas = matcherService.findBottomMatches(axes, QuizDataService.LANG_PT);
-        var top = matcherService.findTopMatch(axes, QuizDataService.LANG_PT);
+        var opostas = matcherService.findBottomMatches(axes, QuizDataService.LANG_EN);
+        var top = matcherService.findTopMatch(axes, QuizDataService.LANG_EN);
 
         assertThat(opostas).hasSize(3);
         assertThat(opostas.get(0).compatibility()).isLessThanOrEqualTo(opostas.get(1).compatibility());
@@ -73,6 +73,6 @@ class PersonalityCategoryMatchTest {
     // A listagem geral exibe as oito personalidades mais compatíveis.
     @Test
     void generalMatchesReturnEight() {
-        assertThat(matcherService.findMatches(axesDeTeste(), QuizDataService.LANG_PT)).hasSize(8);
+        assertThat(matcherService.findMatches(axesDeTeste(), QuizDataService.LANG_EN)).hasSize(8);
     }
 }

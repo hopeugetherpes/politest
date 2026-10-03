@@ -83,7 +83,7 @@ public class CompareService {
                 yield detail(ideologyItem(ideology), ideology.description(), userVector,
                         profile == null ? null : profile.vector());
             }
-            default -> throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tipo de comparação inválido");
+            default -> throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid comparison type");
         };
     }
 
@@ -95,7 +95,7 @@ public class CompareService {
 
     private static <T> T require(T value, String type, String id) {
         if (value == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Perfil não encontrado: " + type + "/" + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Profile not found: " + type + "/" + id);
         }
         return value;
     }

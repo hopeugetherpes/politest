@@ -24,7 +24,7 @@ class CompareControllerTest {
 
     @Test
     void catalogListsAllThreeTypes() throws Exception {
-        mockMvc.perform(get("/api/compare/catalog").param("lang", "pt"))
+        mockMvc.perform(get("/api/compare/catalog").param("lang", "en"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()", greaterThan(600)))
                 .andExpect(jsonPath("$[?(@.type=='personality')]").isNotEmpty())
@@ -35,11 +35,11 @@ class CompareControllerTest {
     @Test
     void catalogAppliesTheReligionFilterLikeTheResults() throws Exception {
         // Sem religiao escolhida, perfis "only" ficam escondidos; com a religiao listada, aparecem.
-        mockMvc.perform(get("/api/compare/catalog").param("lang", "pt"))
+        mockMvc.perform(get("/api/compare/catalog").param("lang", "en"))
                 .andExpect(jsonPath("$[*].id", not(hasItem("teocracia-judaica"))));
-        mockMvc.perform(get("/api/compare/catalog").param("lang", "pt").param("religion", "judaism"))
+        mockMvc.perform(get("/api/compare/catalog").param("lang", "en").param("religion", "judaism"))
                 .andExpect(jsonPath("$[*].id", hasItem("teocracia-judaica")));
-        mockMvc.perform(get("/api/compare/catalog").param("lang", "pt").param("religion", "christianity"))
+        mockMvc.perform(get("/api/compare/catalog").param("lang", "en").param("religion", "christianity"))
                 .andExpect(jsonPath("$[*].id", not(hasItem("teocracia-judaica"))));
     }
 
@@ -54,7 +54,7 @@ class CompareControllerTest {
     @Test
     void comparesWithAPersonality() throws Exception {
         mockMvc.perform(get("/api/compare")
-                        .param("type", "personality").param("id", "joe-biden").param("v", CENTER).param("lang", "pt"))
+                        .param("type", "personality").param("id", "joe-biden").param("v", CENTER).param("lang", "en"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.item.id").value("joe-biden"))
                 .andExpect(jsonPath("$.item.type").value("personality"))

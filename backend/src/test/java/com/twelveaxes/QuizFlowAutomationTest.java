@@ -119,16 +119,16 @@ class QuizFlowAutomationTest {
                 Map.entry("tecnologia", Pole.LEFT)
         )));
 
-        assertThat(authoritarianTraditional.topMatch().category()).isEqualTo("Extrema Direita");
+        assertThat(authoritarianTraditional.topMatch().category()).isEqualTo("Far-Right");
         assertThat(libertarianProfile.topMatch().category())
-                .isIn("Libertário", "Anarquismo");
+                .isIn("Libertarian", "Anarchist");
         assertThat(authoritarianTraditional.topMatch().ideologyId())
                 .isNotEqualTo(libertarianProfile.topMatch().ideologyId());
     }
 
     @ParameterizedTest
     @EnumSource(AnswerValue.class)
-    void answerOptionsExposeExpectedPortugueseLabels(AnswerValue answer) throws Exception {
+    void answerOptionsExposeExpectedEnglishLabels(AnswerValue answer) throws Exception {
         QuizPayload quiz = fetchQuiz(QuizDataService.SHORT_VARIANT);
 
         assertThat(quiz.answerOptions())
@@ -202,11 +202,11 @@ class QuizFlowAutomationTest {
 
     private String expectedLabel(AnswerValue answer) {
         return switch (answer) {
-            case STRONGLY_AGREE -> "Concordo totalmente";
-            case AGREE -> "Concordo";
-            case NEUTRAL -> "Neutro ou Depende";
-            case DISAGREE -> "Discordo";
-            case STRONGLY_DISAGREE -> "Discordo totalmente";
+            case STRONGLY_AGREE -> "Strongly agree";
+            case AGREE -> "Agree";
+            case NEUTRAL -> "Neutral or It depends";
+            case DISAGREE -> "Disagree";
+            case STRONGLY_DISAGREE -> "Strongly disagree";
         };
     }
 }

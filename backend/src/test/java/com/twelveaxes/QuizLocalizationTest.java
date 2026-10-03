@@ -48,14 +48,16 @@ class QuizLocalizationTest {
     }
 
     @Test
-    void quizInPortugueseKeepsBrazilianReferences() throws Exception {
+    void quizDefaultsToEnglish() throws Exception {
         String body = mockMvc.perform(get("/api/quiz"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString(java.nio.charset.StandardCharsets.UTF_8);
         QuizPayload quiz = objectMapper.readValue(body, QuizPayload.class);
 
-        assertThat(quiz.questions()).anyMatch(question -> question.text().contains("Brasil"));
-        assertThat(quiz.questions()).anyMatch(question -> question.text().contains("STF"));
+        assertThat(quiz.description()).contains("political axes");
+        assertThat(quiz.axes().getFirst().label()).isEqualTo("Structure");
+        assertThat(quiz.archetypeQuestions().getFirst().label()).isEqualTo("Society");
+        assertThat(quiz.questions()).noneMatch(question -> question.text().contains("STF"));
     }
 
     @Test
@@ -98,9 +100,9 @@ class QuizLocalizationTest {
     }
 
     @Test
-    void unknownLangFallsBackToPortuguese() throws Exception {
+    void unknownLangFallsBackToEnglish() throws Exception {
         mockMvc.perform(get("/api/quiz").param("lang", "fr"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.description").value(org.hamcrest.Matchers.containsString("eixos políticos")));
+                .andExpect(jsonPath("$.description").value(org.hamcrest.Matchers.containsString("political axes")));
     }
 }

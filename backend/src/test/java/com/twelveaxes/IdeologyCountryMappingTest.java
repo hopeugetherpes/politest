@@ -56,7 +56,7 @@ class IdeologyCountryMappingTest {
         var countryProfile = dataService.getCountryProfiles().get("islandia-medieval");
         CountryMatch country = countryMatcherService.findTopHistoricalMatch(
                 axisResults(countryProfile.vector()),
-                QuizDataService.LANG_PT
+                QuizDataService.LANG_EN
         );
 
         assertThat(country.countryId()).isEqualTo("islandia-medieval");
@@ -88,7 +88,7 @@ class IdeologyCountryMappingTest {
                     .isGreaterThan(50.0);
         }
 
-        for (String lang : List.of(QuizDataService.LANG_PT, QuizDataService.LANG_EN)) {
+        for (String lang : List.of(QuizDataService.LANG_EN)) {
             var currentMatch = countryMatcherService.findTopMatch(axisResults(current.vector()), lang);
             var historicalMatch = countryMatcherService.findTopHistoricalMatch(axisResults(historical.vector()), lang);
 

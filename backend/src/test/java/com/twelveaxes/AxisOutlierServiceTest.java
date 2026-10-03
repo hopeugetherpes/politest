@@ -45,8 +45,8 @@ class AxisOutlierServiceTest {
 
     @Test
     void mostUnusualIsTheAxisFurthestFromTheCatalogMedian() {
-        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_PT);
-        var comum = outlierService.findMostCommon(axesDeTeste(), QuizDataService.LANG_PT);
+        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_EN);
+        var comum = outlierService.findMostCommon(axesDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(incomum).isNotNull();
         assertThat(comum).isNotNull();
@@ -55,7 +55,7 @@ class AxisOutlierServiceTest {
 
     @Test
     void dominantPoleFollowsTheUserPosition() {
-        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_PT);
+        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_EN);
         var axis = dataService.getAxes().stream()
                 .filter(candidate -> candidate.id().equals(incomum.axisId()))
                 .findFirst()
@@ -70,8 +70,8 @@ class AxisOutlierServiceTest {
     // democracia" ou "mais seguranca" seria arbitrario.
     @Test
     void neutralProfileHasNoDominantPole() {
-        var incomum = outlierService.findMostUnusual(axesNeutros(), QuizDataService.LANG_PT);
-        var comum = outlierService.findMostCommon(axesNeutros(), QuizDataService.LANG_PT);
+        var incomum = outlierService.findMostUnusual(axesNeutros(), QuizDataService.LANG_EN);
+        var comum = outlierService.findMostCommon(axesNeutros(), QuizDataService.LANG_EN);
 
         assertThat(incomum.balanced()).isTrue();
         assertThat(incomum.dominantPole()).isNull();
@@ -84,7 +84,7 @@ class AxisOutlierServiceTest {
     // direito (autocracia), nao do esquerdo.
     @Test
     void abovePoleFollowsThePositionRelativeToTheMedian() {
-        var neutro = outlierService.findMostUnusual(axesNeutros(), QuizDataService.LANG_PT);
+        var neutro = outlierService.findMostUnusual(axesNeutros(), QuizDataService.LANG_EN);
         var axis = dataService.getAxes().stream()
                 .filter(candidate -> candidate.id().equals(neutro.axisId()))
                 .findFirst()
@@ -96,8 +96,8 @@ class AxisOutlierServiceTest {
 
     @Test
     void abovePercentIsAPercentage() {
-        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_PT);
-        var comum = outlierService.findMostCommon(axesDeTeste(), QuizDataService.LANG_PT);
+        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_EN);
+        var comum = outlierService.findMostCommon(axesDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(incomum.abovePercent()).isBetween(0.0, 100.0);
         assertThat(comum.abovePercent()).isBetween(0.0, 100.0);
@@ -106,17 +106,17 @@ class AxisOutlierServiceTest {
     // Uma posicao extrema tem de superar boa parte do catalogo naquele polo.
     @Test
     void extremePositionBeatsMostOfTheCatalog() {
-        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_PT);
+        var incomum = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(incomum.abovePercent()).isGreaterThan(70.0);
     }
 
     @Test
     void englishLabelsComeFromTheEnglishCatalog() {
-        var pt = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_PT);
+        var defaultData = outlierService.findMostUnusual(axesDeTeste(), "zz");
         var en = outlierService.findMostUnusual(axesDeTeste(), QuizDataService.LANG_EN);
 
-        assertThat(en.axisId()).isEqualTo(pt.axisId());
+        assertThat(en.axisId()).isEqualTo(defaultData.axisId());
         assertThat(en.label()).isNotBlank();
     }
 }

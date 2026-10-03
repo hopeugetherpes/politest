@@ -24,7 +24,7 @@ public class CountryMatcherService {
     }
 
     public CountryMatch findTopMatch(List<AxisResult> axisResults) {
-        return findTopMatch(axisResults, QuizDataService.LANG_PT);
+        return findTopMatch(axisResults, QuizDataService.LANG_EN);
     }
 
     // Pais atual mais compativel. Experiencias historicas tem secao propria.

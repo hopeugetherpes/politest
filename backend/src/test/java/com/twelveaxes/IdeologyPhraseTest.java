@@ -46,7 +46,7 @@ class IdeologyPhraseTest {
         assertThat(dataService.getIdeologies()).allSatisfy(ideology -> {
             assertThat(ideology.phrase())
                     .as("Frase de %s precisa comecar em primeira pessoa: %s", ideology.id(), ideology.phrase())
-                    .startsWith("Quero");
+                    .startsWith("I want");
             assertThat(ideology.phrase())
                     .as("Frase de %s precisa terminar com ponto: %s", ideology.id(), ideology.phrase())
                     .endsWith(".");

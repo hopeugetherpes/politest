@@ -81,7 +81,7 @@ public class QuizController {
     @GetMapping("/api/quiz")
     public QuizPayload quiz(
             @RequestParam(defaultValue = QuizDataService.SHORT_VARIANT) String variant,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang
     ) {
         String key = dataService.normalizeVariant(variant) + "|" + QuizDataService.normalizeLang(lang);
         return quizCache.get(key, () -> dataService.getQuiz(variant, lang));
@@ -91,7 +91,7 @@ public class QuizController {
     @ResponseStatus(HttpStatus.OK)
     public QuizResult results(
             @Valid @RequestBody ResultRequest request,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang,
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang,
             @RequestParam(required = false) String religion
     ) {
         return buildResult(scoringService.score(request, lang), lang, ReligionFilter.normalize(religion));
@@ -103,7 +103,7 @@ public class QuizController {
     @GetMapping("/api/results/by-axes")
     public QuizResult resultsByAxes(
             @RequestParam("v") String values,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang,
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang,
             @RequestParam(required = false) String religion
     ) {
         return buildResult(scoringService.scoreFromLeftPercents(AxisValuesParser.parse(values), lang), lang,
@@ -152,44 +152,44 @@ public class QuizController {
     }
 
     @GetMapping("/api/ideologies")
-    public List<Ideology> ideologies(@RequestParam(defaultValue = QuizDataService.LANG_PT) String lang) {
+    public List<Ideology> ideologies(@RequestParam(defaultValue = QuizDataService.LANG_EN) String lang) {
         return dataService.getIdeologies(lang);
     }
 
     @GetMapping("/api/ideologies/{id}")
     public Ideology ideology(
             @PathVariable String id,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang
     ) {
         return Optional.ofNullable(dataService.getIdeologyById(id, lang))
-                .orElseThrow(() -> new ResourceNotFoundException("Ideologia não encontrada"));
+                .orElseThrow(() -> new ResourceNotFoundException("Ideology not found"));
     }
 
     @GetMapping("/api/countries")
-    public List<Country> countries(@RequestParam(defaultValue = QuizDataService.LANG_PT) String lang) {
+    public List<Country> countries(@RequestParam(defaultValue = QuizDataService.LANG_EN) String lang) {
         return dataService.getCountries(lang);
     }
 
     @GetMapping("/api/countries/{id}")
     public Country country(
             @PathVariable String id,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang
     ) {
         return Optional.ofNullable(dataService.getCountryById(id, lang))
-                .orElseThrow(() -> new ResourceNotFoundException("País não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Country not found"));
     }
 
     @GetMapping("/api/personalities")
-    public List<Personality> personalities(@RequestParam(defaultValue = QuizDataService.LANG_PT) String lang) {
+    public List<Personality> personalities(@RequestParam(defaultValue = QuizDataService.LANG_EN) String lang) {
         return dataService.getPersonalities(lang);
     }
 
     @GetMapping("/api/personalities/{id}")
     public Personality personality(
             @PathVariable String id,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang
     ) {
         return Optional.ofNullable(dataService.getPersonalityById(id, lang))
-                .orElseThrow(() -> new ResourceNotFoundException("Personalidade não encontrada"));
+                .orElseThrow(() -> new ResourceNotFoundException("Personality not found"));
     }
 }

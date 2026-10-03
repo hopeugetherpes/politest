@@ -21,7 +21,7 @@ import java.util.Map;
  * @param flagNote observações sobre a bandeira
  * @param historical indica se a entidade é histórica
  * @param period período de existência da entidade, quando aplicável
- * @param vector valores do país em cada eixo ideológico
+ * @param vector values do país em cada eixo ideológico
  * @param religions tradições religiosas que o país representa (ver ReligionFilter)
  */
 public record Country(

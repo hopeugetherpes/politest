@@ -41,7 +41,7 @@ class AxisTensionServiceTest {
 
     @Test
     void extremeProfileHasATension() {
-        var tensao = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_PT);
+        var tensao = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_EN);
 
         assertThat(tensao).isNotNull();
         assertThat(tensao.firstAxisLabel()).isNotBlank();
@@ -56,7 +56,7 @@ class AxisTensionServiceTest {
     @Test
     void neutralProfileHasNoTension() {
         var tensao = tensionService.findStrongest(
-                axesCom(Collections.nCopies(12, 50.0)), QuizDataService.LANG_PT);
+                axesCom(Collections.nCopies(12, 50.0)), QuizDataService.LANG_EN);
 
         assertThat(tensao).isNull();
     }
@@ -66,14 +66,14 @@ class AxisTensionServiceTest {
     void moderateProfileHasNoTension() {
         var tensao = tensionService.findStrongest(
                 axesCom(List.of(58.0, 55.0, 46.0, 53.0, 47.0, 52.0, 44.0, 57.0, 49.0, 53.0, 45.0, 56.0)),
-                QuizDataService.LANG_PT);
+                QuizDataService.LANG_EN);
 
         assertThat(tensao).isNull();
     }
 
     @Test
     void matchingCountIsWithinTheCatalog() {
-        var tensao = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_PT);
+        var tensao = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_EN);
 
         assertThat(tensao.catalogSize()).isGreaterThan(100);
         assertThat(tensao.matchingIdeologies())
@@ -86,7 +86,7 @@ class AxisTensionServiceTest {
     // tensao nenhuma.
     @Test
     void theTensionIsActuallyUncommon() {
-        var tensao = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_PT);
+        var tensao = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_EN);
 
         double fracao = (double) tensao.matchingIdeologies() / tensao.catalogSize();
         assertThat(fracao).isLessThan(0.25);
@@ -94,11 +94,11 @@ class AxisTensionServiceTest {
 
     @Test
     void englishLabelsComeFromTheEnglishCatalog() {
-        var pt = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_PT);
+        var defaultData = tensionService.findStrongest(perfilExtremo(), "zz");
         var en = tensionService.findStrongest(perfilExtremo(), QuizDataService.LANG_EN);
 
         assertThat(en).isNotNull();
         assertThat(en.firstAxisLabel()).isNotBlank();
-        assertThat(en.matchingIdeologies()).isEqualTo(pt.matchingIdeologies());
+        assertThat(en.matchingIdeologies()).isEqualTo(defaultData.matchingIdeologies());
     }
 }

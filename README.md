@@ -114,14 +114,14 @@ The share card sums up a result: the main ideology and its family, the most comp
 | Frontend | React 18, TypeScript, Vite 5 |
 | Data | Versioned JSON, loaded into memory at startup |
 | Tests | JUnit 5, MockMvc, AssertJ, Vitest |
-| CI | GitHub Actions (backend tests, i18n check, frontend tests and build) |
+| CI | GitHub Actions (backend tests, catalog check, frontend tests and build) |
 | Deploy | Backend on Render (Docker), frontend on Vercel |
 
 There is no database. The catalogs change only through reviewed commits, so the backend reads the JSON once at startup, validates it, and scores every request in memory.
 
 ### Project data
 
-All data lives in `backend/src/main/resources/data/`, with English translations in `i18n/en/`.
+All data lives in `backend/src/main/resources/data/`, in English.
 
 | File | Contents |
 |------|----------|
@@ -147,10 +147,10 @@ On startup the backend refuses to run if any catalog entry lacks a vector or a v
 │       └── service/         data loading, scoring, matchers, religion filter
 ├── frontend/                React + Vite app
 │   ├── src/components/      home, quiz, results, report
-│   ├── src/i18n/            PT/EN strings
+│   ├── src/i18n/            English UI strings
 │   └── scripts/             static page generator, image optimizer
 ├── profile-audit/           pipeline that builds the catalog vectors
-├── scripts/                 repository checks (i18n)
+├── scripts/                 repository checks (catalogs)
 └── .claude/skills/          Claude Code skills for adding profiles
 ```
 
@@ -179,7 +179,7 @@ Each catalog is ranked separately. A match also reports a percentile inside its 
 | `GET` | `/api/countries[/{id}]` | Country catalog |
 | `GET` | `/api/personalities[/{id}]` | Personality catalog |
 
-Endpoints accept `lang=pt|en`, and the result endpoints accept `religion` for the filter. `/api/**` answers only requests whose `Origin` or `Referer` is in `FRONTEND_ORIGINS`, and returns `403` otherwise. `/api/health` stays open for the Render health check.
+English is the only supported language. The optional `lang` parameter always resolves to `en`, and the result endpoints accept `religion` for the filter. `/api/**` answers only requests whose `Origin` or `Referer` is in `FRONTEND_ORIGINS`, and returns `403` otherwise. `/api/health` stays open for the Render health check.
 
 <details>
 <summary>Example request</summary>
@@ -231,7 +231,7 @@ cd frontend && npm test         # Vitest
 cd frontend && npm run build    # type check, build, static pages
 ```
 
-The backend suite covers the question pool, the three formats, every catalog vector, links between catalogs, the religion filter, the REST endpoints, and matching regressions. The frontend suite covers question selection and translation. `RandomQuizSimulationTest` simulates users of a given leaning, for example `mvn -Dtest=RandomQuizSimulationTest "-Dquiz.mode=traditional" test`.
+The backend suite covers the question pool, the three formats, every catalog vector, links between catalogs, the religion filter, the REST endpoints, and matching regressions. The frontend suite covers question selection and browser translation compatibility. `RandomQuizSimulationTest` simulates users of a given leaning, for example `mvn -Dtest=RandomQuizSimulationTest "-Dquiz.mode=traditional" test`.
 
 ### Deploy
 
@@ -244,7 +244,7 @@ Every push and pull request runs the CI workflow in `.github/workflows/ci.yml`.
 
 ## Contributing
 
-Bug reports, corrections to profiles, and translation fixes are welcome as issues or pull requests. Keep each pull request to one change, run the backend and frontend tests, and describe how you tested it. [CONTRIBUTING.md](CONTRIBUTING.md) has the full checklist.
+Bug reports, corrections to profiles, and text fixes are welcome as issues or pull requests. Keep each pull request to one change, run the backend and frontend tests, and describe how you tested it. [CONTRIBUTING.md](CONTRIBUTING.md) has the full checklist.
 
 ### Adding ideologies, countries, or personalities
 
@@ -259,7 +259,7 @@ Catalog entries are not written by hand. Each new profile answers all 240 questi
 
 A new profile has to meet these requirements before it is merged:
 
-- Metadata in Portuguese and English, with the English version free of Brazil-specific references.
+- English metadata, with questions free of country-specific references.
 - A full 240-answer audit, archived in `profile-audit/answers/`.
 - `python profile-audit/validate.py <catalog> <id>` passes. It blocks vectors that are near duplicates of an existing profile, too many neutral answers, and a religious vector with no religion tag.
 - Portraits and historical flags come from Wikimedia Commons, with their source recorded, and are compressed with `npm run optimize:images`.

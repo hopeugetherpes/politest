@@ -86,10 +86,10 @@ class ReligionFilterTest {
 
     @Test
     void englishCatalogKeepsTheSameReligions() {
-        var pt = dataService.getPersonalities(QuizDataService.LANG_PT);
+        var defaultData = dataService.getPersonalities();
         var en = dataService.getPersonalities(QuizDataService.LANG_EN);
-        for (int i = 0; i < pt.size(); i++) {
-            assertThat(en.get(i).religions()).isEqualTo(pt.get(i).religions());
+        for (int i = 0; i < defaultData.size(); i++) {
+            assertThat(en.get(i).religions()).isEqualTo(defaultData.get(i).religions());
         }
     }
 

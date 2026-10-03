@@ -9,51 +9,6 @@ import { AXIS_EXPLANATIONS } from './app-strings.mjs';
 import { poleSprite, poleUse, profileReligion, religionPoleUse } from './pole-icons.mjs';
 
 const STR = {
-  pt: {
-    skip: 'Pular para o conteúdo',
-    catalogNav: 'Catálogo',
-    homeAria: '12 axes, página inicial',
-    takeTheTest: 'Fazer o teste',
-    kpiSpectrum: 'Espectro mais próximo',
-    kpiClosestIdeology: 'Ideologia mais próxima',
-    kpiClosestPerson: 'Personalidade mais próxima',
-    portraitAlt: (name) => `Retrato de ${name}`,
-    flagAlt: (name) => `Bandeira: ${name}`,
-    tabsAria: 'Seções do perfil',
-    tabs: { axes: 'Eixos', ideologies: 'Ideologias', personalities: 'Personalidades', countries: 'Países' },
-    ids: { axes: 'eixos', ideologies: 'ideologias', personalities: 'personalidades', countries: 'paises' },
-    axesEyebrow: 'Eixos políticos',
-    axesTitle: 'Perfil nos 12 eixos',
-    distTitle: (name) => `O que distingue ${name}`,
-    rareTag: 'Posição mais incomum',
-    commonTag: 'Posição mais comum',
-    rareText: (name, pole, pct, n) => `${name} puxa mais para ${pole.toLowerCase()} que ${pct}% das ${n} personalidades do catálogo.`,
-    rareNote: (axis, name) => `De todos os eixos, ${axis} é onde ${name} mais se afasta do conjunto.`,
-    commonText: (axis, name, exact) =>
-      exact ? `Em ${axis}, ${name} fica praticamente na mediana do catálogo.` : `Em ${axis}, ${name} fica perto da mediana do catálogo.`,
-    commonNote: 'Aqui está em terreno comum com a maioria das personalidades.',
-    median: 'Mediana das personalidades',
-    ideologyEyebrow: 'Proximidade ideológica',
-    ideologyTitle: (name) => `Ideologias de ${name}`,
-    closestIdeologies: (n) => `As mais próximas entre as ${n} ideologias`,
-    distantIdeology: 'A ideologia mais distante',
-    matchWord: 'match',
-    personalitiesTitle: 'Personalidades mais próximas',
-    mostCompatible: 'Mais compatível',
-    alsoByDimension: 'Também próximos, por dimensão',
-    dimensionLabels: { political: 'Politicamente', social: 'Socialmente', economic: 'Economicamente' },
-    nearSub: 'Outros perfis parecidos',
-    farSub: (name) => `Os mais distantes de ${name}`,
-    countriesTitle: 'Países mais próximos',
-    countryTabsAria: 'Tipo de país',
-    currentTab: 'País atual',
-    historicalTab: 'Experiência histórica',
-    currentKicker: 'País mais compatível',
-    historicalKicker: 'Experiência histórica mais compatível',
-    ctaTitle: 'E você, com quem se parece?',
-    ctaText: (name) => `Responda ao quiz e veja sua compatibilidade com ${name}, ideologias, países e outras personalidades nos 12 eixos.`,
-    footer: 'Quiz político independente · 12axes.vercel.app'
-  },
   en: {
     skip: 'Skip to content',
     catalogNav: 'Catalog',
@@ -160,7 +115,6 @@ export function mbarHtml(d, strong, medianLabel, youLabel, esc) {
 const INFO_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16m-1-4h2v2h-2zm0-1.992s2-.008 2 0C13 13.006 16 12 16 10c0-2.21-1.773-4-3.991-4A4 4 0 0 0 8 10h2c0-1.1.9-2 2-2s2 .9 2 2c0 .9-3 2.367-3 4.008"/></svg>';
 const BALANCED_COLOR = '#9C988C';
 const AXIS_INFO = {
-  pt: { aria: (label) => `O que significa o eixo ${label}?`, close: 'Fechar' },
   en: { aria: (label) => `What does the ${label} axis mean?`, close: 'Close' }
 };
 
@@ -378,7 +332,7 @@ ${poleSprite(L.axes)}
 
   <aside class="panel pcta"><div><h2>${esc(t.ctaTitle)}</h2><p>${esc(t.ctaText(name))}</p></div><a class="btn btn-primary" href="${home}">${esc(t.takeTheTest)} ${ARR}</a></aside>
 </div></main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${home}"><b>12</b><span>axes</span></a><p>${esc(t.footer)} · <a href="${prefix === '' ? '/en' : ''}${basePath}">${prefix === '' ? 'English' : 'Português'}</a></p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${home}"><b>12</b><span>axes</span></a><p>${esc(t.footer)}</p></div></footer>
 ${axisSheetHtml(locale)}
 <script>
 ${PAGE_SCRIPT}</script>

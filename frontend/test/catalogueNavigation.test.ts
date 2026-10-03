@@ -12,6 +12,7 @@ describe('local catalogue navigation', () => {
       configFile: false,
       root: fileURLToPath(new URL('..', import.meta.url)),
       plugins: [catalogueDevPlugin()],
+      optimizeDeps: { noDiscovery: true },
       server: { host: '127.0.0.1', port: 0 }
     });
     await server.listen();
@@ -23,16 +24,26 @@ describe('local catalogue navigation', () => {
     await response.text();
   }, 60_000);
 
-  afterAll(async () => { await server?.close(); });
+  afterAll(async () => {
+    server?.httpServer?.closeAllConnections();
+    await server?.close();
+  });
 
-  it.each(['ideologies', 'personalities', 'countries'])('serves %s in both languages instead of the quiz homepage', async (catalogue) => {
-    for (const prefix of ['', 'en/']) {
-      const response = await fetch(`${base}${prefix}${catalogue}`);
+  it.each(['ideologies', 'personalities', 'countries'])('serves the English %s catalog instead of the quiz homepage', async (catalogue) => {
+      const response = await fetch(`${base}${catalogue}`);
       const html = await response.text();
       expect(response.status).toBe(200);
+      expect(html).toContain('<html lang="en">');
       expect(html).toContain('aria-current="page"');
       expect(html).not.toContain('/src/main.tsx');
-      expect(html).toContain(`/${prefix}${catalogue}/`);
+      expect(html).toContain(`/${catalogue}/`);
+  });
+
+  it('redirects former English paths and preserves query parameters', async () => {
+    for (const path of ['en', 'en/personalities/donald-trump', 'en/countries?search=test']) {
+      const response = await fetch(base + path, { redirect: 'manual' });
+      expect(response.status).toBe(308);
+      expect(response.headers.get('location')).toBe(path.replace(/^en/, '') || '/');
     }
   });
 

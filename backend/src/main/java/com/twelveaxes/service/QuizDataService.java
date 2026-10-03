@@ -34,11 +34,10 @@ public class QuizDataService {
     public static final String EXTENDED_VARIANT = "extended";
     public static final String EXTREME_VARIANT = "extreme";
 
-    public static final String LANG_PT = "pt";
     public static final String LANG_EN = "en";
 
     private final ObjectMapper objectMapper;
-    private Map<String, LocaleBundle> bundles;
+    private LocaleBundle data;
     private Map<String, IdeologyProfile> ideologyProfiles;
     private Map<String, CountryProfile> countryProfiles;
     private Map<String, PersonalityProfile> personalityProfiles;
@@ -109,14 +108,12 @@ public class QuizDataService {
         archetypeQuestions = readJson("data/archetype-questions.json", new TypeReference<>() {});
         validateArchetypeQuestions(axes);
 
-        LocaleBundle pt = LocaleBundle.of(axes, questions, ideologies, countries, personalities);
-        LocaleBundle en = buildEnglishBundle(pt);
-        bundles = Map.of(LANG_PT, pt, LANG_EN, en);
+        data = LocaleBundle.of(axes, questions, ideologies, countries, personalities);
 
         List<Book> bookList = readJson("data/books.json", new TypeReference<>() {});
         List<String> unknownBookAuthors = bookList.stream()
                 .map(Book::personalityId)
-                .filter(id -> !pt.personalitiesById().containsKey(id))
+                .filter(id -> !data.personalitiesById().containsKey(id))
                 .toList();
         if (!unknownBookAuthors.isEmpty()) {
             throw new IllegalStateException("books.json cita personalidades inexistentes: " + unknownBookAuthors);
@@ -124,125 +121,23 @@ public class QuizDataService {
         books = bookList.stream()
                 .collect(Collectors.toUnmodifiableMap(Book::personalityId, Function.identity()));
 
-        validateCountryProfiles(pt);
-        validateIdeologyProfiles(pt);
-        validateIdeologyPersonalityLinks(pt);
-        validatePersonalityProfiles(pt);
+        validateCountryProfiles(data);
+        validateIdeologyProfiles(data);
+        validateIdeologyPersonalityLinks(data);
+        validatePersonalityProfiles(data);
     }
 
-    // Overlays em data/i18n/en/*.json trazem só os campos de texto, chaveados por id.
-    // Item sem tradução (ou arquivo ausente) cai no texto PT — nada quebra.
-    private LocaleBundle buildEnglishBundle(LocaleBundle pt) throws IOException {
-        Map<String, Map<String, String>> axesTr = readOverlay("data/i18n/en/axes.json");
-        Map<String, Map<String, String>> questionsTr = readOverlay("data/i18n/en/questions.json");
-        Map<String, Map<String, String>> ideologiesTr = readOverlay("data/i18n/en/ideologies.json");
-        Map<String, Map<String, String>> countriesTr = readOverlay("data/i18n/en/countries.json");
-        Map<String, Map<String, String>> personalitiesTr = readOverlay("data/i18n/en/personalities.json");
-
-        List<Axis> axes = pt.axes().stream().map(axis -> {
-            Map<String, String> tr = axesTr.get(axis.id());
-            if (tr == null) return axis;
-            return new Axis(
-                    axis.id(),
-                    tr.getOrDefault("label", axis.label()),
-                    tr.getOrDefault("leftPole", axis.leftPole()),
-                    tr.getOrDefault("rightPole", axis.rightPole()),
-                    axis.leftColor(),
-                    axis.rightColor()
-            );
-        }).toList();
-
-        List<Question> questions = pt.questions().stream().map(question -> {
-            Map<String, String> tr = questionsTr.get(question.id());
-            if (tr == null || tr.get("text") == null) return question;
-            return new Question(question.id(), question.axisId(), tr.get("text"), question.agreePole(), question.weight());
-        }).toList();
-
-        List<Ideology> ideologies = pt.ideologies().stream().map(ideology -> {
-            Map<String, String> tr = ideologiesTr.get(ideology.id());
-            if (tr == null) return ideology;
-            return new Ideology(
-                    ideology.id(),
-                    tr.getOrDefault("name", ideology.name()),
-                    tr.getOrDefault("category", ideology.category()),
-                    tr.getOrDefault("description", ideology.description()),
-                    tr.getOrDefault("phrase", ideology.phrase()),
-                    ideology.countryId(),
-                    ideology.personalityId(),
-                    ideology.vector(),
-                    ideology.religions()
-            );
-        }).toList();
-
-        List<Country> countries = pt.countries().stream().map(country -> {
-            Map<String, String> tr = countriesTr.get(country.id());
-            if (tr == null) return country;
-            return new Country(
-                    country.id(),
-                    tr.getOrDefault("name", country.name()),
-                    tr.getOrDefault("category", country.category()),
-                    tr.getOrDefault("description", country.description()),
-                    country.flagPath(),
-                    country.flagKind(),
-                    country.flagSourceName(),
-                    country.flagSourceUrl(),
-                    country.flagNote(),
-                    country.historical(),
-                    country.period(),
-                    country.vector(),
-                    country.religions()
-            );
-        }).toList();
-
-        List<Personality> personalities = pt.personalities().stream().map(personality -> {
-            Map<String, String> tr = personalitiesTr.get(personality.id());
-            if (tr == null) return personality;
-            return new Personality(
-                    personality.id(),
-                    tr.getOrDefault("name", personality.name()),
-                    tr.getOrDefault("role", personality.role()),
-                    personality.category(),
-                    personality.lifespan(),
-                    tr.getOrDefault("description", personality.description()),
-                    personality.imagePath(),
-                    personality.imageSourceName(),
-                    personality.imageSourceUrl(),
-                    personality.imageNote(),
-                    personality.religions()
-            );
-        }).toList();
-
-        return LocaleBundle.of(axes, questions, ideologies, countries, personalities);
-    }
-
-    private Map<String, Map<String, String>> readOverlay(String path) throws IOException {
-        ClassPathResource resource = new ClassPathResource(path);
-        if (!resource.exists()) {
-            return Map.of();
-        }
-        List<Map<String, String>> items;
-        try (InputStream input = resource.getInputStream()) {
-            items = objectMapper.readValue(input, new TypeReference<>() {});
-        }
-        return items.stream().collect(Collectors.toUnmodifiableMap(item -> item.get("id"), Function.identity()));
-    }
-
+    // The optional language parameter is retained for existing API clients.
     public static String normalizeLang(String lang) {
-        if (lang == null) {
-            return LANG_PT;
-        }
-        return switch (lang.trim().toLowerCase()) {
-            case LANG_EN, "en-us", "en-gb" -> LANG_EN;
-            default -> LANG_PT;
-        };
+        return LANG_EN;
     }
 
     private LocaleBundle bundle(String lang) {
-        return bundles.get(normalizeLang(lang));
+        return data;
     }
 
-    private void validateCountryProfiles(LocaleBundle pt) {
-        List<String> missing = pt.countries().stream()
+    private void validateCountryProfiles(LocaleBundle data) {
+        List<String> missing = data.countries().stream()
                 .map(Country::id)
                 .filter(id -> !countryProfiles.containsKey(id))
                 .toList();
@@ -253,7 +148,7 @@ public class QuizDataService {
         }
 
         List<String> unknown = countryProfiles.keySet().stream()
-                .filter(id -> !pt.countriesById().containsKey(id))
+                .filter(id -> !data.countriesById().containsKey(id))
                 .toList();
         if (!unknown.isEmpty()) {
             throw new IllegalStateException(
@@ -262,8 +157,8 @@ public class QuizDataService {
         }
     }
 
-    private void validateIdeologyProfiles(LocaleBundle pt) {
-        List<String> missing = pt.ideologies().stream()
+    private void validateIdeologyProfiles(LocaleBundle data) {
+        List<String> missing = data.ideologies().stream()
                 .map(Ideology::id)
                 .filter(id -> !ideologyProfiles.containsKey(id))
                 .toList();
@@ -274,11 +169,11 @@ public class QuizDataService {
         }
     }
 
-    private void validateIdeologyPersonalityLinks(LocaleBundle pt) {
-        List<String> broken = pt.ideologies().stream()
+    private void validateIdeologyPersonalityLinks(LocaleBundle data) {
+        List<String> broken = data.ideologies().stream()
                 .filter(ideology -> ideology.personalityId() == null
                         || ideology.personalityId().isBlank()
-                        || !pt.personalitiesById().containsKey(ideology.personalityId()))
+                        || !data.personalitiesById().containsKey(ideology.personalityId()))
                 .map(ideology -> ideology.id() + " -> " + ideology.personalityId())
                 .toList();
         if (!broken.isEmpty()) {
@@ -288,8 +183,8 @@ public class QuizDataService {
         }
     }
 
-    private void validatePersonalityProfiles(LocaleBundle pt) {
-        List<String> missing = pt.personalities().stream()
+    private void validatePersonalityProfiles(LocaleBundle data) {
+        List<String> missing = data.personalities().stream()
                 .map(Personality::id)
                 .filter(id -> !personalityProfiles.containsKey(id))
                 .toList();
@@ -305,7 +200,7 @@ public class QuizDataService {
     }
 
     public QuizPayload getQuiz(String variant) {
-        return getQuiz(variant, LANG_PT);
+        return getQuiz(variant, LANG_EN);
     }
 
     public QuizPayload getQuiz(String variant, String lang) {
@@ -320,9 +215,7 @@ public class QuizDataService {
         int questionCount = normalizedVariant.equals(EXTREME_VARIANT)
                 ? data.questions().size()
                 : questionsPerAxis * data.axes().size();
-        String description = normalizedLang.equals(LANG_EN)
-                ? "A quiz of " + questionCount + " questions to estimate your position on the 12 political axes."
-                : "Um quiz de " + questionCount + " perguntas para estimar sua posição nos 12 eixos políticos.";
+        String description = "A quiz of " + questionCount + " questions to estimate your position on the 12 political axes.";
         return new QuizPayload(
                 "12 Axes",
                 description,
@@ -357,7 +250,7 @@ public class QuizDataService {
     }
 
     public List<Axis> getAxes() {
-        return getAxes(LANG_PT);
+        return getAxes(LANG_EN);
     }
 
     public List<Axis> getAxes(String lang) {
@@ -365,12 +258,12 @@ public class QuizDataService {
     }
 
     public List<Question> getQuestions() {
-        return bundle(LANG_PT).questions();
+        return bundle(LANG_EN).questions();
     }
 
     public List<Question> getQuestions(String variant) {
         normalizeVariant(variant);
-        return bundle(LANG_PT).questions();
+        return bundle(LANG_EN).questions();
     }
 
     public List<Question> getQuestionsForLang(String lang) {
@@ -378,7 +271,7 @@ public class QuizDataService {
     }
 
     public List<Ideology> getIdeologies() {
-        return getIdeologies(LANG_PT);
+        return getIdeologies(LANG_EN);
     }
 
     public List<Ideology> getIdeologies(String lang) {
@@ -386,7 +279,7 @@ public class QuizDataService {
     }
 
     public Ideology getIdeologyById(String id) {
-        return getIdeologyById(id, LANG_PT);
+        return getIdeologyById(id, LANG_EN);
     }
 
     public Ideology getIdeologyById(String id, String lang) {
@@ -394,7 +287,7 @@ public class QuizDataService {
     }
 
     public Country getCountryById(String id) {
-        return getCountryById(id, LANG_PT);
+        return getCountryById(id, LANG_EN);
     }
 
     public Country getCountryById(String id, String lang) {
@@ -402,7 +295,7 @@ public class QuizDataService {
     }
 
     public List<Personality> getPersonalities() {
-        return getPersonalities(LANG_PT);
+        return getPersonalities(LANG_EN);
     }
 
     public List<Personality> getPersonalities(String lang) {
@@ -410,7 +303,7 @@ public class QuizDataService {
     }
 
     public Personality getPersonalityById(String id) {
-        return getPersonalityById(id, LANG_PT);
+        return getPersonalityById(id, LANG_EN);
     }
 
     public Personality getPersonalityById(String id, String lang) {
@@ -426,7 +319,7 @@ public class QuizDataService {
     }
 
     public List<Country> getCountries() {
-        return getCountries(LANG_PT);
+        return getCountries(LANG_EN);
     }
 
     public List<Country> getCountries(String lang) {
@@ -449,21 +342,12 @@ public class QuizDataService {
     }
 
     private String labelFor(AnswerValue value, String lang) {
-        if (LANG_EN.equals(lang)) {
-            return switch (value) {
-                case STRONGLY_AGREE -> "Strongly agree";
-                case AGREE -> "Agree";
-                case NEUTRAL -> "Neutral or It depends";
-                case DISAGREE -> "Disagree";
-                case STRONGLY_DISAGREE -> "Strongly disagree";
-            };
-        }
         return switch (value) {
-            case STRONGLY_AGREE -> "Concordo totalmente";
-            case AGREE -> "Concordo";
-            case NEUTRAL -> "Neutro ou Depende";
-            case DISAGREE -> "Discordo";
-            case STRONGLY_DISAGREE -> "Discordo totalmente";
+            case STRONGLY_AGREE -> "Strongly agree";
+            case AGREE -> "Agree";
+            case NEUTRAL -> "Neutral or It depends";
+            case DISAGREE -> "Disagree";
+            case STRONGLY_DISAGREE -> "Strongly disagree";
         };
     }
 
@@ -475,7 +359,7 @@ public class QuizDataService {
             case SHORT_VARIANT, "curta" -> SHORT_VARIANT;
             case EXTENDED_VARIANT, "extensa" -> EXTENDED_VARIANT;
             case EXTREME_VARIANT, "extrema", "240", "240questions" -> EXTREME_VARIANT;
-            default -> throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Versão de quiz inválida");
+            default -> throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid quiz variant");
         };
     }
 

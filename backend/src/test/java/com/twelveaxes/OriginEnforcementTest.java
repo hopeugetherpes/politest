@@ -70,7 +70,7 @@ class OriginEnforcementTest {
 
         @Test
         void blocksRequestWithoutOrigin() throws Exception {
-            mockMvc.perform(get("/api/results/by-axes").param("v", AXES_VECTOR).param("lang", "pt"))
+            mockMvc.perform(get("/api/results/by-axes").param("v", AXES_VECTOR).param("lang", "en"))
                     .andExpect(status().isForbidden())
                     .andExpect(jsonPath("$.error").value("forbidden"));
         }

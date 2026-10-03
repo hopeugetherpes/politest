@@ -27,7 +27,7 @@ Antes de escrever qualquer arquivo, você precisa saber:
 2. **`id`**: slug em kebab-case, minúsculo, sem acento (ex.: `social-libertarianismo`,
    `xi-jinping`, `mongolia`). Verifique que não colide com nenhum `id` já existente no arquivo de
    metadados do catálogo (`ideologies.json` / `personalities.json` / `countries.json`).
-3. **`name`**: nome de exibição em PT-BR.
+3. **`name`**: nome de exibição em inglês.
 4. Os demais campos dependem do catálogo — veja a tabela abaixo. Se o usuário não informou algo
    essencial (ex.: `category` de uma ideologia, `role`/`lifespan` de uma personalidade, se um país
    é `historical`), **decida com base em pesquisa/conhecimento factual e prossiga** — só pergunte
@@ -84,7 +84,7 @@ para um país e uma personalidade **já existentes** que a exemplificam bem (ex.
 já presente no catálogo. Isso é validado por `IdeologyPersonalityMappingTest` e
 `IdeologyCountryMappingTest` — se apontar para um id inexistente, o build quebra.
 
-## Passo 1 — Adicionar aos metadados em português (fonte da verdade)
+## Passo 1 — Adicionar aos metadados em inglês (fonte da verdade)
 
 Adicione um novo objeto ao **final** do array JSON correspondente:
 
@@ -92,7 +92,7 @@ Adicione um novo objeto ao **final** do array JSON correspondente:
 - `personality` → `backend/src/main/resources/data/personalities.json`
 - `country` → `backend/src/main/resources/data/countries.json`
 
-Escreva a `description` em português, no mesmo estilo enxuto e factual dos outros perfis do
+Escreva a `description` em inglês, no mesmo estilo enxuto e factual dos outros perfis do
 catálogo (1 a 3 frases, sem opinião, citando fatos/características concretas verificáveis). Leia
 2-3 exemplos vizinhos no mesmo arquivo para calibrar tom antes de escrever o seu.
 
@@ -125,7 +125,7 @@ Exemplo de objeto novo em `ideologies.json`:
   "name": "Exemplo de Ideologia",
   "category": "Centro",
   "description": "Descrição factual de 1-3 frases sobre a ideologia, seus princípios centrais e contexto histórico/geográfico relevante.",
-  "phrase": "Quero uma sociedade ... (ver seção sobre o campo phrase abaixo)",
+  "phrase": "I want a society ... (see the phrase field section below).",
   "countryId": "brasil",
   "personalityId": "lula-da-silva",
   "religions": []
@@ -153,15 +153,15 @@ Exemplo de objeto novo em `personalities.json` (campos de imagem preenchidos no 
 ```json
 {
   "id": "exemplo-pessoa",
-  "name": "Exemplo Pessoa",
-  "role": "Estadista",
+  "name": "Example Person",
+  "role": "Statesperson",
   "category": "politico",
   "lifespan": "1900–1980",
-  "description": "Descrição factual de 1-3 frases sobre a trajetória e ideias da pessoa.",
+  "description": "A factual description of the person’s background and ideas in 1–3 sentences.",
   "imagePath": "/personalities/portraits/exemplo-pessoa.jpg",
-  "imageSourceName": "Wikimedia Commons / Wikipédia",
-  "imageSourceUrl": "https://pt.wikipedia.org/wiki/Exemplo_Pessoa",
-  "imageNote": "Retrato de Exemplo Pessoa via Wikipédia/Wikimedia Commons.",
+  "imageSourceName": "Wikimedia Commons / Wikipedia",
+  "imageSourceUrl": "https://en.wikipedia.org/wiki/Example_Person",
+  "imageNote": "Portrait of Example Person from Wikipedia/Wikimedia Commons.",
   "religions": ["catholic"]
 }
 ```
@@ -204,8 +204,7 @@ porque o marxismo é um programa; Arendt é `filosofo` porque a obra dela é an�
 Quem exerceu poder de Estado e também escreveu teoria (Lênin, Mao) entra como `politico` se o
 exercício do poder é o que define a figura, e `teorico` se a obra escrita é o que define.
 
-`category` vive **apenas no arquivo PT** — o catálogo EN traduz só `name`, `role` e
-`description`, e a categoria é propagada pelo backend. Não adicione `category` ao i18n.
+`category` vive no catálogo principal e conserva os identificadores técnicos listados acima.
 
 O teste `PersonalityCategoryTest` falha se qualquer perfil ficar sem `category` ou usar um
 valor fora dos 8.
@@ -254,7 +253,7 @@ apagar a religião.
 
 **Obrigatório ter ao menos um valor** quando o vetor final tiver `religiao` ≤ 35 (polo
 irreligioso; baixo = religioso). O valor vem de pesquisa, **nunca** do vetor: o vetor só torna o
-campo obrigatório. `religions` vive **apenas no arquivo PT**, como `category`.
+campo obrigatório. `religions` vive no catálogo principal, como `category`.
 
 Como o filtro funciona: com uma religião escolhida (no cristianismo, uma das três vertentes), some só o
 perfil ligado a outra das religiões selecionáveis e não à escolhida. Perfis `[]` ou só `other` sempre aparecem (`["other", "only"]` é a exceção, ver acima). A
@@ -361,7 +360,7 @@ Estrutura: três partes, nesta ordem, com **liberdade total de redação** em ca
 2. **Regime político** — como o poder se organiza e se legitima
 3. **Economia** — como produção e propriedade se organizam
 
-Comece com "Quero uma sociedade" ou "Quero um/uma ..." quando couber melhor à corrente. **Não** use
+Comece com "I want a society" ou "I want ..." quando couber melhor à corrente. **Não** use
 o esqueleto fixo "culturalmente X, politicamente Y, economicamente Z" — ele produz frases
 intercambiáveis que não distinguem nada.
 
@@ -397,36 +396,16 @@ serviria para dezenas de outras correntes.
   vista interno dela, sem ironia nem julgamento.
 
 `IdeologyPhraseTest` falha se alguma ideologia ficar sem frase, fora do tamanho, sem começar com
-"Quero", sem ponto final, ou com frase repetida.
+"I want", sem ponto final, ou com frase repetida.
 
-## Passo 2 — Traduzir para inglês
+## Passo 2 — Verificar os textos em inglês
 
-Adicione o mesmo objeto (traduzido) ao **final** do array correspondente em:
-
-- `backend/src/main/resources/data/i18n/en/ideologies.json`
-- `backend/src/main/resources/data/i18n/en/personalities.json`
-- `backend/src/main/resources/data/i18n/en/countries.json`
-
-Regras de tradução (confirmadas comparando os pares PT/EN já existentes nesses arquivos):
-
-- `id` **nunca muda** — é o mesmo slug em ambos os idiomas.
-- `name`, `category`, `description` são traduzidos para inglês natural, mantendo o mesmo nível de
-  precisão factual do original em PT.
-- Campos técnicos/estruturais (`countryId`, `personalityId`, `flagPath`, `imagePath`,
-  `imageSourceUrl`, `historical`, `period`, `vector`) **não aparecem** no arquivo i18n de
-  `ideologies.json`/`countries.json`/`personalities.json` — o i18n só tem `id`, `name`,
-  `category`/`role`+`lifespan`, `description` (confira o arquivo real antes de assumir, o formato
-  pode ter mudado desde a escrita deste documento).
-- **Exceção: `phrase` (só `ideologies.json`) também precisa existir no i18n.** É o único campo de
-  conteúdo (não estrutural) que fica de fora da lista acima — sem ele, o card "A sentence that
-  describes you" da página de resultados em inglês exibe a frase em português (o backend cai no
-  fallback PT quando a tradução falta). Traduza a `phrase` seguindo as mesmas regras da seção
-  "O campo `phrase`" (primeira pessoa, começa com "I want", ~135 caracteres/~18 palavras, teto
-  170/25, sem esqueleto fixo), nunca uma tradução literal palavra-por-palavra que estoure o padrão.
-- Referências específicas do Brasil na `description` em PT (ex.: STF, Bolsa Família, um estado
-  brasileiro) devem ser generalizadas ou removidas na versão em inglês, não traduzidas
-  literalmente — a versão EN é para público internacional. Veja `[[en-content-internationalized]]`
-  se essa memória existir; caso não exista mais, aplique o mesmo princípio por bom senso.
+O inglês é o único idioma do quiz. Todos os campos de conteúdo (`name`, `role`,
+`description`, `phrase`) são escritos diretamente no catálogo de metadados do passo 1.
+Não crie cópias de tradução. Os campos técnicos e os IDs permanecem estáveis.
+As frases de ideologia começam com "I want", terminam com ponto e respeitam o teto
+170 caracteres / 25 palavras. Generalize referências locais nas perguntas para o público
+internacional. Rode `python scripts/check_catalogs.py` para validar os campos.
 
 ## Passo 3 — Baixar a imagem (country: bandeira / personality: retrato)
 
@@ -439,8 +418,7 @@ Regras de tradução (confirmadas comparando os pares PT/EN já existentes nesse
    veja `africa-do-sul-do-apartheid.png` como exemplo de exceção histórica).
 2. Baixe uma imagem de bandeira de fonte confiável (Wikimedia Commons é o padrão usado no resto do
    catálogo) para `frontend/public/countries/flags/{id}.{ext}`.
-3. Ajuste `flagPath` em `countries.json` (e o campo equivalente em `i18n/en/countries.json`, se
-   existir) para bater exatamente com o arquivo salvo.
+3. Ajuste `flagPath` em `countries.json` para bater exatamente com o arquivo salvo.
 4. Para países históricos (`historical: true`), procure a bandeira do período específico, não a
    atual (ex.: bandeira do Terceiro Reich, não a bandeira alemã atual).
 5. **Comprima a imagem imediatamente após o download** — ver "Compressão obrigatória" abaixo.
@@ -454,7 +432,7 @@ Regras de tradução (confirmadas comparando os pares PT/EN já existentes nesse
    - `imagePath`: `/personalities/portraits/{id}.jpg`
    - `imageSourceName`: normalmente `"Wikimedia Commons / Wikipédia"` (padrão do catálogo)
    - `imageSourceUrl`: URL da página da Wikipédia (ou Wikimedia Commons) de onde a imagem veio
-   - `imageNote`: frase curta em PT, ex. `"Retrato de {name} via Wikipédia/Wikimedia Commons."`
+   - `imageNote`: frase curta em inglês, ex. `"Retrato de {name} via Wikipédia/Wikimedia Commons."`
 3. **Restrição validada por teste** (`IdeologyPersonalityMappingTest.everyPersonalityImagePathPointsToAPublicAsset`):
    o arquivo referenciado em `imagePath` precisa existir de fato em `frontend/public/...` — se o
    download falhar ou o caminho não bater exatamente, o build de testes quebra.
@@ -493,7 +471,7 @@ editados e confirme:
 
 - JSON válido (sem vírgula sobrando, aspas balanceadas).
 - O novo objeto está no fim do array, sem quebrar a formatação dos objetos vizinhos.
-- `id` idêntico em todos os arquivos onde aparece (metadados PT, metadados EN).
+- `id` idêntico em todos os arquivos onde aparece (metadados do catálogo principal).
 - Nenhum campo obrigatório da tabela do passo 0 ficou vazio ou `null` (exceto os campos que são
   legitimamente `null`/`""` por padrão, como `vector: null` e `period: ""` em países não
   históricos).
@@ -505,8 +483,7 @@ para um único perfil novo (não um lote de 15):
 
 1. Leia `profile-audit/README.md` inteiro se ainda não leu nesta sessão.
 2. Monte o prompt do perfil usando o template da seção "2. Gerar o prompt de cada perfil do lote"
-   do README, preenchendo os metadados que você acabou de criar no passo 1 (não os do i18n em
-   inglês — o prompt de auditoria sempre usa os metadados em português, como os outros perfis).
+   do README, preenchendo os metadados que você acabou de criar no passo 1.
    Salve em `profile-audit/prompts/<catalog>/<id>.txt`. O prompt termina com o bloco das
    **perguntas de arquétipo** (`python profile-audit/profile_vector.py --prompt-block`): o perfil
    responde as 240 perguntas **e** o arquétipo, como um usuário do quiz, e as duas partes entram no
@@ -629,7 +606,7 @@ Feche o processo com um resumo direto ao usuário contendo:
 - As alternativas escolhidas nas perguntas de arquétipo (bloco `archetype` da saída do passo 5).
 - Confirmação de que os testes relevantes passaram (ou lista exata do que falhou e não pôde ser
   corrigido, se for o caso).
-- Lista dos arquivos tocados nesta execução (metadados PT, metadados EN, perfil com vetor, arquivo
+- Lista dos arquivos tocados nesta execução (metadados do catálogo principal, perfil com vetor, arquivo
   de imagem se aplicável, `STATE.json`, `answers/<catalog>/<id>.json`).
 
 ## Regras que não podem ser quebradas
@@ -638,7 +615,7 @@ Feche o processo com um resumo direto ao usuário contendo:
   5 — é a mesma regra do `profile-audit/README.md`: cada perfil precisa das 240 respostas reais
   simuladas por um modelo de qualidade, nunca um atalho.
 - **Nunca** use um modelo fraco/rápido (tipo Haiku) para gerar as respostas de auditoria.
-- **Nunca** deixe um `id` duplicado entre metadados PT e EN, ou entre um catálogo e outro.
+- **Nunca** deixe um `id` duplicado no catálogo principal, ou entre um catálogo e outro.
 - **Nunca** afirme que uma imagem foi baixada ou que testes passaram sem de fato ter feito isso —
   se algo não pôde ser verificado neste ambiente, diga isso claramente ao usuário.
 - **Nunca** apague nem sobrescreva arquivos dentro de `profile-audit/answers/<catalog>/` — mesma

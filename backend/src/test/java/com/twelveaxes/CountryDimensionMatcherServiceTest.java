@@ -40,10 +40,10 @@ class CountryDimensionMatcherServiceTest {
     @Test
     void returnsOneUniqueCountryForEachProfileDimension() {
         var axes = profileUnderTest();
-        var current = countryMatcherService.findTopMatch(axes, QuizDataService.LANG_PT);
-        var historical = countryMatcherService.findTopHistoricalMatch(axes, QuizDataService.LANG_PT);
+        var current = countryMatcherService.findTopMatch(axes, QuizDataService.LANG_EN);
+        var historical = countryMatcherService.findTopHistoricalMatch(axes, QuizDataService.LANG_EN);
         var matches = countryDimensionMatcherService.findAll(
-                axes, QuizDataService.LANG_PT, List.of(current.countryId(), historical.countryId()));
+                axes, QuizDataService.LANG_EN, List.of(current.countryId(), historical.countryId()));
 
         assertThat(matches).hasSize(3);
         assertThat(matches).extracting(match -> match.dimension())

@@ -24,7 +24,7 @@ public class IdeologyMatcherService {
     }
 
     public List<IdeologyMatch> findMatches(List<AxisResult> axisResults) {
-        return findMatches(axisResults, QuizDataService.LANG_PT);
+        return findMatches(axisResults, QuizDataService.LANG_EN);
     }
 
     public List<IdeologyMatch> findMatches(List<AxisResult> axisResults, String lang) {
@@ -145,43 +145,26 @@ public class IdeologyMatcherService {
     }
 
     private String longDescription(String rawDescription, String lang) {
-        boolean en = QuizDataService.LANG_EN.equals(lang);
         DescriptionParts parts = splitDescription(cleanDescription(rawDescription));
         StringBuilder description = new StringBuilder(parts.summary());
         if (!parts.summary().endsWith(".")) {
             description.append(".");
         }
-        description.append(en
-                ? " Compatibility indicates how close your answers are to this profile."
-                : " A compatibilidade indica proximidade entre suas respostas e esse perfil.");
+        description.append(" Compatibility indicates how close your answers are to this profile.");
         if (!parts.isEmpty()) {
-            if (en) {
-                description.append(" ")
-                        .append("In practical terms: political values and form of government tend to ")
-                        .append("be ")
-                        .append(parts.political())
-                        .append("; the economy tends to be ")
-                        .append(parts.economic())
-                        .append("; social norms tend to be ")
-                        .append(parts.social())
-                        .append(".");
-            } else {
-                description.append(" ")
-                        .append("Em termos práticos: valores políticos e forma de governo tendem a ")
-                        .append("ser ")
-                        .append(parts.political())
-                        .append("; economia tende a ser ")
-                        .append(parts.economic())
-                        .append("; normas sociais tendem a ser ")
-                        .append(parts.social())
-                        .append(".");
-            }
+            description.append(" In practical terms: political values and form of government tend to be ")
+                    .append(parts.political())
+                    .append("; the economy tends to be ")
+                    .append(parts.economic())
+                    .append("; social norms tend to be ")
+                    .append(parts.social())
+                    .append(".");
         }
         return description.toString();
     }
 
     private DescriptionParts splitDescription(String cleanDescription) {
-        String[] split = cleanDescription.split("\\s+Politicamente:", 2);
+        String[] split = cleanDescription.split("\\s+Politically:", 2);
         String summary = split[0].trim();
         if (split.length == 1) {
             return new DescriptionParts(summary, "", "", "");
@@ -189,21 +172,21 @@ public class IdeologyMatcherService {
 
         String[] fields = split[1].split("\\s+\\|\\s+");
         String political = fields.length > 0 ? fields[0].trim() : "";
-        String economic = fields.length > 1 ? fields[1].replaceFirst("^Economicamente:\\s*", "").trim() : "";
-        String social = fields.length > 2 ? fields[2].replaceFirst("^Socialmente:\\s*", "").trim() : "";
+        String economic = fields.length > 1 ? fields[1].replaceFirst("^Economically:\\s*", "").trim() : "";
+        String social = fields.length > 2 ? fields[2].replaceFirst("^Socially:\\s*", "").trim() : "";
         return new DescriptionParts(summary, normalizeProfileField(political), normalizeProfileField(economic), normalizeProfileField(social));
     }
 
     private String normalizeProfileField(String value) {
         if (value == null || value.isBlank()) {
-            return "variável conforme o contexto";
+            return "variable depending on context";
         }
         return value.substring(0, 1).toLowerCase(Locale.ROOT) + value.substring(1);
     }
 
     private String cleanDescription(String rawDescription) {
         String description = rawDescription == null ? "" : rawDescription.trim().replaceAll("\\s+", " ");
-        int noteIndex = description.indexOf("NOTA METODOLÓGICA");
+        int noteIndex = description.indexOf("METHODOLOGICAL NOTE");
         if (noteIndex >= 0) {
             description = description.substring(0, noteIndex).trim();
         }

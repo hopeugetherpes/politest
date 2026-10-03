@@ -1,9 +1,9 @@
 [
   {
     "id": "brasil",
-    "name": "Brasil",
-    "category": "República social-desenvolvimentista",
-    "description": "Maior país da América Latina, o Brasil é uma república federativa presidencialista e democrática, com economia mista, amplas políticas sociais e forte diversidade regional, cultural e política que marca suas disputas eleitorais.",
+    "name": "Brazil",
+    "category": "Social-developmentalist republic",
+    "description": "The largest country in Latin America, Brazil is a democratic presidential federal republic with a mixed economy, broad social policies, and strong regional, cultural, and political diversity that shapes its electoral disputes.",
     "flagPath": "/countries/flags/brasil.gif",
     "historical": false,
     "period": "",
@@ -12,9 +12,9 @@
   },
   {
     "id": "estados-unidos",
-    "name": "Estados Unidos",
-    "category": "República liberal-federal",
-    "description": "Potência global e república federativa presidencialista, os Estados Unidos combinam forte tradição liberal, economia de mercado dinâmica, inovação tecnológica e um sistema bipartidário que polariza a vida política nacional.",
+    "name": "United States",
+    "category": "Liberal-federal republic",
+    "description": "A global power and presidential federal republic, the United States combines a strong liberal tradition, a dynamic market economy, technological innovation, and a two-party system that polarizes national political life.",
     "flagPath": "/countries/flags/estados-unidos.gif",
     "historical": false,
     "period": "",
@@ -23,9 +23,9 @@
   },
   {
     "id": "mexico",
-    "name": "México",
-    "category": "República popular-integracionista",
-    "description": "República federativa presidencialista da América do Norte, o México une democracia eleitoral, economia de mercado integrada aos Estados Unidos e desafios persistentes de desigualdade, corrupção e violência ligada ao narcotráfico.",
+    "name": "Mexico",
+    "category": "Popular-integrationist republic",
+    "description": "A presidential federal republic in North America, Mexico unites electoral democracy, a market economy integrated with the United States, and persistent challenges of inequality, corruption, and drug-related violence.",
     "flagPath": "/countries/flags/mexico.gif",
     "historical": false,
     "period": "",
@@ -35,8 +35,8 @@
   {
     "id": "chile",
     "name": "Chile",
-    "category": "República progressista-liberal",
-    "description": "República presidencialista sul-americana, o Chile combina democracia estável, economia de mercado aberta e forte pauta social e progressista, herança do processo de redemocratização após a ditadura militar de Pinochet.",
+    "category": "Progressive-liberal republic",
+    "description": "A South American presidential republic, Chile combines stable democracy, an open market economy, and a strong social and progressive agenda, a legacy of redemocratization after Pinochet's military dictatorship.",
     "flagPath": "/countries/flags/chile.gif",
     "historical": false,
     "period": "",
@@ -45,9 +45,9 @@
   },
   {
     "id": "bolivia",
-    "name": "Bolívia",
-    "category": "República plurinacional-popular",
-    "description": "República andina presidencialista, a Bolívia é marcada pelo protagonismo indígena, pela defesa dos recursos naturais e por um projeto de Estado plurinacional que une nacionalismo econômico e ampla participação popular.",
+    "name": "Bolivia",
+    "category": "Plurinational-popular republic",
+    "description": "An Andean presidential republic, Bolivia is marked by indigenous leadership, the defense of natural resources, and a plurinational state project that unites economic nationalism and broad popular participation.",
     "flagPath": "/countries/flags/bolivia.gif",
     "historical": false,
     "period": "",
@@ -57,8 +57,8 @@
   {
     "id": "venezuela",
     "name": "Venezuela",
-    "category": "Autoritarismo estatal-socialista",
-    "description": "República presidencialista sul-americana, a Venezuela vive sob um regime autoritário de orientação socialista e nacionalista, marcado por concentração de poder, crise econômica prolongada e forte emigração de sua população.",
+    "category": "Statist-socialist authoritarianism",
+    "description": "A South American presidential republic, Venezuela lives under an authoritarian regime of socialist and nationalist orientation, marked by concentration of power, a prolonged economic crisis, and heavy emigration of its population.",
     "flagPath": "/countries/flags/venezuela.gif",
     "historical": false,
     "period": "",
@@ -68,8 +68,8 @@
   {
     "id": "cuba",
     "name": "Cuba",
-    "category": "Socialismo unipartidário-igualitário",
-    "description": "Estado socialista de partido único no Caribe, Cuba mantém economia planificada, forte controle estatal e serviços públicos universais, com poder centralizado desde a revolução liderada por Fidel Castro em 1959.",
+    "category": "One-party egalitarian socialism",
+    "description": "A single-party socialist state in the Caribbean, Cuba maintains a planned economy, strong state control, and universal public services, with power centralized since the revolution led by Fidel Castro in 1959.",
     "flagPath": "/countries/flags/cuba.gif",
     "historical": false,
     "period": "",
@@ -79,19 +79,21 @@
   {
     "id": "costa-rica",
     "name": "Costa Rica",
-    "category": "República liberal-pacifista",
-    "description": "República presidencialista da América Central, a Costa Rica destaca-se por abolir as forças armadas, pela democracia consolidada, pelo compromisso ambiental e por uma tradição de estabilidade política e paz na região.",
+    "category": "Liberal-pacifist republic",
+    "description": "A presidential republic in Central America, Costa Rica stands out for abolishing its armed forces, its consolidated democracy, its environmental commitment, and a tradition of political stability and peace in the region.",
     "flagPath": "/countries/flags/costa-rica.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "suica",
-    "name": "Suíça",
-    "category": "Democracia liberal-direta",
-    "description": "Confederação federativa europeia, a Suíça é conhecida por sua democracia direta, forte autonomia dos cantões, neutralidade histórica e economia próspera baseada em finanças, indústria de precisão e estabilidade institucional.",
+    "name": "Switzerland",
+    "category": "Liberal direct democracy",
+    "description": "A European federal confederation, Switzerland is known for its direct democracy, strong cantonal autonomy, historic neutrality, and a prosperous economy based on finance, precision industry, and institutional stability.",
     "flagPath": "/countries/flags/suica.gif",
     "historical": false,
     "period": "",
@@ -100,9 +102,9 @@
   },
   {
     "id": "suecia",
-    "name": "Suécia",
-    "category": "Monarquia social-democrata",
-    "description": "Monarquia parlamentar nórdica, a Suécia é referência de social-democracia, com amplo Estado de bem-estar, altos impostos, forte igualdade social e economia de mercado aberta e inovadora combinada a valores progressistas.",
+    "name": "Sweden",
+    "category": "Social-democratic monarchy",
+    "description": "A Nordic parliamentary monarchy, Sweden is a benchmark of social democracy, with a broad welfare state, high taxes, strong social equality, and an open, innovative market economy combined with progressive values.",
     "flagPath": "/countries/flags/suecia.gif",
     "historical": false,
     "period": "",
@@ -111,9 +113,9 @@
   },
   {
     "id": "alemanha",
-    "name": "Alemanha",
-    "category": "República social-exportadora",
-    "description": "República federativa parlamentarista, a Alemanha é a maior economia da Europa, com economia social de mercado, forte indústria exportadora e papel central na União Europeia, unindo estabilidade democrática e peso geopolítico.",
+    "name": "Germany",
+    "category": "Social-exporting republic",
+    "description": "A parliamentary federal republic, Germany is Europe's largest economy, with a social market economy, a strong export industry, and a central role in the European Union, uniting democratic stability and geopolitical weight.",
     "flagPath": "/countries/flags/alemanha.gif",
     "historical": false,
     "period": "",
@@ -122,9 +124,9 @@
   },
   {
     "id": "franca",
-    "name": "França",
-    "category": "República social-republicana",
-    "description": "República semipresidencialista europeia, a França combina forte tradição republicana e laica, Estado social robusto, economia mista e destacado papel diplomático, cultural e militar na União Europeia e no mundo.",
+    "name": "France",
+    "category": "Social-republican republic",
+    "description": "A European semi-presidential republic, France combines a strong republican and secular tradition, a robust welfare state, a mixed economy, and a prominent diplomatic, cultural, and military role in the European Union and the world.",
     "flagPath": "/countries/flags/franca.gif",
     "historical": false,
     "period": "",
@@ -133,9 +135,9 @@
   },
   {
     "id": "uniao-europeia",
-    "name": "União Europeia",
-    "category": "União supranacional regulatória",
-    "description": "União política e econômica supranacional, a União Europeia integra Estados democráticos por meio de instituições compartilhadas, mercado comum, regulação coordenada, livre circulação e forte compromisso com direitos, laicidade e cooperação internacional.",
+    "name": "European Union",
+    "category": "Regulatory supranational union",
+    "description": "A supranational political and economic union, the European Union integrates democratic states through shared institutions, a common market, coordinated regulation, free movement, and a strong commitment to rights, secularism, and international cooperation.",
     "flagPath": "/countries/flags/uniao-europeia.png",
     "historical": false,
     "period": "",
@@ -144,9 +146,9 @@
   },
   {
     "id": "reino-unido",
-    "name": "Reino Unido",
-    "category": "Monarquia liberal-financeira",
-    "description": "Monarquia parlamentar, o Reino Unido tem longa tradição liberal e democrática, economia de mercado e forte setor financeiro, mantendo influência global após sua saída da União Europeia no processo conhecido como Brexit.",
+    "name": "United Kingdom",
+    "category": "Liberal-financial monarchy",
+    "description": "A parliamentary monarchy, the United Kingdom has a long liberal and democratic tradition, a market economy, and a strong financial sector, maintaining global influence after leaving the European Union in the process known as Brexit.",
     "flagPath": "/countries/flags/reino-unido.gif",
     "historical": false,
     "period": "",
@@ -155,31 +157,36 @@
   },
   {
     "id": "hungria",
-    "name": "Hungria",
-    "category": "República nacional-iliberal",
-    "description": "República parlamentarista do Leste Europeu, a Hungria é governada sob a chamada democracia iliberal, unindo nacionalismo, conservadorismo cristão, soberania diante da União Europeia e forte controle de mídia e instituições.",
+    "name": "Hungary",
+    "category": "National-illiberal republic",
+    "description": "A parliamentary republic in Eastern Europe, Hungary is governed under so-called illiberal democracy, uniting nationalism, Christian conservatism, sovereignty vis-à-vis the European Union, and strong control of media and institutions.",
     "flagPath": "/countries/flags/hungria.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "russia",
-    "name": "Rússia",
-    "category": "Autoritarismo estatal-rentista",
-    "description": "República presidencialista euroasiática, a Rússia concentra o poder num regime autoritário e nacionalista, com economia dependente de recursos naturais, forte aparato militar e política externa de confronto com o Ocidente.",
+    "name": "Russia",
+    "category": "Statist-rentier authoritarianism",
+    "description": "A Eurasian presidential republic, Russia concentrates power in an authoritarian, nationalist regime, with an economy dependent on natural resources, a strong military apparatus, and a foreign policy of confrontation with the West.",
     "flagPath": "/countries/flags/russia.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "japao",
-    "name": "Japão",
-    "category": "Monarquia conservadora-tecnológica",
-    "description": "Monarquia parlamentar asiática, o Japão une tradição e alta tecnologia, com economia de mercado avançada, sociedade envelhecida e política conservadora estável, mantendo pacifismo constitucional e forte peso econômico global.",
+    "name": "Japan",
+    "category": "Conservative-technological monarchy",
+    "description": "An Asian parliamentary monarchy, Japan unites tradition and high technology, with an advanced market economy, an aging society, and stable conservative politics, maintaining constitutional pacifism and strong global economic weight.",
     "flagPath": "/countries/flags/japao.gif",
     "historical": false,
     "period": "",
@@ -188,9 +195,9 @@
   },
   {
     "id": "coreia-do-sul",
-    "name": "Coreia do Sul",
-    "category": "República tecnológica-securitária",
-    "description": "República presidencialista asiática, a Coreia do Sul combina democracia vibrante, economia de mercado orientada à exportação e liderança tecnológica, resultado de rápido desenvolvimento sob forte impulso estatal.",
+    "name": "South Korea",
+    "category": "Technological-security republic",
+    "description": "An Asian presidential republic, South Korea combines a vibrant democracy, an export-oriented market economy, and technological leadership, the result of rapid development under strong state impetus.",
     "flagPath": "/countries/flags/coreia-do-sul.gif",
     "historical": false,
     "period": "",
@@ -199,9 +206,9 @@
   },
   {
     "id": "coreia-do-sul-de-park-chung-hee",
-    "name": "Coreia do Sul de Park Chung Hee",
-    "category": "Ditadura desenvolvimentista-exportadora",
-    "description": "Sob Park Chung Hee, a Coreia do Sul combinou regime militar-autoritário, anticomunismo rígido, disciplina social e planejamento estatal voltado à industrialização exportadora, formando os grandes chaebols e preparando a ascensão tecnológica do país.",
+    "name": "Park Chung Hee's South Korea",
+    "category": "Developmentalist-exporting dictatorship",
+    "description": "Under Park Chung Hee, South Korea combined military-authoritarian rule, rigid anti-communism, social discipline, and state planning aimed at export-led industrialization, building the major chaebols and preparing the country's technological rise.",
     "flagPath": "/countries/flags/coreia-do-sul.gif",
     "historical": true,
     "period": "1961–1979",
@@ -215,8 +222,8 @@
   {
     "id": "china",
     "name": "China",
-    "category": "Socialismo unipartidário-industrial",
-    "description": "Estado socialista de partido único, a China une o controle político absoluto do Partido Comunista a uma economia de mercado dirigida pelo Estado, tornando-se potência industrial, tecnológica e geopolítica global.",
+    "category": "One-party industrial socialism",
+    "description": "A single-party socialist state, China unites the absolute political control of the Communist Party with a state-directed market economy, becoming a global industrial, technological, and geopolitical power.",
     "flagPath": "/countries/flags/china.gif",
     "historical": false,
     "period": "",
@@ -225,9 +232,9 @@
   },
   {
     "id": "coreia-do-norte",
-    "name": "Coreia do Norte",
-    "category": "Totalitarismo dinástico-autárquico",
-    "description": "Estado totalitário de partido único, a Coreia do Norte mantém economia planificada, isolamento internacional e culto à dinastia Kim, unindo comunismo, nacionalismo e a doutrina de autossuficiência conhecida como Juche.",
+    "name": "North Korea",
+    "category": "Dynastic-autarkic totalitarianism",
+    "description": "A totalitarian single-party state, North Korea maintains a planned economy, international isolation, and a cult of the Kim dynasty, uniting communism, nationalism, and the self-reliance doctrine known as Juche.",
     "flagPath": "/countries/flags/coreia-do-norte.gif",
     "historical": false,
     "period": "",
@@ -236,9 +243,9 @@
   },
   {
     "id": "singapura",
-    "name": "Singapura",
-    "category": "Tecnocracia unipartidária-liberal",
-    "description": "Cidade-Estado asiática, Singapura é uma república parlamentarista dominada por um único partido, combinando capitalismo aberto, gestão tecnocrática eficiente, ordem rígida e liberdades políticas limitadas em nome do progresso.",
+    "name": "Singapore",
+    "category": "One-party liberal technocracy",
+    "description": "An Asian city-state, Singapore is a parliamentary republic dominated by a single party, combining open capitalism, efficient technocratic management, strict order, and limited political freedoms in the name of progress.",
     "flagPath": "/countries/flags/singapura.gif",
     "historical": false,
     "period": "",
@@ -247,9 +254,9 @@
   },
   {
     "id": "vietna",
-    "name": "Vietnã",
-    "category": "Socialismo unipartidário-reformista",
-    "description": "Estado socialista de partido único, o Vietnã mantém o controle político do Partido Comunista ao lado de reformas de mercado que abriram a economia, promovendo rápido crescimento industrial e integração ao comércio global.",
+    "name": "Vietnam",
+    "category": "One-party reformist socialism",
+    "description": "A single-party socialist state, Vietnam maintains the Communist Party's political control alongside market reforms that opened the economy, promoting rapid industrial growth and integration into global trade.",
     "flagPath": "/countries/flags/vietna.gif",
     "historical": false,
     "period": "",
@@ -258,64 +265,74 @@
   },
   {
     "id": "indonesia",
-    "name": "Indonésia",
-    "category": "República desenvolvimentista-plural",
-    "description": "Maior país muçulmano do mundo, a Indonésia é uma república presidencialista democrática e arquipelágica, com economia de mercado em expansão, grande diversidade étnica e religiosa e crescente peso regional no sudeste asiático.",
+    "name": "Indonesia",
+    "category": "Developmentalist-plural republic",
+    "description": "The world's largest Muslim country, Indonesia is a democratic presidential archipelagic republic, with an expanding market economy, great ethnic and religious diversity, and growing regional weight in Southeast Asia.",
     "flagPath": "/countries/flags/indonesia.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "turquia",
-    "name": "Turquia",
-    "category": "Autoritarismo nacional-religioso",
-    "description": "República presidencialista entre Europa e Ásia, a Turquia combina democracia eleitoral com forte concentração de poder, nacionalismo, conservadorismo religioso e política externa assertiva no Oriente Médio e no Mediterrâneo.",
+    "name": "Turkey",
+    "category": "National-religious authoritarianism",
+    "description": "A presidential republic between Europe and Asia, Turkey combines electoral democracy with strong concentration of power, nationalism, religious conservatism, and an assertive foreign policy in the Middle East and the Mediterranean.",
     "flagPath": "/countries/flags/turquia.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "ira",
-    "name": "Irã",
-    "category": "Teocracia clerical-estatizada",
-    "description": "República islâmica teocrática, o Irã combina instituições eleitas à autoridade suprema dos clérigos, com o governo do jurista religioso, economia controlada pelo Estado e forte projeção regional no Oriente Médio.",
+    "name": "Iran",
+    "category": "Clerical-statist theocracy",
+    "description": "A theocratic Islamic republic, Iran combines elected institutions with the supreme authority of the clerics, under the rule of the religious jurist, a state-controlled economy, and strong regional projection in the Middle East.",
     "flagPath": "/countries/flags/ira.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "arabia-saudita",
-    "name": "Arábia Saudita",
-    "category": "Monarquia rentista-religiosa",
-    "description": "Monarquia absoluta do Golfo, a Arábia Saudita une poder concentrado na família real, aplicação rigorosa do islã e economia dependente do petróleo, buscando modernização controlada sob a liderança do príncipe herdeiro.",
+    "name": "Saudi Arabia",
+    "category": "Rentier-religious monarchy",
+    "description": "An absolute Gulf monarchy, Saudi Arabia unites power concentrated in the royal family, strict application of Islam, and an oil-dependent economy, pursuing controlled modernization under the crown prince's leadership.",
     "flagPath": "/countries/flags/arabia-saudita.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "israel",
     "name": "Israel",
-    "category": "República nacional-tecnológica",
-    "description": "República parlamentarista no Oriente Médio, Israel combina democracia vibrante, forte identidade nacional judaica, economia avançada em tecnologia e um conflito prolongado com os palestinos que domina sua política e segurança.",
+    "category": "National-technological republic",
+    "description": "A parliamentary republic in the Middle East, Israel combines a vibrant democracy, a strong Jewish national identity, an advanced technology economy, and a prolonged conflict with the Palestinians that dominates its politics and security.",
     "flagPath": "/countries/flags/israel.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["judaism"]
+    "religions": [
+      "judaism"
+    ]
   },
   {
     "id": "africa-do-sul",
-    "name": "África do Sul",
-    "category": "República industrial-desigual",
-    "description": "República parlamentarista, a África do Sul é a maior economia industrial do continente e uma democracia multirracial nascida do fim do apartheid, marcada por diversidade cultural e por profundas desigualdades sociais.",
+    "name": "South Africa",
+    "category": "Industrial-unequal republic",
+    "description": "A parliamentary republic, South Africa is the continent's largest industrial economy and a multiracial democracy born from the end of apartheid, marked by cultural diversity and deep social inequalities.",
     "flagPath": "/countries/flags/africa-do-sul.gif",
     "historical": false,
     "period": "",
@@ -324,9 +341,9 @@
   },
   {
     "id": "atenas-democratica",
-    "name": "Atenas Democrática",
-    "category": "Democracia cívica-excludente",
-    "description": "Cidade-Estado da Grécia Antiga, Atenas foi berço da democracia direta, com cidadãos decidindo em assembleia os rumos da polis, embora a participação excluísse mulheres, estrangeiros e escravos da vida política.",
+    "name": "Democratic Athens",
+    "category": "Exclusionary civic democracy",
+    "description": "A city-state of Ancient Greece, Athens was the cradle of direct democracy, with citizens deciding the polis's course in assembly, although participation excluded women, foreigners, and slaves from political life.",
     "flagPath": "/countries/flags/atenas-democratica.png",
     "historical": true,
     "period": "c. 508–322 a.C.",
@@ -335,13 +352,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Owl_of_Athena.svg",
     "flagNote": "Não havia bandeira nacional moderna documentada para esse recorte; usa símbolo, estandarte ou reconstrução histórica como referência visual.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "esparta",
-    "name": "Esparta",
-    "category": "Oligarquia militar-disciplinar",
-    "description": "Cidade-Estado militarista da Grécia Antiga, Esparta organizava toda a sociedade em torno da guerra, com um regime misto de reis e conselho, disciplina rígida, austeridade e domínio sobre uma vasta população subjugada.",
+    "name": "Sparta",
+    "category": "Disciplinary military oligarchy",
+    "description": "A militarist city-state of Ancient Greece, Sparta organized its whole society around war, with a mixed regime of kings and council, rigid discipline, austerity, and dominance over a vast subjugated population.",
     "flagPath": "/countries/flags/esparta.png",
     "historical": true,
     "period": "c. 900–192 a.C.",
@@ -350,13 +369,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Fictional_flag_of_Sparta.png",
     "flagNote": "Reconstrução histórica usada como referência visual para o período.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "imperio-macedonico",
-    "name": "Império Macedônico",
-    "category": "Monarquia militar-conquistadora",
-    "description": "Império formado pelas conquistas de Filipe II e Alexandre, o Grande, que combinou monarquia militar macedônica, administração persa, fundação de cidades gregas e fusão cultural helenística sobre territórios diversos.",
+    "name": "Macedonian Empire",
+    "category": "Conquering military monarchy",
+    "description": "Empire formed by the conquests of Philip II and Alexander the Great, combining Macedonian military monarchy, Persian administration, Greek city founding, and Hellenistic cultural fusion over diverse territories.",
     "flagPath": "/countries/flags/imperio-macedonico.png",
     "historical": true,
     "period": "336–323 a.C.",
@@ -365,13 +386,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Vergina_Sun.svg",
     "flagNote": "Símbolo solar associado à dinastia argéada usado como referência visual; não representa uma bandeira estatal moderna.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "imperio-romano",
-    "name": "Império Romano",
-    "category": "Império militar-centralizado",
-    "description": "Vasto império da Antiguidade, Roma unia poder militar, direito e administração centralizada sob o imperador, expandindo-se por três continentes e legando língua, leis e instituições que moldaram a civilização ocidental.",
+    "name": "Roman Empire",
+    "category": "Centralized military empire",
+    "description": "A vast empire of antiquity, Rome united military power, law, and centralized administration under the emperor, expanding across three continents and bequeathing language, laws, and institutions that shaped Western civilization.",
     "flagPath": "/countries/flags/imperio-romano.png",
     "historical": true,
     "period": "27 a.C.–476 d.C.",
@@ -380,13 +403,18 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Roman_Empire_with_Eagle_(3-2).svg",
     "flagNote": "Reconstrução histórica usada como referência visual para o período.",
-    "religions": ["catholic", "protestant", "orthodox", "other"]
+    "religions": [
+      "catholic",
+      "protestant",
+      "orthodox",
+      "other"
+    ]
   },
   {
     "id": "sacro-imperio-romano-germanico",
-    "name": "Sacro Império Romano-Germânico (Primeiro Reich)",
-    "category": "Monarquia eletiva-descentralizada",
-    "description": "Federação de territórios da Europa central, o Sacro Império reunia principados e cidades sob um imperador eleito e forte influência da Igreja, marcado pela fragmentação do poder e pela autonomia dos seus membros.",
+    "name": "Holy Roman Empire (First Reich)",
+    "category": "Decentralized elective monarchy",
+    "description": "A federation of Central European territories, the Holy Roman Empire gathered principalities and cities under an elected emperor and strong Church influence, marked by fragmented power and the autonomy of its members.",
     "flagPath": "/countries/flags/sacro-imperio-romano-germanico.png",
     "historical": true,
     "period": "962–1806",
@@ -395,13 +423,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Banner_of_the_Holy_Roman_Emperor_with_haloes_(1430-1806).svg",
     "flagNote": "",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "republica-de-veneza",
-    "name": "República de Veneza",
-    "category": "República oligárquica-mercantil",
-    "description": "Poderosa república mercantil medieval, Veneza era governada por uma oligarquia comercial que dominava o comércio no Mediterrâneo, unindo instituições estáveis, marinha forte e imenso poder econômico por séculos.",
+    "name": "Republic of Venice",
+    "category": "Oligarchic-mercantile republic",
+    "description": "A powerful medieval merchant republic, Venice was governed by a commercial oligarchy that dominated Mediterranean trade, uniting stable institutions, a strong navy, and immense economic power for centuries.",
     "flagPath": "/countries/flags/republica-de-veneza.png",
     "historical": true,
     "period": "697–1797",
@@ -414,9 +445,9 @@
   },
   {
     "id": "imperio-otomano",
-    "name": "Império Otomano",
-    "category": "Monarquia absolutista-religiosa",
-    "description": "Vasto império muçulmano, os otomanos governaram por séculos vastas terras entre Europa, Ásia e África sob o poder do sultão e do califa, unindo autoridade religiosa e política e grande diversidade de povos e crenças.",
+    "name": "Ottoman Empire",
+    "category": "Absolutist-religious monarchy",
+    "description": "A vast Muslim empire, the Ottomans ruled for centuries over lands spanning Europe, Asia, and Africa under the power of the sultan and caliph, uniting religious and political authority with great diversity of peoples and faiths.",
     "flagPath": "/countries/flags/imperio-otomano.png",
     "historical": true,
     "period": "1299–1922",
@@ -425,13 +456,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Ottoman_Empire_(1844%E2%80%931922).svg",
     "flagNote": "",
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "reino-unido-vitoriano-imperio-britanico",
-    "name": "Império Britânico",
-    "category": "Monarquia colonial-industrial",
-    "description": "No auge vitoriano, o Império Britânico foi o maior da história, unindo monarquia parlamentar, revolução industrial e domínio colonial global, com forte expansão comercial, naval e cultural pelo mundo.",
+    "name": "British Empire",
+    "category": "Colonial-industrial monarchy",
+    "description": "At its Victorian height, the British Empire was the largest in history, uniting parliamentary monarchy, the industrial revolution, and global colonial rule, with strong commercial, naval, and cultural expansion across the world.",
     "flagPath": "/countries/flags/reino-unido-vitoriano-imperio-britanico.png",
     "historical": true,
     "period": "1837–1901",
@@ -440,13 +473,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Kingdom_(3-5).svg",
     "flagNote": "O Reino Unido vitoriano usava a Union Jack de 1801, ainda em uso.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "imperio-do-brasil",
-    "name": "Império do Brasil",
-    "category": "Monarquia agrária-escravista",
-    "description": "Único império das Américas por longo período, o Brasil imperial foi uma monarquia parlamentar sob Pedro I e Pedro II, marcada por estabilidade política, economia agrária escravista e forte centralização do Estado.",
+    "name": "Empire of Brazil",
+    "category": "Agrarian-slaveholding monarchy",
+    "description": "The only long-lasting empire in the Americas, imperial Brazil was a parliamentary monarchy under Pedro I and Pedro II, marked by political stability, a slave-based agrarian economy, and strong state centralization.",
     "flagPath": "/countries/flags/imperio-do-brasil.png",
     "historical": true,
     "period": "1822–1889",
@@ -455,13 +490,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil_(1870%E2%80%931889).svg",
     "flagNote": "",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "alemanha-nazista-terceiro-reich",
-    "name": "Alemanha Nazista (Terceiro Reich)",
-    "category": "Totalitarismo racial-expansionista",
-    "description": "Regime totalitário liderado por Hitler, o Terceiro Reich impôs ditadura racista e expansionista, culto ao líder e Estado policial, sendo responsável pela Segunda Guerra Mundial e pelo genocídio do Holocausto.",
+    "name": "Nazi Germany (Third Reich)",
+    "category": "Racial-expansionist totalitarianism",
+    "description": "A totalitarian regime led by Hitler, the Third Reich imposed a racist, expansionist dictatorship, a cult of the leader, and a police state, being responsible for World War II and the genocide of the Holocaust.",
     "flagPath": "/countries/flags/alemanha-nazista-terceiro-reich.png",
     "historical": true,
     "period": "1933–1945",
@@ -474,9 +511,9 @@
   },
   {
     "id": "italia-fascista-mussolini",
-    "name": "Itália Fascista (Mussolini)",
-    "category": "Ditadura corporativa-nacionalista",
-    "description": "Berço do fascismo, a Itália de Mussolini foi uma ditadura totalitária que fundiu nacionalismo, culto ao líder, Estado corporativo e militarismo, suprimindo a oposição e buscando expansão imperial pela força.",
+    "name": "Fascist Italy (Mussolini)",
+    "category": "Corporatist-nationalist dictatorship",
+    "description": "The birthplace of fascism, Mussolini's Italy was a totalitarian dictatorship that fused nationalism, a cult of the leader, a corporatist state, and militarism, suppressing opposition and seeking imperial expansion by force.",
     "flagPath": "/countries/flags/italia-fascista-mussolini.png",
     "historical": true,
     "period": "1922–1943",
@@ -485,13 +522,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Italy_(1861%E2%80%931946).svg",
     "flagNote": "A Itália fascista manteve a bandeira nacional do Reino da Itália.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "chile-de-pinochet",
-    "name": "Chile de Pinochet",
-    "category": "Ditadura militar-neoliberal",
-    "description": "Ditadura militar surgida do golpe de 1973, o Chile de Pinochet uniu forte repressão política à adoção pioneira de reformas neoliberais de livre mercado, marcando profundamente a economia e a memória do país.",
+    "name": "Pinochet's Chile",
+    "category": "Neoliberal military dictatorship",
+    "description": "A military dictatorship born of the 1973 coup, Pinochet's Chile united severe political repression with the pioneering adoption of neoliberal free-market reforms, deeply marking the country's economy and memory.",
     "flagPath": "/countries/flags/chile-de-pinochet.png",
     "historical": true,
     "period": "1973–1990",
@@ -500,13 +539,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Chile.svg",
     "flagNote": "O regime de Pinochet manteve a bandeira chilena.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "uniao-sovietica-urss",
-    "name": "União Soviética (URSS)",
-    "category": "Socialismo unipartidário-planificado",
-    "description": "Primeiro Estado socialista do mundo, a URSS foi uma federação de partido único com economia planificada e poder centralizado, tornando-se superpotência global e polo do comunismo durante a Guerra Fria.",
+    "name": "Soviet Union (USSR)",
+    "category": "One-party planned socialism",
+    "description": "The world's first socialist state, the USSR was a single-party federation with a planned economy and centralized power, becoming a global superpower and the pole of communism during the Cold War.",
     "flagPath": "/countries/flags/uniao-sovietica-urss.png",
     "historical": true,
     "period": "1922–1991",
@@ -519,9 +560,9 @@
   },
   {
     "id": "china-maoista",
-    "name": "China Maoísta",
-    "category": "Comunismo unipartidário-coletivista",
-    "description": "Sob Mao, a China revolucionária foi um Estado comunista de partido único, com economia coletivizada e mobilização permanente das massas, marcada por campanhas como o Grande Salto Adiante e a Revolução Cultural.",
+    "name": "Maoist China",
+    "category": "One-party collectivist communism",
+    "description": "Under Mao, revolutionary China was a single-party communist state, with a collectivized economy and permanent mass mobilization, marked by campaigns such as the Great Leap Forward and the Cultural Revolution.",
     "flagPath": "/countries/flags/china-maoista.png",
     "historical": true,
     "period": "1949–1976",
@@ -534,9 +575,9 @@
   },
   {
     "id": "camboja-do-khmer-vermelho-pol-pot",
-    "name": "Camboja do Khmer Vermelho (Pol Pot)",
-    "category": "Totalitarismo agrário-coletivista",
-    "description": "Regime radical liderado por Pol Pot, o Khmer Vermelho impôs um comunismo agrário extremo, esvaziou as cidades e aboliu dinheiro e propriedade, provocando um dos maiores genocídios do século XX no Camboja.",
+    "name": "Khmer Rouge Cambodia (Pol Pot)",
+    "category": "Agrarian-collectivist totalitarianism",
+    "description": "A radical regime led by Pol Pot, the Khmer Rouge imposed extreme agrarian communism, emptied the cities, and abolished money and property, causing one of the greatest genocides of the 20th century in Cambodia.",
     "flagPath": "/countries/flags/camboja-do-khmer-vermelho-pol-pot.png",
     "historical": true,
     "period": "1975–1979",
@@ -549,9 +590,9 @@
   },
   {
     "id": "aragao-e-catalunha-anarquistas-revolucao-espanhola",
-    "name": "Aragão e Catalunha Anarquistas",
-    "category": "Anarquismo coletivista-autogestionário",
-    "description": "Durante a Revolução Espanhola, regiões de Aragão e Catalunha viveram uma experiência anarquista de coletivização da terra e das fábricas, com autogestão dos trabalhadores e organização social sem Estado central.",
+    "name": "Anarchist Aragon and Catalonia",
+    "category": "Collectivist-self-managed anarchism",
+    "description": "During the Spanish Revolution, regions of Aragon and Catalonia lived an anarchist experiment of collectivizing land and factories, with workers' self-management and social organization without a central state.",
     "flagPath": "/countries/flags/aragao-e-catalunha-anarquistas-revolucao-espanhola.png",
     "historical": true,
     "period": "1936–1939",
@@ -564,9 +605,9 @@
   },
   {
     "id": "argentina-peronista",
-    "name": "Argentina Peronista",
-    "category": "Populismo corporativo-trabalhista",
-    "description": "Sob Perón, a Argentina viveu um regime populista e nacionalista que uniu forte apoio operário, corporativismo, industrialização e ampliação de direitos sociais, deixando marca duradoura na política do país.",
+    "name": "Peronist Argentina",
+    "category": "Corporatist-labourist populism",
+    "description": "Under Perón, Argentina experienced a populist, nationalist regime that united strong working-class support, corporatism, industrialization, and the expansion of social rights, leaving a lasting mark on the country's politics.",
     "flagPath": "/countries/flags/argentina-peronista.png",
     "historical": true,
     "period": "1946–1955",
@@ -575,13 +616,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Argentina.svg",
     "flagNote": "O primeiro peronismo manteve a bandeira argentina.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "egito-de-nasser",
-    "name": "Egito de Nasser",
-    "category": "República nacionalista-estatizante",
-    "description": "Sob Nasser, o Egito foi uma república nacionalista e desenvolvimentista que nacionalizou setores estratégicos, liderou o pan-arabismo e uniu socialismo árabe, reforma agrária e forte protagonismo no Oriente Médio.",
+    "name": "Nasser's Egypt",
+    "category": "Nationalist-statist republic",
+    "description": "Under Nasser, Egypt was a nationalist, developmentalist republic that nationalized strategic sectors, led pan-Arabism, and united Arab socialism, agrarian reform, and strong leadership in the Middle East.",
     "flagPath": "/countries/flags/egito-de-nasser.png",
     "historical": true,
     "period": "1954–1970",
@@ -594,9 +637,9 @@
   },
   {
     "id": "africa-do-sul-do-apartheid",
-    "name": "África do Sul do Apartheid",
-    "category": "Estado racial-segregacionista",
-    "description": "Regime de segregação racial institucional, a África do Sul do apartheid negava direitos à maioria negra e concentrava o poder na minoria branca, com leis de separação que provocaram forte resistência interna e sanções.",
+    "name": "Apartheid South Africa",
+    "category": "Racial-segregationist state",
+    "description": "A regime of institutional racial segregation, apartheid South Africa denied rights to the Black majority and concentrated power in the white minority, with separation laws that provoked strong internal resistance and sanctions.",
     "flagPath": "/countries/flags/africa-do-sul-do-apartheid.png",
     "historical": true,
     "period": "1948–1994",
@@ -605,13 +648,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_South_Africa_(1928%E2%80%931994,_dark_colors).svg",
     "flagNote": "",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "hong-kong",
     "name": "Hong Kong (China)",
-    "category": "Região tecnocrática-financeira",
-    "description": "Centro financeiro global, Hong Kong é uma região autônoma de forte capitalismo de livre mercado e gestão tecnocrática, cuja ampla autonomia foi crescentemente restringida pelo controle político da China continental.",
+    "category": "Technocratic-financial region",
+    "description": "A global financial center, Hong Kong is an autonomous region of strong free-market capitalism and technocratic management, whose broad autonomy has been increasingly restricted by mainland China's political control.",
     "flagPath": "/countries/flags/hong-kong.png",
     "historical": false,
     "period": "",
@@ -625,8 +670,8 @@
   {
     "id": "argentina",
     "name": "Argentina",
-    "category": "República federal com reformas de mercado",
-    "description": "República federal presidencialista, a Argentina sob Javier Milei desde 2023 promove ajuste fiscal, desregulação e privatizações, mantendo serviços públicos e alinhamento aos Estados Unidos e a Israel, em ruptura com o peronismo.",
+    "category": "Federal republic with market reforms",
+    "description": "A presidential federal republic, Argentina under Javier Milei since 2023 pursues fiscal restraint, deregulation and privatization while retaining public services and aligning with the United States and Israel, breaking with Peronism.",
     "flagPath": "/countries/flags/argentina.png",
     "historical": false,
     "period": "",
@@ -640,8 +685,8 @@
   {
     "id": "liechtenstein",
     "name": "Liechtenstein",
-    "category": "Monarquia liberal-rentista",
-    "description": "Minúsculo principado europeu, o Liechtenstein é uma monarquia constitucional próspera, com forte autonomia local, economia liberal baseada em finanças e indústria e um dos maiores níveis de renda por habitante do mundo.",
+    "category": "Liberal-rentier monarchy",
+    "description": "A tiny European principality, Liechtenstein is a prosperous constitutional monarchy, with strong local autonomy, a liberal economy based on finance and industry, and one of the highest income levels per capita in the world.",
     "flagPath": "/countries/flags/liechtenstein.png",
     "historical": false,
     "period": "",
@@ -654,9 +699,9 @@
   },
   {
     "id": "rojava",
-    "name": "Rojava (Norte e Leste da Síria)",
-    "category": "Confederalismo democrático-igualitário",
-    "description": "Região autônoma no norte da Síria, Rojava organiza-se pelo confederalismo democrático, com autogestão local, igualdade de gênero, pluralismo étnico e ecologia, inspirada nas ideias libertárias de Abdullah Öcalan.",
+    "name": "Rojava (North and East Syria)",
+    "category": "Democratic-egalitarian confederalism",
+    "description": "An autonomous region in northern Syria, Rojava organizes itself through democratic confederalism, with local self-management, gender equality, ethnic pluralism, and ecology, inspired by the libertarian ideas of Abdullah Öcalan.",
     "flagPath": "/countries/flags/rojava.png",
     "historical": false,
     "period": "2012–presente",
@@ -669,9 +714,9 @@
   },
   {
     "id": "iugoslavia-socialista",
-    "name": "Iugoslávia Socialista",
-    "category": "Socialismo autogestionário-federativo",
-    "description": "Federação socialista liderada por Tito, a Iugoslávia adotou a autogestão dos trabalhadores e uma via independente de Moscou, unindo diversos povos sob partido único até se fragmentar em guerras nos anos 1990.",
+    "name": "Socialist Yugoslavia",
+    "category": "Self-managed federal socialism",
+    "description": "A socialist federation led by Tito, Yugoslavia adopted workers' self-management and an independent path from Moscow, uniting diverse peoples under a single party until fragmenting into wars in the 1990s.",
     "flagPath": "/countries/flags/iugoslavia-socialista.png",
     "historical": true,
     "period": "1945–1992",
@@ -684,9 +729,9 @@
   },
   {
     "id": "espanha-franquista",
-    "name": "Espanha Franquista",
-    "category": "Ditadura nacional-católica",
-    "description": "Ditadura nascida da Guerra Civil, a Espanha de Franco foi um regime autoritário, católico e corporativista, que uniu nacionalismo e repressão política e durou até a transição democrática após a morte do ditador.",
+    "name": "Francoist Spain",
+    "category": "National-Catholic dictatorship",
+    "description": "A dictatorship born of the Civil War, Franco's Spain was an authoritarian, Catholic, corporatist regime that united nationalism and political repression and lasted until the democratic transition after the dictator's death.",
     "flagPath": "/countries/flags/espanha-franquista.png",
     "historical": true,
     "period": "1939–1975",
@@ -695,13 +740,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Spain_(1945%E2%80%931977).svg",
     "flagNote": "Bandeira histórica usada como referência visual para o período.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "islandia-medieval",
-    "name": "Islândia Medieval (Mancomunidade)",
-    "category": "Ordem policêntrica-consuetudinária",
-    "description": "Rara sociedade sem Estado central, a Islândia medieval organizava-se por chefes locais e uma assembleia, o Althing, resolvendo disputas por leis e acordos privados em um sistema descentralizado próximo da anarquia.",
+    "name": "Medieval Iceland (Commonwealth)",
+    "category": "Polycentric customary order",
+    "description": "A rare society without a central state, medieval Iceland was organized by local chieftains and an assembly, the Althing, settling disputes through laws and private agreements in a decentralized system close to anarchy.",
     "flagPath": "/countries/flags/islandia-medieval.png",
     "historical": true,
     "period": "c. 930–1262",
@@ -710,13 +757,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Raven_Banner.svg",
     "flagNote": "Não havia bandeira nacional documentada; usa o estandarte nórdico do corvo (Hrafnsmerki) como referência visual do período.",
-    "religions": ["catholic", "other"]
+    "religions": [
+      "catholic",
+      "other"
+    ]
   },
   {
     "id": "emirados-arabes-unidos",
-    "name": "Emirados Árabes Unidos",
-    "category": "Federação rentista-diversificada",
-    "description": "Federação de monarquias do Golfo, os Emirados Árabes Unidos combinam poder concentrado nas famílias reais, economia liberal diversificada além do petróleo e forte aposta em tecnologia, turismo e finanças globais.",
+    "name": "United Arab Emirates",
+    "category": "Rentier-diversified federation",
+    "description": "A federation of Gulf monarchies, the United Arab Emirates combines power concentrated in the royal families, a liberal economy diversified beyond oil, and strong bets on technology, tourism, and global finance.",
     "flagPath": "/countries/flags/emirados-arabes-unidos.png",
     "historical": false,
     "period": "",
@@ -725,13 +775,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Arab_Emirates.svg",
     "flagNote": "Bandeira oficial usada como referência visual.",
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "portugal-estado-novo",
     "name": "Portugal (Estado Novo)",
-    "category": "Ditadura corporativa-católica",
-    "description": "Sob Salazar, o Estado Novo português foi uma ditadura conservadora e corporativista, que uniu nacionalismo católico, ordem e controle político sem mobilização de massas, mantendo o país e suas colônias por décadas.",
+    "category": "Corporatist-Catholic dictatorship",
+    "description": "Under Salazar, the Portuguese Estado Novo was a conservative, corporatist dictatorship that united Catholic nationalism, order, and political control without mass mobilization, holding the country and its colonies for decades.",
     "flagPath": "/countries/flags/portugal-estado-novo.png",
     "historical": true,
     "period": "1933–1974",
@@ -740,13 +792,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Portugal.svg",
     "flagNote": "O Estado Novo manteve a bandeira nacional portuguesa de 1911; usada como referência visual do período.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "prussia",
-    "name": "Reino da Prússia",
-    "category": "Monarquia burocrático-militar",
-    "description": "Reino alemão de forte tradição militar e administrativa, a Prússia uniu monarquia, burocracia disciplinada e exército poderoso, liderando a unificação da Alemanha e encarnando o Estado cameralista e o despotismo esclarecido.",
+    "name": "Kingdom of Prussia",
+    "category": "Bureaucratic-military monarchy",
+    "description": "A German kingdom with a strong military and administrative tradition, Prussia united monarchy, a disciplined bureaucracy, and a powerful army, leading German unification and embodying the cameralist state and enlightened despotism.",
     "flagPath": "/countries/flags/prussia.png",
     "historical": true,
     "period": "1701–1918",
@@ -759,9 +813,9 @@
   },
   {
     "id": "polonia",
-    "name": "Polônia",
-    "category": "República nacional-católica",
-    "description": "República parlamentarista do Leste Europeu, a Polônia combina democracia, forte identidade católica e nacionalista e economia de mercado em crescimento, com política marcada por tensões entre conservadorismo e liberalismo.",
+    "name": "Poland",
+    "category": "National-Catholic republic",
+    "description": "A parliamentary republic in Eastern Europe, Poland combines democracy, a strong Catholic and nationalist identity, and a growing market economy, with politics marked by tensions between conservatism and liberalism.",
     "flagPath": "/countries/flags/polonia.png",
     "historical": false,
     "period": "",
@@ -770,13 +824,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Poland.svg",
     "flagNote": "Bandeira oficial usada como referência visual.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "ucrania-territorio-livre",
-    "name": "Território Livre (Makhnovshchina)",
-    "category": "Anarquismo camponês-miliciano",
-    "description": "Durante a Revolução Russa, o Território Livre de Makhno foi uma experiência anarquista na Ucrânia, com comunas camponesas autogeridas e milícias populares que rejeitavam tanto o Estado branco quanto o poder bolchevique.",
+    "name": "Free Territory (Makhnovshchina)",
+    "category": "Peasant-militia anarchism",
+    "description": "During the Russian Revolution, Makhno's Free Territory was an anarchist experiment in Ukraine, with self-managed peasant communes and popular militias that rejected both the White state and Bolshevik power.",
     "flagPath": "/countries/flags/ucrania-territorio-livre.png",
     "historical": true,
     "period": "1918–1921",
@@ -789,9 +845,9 @@
   },
   {
     "id": "brasil-era-vargas",
-    "name": "Brasil (Era Vargas)",
-    "category": "Estado nacional-trabalhista",
-    "description": "Sob Vargas, o Brasil viveu um regime nacionalista e desenvolvimentista que promoveu industrialização dirigida pelo Estado, legislação trabalhista e centralização do poder, fundando as bases do trabalhismo brasileiro.",
+    "name": "Brazil (Vargas Era)",
+    "category": "National-labourist state",
+    "description": "Under Vargas, Brazil experienced a nationalist, developmentalist regime that promoted state-directed industrialization, labor legislation, and the centralization of power, laying the foundations of Brazilian labourism.",
     "flagPath": "/countries/flags/brasil-era-vargas.png",
     "historical": true,
     "period": "1930–1945",
@@ -800,13 +856,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg",
     "flagNote": "Bandeira nacional brasileira (lema “Ordem e Progresso”) usada como referência visual do período.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "tchequia",
-    "name": "Tchéquia",
-    "category": "República liberal-secular",
-    "description": "República parlamentarista da Europa Central, a Tchéquia combina democracia liberal consolidada, forte tradição secular, economia de mercado industrializada e integração à União Europeia após o fim do bloco socialista.",
+    "name": "Czechia",
+    "category": "Liberal-secular republic",
+    "description": "A parliamentary republic in Central Europe, Czechia combines a consolidated liberal democracy, a strong secular tradition, an industrialized market economy, and integration into the European Union after the end of the socialist bloc.",
     "flagPath": "/countries/flags/tchequia.png",
     "historical": false,
     "period": "",
@@ -819,9 +877,9 @@
   },
   {
     "id": "eua-california",
-    "name": "Califórnia (Estados Unidos)",
-    "category": "Região tecno-progressista",
-    "description": "Estado mais populoso dos Estados Unidos, a Califórnia é um polo global de tecnologia e cultura, com política fortemente progressista, ambientalista e tecnocrática e uma economia de mercado gigantesca e inovadora.",
+    "name": "California (United States)",
+    "category": "Techno-progressive region",
+    "description": "The most populous US state, California is a global hub of technology and culture, with strongly progressive, environmentalist, and technocratic politics and a gigantic, innovative market economy.",
     "flagPath": "/countries/flags/eua-california.png",
     "historical": false,
     "period": "",
@@ -834,9 +892,9 @@
   },
   {
     "id": "eua-texas",
-    "name": "Texas (Estados Unidos)",
-    "category": "Região liberal-energética",
-    "description": "Segundo maior estado dos Estados Unidos, o Texas destaca-se pelo conservadorismo, pela cultura de forte liberdade individual, por baixa tributação e por uma economia de mercado dinâmica ligada à energia e à indústria.",
+    "name": "Texas (United States)",
+    "category": "Liberal-energy region",
+    "description": "The second-largest US state, Texas stands out for its conservatism, its culture of strong individual freedom, low taxation, and a dynamic market economy tied to energy and industry.",
     "flagPath": "/countries/flags/eua-texas.png",
     "historical": false,
     "period": "",
@@ -845,13 +903,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg",
     "flagNote": "Bandeira do estado do Texas (Estados Unidos) usada como referência visual da região.",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "eua-nova-york",
-    "name": "Nova York (Estados Unidos)",
-    "category": "Região financeira-cosmopolita",
-    "description": "Centro financeiro e cultural dos Estados Unidos, Nova York combina política liberal e progressista, enorme diversidade de imigrantes, economia globalizada baseada em serviços e forte peso simbólico no mundo.",
+    "name": "New York (United States)",
+    "category": "Financial-cosmopolitan region",
+    "description": "The financial and cultural center of the United States, New York combines liberal, progressive politics, enormous immigrant diversity, a globalized service-based economy, and strong symbolic weight in the world.",
     "flagPath": "/countries/flags/eua-nova-york.png",
     "historical": false,
     "period": "",
@@ -864,9 +925,9 @@
   },
   {
     "id": "eua-new-hampshire",
-    "name": "New Hampshire (Estados Unidos)",
-    "category": "Região libertária-fiscal",
-    "description": "Pequeno estado do nordeste dos Estados Unidos, New Hampshire é conhecido por sua forte cultura libertária, baixa tributação, ausência de imposto de renda estadual e lema que exalta a liberdade acima de tudo.",
+    "name": "New Hampshire (United States)",
+    "category": "Libertarian-fiscal region",
+    "description": "A small state in the northeastern United States, New Hampshire is known for its strong libertarian culture, low taxation, absence of a state income tax, and a motto that exalts liberty above all.",
     "flagPath": "/countries/flags/eua-new-hampshire.png",
     "historical": false,
     "period": "",
@@ -879,9 +940,9 @@
   },
   {
     "id": "eua-washington-dc",
-    "name": "Washington, D.C. (Estados Unidos)",
-    "category": "Distrito federal-institucional",
-    "description": "Capital dos Estados Unidos, Washington concentra o poder federal e as instituições de governo, com forte peso da máquina pública, orientação globalista e papel central na diplomacia e no poder militar do país.",
+    "name": "Washington, D.C. (United States)",
+    "category": "Federal-institutional district",
+    "description": "The capital of the United States, Washington concentrates federal power and government institutions, with the strong weight of the public machine, a globalist orientation, and a central role in the country's diplomacy and military power.",
     "flagPath": "/countries/flags/eua-washington-dc.png",
     "historical": false,
     "period": "",
@@ -894,9 +955,9 @@
   },
   {
     "id": "eua-massachusetts",
-    "name": "Massachusetts (Estados Unidos)",
-    "category": "Região acadêmico-progressista",
-    "description": "Estado do nordeste dos Estados Unidos, Massachusetts é reduto progressista e polo de educação e ciência, com universidades de prestígio, forte tradição liberal e política voltada a direitos sociais e inovação.",
+    "name": "Massachusetts (United States)",
+    "category": "Academic-progressive region",
+    "description": "A northeastern US state, Massachusetts is a progressive stronghold and a hub of education and science, with prestigious universities, a strong liberal tradition, and politics focused on social rights and innovation.",
     "flagPath": "/countries/flags/eua-massachusetts.png",
     "historical": false,
     "period": "",
@@ -909,9 +970,9 @@
   },
   {
     "id": "canada",
-    "name": "Canadá",
-    "category": "Monarquia multicultural-assistencial",
-    "description": "Monarquia parlamentar federativa, o Canadá combina democracia estável, multiculturalismo, amplo Estado de bem-estar e economia de mercado rica em recursos naturais, com forte compromisso com direitos e diversidade.",
+    "name": "Canada",
+    "category": "Multicultural-welfare monarchy",
+    "description": "A federal parliamentary monarchy, Canada combines stable democracy, multiculturalism, a broad welfare state, and a market economy rich in natural resources, with a strong commitment to rights and diversity.",
     "flagPath": "/countries/flags/canada.png",
     "historical": false,
     "period": "",
@@ -920,9 +981,9 @@
   },
   {
     "id": "paises-baixos",
-    "name": "Países Baixos",
-    "category": "Monarquia liberal-mercantil",
-    "description": "Monarquia parlamentar, os Países Baixos são conhecidos pela tradição liberal, tolerância social e livre comércio, com economia aberta e globalizada e políticas progressistas em temas de costumes e direitos individuais.",
+    "name": "Netherlands",
+    "category": "Liberal-mercantile monarchy",
+    "description": "A parliamentary monarchy, the Netherlands is known for its liberal tradition, social tolerance, and free trade, with an open, globalized economy and progressive policies on customs and individual rights.",
     "flagPath": "/countries/flags/paises-baixos.png",
     "historical": false,
     "period": "",
@@ -931,9 +992,9 @@
   },
   {
     "id": "italia",
-    "name": "Itália",
-    "category": "República fragmentada-industrial",
-    "description": "República parlamentarista mediterrânea, a Itália une longa herança cultural, economia de mercado diversificada e política instável e fragmentada, com ascensão recente de forças conservadoras e nacionalistas.",
+    "name": "Italy",
+    "category": "Fragmented-industrial republic",
+    "description": "A Mediterranean parliamentary republic, Italy unites a long cultural heritage, a diversified market economy, and unstable, fragmented politics, with the recent rise of conservative and nationalist forces.",
     "flagPath": "/countries/flags/italia.png",
     "historical": false,
     "period": "",
@@ -942,9 +1003,9 @@
   },
   {
     "id": "espanha",
-    "name": "Espanha",
-    "category": "Monarquia descentralizada-social",
-    "description": "Monarquia parlamentar, a Espanha combina democracia consolidada, forte descentralização em comunidades autônomas, economia de mercado e políticas sociais e progressistas, com tensões regionais como a questão catalã.",
+    "name": "Spain",
+    "category": "Decentralized-social monarchy",
+    "description": "A parliamentary monarchy, Spain combines a consolidated democracy, strong decentralization into autonomous communities, a market economy, and social, progressive policies, with regional tensions such as the Catalan question.",
     "flagPath": "/countries/flags/espanha.png",
     "historical": false,
     "period": "",
@@ -953,9 +1014,9 @@
   },
   {
     "id": "noruega",
-    "name": "Noruega",
-    "category": "Monarquia social-petroleira",
-    "description": "Monarquia parlamentar nórdica, a Noruega alia amplo Estado de bem-estar, riqueza do petróleo gerida por um grande fundo soberano e forte igualdade social, sendo referência de qualidade de vida e social-democracia.",
+    "name": "Norway",
+    "category": "Social-oil monarchy",
+    "description": "A Nordic parliamentary monarchy, Norway combines a broad welfare state, oil wealth managed by a large sovereign fund, and strong social equality, serving as a benchmark of quality of life and social democracy.",
     "flagPath": "/countries/flags/noruega.png",
     "historical": false,
     "period": "",
@@ -964,9 +1025,9 @@
   },
   {
     "id": "dinamarca",
-    "name": "Dinamarca",
-    "category": "Monarquia social-competitiva",
-    "description": "Monarquia parlamentar nórdica, a Dinamarca combina generoso Estado de bem-estar, altos impostos e economia de mercado competitiva, aliando forte igualdade social a políticas migratórias mais restritivas.",
+    "name": "Denmark",
+    "category": "Social-competitive monarchy",
+    "description": "A Nordic parliamentary monarchy, Denmark combines a generous welfare state, high taxes, and a competitive market economy, pairing strong social equality with more restrictive migration policies.",
     "flagPath": "/countries/flags/dinamarca.png",
     "historical": false,
     "period": "",
@@ -975,9 +1036,9 @@
   },
   {
     "id": "australia",
-    "name": "Austrália",
-    "category": "Monarquia multicultural-extrativa",
-    "description": "Monarquia parlamentar federativa, a Austrália une democracia estável, multiculturalismo e economia de mercado rica em recursos naturais, com forte alinhamento ao Ocidente e políticas migratórias rigorosas e seletivas.",
+    "name": "Australia",
+    "category": "Multicultural-extractive monarchy",
+    "description": "A federal parliamentary monarchy, Australia unites stable democracy, multiculturalism, and a market economy rich in natural resources, with strong alignment with the West and rigorous, selective migration policies.",
     "flagPath": "/countries/flags/australia.png",
     "historical": false,
     "period": "",
@@ -986,9 +1047,9 @@
   },
   {
     "id": "nova-zelandia",
-    "name": "Nova Zelândia",
-    "category": "Monarquia progressista-bicultural",
-    "description": "Monarquia parlamentar do Pacífico, a Nova Zelândia é conhecida por democracia progressista, bem-estar social e economia de mercado aberta, com forte reconhecimento da cultura maori e da parceria bicultural do país.",
+    "name": "New Zealand",
+    "category": "Progressive-bicultural monarchy",
+    "description": "A Pacific parliamentary monarchy, New Zealand is known for progressive democracy, social welfare, and an open market economy, with strong recognition of Māori culture and the country's bicultural partnership.",
     "flagPath": "/countries/flags/nova-zelandia.png",
     "historical": false,
     "period": "",
@@ -997,9 +1058,9 @@
   },
   {
     "id": "irlanda",
-    "name": "Irlanda",
-    "category": "República liberal-multinacional",
-    "description": "República parlamentarista europeia, a Irlanda combina democracia liberal, economia de mercado aberta atraída por multinacionais, tradição de neutralidade e rápidas transformações sociais rumo a políticas progressistas.",
+    "name": "Ireland",
+    "category": "Liberal-multinational republic",
+    "description": "A European parliamentary republic, Ireland combines liberal democracy, an open market economy attractive to multinationals, a tradition of neutrality, and rapid social transformation toward progressive policies.",
     "flagPath": "/countries/flags/irlanda.png",
     "historical": false,
     "period": "",
@@ -1008,9 +1069,9 @@
   },
   {
     "id": "ucrania",
-    "name": "Ucrânia",
-    "category": "República resistente-ocidentalizante",
-    "description": "República semipresidencialista do Leste Europeu, a Ucrânia consolida democracia, identidade nacional e aproximação ao Ocidente enquanto resiste à invasão russa, luta que domina sua política, economia e sociedade.",
+    "name": "Ukraine",
+    "category": "Resistant-westernizing republic",
+    "description": "A semi-presidential republic in Eastern Europe, Ukraine is consolidating democracy, national identity, and closer ties to the West while resisting the Russian invasion, a struggle that dominates its politics, economy, and society.",
     "flagPath": "/countries/flags/ucrania.png",
     "historical": false,
     "period": "",
@@ -1019,9 +1080,9 @@
   },
   {
     "id": "bielorrussia",
-    "name": "Bielorrússia",
-    "category": "Autocracia estatal-personalista",
-    "description": "República presidencialista pós-soviética, a Bielorrússia é governada por um regime autoritário e personalista, com forte controle estatal da economia, repressão à oposição e estreita aliança política com a Rússia.",
+    "name": "Belarus",
+    "category": "Statist-personalist autocracy",
+    "description": "A post-Soviet presidential republic, Belarus is ruled by an authoritarian, personalist regime, with strong state control of the economy, repression of the opposition, and a close political alliance with Russia.",
     "flagPath": "/countries/flags/bielorrussia.png",
     "historical": false,
     "period": "",
@@ -1030,31 +1091,36 @@
   },
   {
     "id": "catar",
-    "name": "Catar",
-    "category": "Monarquia rentista-projetiva",
-    "description": "Pequena monarquia absoluta do Golfo, o Catar concentra o poder na família real e apoia sua riqueza no gás natural, aliando conservadorismo religioso a intensa projeção internacional por investimentos, mídia e diplomacia.",
+    "name": "Qatar",
+    "category": "Rentier-projective monarchy",
+    "description": "A small absolute Gulf monarchy, Qatar concentrates power in the royal family and bases its wealth on natural gas, pairing religious conservatism with intense international projection through investments, media, and diplomacy.",
     "flagPath": "/countries/flags/catar.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "libano",
-    "name": "Líbano",
-    "category": "República confessional-fragmentada",
-    "description": "República parlamentarista do Oriente Médio, o Líbano reparte o poder entre comunidades religiosas num sistema confessional, com pluralismo, forte setor de serviços e crônica instabilidade política e econômica.",
+    "name": "Lebanon",
+    "category": "Confessional-fragmented republic",
+    "description": "A parliamentary republic in the Middle East, Lebanon divides power among religious communities in a confessional system, with pluralism, a strong service sector, and chronic political and economic instability.",
     "flagPath": "/countries/flags/libano.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic","islam"]
+    "religions": [
+      "catholic",
+      "islam"
+    ]
   },
   {
     "id": "siria",
-    "name": "Síria",
-    "category": "República em transição pós-Assad",
-    "description": "Sob o presidente Ahmed al-Sharaa, a Síria atravessa uma transição iniciada após a queda de Assad, com Constituição provisória de 2025, reconstrução e desafios de unidade, segurança e direitos das minorias.",
+    "name": "Syria",
+    "category": "Post-Assad transitional republic",
+    "description": "Under President Ahmed al-Sharaa, Syria is in a transition begun after Assad’s fall, with a 2025 provisional constitution, reconstruction, and challenges of unity, security, and minority rights.",
     "flagPath": "/countries/flags/siria.png",
     "historical": false,
     "period": "",
@@ -1063,46 +1129,54 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Syria_(2025-).svg",
     "flagNote": "Bandeira nacional de três estrelas, restabelecida após a queda do regime Assad.",
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "filipinas",
-    "name": "Filipinas",
-    "category": "Democracia dinástico-católica",
-    "description": "República presidencialista arquipelágica, as Filipinas combinam democracia dominada por dinastias políticas, forte identidade católica e economia de mercado, com pautas de segurança e combate à criminalidade em destaque.",
+    "name": "Philippines",
+    "category": "Dynastic-Catholic democracy",
+    "description": "An archipelagic presidential republic, the Philippines combines a democracy dominated by political dynasties, a strong Catholic identity, and a market economy, with security and anti-crime agendas in the spotlight.",
     "flagPath": "/countries/flags/filipinas.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "tailandia",
-    "name": "Tailândia",
-    "category": "Monarquia militarizada-religiosa",
-    "description": "Monarquia constitucional do sudeste asiático, a Tailândia alterna governos civis e forte influência militar, com monarquia reverenciada, budismo predominante e economia de mercado voltada a turismo e exportações.",
+    "name": "Thailand",
+    "category": "Militarized-religious monarchy",
+    "description": "A constitutional monarchy in Southeast Asia, Thailand alternates civilian governments and strong military influence, with a revered monarchy, predominant Buddhism, and a market economy geared toward tourism and exports.",
     "flagPath": "/countries/flags/tailandia.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["buddhism"]
+    "religions": [
+      "buddhism"
+    ]
   },
   {
     "id": "malasia",
-    "name": "Malásia",
-    "category": "Monarquia multiétnica-islâmica",
-    "description": "Monarquia federativa eletiva do sudeste asiático, a Malásia combina democracia, sociedade multiétnica, islã como religião oficial e economia de mercado dirigida pelo Estado, com políticas de ação afirmativa aos malaios.",
+    "name": "Malaysia",
+    "category": "Multiethnic-Islamic monarchy",
+    "description": "An elective federal monarchy in Southeast Asia, Malaysia combines democracy, a multiethnic society, Islam as the official religion, and a state-directed market economy, with affirmative action policies for Malays.",
     "flagPath": "/countries/flags/malasia.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "taiwan",
     "name": "Taiwan",
-    "category": "República democrático-tecnológica",
-    "description": "República presidencialista insular, Taiwan é uma democracia vibrante e polo tecnológico global, sobretudo de semicondutores, que vive sob ameaça militar constante da China e é pioneira asiática em pautas progressistas, como o casamento igualitário.",
+    "category": "Democratic-technological republic",
+    "description": "An island presidential republic, Taiwan is a vibrant democracy and global technology hub, especially semiconductors, living under constant military threat from China, and is Asia's pioneer in progressive causes such as marriage equality.",
     "flagPath": "/countries/flags/taiwan.png",
     "historical": false,
     "period": "",
@@ -1112,19 +1186,22 @@
   {
     "id": "el-salvador",
     "name": "El Salvador",
-    "category": "República securitário-digital",
-    "description": "República presidencialista da América Central, El Salvador ganhou destaque pela dura política de segurança contra as gangues e pela adoção do bitcoin, unindo forte apoio popular e concentração de poder no Executivo.",
+    "category": "Security-digital republic",
+    "description": "A presidential republic in Central America, El Salvador gained prominence for its tough security policy against gangs and its adoption of bitcoin, uniting strong popular support and the concentration of power in the executive.",
     "flagPath": "/countries/flags/el-salvador.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "colombia",
-    "name": "Colômbia",
-    "category": "República católico-pacificadora",
-    "description": "República presidencialista sul-americana, a Colômbia combina democracia, forte tradição católica e economia de mercado, buscando consolidar a paz após décadas de conflito armado sob um governo de esquerda inédito.",
+    "name": "Colombia",
+    "category": "Catholic-pacifying republic",
+    "description": "A South American presidential republic, Colombia combines democracy, a strong Catholic tradition, and a market economy, seeking to consolidate peace after decades of armed conflict under an unprecedented left-wing government.",
     "flagPath": "/countries/flags/colombia.png",
     "historical": false,
     "period": "",
@@ -1133,9 +1210,9 @@
   },
   {
     "id": "uruguai",
-    "name": "Uruguai",
-    "category": "República laico-progressista",
-    "description": "República presidencialista sul-americana, o Uruguai é reconhecido por democracia sólida, forte laicidade, amplos direitos sociais e políticas progressistas, aliando estabilidade institucional a uma economia de mercado.",
+    "name": "Uruguay",
+    "category": "Secular-progressive republic",
+    "description": "A South American presidential republic, Uruguay is recognized for solid democracy, strong secularism, broad social rights, and progressive policies, pairing institutional stability with a market economy.",
     "flagPath": "/countries/flags/uruguai.png",
     "historical": false,
     "period": "",
@@ -1144,9 +1221,9 @@
   },
   {
     "id": "japao-meiji",
-    "name": "Japão Meiji",
-    "category": "Monarquia modernizadora-industrial",
-    "description": "Durante a Era Meiji, o Japão passou por rápida modernização dirigida pelo imperador, que aboliu o feudalismo, industrializou o país e criou instituições modernas, unindo tradição, nacionalismo e ascensão militar.",
+    "name": "Meiji Japan",
+    "category": "Modernizing-industrial monarchy",
+    "description": "During the Meiji Era, Japan underwent rapid modernization directed by the emperor, who abolished feudalism, industrialized the country, and created modern institutions, uniting tradition, nationalism, and military ascent.",
     "flagPath": "/countries/flags/japao-meiji.png",
     "historical": true,
     "period": "1868–1912",
@@ -1155,13 +1232,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Japan_(1870–1999).svg",
     "flagNote": "Bandeira histórica usada como referência visual para o período.",
-    "religions": ["other", "buddhism"]
+    "religions": [
+      "other",
+      "buddhism"
+    ]
   },
   {
     "id": "republica-holandesa",
-    "name": "República Holandesa (Províncias Unidas)",
-    "category": "Confederação mercantil-tolerante",
-    "description": "Pioneira república mercantil moderna, as Províncias Unidas eram uma confederação governada por uma oligarquia comercial, marcada por tolerância religiosa, livre comércio e imenso poder naval e financeiro no seu auge.",
+    "name": "Dutch Republic (United Provinces)",
+    "category": "Tolerant mercantile confederation",
+    "description": "A pioneering modern merchant republic, the United Provinces were a confederation governed by a commercial oligarchy, marked by religious tolerance, free trade, and immense naval and financial power at their height.",
     "flagPath": "/countries/flags/republica-holandesa.png",
     "historical": true,
     "period": "1581–1795",
@@ -1170,13 +1250,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Statenvlag.svg",
     "flagNote": "Bandeira histórica usada como referência visual para o período.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "republica-de-weimar",
-    "name": "República de Weimar",
-    "category": "República parlamentar-instável",
-    "description": "Primeira democracia alemã, a República de Weimar uniu parlamentarismo, representação proporcional e intensa vida cultural, mas foi minada por crises econômicas e instabilidade política que abriram caminho ao nazismo.",
+    "name": "Weimar Republic",
+    "category": "Unstable parliamentary republic",
+    "description": "Germany's first democracy, the Weimar Republic united parliamentarism, proportional representation, and intense cultural life, but was undermined by economic crises and political instability that paved the way for Nazism.",
     "flagPath": "/countries/flags/republica-de-weimar.png",
     "historical": true,
     "period": "1919–1933",
@@ -1189,9 +1271,9 @@
   },
   {
     "id": "gra-colombia",
-    "name": "Grã-Colômbia",
-    "category": "República centralista-militarizada",
-    "description": "Efêmera república criada por Simón Bolívar, a Grã-Colômbia reuniu vastos territórios do norte da América do Sul num Estado centralista e militarizado, que se desfez em poucos anos por rivalidades regionais e políticas.",
+    "name": "Gran Colombia",
+    "category": "Centralist-militarized republic",
+    "description": "An ephemeral republic created by Simón Bolívar, Gran Colombia gathered vast territories of northern South America into a centralist, militarized state, which dissolved within a few years due to regional and political rivalries.",
     "flagPath": "/countries/flags/gra-colombia.png",
     "historical": true,
     "period": "1819–1831",
@@ -1204,20 +1286,23 @@
   },
   {
     "id": "vaticano",
-    "name": "Vaticano",
-    "category": "Monarquia teocrática-clerical",
-    "description": "Cidade-Estado governada pela Santa Sé, o Vaticano combina soberania religiosa, monarquia eletiva absoluta e administração clerical, funcionando como centro institucional da Igreja Católica e ator diplomático global.",
+    "name": "Vatican City",
+    "category": "Clerical theocratic monarchy",
+    "description": "A city-state governed by the Holy See, the Vatican combines religious sovereignty, an absolute elective monarchy, and clerical administration, functioning as the institutional center of the Catholic Church and a global diplomatic actor.",
     "flagPath": "/countries/flags/vaticano.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic", "only"]
+    "religions": [
+      "catholic",
+      "only"
+    ]
   },
   {
     "id": "monaco",
-    "name": "Mônaco",
-    "category": "Monarquia rentista-turística",
-    "description": "Pequeno principado mediterrâneo, Mônaco combina monarquia constitucional, baixa tributação, forte dependência de serviços financeiros e turismo de luxo, mantendo ordem social conservadora e grande abertura econômica.",
+    "name": "Monaco",
+    "category": "Rentier-touristic monarchy",
+    "description": "A small Mediterranean principality, Monaco combines constitutional monarchy, low taxation, strong dependence on financial services and luxury tourism, maintaining a conservative social order and great economic openness.",
     "flagPath": "/countries/flags/monaco.png",
     "historical": false,
     "period": "",
@@ -1226,9 +1311,9 @@
   },
   {
     "id": "estonia",
-    "name": "Estônia",
-    "category": "República digital-atlântica",
-    "description": "República parlamentar báltica, a Estônia une democracia liberal, economia aberta, Estado digital avançado e forte alinhamento euro-atlântico, mantendo preocupação com soberania nacional diante da pressão russa.",
+    "name": "Estonia",
+    "category": "Digital-Atlantic republic",
+    "description": "A Baltic parliamentary republic, Estonia unites liberal democracy, an open economy, an advanced digital state, and strong Euro-Atlantic alignment, remaining vigilant about national sovereignty in the face of Russian pressure.",
     "flagPath": "/countries/flags/estonia.png",
     "historical": false,
     "period": "",
@@ -1237,9 +1322,9 @@
   },
   {
     "id": "luxemburgo",
-    "name": "Luxemburgo",
-    "category": "Monarquia financeira-integrada",
-    "description": "Grão-ducado europeu e centro financeiro global, Luxemburgo combina monarquia parlamentar, economia aberta, alta integração europeia e sociedade multicultural sustentada por serviços, tecnologia e finanças.",
+    "name": "Luxembourg",
+    "category": "Financial-integrated monarchy",
+    "description": "A European grand duchy and global financial center, Luxembourg combines parliamentary monarchy, an open economy, deep European integration, and a multicultural society sustained by services, technology, and finance.",
     "flagPath": "/countries/flags/luxemburgo.png",
     "historical": false,
     "period": "",
@@ -1248,20 +1333,23 @@
   },
   {
     "id": "eua-florida",
-    "name": "Flórida (Estados Unidos)",
-    "category": "Região conservadora-turística",
-    "description": "Estado norte-americano de perfil conservador e pró-mercado, a Flórida combina baixa tributação, turismo, imigração intensa, política cultural combativa e governo estadual ativo em segurança e educação.",
+    "name": "Florida (United States)",
+    "category": "Conservative-touristic region",
+    "description": "A US state with a conservative, pro-market profile, Florida combines low taxation, tourism, intense immigration, combative cultural politics, and a state government active in security and education.",
     "flagPath": "/countries/flags/eua-florida.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "imperio-do-japao",
-    "name": "Império do Japão",
-    "category": "Monarquia militar-expansionista",
-    "description": "Regime imperial japonês do início do século XX, combinou monarquia sagrada, militarismo, industrialização acelerada, nacionalismo expansionista e forte disciplina social até sua derrota na Segunda Guerra Mundial.",
+    "name": "Empire of Japan",
+    "category": "Militaristic-expansionist monarchy",
+    "description": "The Japanese imperial regime of the early 20th century combined sacred monarchy, militarism, accelerated industrialization, expansionist nationalism, and strong social discipline until its defeat in World War II.",
     "flagPath": "/countries/flags/imperio-do-japao.png",
     "historical": true,
     "period": "1868–1947",
@@ -1270,13 +1358,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Japan_(1870%E2%80%931999).svg",
     "flagNote": "Bandeira histórica usada como referência visual para o período.",
-    "religions": ["other", "buddhism"]
+    "religions": [
+      "other",
+      "buddhism"
+    ]
   },
   {
     "id": "imperio-austro-hungaro",
-    "name": "Império Austro-Húngaro",
-    "category": "Monarquia dual-aristocrática",
-    "description": "Monarquia dual da Europa Central, o Império Austro-Húngaro reuniu múltiplas nacionalidades sob a dinastia Habsburgo, combinando aristocracia, burocracia imperial, catolicismo político e tensões nacionalistas crescentes.",
+    "name": "Austro-Hungarian Empire",
+    "category": "Dual aristocratic monarchy",
+    "description": "A dual monarchy in Central Europe, the Austro-Hungarian Empire gathered multiple nationalities under the Habsburg dynasty, combining aristocracy, imperial bureaucracy, political Catholicism, and growing nationalist tensions.",
     "flagPath": "/countries/flags/imperio-austro-hungaro.png",
     "historical": true,
     "period": "1867–1918",
@@ -1285,13 +1376,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Ensign_of_Austro-Hungarian_civil_fleet_(1869-1918).svg",
     "flagNote": "Bandeira histórica usada como referência visual para o período.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "butao",
-    "name": "Butão",
-    "category": "Monarquia budista-conservacionista",
-    "description": "Pequeno reino himalaico, o Butão combina monarquia constitucional budista, forte proteção da cultura tradicional e da natureza e a Felicidade Interna Bruta como bússola de governo, com abertura cautelosa ao mundo exterior.",
+    "name": "Bhutan",
+    "category": "Buddhist-conservationist monarchy",
+    "description": "A small Himalayan kingdom, Bhutan combines a Buddhist constitutional monarchy, strong protection of traditional culture and nature, and Gross National Happiness as its compass of government, with cautious openness to the outside world.",
     "flagPath": "/countries/flags/butao.png",
     "historical": false,
     "period": "",
@@ -1300,13 +1393,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Bhutan.svg",
     "flagNote": "Bandeira nacional do Butão.",
-    "religions": ["buddhism"]
+    "religions": [
+      "buddhism"
+    ]
   },
   {
     "id": "imperio-persa-aquemenida",
-    "name": "Império Persa (Aquemênida)",
-    "category": "Império satrapal-tolerante",
-    "description": "Primeiro grande império universal da história, a Pérsia aquemênida governava dezenas de povos por meio de satrapias autônomas, estradas e tributos, tolerando línguas, leis e religiões locais sob a autoridade absoluta do Rei dos Reis.",
+    "name": "Persian Empire (Achaemenid)",
+    "category": "Tolerant satrapal empire",
+    "description": "The first great universal empire in history, Achaemenid Persia governed dozens of peoples through autonomous satrapies, roads, and tribute, tolerating local languages, laws, and religions under the absolute authority of the King of Kings.",
     "flagPath": "/countries/flags/imperio-persa-aquemenida.png",
     "historical": true,
     "period": "550–330 a.C.",
@@ -1315,13 +1410,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Standard_of_Cyrus_the_Great.svg",
     "flagNote": "Estandarte de Ciro, o Grande, usado como referência visual para o período.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "comuna-de-paris",
-    "name": "Comuna de Paris",
-    "category": "Socialismo comunal-autogestionário",
-    "description": "Governo revolucionário que tomou Paris por 72 dias em 1871, a Comuna instaurou democracia direta com mandatos revogáveis, autogestão operária das oficinas, separação entre Igreja e Estado e igualdade salarial, tornando-se símbolo do socialismo comunal.",
+    "name": "Paris Commune",
+    "category": "Self-managed communal socialism",
+    "description": "The revolutionary government that held Paris for 72 days in 1871, the Commune established direct democracy with recallable mandates, workers' self-management of workshops, separation of Church and state, and equal pay, becoming a symbol of communal socialism.",
     "flagPath": "/countries/flags/comuna-de-paris.png",
     "historical": true,
     "period": "março–maio de 1871",
@@ -1334,9 +1431,9 @@
   },
   {
     "id": "catalunha",
-    "name": "Catalunha (Espanha)",
-    "category": "Região independentista-industrial",
-    "description": "Região autônoma do nordeste da Espanha, a Catalunha combina identidade nacional e língua próprias, economia industrial e cosmopolita, política social progressista e um forte movimento independentista que culminou no referendo de 2017.",
+    "name": "Catalonia (Spain)",
+    "category": "Independentist-industrial region",
+    "description": "An autonomous region in northeastern Spain, Catalonia combines its own national identity and language, an industrial, cosmopolitan economy, progressive social politics, and a strong independence movement that culminated in the 2017 referendum.",
     "flagPath": "/countries/flags/catalunha.png",
     "historical": false,
     "period": "",
@@ -1349,9 +1446,9 @@
   },
   {
     "id": "florenca-renascentista",
-    "name": "Florença Renascentista",
-    "category": "República mercantil-mecenática",
-    "description": "Cidade-Estado do Renascimento italiano, Florença uniu capitalismo bancário e comercial, disputas facciosas entre guildas e famílias como os Médici e um mecenato que revolucionou as artes, as letras e o pensamento político.",
+    "name": "Renaissance Florence",
+    "category": "Mercantile-patronage republic",
+    "description": "A city-state of the Italian Renaissance, Florence united banking and commercial capitalism, factional disputes among guilds and families such as the Medici, and a patronage that revolutionized the arts, letters, and political thought.",
     "flagPath": "/countries/flags/florenca-renascentista.png",
     "historical": true,
     "period": "1115–1532",
@@ -1360,13 +1457,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Florence.svg",
     "flagNote": "Bandeira com o giglio de Florença usada como referência visual para o período.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "roma-republicana",
-    "name": "Roma Republicana",
-    "category": "República senatorial-expansionista",
-    "description": "República aristocrática da Antiguidade, Roma equilibrava cônsules, Senado e tribunos da plebe em um sistema misto de magistraturas eletivas, expandindo-se pelo Mediterrâneo por meio de legiões cidadãs e de um forte culto à virtude cívica.",
+    "name": "Republican Rome",
+    "category": "Senatorial-expansionist republic",
+    "description": "An aristocratic republic of antiquity, Rome balanced consuls, Senate, and tribunes of the plebs in a mixed system of elective magistracies, expanding across the Mediterranean through citizen legions and a strong cult of civic virtue.",
     "flagPath": "/countries/flags/imperio-romano.png",
     "historical": true,
     "period": "509–27 a.C.",
@@ -1375,13 +1474,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Vexilloid_of_the_Roman_Empire.svg",
     "flagNote": "Vexilo com a sigla SPQR usado como referência visual para o período.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "hungria-de-kadar",
-    "name": "Hungria de Kádár",
-    "category": "Socialismo unipartidário-consumista",
-    "description": "Instaurado após o esmagamento da revolução de 1956, o regime de Kádár combinou partido único, alinhamento soviético, liberalização econômica gradual, pequeno setor privado e bem-estar de consumo.",
+    "name": "Kádár's Hungary",
+    "category": "One-party consumerist socialism",
+    "description": "Established after the crushing of the 1956 revolution, Kádár's regime combined single-party rule, Soviet alignment, gradual economic liberalization, a small private sector, and consumer welfare.",
     "flagPath": "/countries/flags/hungria-de-kadar.png",
     "historical": true,
     "period": "1956–1989",
@@ -1394,9 +1495,9 @@
   },
   {
     "id": "chile-de-allende",
-    "name": "Chile de Allende",
-    "category": "Socialismo democrático-nacionalizante",
-    "description": "Governo da Unidade Popular de Allende, tentou construir socialismo por via democrática, com nacionalização do cobre e dos bancos, reforma agrária e planejamento econômico até o golpe de 1973.",
+    "name": "Allende's Chile",
+    "category": "Democratic-nationalizing socialism",
+    "description": "Under Allende's Popular Unity, Chile attempted democratic socialism through copper and bank nationalization, agrarian reform, and economic planning until the 1973 military coup.",
     "flagPath": "/countries/flags/chile.gif",
     "historical": true,
     "period": "1970–1973",
@@ -1409,9 +1510,9 @@
   },
   {
     "id": "burkina-faso-de-sankara",
-    "name": "Burkina Faso de Sankara",
-    "category": "Socialismo revolucionário-anticolonial",
-    "description": "Sob Thomas Sankara, Burkina Faso combinou autossuficiência alimentar, vacinação e alfabetização em massa, emancipação feminina, rejeição da dívida externa e ruptura frontal com o neocolonialismo francês.",
+    "name": "Sankara's Burkina Faso",
+    "category": "Revolutionary anti-colonial socialism",
+    "description": "Under Thomas Sankara, Burkina Faso combined food self-sufficiency, mass vaccination and literacy campaigns, women's emancipation, rejection of foreign debt, and a frontal break with French neocolonialism.",
     "flagPath": "/countries/flags/burkina-faso-de-sankara.png",
     "historical": true,
     "period": "1983–1987",
@@ -1424,9 +1525,9 @@
   },
   {
     "id": "eua-confederados",
-    "name": "Estados Confederados da América",
-    "category": "Confederação agrária-escravista",
-    "description": "Formados pela secessão de onze estados do Sul para preservar a escravidão, os Estados Confederados combinavam confederalismo radical, sociedade agrária tradicionalista e religiosa e livre comércio, sendo derrotados na Guerra Civil.",
+    "name": "Confederate States of America",
+    "category": "Agrarian-slaveholding confederation",
+    "description": "Formed by the secession of eleven Southern states to preserve slavery, the Confederate States combined radical state confederalism, a traditionalist and religious agrarian society, and free trade, before being defeated in the Civil War.",
     "flagPath": "/countries/flags/eua-confederados.png",
     "historical": true,
     "period": "1861–1865",
@@ -1435,13 +1536,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Confederate_States_of_America_(1861-1863).svg",
     "flagNote": "Primeira bandeira nacional confederada ('Stars and Bars'), 1861–1863.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "macau",
     "name": "Macau (China)",
-    "category": "Região hiperaberta-recreativa",
-    "description": "Região administrativa especial chinesa e maior centro de jogos de azar do mundo, Macau une impostos baixíssimos, economia hiperaberta de cassinos e turismo, herança católica portuguesa e um sistema político controlado por Pequim, sem democracia plena.",
+    "category": "Hyper-open recreational region",
+    "description": "A Chinese special administrative region and the world's largest gambling center, Macau unites very low taxes, a hyper-open economy of casinos and tourism, a Portuguese Catholic heritage, and a political system controlled by Beijing, without full democracy.",
     "flagPath": "/countries/flags/macau.png",
     "historical": false,
     "period": "",
@@ -1454,9 +1557,9 @@
   },
   {
     "id": "estados-papais",
-    "name": "Estados Papais",
-    "category": "Teocracia clerical-territorial",
-    "description": "Estado temporal do Papado, os Estados Papais uniam autoridade espiritual e política sob o Papa, aplicando direito canônico e governo clerical sobre a Itália central por séculos.",
+    "name": "Papal States",
+    "category": "Territorial clerical theocracy",
+    "description": "Temporal state of the Papacy, the Papal States united spiritual and political authority under the Pope, applying canon law and clerical government over central Italy for centuries.",
     "flagPath": "/countries/flags/estados-papais.jpg",
     "historical": true,
     "period": "756–1870",
@@ -1465,13 +1568,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Papal_States_(1808-1870).svg",
     "flagNote": "Bandeira historica dos Estados Papais usada como referencia visual.",
-    "religions": ["catholic", "only"]
+    "religions": [
+      "catholic",
+      "only"
+    ]
   },
   {
     "id": "imperio-bizantino",
-    "name": "Império Bizantino",
-    "category": "Autocracia cesaropapista-ortodoxa",
-    "description": "Herdeiro do Império Romano no Oriente, Bizâncio durou mil anos fundindo cristianismo ortodoxo, autocracia imperial e direito justinianeu, com o imperador como chefe da Igreja e Constantinopla como capital cristã defensora da Europa.",
+    "name": "Byzantine Empire",
+    "category": "Orthodox caesaropapist autocracy",
+    "description": "Heir of the Roman Empire in the East, Byzantium lasted a thousand years fusing Orthodox Christianity, imperial autocracy, and Justinianic law, with the emperor as head of the Church and Constantinople as a Christian capital defending Europe.",
     "flagPath": "/countries/flags/imperio-bizantino.png",
     "historical": true,
     "period": "330–1453",
@@ -1480,13 +1586,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Byzantine_imperial_flag,_14th_century.svg",
     "flagNote": "Simbolo imperial bizantino tardio usado como referencia visual.",
-    "religions": ["catholic", "orthodox"]
+    "religions": [
+      "catholic",
+      "orthodox"
+    ]
   },
   {
     "id": "espanha-habsburgos",
-    "name": "Espanha dos Habsburgos",
-    "category": "Monarquia católica-contrarreformista",
-    "description": "A Espanha dos Habsburgos, sobretudo sob Filipe II, foi um Estado católico contrarreformista, marcado por Inquisição, limpeza de sangue, expulsões religiosas e guerras em defesa da fé.",
+    "name": "Habsburg Spain",
+    "category": "Counter-Reformation Catholic monarchy",
+    "description": "Habsburg Spain, especially under Philip II, was a Catholic Counter-Reformation state, marked by the Inquisition, purity-of-blood laws, religious expulsions, and wars defending the faith.",
     "flagPath": "/countries/flags/espanha-habsburgos.png",
     "historical": true,
     "period": "1516–1700",
@@ -1495,13 +1604,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Cross_of_Burgundy.svg",
     "flagNote": "Cruz de Borgonha usada como referencia visual da monarquia hispanica dos Habsburgos.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "imperio-russo-czarista",
-    "name": "Império Russo Czarista",
-    "category": "Autocracia dinástico-ortodoxa",
-    "description": "O Império Russo dos Romanov combinou cristianismo ortodoxo, autocracia dinástica, expansão territorial e burocracia imperial, com o czar como chefe político e defensor da fé oficial.",
+    "name": "Tsarist Russian Empire",
+    "category": "Dynastic-Orthodox autocracy",
+    "description": "The Russian Empire under the Romanovs combined Orthodox Christianity, dynastic autocracy, territorial expansion, and imperial bureaucracy, with the Tsar as political head and defender of the official faith.",
     "flagPath": "/countries/flags/imperio-russo.png",
     "historical": true,
     "period": "1613–1917",
@@ -1510,13 +1621,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Russia.svg",
     "flagNote": "Tricolor russo historico usado como referencia visual do Imperio Russo.",
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "genebra-calvinista",
-    "name": "Genebra Calvinista",
-    "category": "Teocracia reformada-disciplinar",
-    "description": "A cidade de Genebra sob Calvino (1541–1564) organizou-se como teocracia reformada urbana, com o Consistório disciplinando a moral pública e as Ordonnances Ecclésiastiques regulando toda a vida religiosa e civil e exportando o puritanismo.",
+    "name": "Calvinist Geneva",
+    "category": "Disciplinary reformed theocracy",
+    "description": "The city of Geneva under Calvin (1541–1564) organized itself as an urban Reformed theocracy, with the Consistory disciplining public morality and the Ordonnances Ecclésiastiques regulating all religious and civil life and exporting Puritanism.",
     "flagPath": "/countries/flags/genebra.png",
     "historical": true,
     "period": "1541–1564",
@@ -1525,13 +1638,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Canton_of_Geneva.svg",
     "flagNote": "Bandeira de Genebra usada como referencia visual da cidade reformada.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "imperio-portugues",
-    "name": "Império Português",
-    "category": "Monarquia católica-talassocrática",
-    "description": "Primeiro e mais longevo dos impérios coloniais europeus (1415–1822), uniu monarquia absoluta, catolicismo militante e talassocracia global, levando a fé cristã, a língua e a administração portuguesa da América à África, Índia e Ásia.",
+    "name": "Portuguese Empire",
+    "category": "Catholic thalassocratic monarchy",
+    "description": "The first and longest-lasting of the European colonial empires (1415–1822), it united absolute monarchy, militant Catholicism, and global thalassocracy, carrying Christian faith, language, and Portuguese administration from the Americas to Africa, India, and Asia.",
     "flagPath": "/countries/flags/imperio-portugues.png",
     "historical": true,
     "period": "1415–1822",
@@ -1540,13 +1655,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_Portugal_(1640).svg",
     "flagNote": "Bandeira historica portuguesa usada como referencia visual do imperio ultramarino.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "austria",
-    "name": "Áustria",
-    "category": "República social-neutralista",
-    "description": "República federal parlamentarista da Europa Central, a Áustria combina neutralidade militar, Estado de bem-estar robusto, economia social de mercado, cultura católica-secular moderada e integração profunda à União Europeia.",
+    "name": "Austria",
+    "category": "Social-neutralist republic",
+    "description": "A parliamentary federal republic in Central Europe, Austria combines military neutrality, a robust welfare state, a social market economy, a moderate Catholic-secular culture, and deep integration into the European Union.",
     "flagPath": "/countries/flags/austria.png",
     "historical": false,
     "period": "",
@@ -1559,9 +1676,9 @@
   },
   {
     "id": "imperio-alemao",
-    "name": "Império Alemão (Segundo Reich)",
-    "category": "Monarquia constitucional-militarista",
-    "description": "Estado imperial alemão de 1871 a 1918, uniu federalismo prussiano, monarquia constitucional limitada, sufrágio masculino para o Reichstag, forte autoridade do Kaiser e do chanceler, industrialização acelerada, militarismo e política externa de potência ascendente.",
+    "name": "German Empire (Second Reich)",
+    "category": "Constitutional-militarist monarchy",
+    "description": "The German imperial state from 1871 to 1918 united Prussian-led federalism, limited constitutional monarchy, male suffrage for the Reichstag, strong Kaiser and chancellor authority, rapid industrialization, militarism, and the foreign policy of a rising power.",
     "flagPath": "/countries/flags/imperio-alemao.png",
     "historical": true,
     "period": "1871–1918",
@@ -1570,13 +1687,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Germany_(1867%E2%80%931918).svg",
     "flagNote": "Bandeira preta-branca-vermelha usada pela Confederação da Alemanha do Norte e pelo Império Alemão (1867–1918).",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "portugal",
     "name": "Portugal",
-    "category": "República social-atlântica",
-    "description": "República semipresidencialista europeia, Portugal combina democracia consolidada, economia de mercado integrada à União Europeia, Estado social moderado, baixa conflitividade institucional, herança católica secularizada e forte abertura atlântica.",
+    "category": "Social-Atlantic republic",
+    "description": "A European semi-presidential republic, Portugal combines consolidated democracy, a market economy integrated into the European Union, a moderate welfare state, low institutional conflict, secularized Catholic heritage, and strong Atlantic openness.",
     "flagPath": "/countries/flags/portugal.png",
     "historical": false,
     "period": "",
@@ -1589,9 +1709,9 @@
   },
   {
     "id": "alemanha-oriental",
-    "name": "Alemanha Oriental",
-    "category": "Socialismo unipartidário-vigilante",
-    "description": "A República Democrática Alemã foi um Estado socialista alinhado à União Soviética, com partido único, polícia política extensa, economia planificada, controle social rígido, secularização estatal e integração militar ao bloco oriental.",
+    "name": "East Germany",
+    "category": "One-party surveillance socialism",
+    "description": "The German Democratic Republic was a socialist state aligned with the Soviet Union, with single-party rule, an extensive political police, a planned economy, rigid social control, state secularization, and military integration into the Eastern Bloc.",
     "flagPath": "/countries/flags/alemanha-oriental.png",
     "historical": true,
     "period": "1949–1990",
@@ -1604,9 +1724,9 @@
   },
   {
     "id": "islandia",
-    "name": "Islândia",
-    "category": "República social-pacifista",
-    "description": "República parlamentar nórdica, a Islândia combina democracia estável, Estado de bem-estar, economia de mercado aberta, sociedade altamente secular e progressista, forte confiança institucional e política externa pacífica sem forças armadas permanentes.",
+    "name": "Iceland",
+    "category": "Social-pacifist republic",
+    "description": "A Nordic parliamentary republic, Iceland combines stable democracy, a welfare state, an open market economy, a highly secular and progressive society, strong institutional trust, and a peaceful foreign policy without permanent armed forces.",
     "flagPath": "/countries/flags/islandia.png",
     "historical": false,
     "period": "",
@@ -1619,9 +1739,9 @@
   },
   {
     "id": "finlandia",
-    "name": "Finlândia",
-    "category": "República social-defensiva",
-    "description": "República parlamentar nórdica, a Finlândia combina Estado de bem-estar, economia social de mercado, alto desempenho educacional e tecnológico, valores progressistas e uma cultura estratégica marcada pela defesa territorial e pela fronteira com a Rússia.",
+    "name": "Finland",
+    "category": "Social-defensive republic",
+    "description": "A Nordic parliamentary republic, Finland combines a welfare state, social market economy, high educational and technological performance, progressive values, and a strategic culture shaped by territorial defense and its border with Russia.",
     "flagPath": "/countries/flags/finlandia.png",
     "historical": false,
     "period": "",
@@ -1634,9 +1754,9 @@
   },
   {
     "id": "imperio-mongol",
-    "name": "Império Mongol",
-    "category": "Confederação militar-tributária",
-    "description": "Fundado por Genghis Khan, o Império Mongol unificou tribos da estepe, expandiu-se por campanhas militares devastadoras e governou povos diversos com vassalagem, tributo e tolerância religiosa pragmática.",
+    "name": "Mongol Empire",
+    "category": "Military-tributary confederation",
+    "description": "Founded by Genghis Khan, the Mongol Empire unified steppe tribes, expanded through devastating military campaigns, and ruled diverse peoples through vassalage, tribute, and pragmatic religious tolerance.",
     "flagPath": "/countries/flags/imperio-mongol.png",
     "historical": true,
     "period": "1206–1368",
@@ -1645,13 +1765,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Mongol_Empire.svg",
     "flagNote": "Bandeira conjectural marcada no Commons como especulativa; usada apenas como referência visual por falta de bandeira estatal comprovada para o período.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "brasil-regime-militar",
-    "name": "Brasil do Regime Militar",
-    "category": "Ditadura desenvolvimentista-conservadora",
-    "description": "Regime instaurado em 1964, combinou repressão política, censura e órgãos de segurança com desenvolvimentismo estatal, grandes obras, reserva de mercado e moralismo conservador durante a Guerra Fria.",
+    "name": "Brazil under Military Rule",
+    "category": "Developmentalist-conservative dictatorship",
+    "description": "Dictatorship installed in 1964, combining political repression, censorship, and security agencies with state-led developmentalism, major infrastructure projects, market reserves, and conservative moralism during the Cold War.",
     "flagPath": "/countries/flags/brasil.gif",
     "historical": true,
     "period": "1964–1985",
@@ -1660,13 +1782,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg",
     "flagNote": "O regime manteve a bandeira nacional brasileira.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "mexico-de-cardenas",
-    "name": "México de Cárdenas",
-    "category": "Populismo nacionalista-agrarista",
-    "description": "Governo do auge cardenista, marcou a Revolução Mexicana institucionalizada pela nacionalização do petróleo, reforma agrária em ejidos, incorporação sindical-camponesa, laicismo popular e liderança presidencial forte.",
+    "name": "Cárdenas's Mexico",
+    "category": "Nationalist-agrarian populism",
+    "description": "Government of the Cardenista peak, marking the institutionalized Mexican Revolution through oil nationalization, ejido land reform, worker-peasant incorporation, popular secularism, and strong presidential leadership.",
     "flagPath": "/countries/flags/mexico-de-cardenas.png",
     "historical": true,
     "period": "1934–1940",
@@ -1679,9 +1803,9 @@
   },
   {
     "id": "confederacao-helvetica",
-    "name": "Confederação Helvética",
-    "category": "Confederação cantonal-consuetudinária",
-    "description": "Aliança medieval de cantões autônomos formada a partir do Pacto de 1291, a Antiga Confederação Suíça funcionava sem poder central forte, combinando democracia direta em assembleias locais (Landsgemeinde), milícias camponesas independentes e fraca coordenação militar/diplomática conjunta entre os cantões.",
+    "name": "Old Swiss Confederacy",
+    "category": "Customary cantonal confederation",
+    "description": "Medieval alliance of autonomous cantons formed from the 1291 Pact, the Old Swiss Confederacy operated without a strong central power, combining direct democracy in local assemblies (Landsgemeinde), independent peasant militias, and weak joint military/diplomatic coordination among the cantons.",
     "flagPath": "/countries/flags/confederacao-helvetica.png",
     "historical": true,
     "period": "1291–1798",
@@ -1690,13 +1814,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Switzerland.svg",
     "flagNote": "Bandeira da cruz suíça, símbolo tradicional da Confederação desde o período medieval, usada como referência visual para o período.",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "imperio-napoleonico",
-    "name": "Império Napoleônico",
-    "category": "Monarquia autoritária-militarista",
-    "description": "Sob Napoleão Bonaparte, o Primeiro Império Francês concentrou poder absoluto no imperador, impôs o Código Civil e uma administração centralizada por toda a Europa conquistada, e sustentou sua expansão territorial através de guerras contínuas e um exército de conscrição em massa.",
+    "name": "Napoleonic Empire",
+    "category": "Authoritarian-militarist monarchy",
+    "description": "Under Napoleon Bonaparte, the First French Empire concentrated absolute power in the emperor, imposed the Civil Code and a centralized administration across conquered Europe, and sustained its territorial expansion through continuous warfare and a mass-conscription army.",
     "flagPath": "/countries/flags/imperio-napoleonico.png",
     "historical": true,
     "period": "1804–1815",
@@ -1709,9 +1836,9 @@
   },
   {
     "id": "armenia",
-    "name": "Armênia",
-    "category": "República nacional-diaspórica",
-    "description": "República semipresidencialista do Cáucaso, a Armênia combina identidade nacional cristã e rivalidade histórica com o Azerbaijão e a Turquia, buscando equilíbrio entre Rússia, Ocidente e Irã.",
+    "name": "Armenia",
+    "category": "National-diasporic republic",
+    "description": "A semi-presidential republic in the Caucasus, Armenia combines Christian national identity and historical rivalry with Azerbaijan and Turkey, seeking balance between Russia, the West, and Iran.",
     "flagPath": "/countries/flags/armenia.png",
     "historical": false,
     "period": "",
@@ -1723,9 +1850,9 @@
   },
   {
     "id": "georgia",
-    "name": "Geórgia",
-    "category": "República ocidentalizante-fronteiriça",
-    "description": "República semipresidencialista do Cáucaso, a Geórgia busca integração com a União Europeia e a OTAN, mantém economia de mercado aberta e enfrenta a ocupação russa da Abecásia e da Ossétia do Sul desde 2008.",
+    "name": "Georgia",
+    "category": "Westernizing-frontier republic",
+    "description": "A semi-presidential republic in the Caucasus, Georgia pursues integration with the European Union and NATO, maintains an open market economy, and faces Russian occupation of Abkhazia and South Ossetia since 2008.",
     "flagPath": "/countries/flags/georgia.png",
     "historical": false,
     "period": "",
@@ -1733,13 +1860,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Georgia.svg",
     "flagNote": "Bandeira da Cruz de São Jorge com quatro cruzes de Bolnisi, readotada pela Geórgia em 2004.",
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "belgica",
-    "name": "Bélgica",
-    "category": "Monarquia parlamentar federal",
-    "description": "Monarquia parlamentar federal formada por três regiões e três comunidades linguísticas, com eleições competitivas, ampla proteção social e economia aberta integrada à União Europeia. A política nacional combina coalizões multipartidárias, autonomia regional e garantias de liberdade religiosa.",
+    "name": "Belgium",
+    "category": "Federal parliamentary monarchy",
+    "description": "Federal parliamentary monarchy made up of three regions and three linguistic communities, with competitive elections, broad social protection, and an open economy integrated into the European Union. National politics combines multiparty coalitions, regional autonomy, and guarantees of religious freedom.",
     "flagPath": "/countries/flags/belgica.png",
     "historical": false,
     "period": "",
@@ -1752,9 +1881,9 @@
   },
   {
     "id": "panama",
-    "name": "Panamá",
-    "category": "República presidencialista e economia de serviços",
-    "description": "República unitária presidencialista que aboliu suas Forças Armadas permanentes e sustenta uma economia dolarizada, centrada no Canal, nos serviços financeiros, na Zona Livre de Colón e na integração comercial internacional.",
+    "name": "Panama",
+    "category": "Presidential republic and service economy",
+    "description": "A unitary presidential republic that abolished its standing armed forces and maintains a dollarized economy centered on the Canal, financial services, the Colón Free Trade Zone, and international trade integration.",
     "flagPath": "/countries/flags/panama.png",
     "historical": false,
     "period": "",
@@ -1768,8 +1897,8 @@
   {
     "id": "peru",
     "name": "Peru",
-    "category": "República presidencialista andina",
-    "description": "República unitária presidencialista marcada por forte instabilidade política e sucessivas destituições presidenciais, com economia aberta baseada na mineração, ampla informalidade laboral e profundas desigualdades entre a costa e as regiões andina e amazônica.",
+    "category": "Andean presidential republic",
+    "description": "A unitary presidential republic marked by severe political instability and successive presidential removals, with an open economy based on mining, widespread labor informality, and deep inequality between the coast and the Andean and Amazonian regions.",
     "flagPath": "/countries/flags/peru.png",
     "historical": false,
     "period": "",
@@ -1782,9 +1911,9 @@
   },
   {
     "id": "paraguai",
-    "name": "Paraguai",
-    "category": "República presidencialista",
-    "description": "República unitária presidencialista governada há décadas pelo Partido Colorado, com baixa carga tributária, economia agroexportadora de soja e carne, forte geração hidrelétrica em Itaipu e sociedade conservadora de maioria católica e bilíngue em guarani.",
+    "name": "Paraguay",
+    "category": "Presidential republic",
+    "description": "A unitary presidential republic governed for decades by the Colorado Party, with low taxation, a soy- and beef-exporting economy, major hydroelectric output at Itaipú, and a conservative, largely Catholic society bilingual in Guaraní.",
     "flagPath": "/countries/flags/paraguai.png",
     "historical": false,
     "period": "",
@@ -1793,13 +1922,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Paraguay.svg",
     "flagNote": "Bandeira nacional do Paraguai.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "eslovenia",
-    "name": "Eslovênia",
-    "category": "República parlamentarista",
-    "description": "República parlamentarista que se separou pacificamente da Iugoslávia em 1991 e integrou a União Europeia, a OTAN e o euro, combinando economia de mercado com forte proteção social, sindicatos influentes e sociedade largamente secularizada.",
+    "name": "Slovenia",
+    "category": "Parliamentary republic",
+    "description": "A parliamentary republic that separated peacefully from Yugoslavia in 1991 and joined the European Union, NATO, and the euro, combining a market economy with strong social protection, influential unions, and a largely secular society.",
     "flagPath": "/countries/flags/eslovenia.png",
     "historical": false,
     "period": "",
@@ -1812,9 +1943,9 @@
   },
   {
     "id": "eslovaquia",
-    "name": "Eslováquia",
-    "category": "República parlamentarista",
-    "description": "República parlamentarista surgida da divisão pacífica da Tchecoslováquia em 1993, integrada à União Europeia, à OTAN e ao euro, com economia industrial voltada ao setor automotivo e política marcada por nacionalismo, tradicionalismo católico e ceticismo quanto à ajuda militar externa.",
+    "name": "Slovakia",
+    "category": "Parliamentary republic",
+    "description": "A parliamentary republic born of the peaceful split of Czechoslovakia in 1993, integrated into the European Union, NATO, and the euro, with an industrial economy centered on automotive manufacturing and politics marked by nationalism, Catholic traditionalism, and scepticism toward foreign military aid.",
     "flagPath": "/countries/flags/eslovaquia.png",
     "historical": false,
     "period": "",
@@ -1823,13 +1954,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Slovakia.svg",
     "flagNote": "Bandeira nacional da Eslováquia.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "rodesia",
-    "name": "Rodésia",
-    "category": "Estado de minoria branca",
-    "description": "Após declarar unilateralmente a independência do Reino Unido em 1965, a Rodésia manteve o poder numa minoria branca por sufrágio censitário, sustentou economia agromineral sob sanções internacionais e travou uma longa guerra civil até a transição para o Zimbábue.",
+    "name": "Rhodesia",
+    "category": "White-minority state",
+    "description": "After unilaterally declaring independence from the United Kingdom in 1965, Rhodesia kept power in a white minority through a property-based franchise, sustained an agricultural and mining economy under international sanctions, and fought a long civil war until the transition to Zimbabwe.",
     "flagPath": "/countries/flags/rodesia.png",
     "historical": true,
     "period": "1965–1979",
@@ -1838,13 +1971,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Rhodesia_(1968%E2%80%931979).svg",
     "flagNote": "Bandeira da Rodésia usada entre 1968 e 1979.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "suica-zug",
-    "name": "Zug (Suíça)",
-    "category": "Região cripto-fiscal",
-    "description": "Menor cantão suíço e um dos de menor tributação do mundo, Zug atrai holdings e fundações via imposto baixo, sedia a Crypto Valley em torno de Ethereum e aceita pagamento de impostos em bitcoin, sob democracia direta cantonal.",
+    "name": "Zug (Switzerland)",
+    "category": "Crypto-fiscal region",
+    "description": "Switzerland's smallest canton and one of the lowest-taxed jurisdictions in the world, Zug attracts holdings and foundations through low taxation, hosts the Crypto Valley around Ethereum and accepts tax payments in bitcoin, under cantonal direct democracy.",
     "flagPath": "/countries/flags/suica-zug.png",
     "historical": false,
     "period": "",
@@ -1857,9 +1992,9 @@
   },
   {
     "id": "chiapas",
-    "name": "Chiapas Zapatista (México)",
-    "category": "Autonomia indígena-comunitária",
-    "description": "Territórios zapatistas no sul do México, autogovernados desde 1994 por comunidades majoritariamente maias em caracoles e Juntas de Bom Governo, com rejeição de partidos e do Estado, economia agrária cooperativista e forte protagonismo das mulheres.",
+    "name": "Zapatista Chiapas (Mexico)",
+    "category": "Indigenous-communal autonomy",
+    "description": "Zapatista territories in southern Mexico, self-governed since 1994 by mostly Maya communities through caracoles and Good Government Councils, rejecting political parties and the state, with cooperative agrarian economy and strong women's leadership.",
     "flagPath": "/countries/flags/chiapas.png",
     "historical": false,
     "period": "1994–presente",
@@ -1872,9 +2007,9 @@
   },
   {
     "id": "baviera",
-    "name": "Baviera (Alemanha)",
-    "category": "Região conservadora-industrial",
-    "description": "Maior estado federado da Alemanha, a Baviera combina forte identidade regional e catolicismo, domínio histórico da CSU, indústria de ponta (BMW, Siemens) e defesa ativa de sua autonomia fiscal e cultural frente a Berlim.",
+    "name": "Bavaria (Germany)",
+    "category": "Conservative-industrial region",
+    "description": "Germany's largest federal state, Bavaria combines strong regional identity and Catholicism, historic dominance by the CSU, cutting-edge industry (BMW, Siemens), and active defense of its fiscal and cultural autonomy from Berlin.",
     "flagPath": "/countries/flags/baviera.png",
     "historical": false,
     "period": "",
@@ -1883,13 +2018,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Bavaria_(lozengy).svg",
     "flagNote": "Bandeira losangeada da Baviera (Alemanha) usada como referência visual da região.",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "porto-rico",
-    "name": "Porto Rico (Estados Unidos)",
-    "category": "Território não incorporado colonial",
-    "description": "Território não incorporado dos Estados Unidos no Caribe, Porto Rico tem cidadania americana sem voto pleno no Congresso, vive debate constante entre estadidade, independência e o status atual, e enfrenta crise de dívida e forte dependência de incentivos fiscais federais.",
+    "name": "Puerto Rico (United States)",
+    "category": "Colonial unincorporated territory",
+    "description": "Unincorporated United States territory in the Caribbean, Puerto Rico holds American citizenship without full voting representation in Congress, faces an ongoing debate between statehood, independence, and the current status, and struggles with debt crisis and heavy dependence on federal tax incentives.",
     "flagPath": "/countries/flags/porto-rico.png",
     "historical": false,
     "period": "",
@@ -1902,9 +2040,9 @@
   },
   {
     "id": "eua-wyoming",
-    "name": "Wyoming (Estados Unidos)",
-    "category": "Região libertária-extrativa",
-    "description": "Estado menos populoso dos Estados Unidos, Wyoming não cobra imposto de renda estadual nem corporativo, sustenta sua economia em petróleo, gás e mineração, e combina forte cultura de armas com desconfiança extrema do governo federal.",
+    "name": "Wyoming (United States)",
+    "category": "Libertarian-extractive region",
+    "description": "The least populous U.S. state, Wyoming levies no state income or corporate tax, bases its economy on oil, gas, and mining, and combines a strong gun culture with deep distrust of the federal government.",
     "flagPath": "/countries/flags/eua-wyoming.png",
     "historical": false,
     "period": "",
@@ -1917,9 +2055,9 @@
   },
   {
     "id": "peru-fujimorista",
-    "name": "Peru Fujimorista",
-    "category": "Ditadura neoliberal-populista",
-    "description": "Sob Alberto Fujimori, o Peru combinou autogolpe e fechamento do Congresso com reformas neoliberais de choque, privatizações e abertura comercial, além de uma guerra suja contra o Sendero Luminoso marcada por massacres e esterilizações forçadas.",
+    "name": "Fujimori's Peru",
+    "category": "Neoliberal-populist dictatorship",
+    "description": "Under Alberto Fujimori, Peru combined a self-coup and the closing of Congress with neoliberal shock reforms, privatisations and trade liberalisation, alongside a dirty war against the Shining Path marked by massacres and forced sterilisations.",
     "flagPath": "/countries/flags/peru-fujimorista.png",
     "historical": true,
     "period": "1990–2000",
@@ -1932,9 +2070,9 @@
   },
   {
     "id": "palestina",
-    "name": "Palestina",
-    "category": "Autoridade fragmentada sob ocupação",
-    "description": "Reconhecida pela ONU como Estado observador, a Palestina é governada pela Autoridade Palestina de maioria Fatah, com território fragmentado entre a Cisjordânia ocupada e uma Gaza devastada pela guerra, economia dependente de ajuda externa e eleições suspensas há duas décadas.",
+    "name": "Palestine",
+    "category": "Fragmented authority under occupation",
+    "description": "Recognized by the UN as an observer state, Palestine is governed by the Fatah-led Palestinian Authority, with territory split between the occupied West Bank and a Gaza Strip devastated by war, an aid-dependent economy, and elections suspended for two decades.",
     "flagPath": "/countries/flags/palestina.png",
     "historical": false,
     "period": "",
@@ -1942,13 +2080,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Palestine.svg",
     "flagNote": "Bandeira oficial da Palestina usada como referência visual.",
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "escocia",
-    "name": "Escócia (Reino Unido)",
-    "category": "Nação independentista social-democrata",
-    "description": "País constituinte do Reino Unido, a Escócia tem parlamento próprio, identidade nacional e língua distintas, forte movimento independentista (referendo de 2014) e política social-democrata mais à esquerda do que a inglesa.",
+    "name": "Scotland (United Kingdom)",
+    "category": "Independentist social-democratic nation",
+    "description": "A constituent country of the United Kingdom, Scotland has its own parliament, a distinct national identity and language, a strong independence movement (2014 referendum), and social-democratic politics further left than England's.",
     "flagPath": "/countries/flags/escocia.png",
     "historical": false,
     "period": "",
@@ -1961,9 +2101,9 @@
   },
   {
     "id": "sao-paulo",
-    "name": "São Paulo (Brasil)",
-    "category": "Região industrial-financeira",
-    "description": "Estado mais populoso e rico do Brasil, São Paulo é o motor industrial e financeiro do país, com forte liberalismo econômico, cultura cosmopolita e peso decisivo na política nacional.",
+    "name": "São Paulo (Brazil)",
+    "category": "Industrial-financial region",
+    "description": "Brazil's most populous and wealthiest state, São Paulo is the country's industrial and financial engine, marked by strong economic liberalism, a cosmopolitan culture, and decisive weight in national politics.",
     "flagPath": "/countries/flags/sao-paulo.png",
     "historical": false,
     "period": "",
@@ -1976,9 +2116,9 @@
   },
   {
     "id": "rio-de-janeiro",
-    "name": "Rio de Janeiro (Brasil)",
-    "category": "Região turística-securitária",
-    "description": "Estado símbolo do turismo e da cultura brasileira, o Rio de Janeiro enfrenta violência urbana e disputas territoriais entre milícias e tráfico, com política marcada por segurança pública e populismo.",
+    "name": "Rio de Janeiro (Brazil)",
+    "category": "Tourist-security region",
+    "description": "A state symbolizing Brazilian tourism and culture, Rio de Janeiro faces urban violence and territorial disputes between militias and drug gangs, with politics dominated by public security and populism.",
     "flagPath": "/countries/flags/rio-de-janeiro.png",
     "historical": false,
     "period": "",
@@ -1991,9 +2131,9 @@
   },
   {
     "id": "santa-catarina",
-    "name": "Santa Catarina (Brasil)",
-    "category": "Região industrial-conservadora",
-    "description": "Estado sulista de colonização açoriana e europeia, Santa Catarina tem alto IDH, economia industrial diversificada de pequenas e médias empresas e eleitorado predominantemente conservador.",
+    "name": "Santa Catarina (Brazil)",
+    "category": "Industrial-conservative region",
+    "description": "A southern state settled by Azorean and other European immigrants, Santa Catarina has a high human development index, a diversified small- and medium-business economy, and a predominantly conservative electorate.",
     "flagPath": "/countries/flags/santa-catarina.png",
     "historical": false,
     "period": "",
@@ -2002,13 +2142,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Santa_Catarina.svg",
     "flagNote": "Bandeira do estado de Santa Catarina (Brasil) usada como referência visual da região.",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "parana",
-    "name": "Paraná (Brasil)",
-    "category": "Região agroindustrial-conservadora",
-    "description": "Estado sulista de forte agronegócio e colonização europeia, o Paraná combina economia agrícola e industrial pujante com eleitorado majoritariamente conservador e liberal na economia.",
+    "name": "Paraná (Brazil)",
+    "category": "Agro-industrial conservative region",
+    "description": "A southern state with strong agribusiness and European immigrant settlement, Paraná combines a thriving agricultural and industrial economy with a mostly conservative, economically liberal electorate.",
     "flagPath": "/countries/flags/parana.png",
     "historical": false,
     "period": "",
@@ -2017,13 +2160,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Paran%C3%A1.svg",
     "flagNote": "Bandeira do estado do Paraná (Brasil) usada como referência visual da região.",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "rio-grande-do-sul",
-    "name": "Rio Grande do Sul (Brasil)",
-    "category": "Região gaúcha-agropecuária",
-    "description": "Estado mais meridional do Brasil, o Rio Grande do Sul tem forte identidade gaúcha e tradição de disputas políticas polarizadas, economia baseada em agronegócio, pecuária e indústria.",
+    "name": "Rio Grande do Sul (Brazil)",
+    "category": "Ranching-agribusiness region",
+    "description": "Brazil's southernmost state, Rio Grande do Sul has a strong regional identity and a tradition of polarized political disputes, with an economy built on agribusiness, ranching, and industry.",
     "flagPath": "/countries/flags/rio-grande-do-sul.png",
     "historical": false,
     "period": "",
@@ -2036,9 +2182,9 @@
   },
   {
     "id": "minas-gerais",
-    "name": "Minas Gerais (Brasil)",
-    "category": "Região histórico-moderada",
-    "description": "Estado histórico do ciclo do ouro e berço da Inconfidência Mineira, Minas Gerais tem economia baseada em mineração e agropecuária, com política tradicionalmente moderada e conciliadora.",
+    "name": "Minas Gerais (Brazil)",
+    "category": "Historic-moderate region",
+    "description": "A historic mining state and birthplace of a failed 18th-century independence conspiracy against colonial rule, Minas Gerais has an economy built on mining and agriculture, with traditionally moderate, conciliatory politics.",
     "flagPath": "/countries/flags/minas-gerais.png",
     "historical": false,
     "period": "",
@@ -2051,9 +2197,9 @@
   },
   {
     "id": "reino-de-jerusalem",
-    "name": "Reino de Jerusalém",
-    "category": "Monarquia feudal cruzada",
-    "description": "Estado cruzado fundado após a Primeira Cruzada, o Reino de Jerusalém foi uma monarquia feudal latina e católica, apoiada nas ordens militares dos Templários e Hospitalários, com barões poderosos, guerra santa constante e uma elite franca sobre maioria nativa.",
+    "name": "Kingdom of Jerusalem",
+    "category": "Crusader feudal monarchy",
+    "description": "A crusader state founded after the First Crusade, the Kingdom of Jerusalem was a Latin Catholic feudal monarchy, backed by the Templar and Hospitaller military orders, with powerful barons, constant holy war and a Frankish elite over a native majority.",
     "flagPath": "/countries/flags/reino-de-jerusalem.png",
     "historical": true,
     "period": "1099–1187",
@@ -2062,13 +2208,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Kingdom_of_Jerusalem.svg",
     "flagNote": "Estandarte com a cruz de Jerusalém em ouro sobre prata.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "siria-de-assad",
-    "name": "Síria de Assad",
-    "category": "República baathista autoritária",
-    "description": "Sob Bashar al-Assad (2000–2024), a Síria foi um regime baathista centralizado, sustentado por forças de segurança, economia estatal clientelista e alianças com Rússia e Irã durante a guerra civil.",
+    "name": "Assad's Syria",
+    "category": "Authoritarian Ba'athist republic",
+    "description": "Under Bashar al-Assad (2000–2024), Syria was a centralized Ba'athist regime sustained by security forces, a clientelist state economy, and alliances with Russia and Iran during the civil war.",
     "flagPath": "/countries/flags/siria-de-assad.png",
     "historical": true,
     "period": "2000–2024",
@@ -2081,9 +2229,9 @@
   },
   {
     "id": "ira-pahlavi",
-    "name": "Irã do Xá",
-    "category": "Monarquia autoritária modernizadora",
-    "description": "Sob Mohammad Reza Pahlavi após 1953, o Irã combinou monarquia autoritária e repressão política com industrialização, reforma agrária e direitos das mulheres na Revolução Branca. Aliado dos EUA, financiou o desenvolvimento com petróleo até 1979.",
+    "name": "Iran under the Shah",
+    "category": "Modernizing authoritarian monarchy",
+    "description": "Under Mohammad Reza Pahlavi after 1953, Iran combined authoritarian monarchy and political repression with industrialization, land reform, and women's rights in the White Revolution. Allied with the US, it funded development with oil until 1979.",
     "flagPath": "/countries/flags/ira-pahlavi.png",
     "historical": true,
     "period": "1953–1979",
@@ -2096,9 +2244,9 @@
   },
   {
     "id": "libia-de-gaddafi",
-    "name": "Líbia de Gaddafi",
-    "category": "Jamahiriya socialista autoritária",
-    "description": "Sob Muammar Gaddafi (1969–2011), a Líbia nacionalizou o petróleo e proclamou a democracia direta da Jamahiriya. O poder permaneceu concentrado em Gaddafi, apoiado por comitês revolucionários e repressão à oposição.",
+    "name": "Gaddafi's Libya",
+    "category": "Authoritarian socialist Jamahiriya",
+    "description": "Under Muammar Gaddafi (1969–2011), Libya nationalized oil and proclaimed the Jamahiriya's direct democracy. Power remained concentrated in Gaddafi, backed by revolutionary committees and repression of the opposition.",
     "flagPath": "/countries/flags/libia-de-gaddafi.png",
     "historical": true,
     "period": "1969–2011",
@@ -2107,13 +2255,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Libya_(1977%E2%80%932011).svg",
     "flagNote": "Bandeira verde usada de 1977 a 2011; o regime utilizou outras bandeiras entre 1969 e 1977.",
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "iraque-baathista",
-    "name": "Iraque baathista",
-    "category": "República baathista autoritária",
-    "description": "Governado pelo Partido Baath de 1968 a 2003, o Iraque combinou nacionalismo árabe, petróleo estatal e partido único. Sob Saddam Hussein, o regime ampliou a repressão, travou guerras contra o Irã e o Kuwait e sofreu sanções internacionais.",
+    "name": "Ba'athist Iraq",
+    "category": "Authoritarian Ba'athist republic",
+    "description": "Ruled by the Ba'ath Party from 1968 to 2003, Iraq combined Arab nationalism, state oil and one-party rule. Under Saddam Hussein, the regime intensified repression, fought wars against Iran and Kuwait, and faced international sanctions.",
     "flagPath": "/countries/flags/iraque-baathista.png",
     "historical": true,
     "period": "1968–2003",
@@ -2122,13 +2272,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Iraq_(1963%E2%80%931991).svg",
     "flagNote": "Bandeira de três estrelas usada entre 1968 e 1991; a inscrição Allahu Akbar foi adicionada em 1991.",
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "reino-da-franca",
-    "name": "Reino da França",
-    "category": "Monarquia cristã de longa duração",
-    "description": "Da Frância Ocidental ao fim da monarquia em 1792, o reino passou do feudalismo à centralização absolutista. A Igreja católica, a aristocracia fundiária e a expansão militar moldaram grande parte de sua história.",
+    "name": "Kingdom of France",
+    "category": "Long-lived Christian monarchy",
+    "description": "From West Francia to the monarchy’s abolition in 1792, the kingdom moved from feudal rule toward centralized absolutism. The Catholic Church, landed aristocracy, and military expansion shaped much of its history.",
     "flagPath": "/countries/flags/reino-da-franca.png",
     "historical": true,
     "period": "843–1792",
@@ -2137,13 +2289,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Royal_Standard_of_the_King_of_France.svg",
     "flagNote": "Estandarte real usado aproximadamente de 1638 a 1790; representa apenas a fase final do reino.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "reino-de-castela",
-    "name": "Reino de Castela",
-    "category": "Monarquia cristã ibérica",
-    "description": "Unido a Leão em 1230, Castela expandiu-se na Península Ibérica e depois nas Américas. A Coroa, a nobreza e a Igreja católica marcaram sua política; as instituições mudaram ao longo dos quase cinco séculos representados.",
+    "name": "Kingdom of Castile",
+    "category": "Iberian Christian monarchy",
+    "description": "United with León in 1230, Castile expanded across Iberia and later the Americas. The Crown, nobility, and Catholic Church shaped its politics; institutions changed over the nearly five centuries covered here.",
     "flagPath": "/countries/flags/reino-de-castela.png",
     "historical": true,
     "period": "1230–1715",
@@ -2152,13 +2306,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Bandera_de_la_Corona_de_Castilla.svg",
     "flagNote": "Estandarte histórico da Coroa de Castela; representa uma fase do longo período.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "coroa-de-aragao",
-    "name": "Coroa de Aragão",
-    "category": "Monarquia composta cristã",
-    "description": "União dinástica de Aragão, Catalunha e outros territórios mediterrâneos, com leis e cortes próprias em seus reinos. A Coroa expandiu comércio e conquistas; suas instituições foram abolidas gradualmente após a Guerra de Sucessão Espanhola.",
+    "name": "Crown of Aragon",
+    "category": "Christian composite monarchy",
+    "description": "A dynastic union of Aragon, Catalonia, and other Mediterranean lands whose constituent realms kept their own laws and assemblies. The Crown expanded through trade and conquest; its institutions were gradually abolished after the War of the Spanish Succession.",
     "flagPath": "/countries/flags/coroa-de-aragao.png",
     "historical": true,
     "period": "1137–1716",
@@ -2167,13 +2323,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Kingdom_of_Aragon.svg",
     "flagNote": "Senyera histórica associada à Coroa de Aragão; não representa uniformemente todos os seus territórios.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "reino-da-hungria",
-    "name": "Reino da Hungria",
-    "category": "Monarquia cristã centro-europeia",
-    "description": "Fundado sob Estêvão I, o reino passou por dinastias próprias, dominação otomana parcial e governo dos Habsburgo. Nobreza, catolicismo e autonomia húngara tiveram papéis distintos ao longo de quase um milênio.",
+    "name": "Kingdom of Hungary",
+    "category": "Central European Christian monarchy",
+    "description": "Founded under Stephen I, the kingdom passed through native dynasties, partial Ottoman rule, and Habsburg government. Nobility, Catholicism, and Hungarian autonomy played changing roles across nearly a millennium.",
     "flagPath": "/countries/flags/reino-da-hungria.png",
     "historical": true,
     "period": "1000–1918",
@@ -2182,13 +2340,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Hungary_(1896-1915).svg",
     "flagNote": "Bandeira de 1896–1915; representa a fase final de um reino muito mais antigo.",
-    "religions": ["catholic", "protestant"]
+    "religions": [
+      "catholic",
+      "protestant"
+    ]
   },
   {
     "id": "antigo-egito",
-    "name": "Antigo Egito",
-    "category": "Monarquia faraônica",
-    "description": "Civilização do vale do Nilo governada por dinastias faraônicas, com períodos de unidade e fragmentação. Realeza sagrada, templos e administração agrícola estruturaram a sociedade; práticas e instituições variaram durante três milênios.",
+    "name": "Ancient Egypt",
+    "category": "Pharaonic monarchy",
+    "description": "A Nile Valley civilization ruled by pharaonic dynasties through periods of unity and fragmentation. Sacred kingship, temples, and agricultural administration structured society; practices and institutions varied over three millennia.",
     "flagPath": "/countries/flags/antigo-egito.png",
     "historical": true,
     "period": "c. 3100–30 a.C.",
@@ -2197,68 +2358,82 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Egypt.svg",
     "flagNote": "Bandeira atual do Egito (desde 1984), usada aqui apenas como símbolo visual por solicitação do usuário; não existia no Antigo Egito.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "paquistao",
-    "name": "Paquistão",
-    "category": "República islâmica sob tutela militar",
-    "description": "República islâmica parlamentar e potência nuclear, o Paquistão alterna governos civis e forte tutela do Exército, com leis inspiradas na sharia, economia mista dependente de ajuda externa e rivalidade permanente com a Índia.",
+    "name": "Pakistan",
+    "category": "Islamic republic under military tutelage",
+    "description": "A parliamentary Islamic republic and nuclear power, Pakistan alternates civilian governments with strong army tutelage, with sharia-inspired laws, a mixed economy dependent on foreign aid, and a permanent rivalry with India.",
     "flagPath": "/countries/flags/paquistao.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam", "only"]
+    "religions": [
+      "islam",
+      "only"
+    ]
   },
   {
     "id": "egito-atual",
-    "name": "Egito",
-    "category": "Regime militar-estatizante",
-    "description": "República presidencialista árabe, o Egito é governado por um regime autoritário de forte peso militar, que prioriza segurança e estabilidade, controla a oposição e dirige boa parte da economia por meio do Estado.",
+    "name": "Egypt",
+    "category": "Military-statist regime",
+    "description": "An Arab presidential republic, Egypt is governed by an authoritarian regime with heavy military weight, which prioritizes security and stability, controls the opposition, and directs much of the economy through the state.",
     "flagPath": "/countries/flags/egito-atual.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "afeganistao",
-    "name": "Afeganistão",
-    "category": "Emirado teocrático",
-    "description": "Emirado islâmico governado pelo Talibã desde 2021, o Afeganistão é regido por um líder supremo clerical que impõe interpretação estrita da sharia, exclui as mulheres do ensino e do trabalho e enfrenta crise econômica e isolamento.",
+    "name": "Afghanistan",
+    "category": "Theocratic emirate",
+    "description": "An Islamic emirate ruled by the Taliban since 2021, Afghanistan is governed by a clerical supreme leader who imposes a strict interpretation of sharia, bars women from education and work, and faces economic crisis and isolation.",
     "flagPath": "/countries/flags/afeganistao.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam", "only"]
+    "religions": [
+      "islam",
+      "only"
+    ]
   },
   {
     "id": "marrocos",
-    "name": "Marrocos",
-    "category": "Monarquia islâmica parlamentar",
-    "description": "Monarquia constitucional do norte da África, o Marrocos tem parlamento eleito, mas o rei, Comandante dos Crentes, concentra o poder real, com islã oficial, economia de mercado aberta ao comércio e reivindicação sobre o Saara Ocidental.",
+    "name": "Morocco",
+    "category": "Parliamentary Islamic monarchy",
+    "description": "A constitutional monarchy in North Africa, Morocco has an elected parliament, but the king, Commander of the Faithful, holds real power, with official Islam, a market economy open to trade, and a claim over Western Sahara.",
     "flagPath": "/countries/flags/marrocos.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "bahrein",
-    "name": "Bahrein",
-    "category": "Monarquia sunita do Golfo",
-    "description": "Monarquia do Golfo Pérsico governada pela dinastia sunita Al Khalifa sobre maioria xiita, o Bahrein combina centro financeiro liberalizado, parlamento de poderes limitados, repressão à oposição desde 2011 e alinhamento com Arábia Saudita e EUA.",
+    "name": "Bahrain",
+    "category": "Sunni Gulf monarchy",
+    "description": "A Persian Gulf monarchy ruled by the Sunni Al Khalifa dynasty over a Shia majority, Bahrain combines a liberalized financial hub, a parliament with limited powers, repression of the opposition since 2011, and alignment with Saudi Arabia and the US.",
     "flagPath": "/countries/flags/bahrein.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "albania",
-    "name": "Albânia",
-    "category": "República parlamentar laica",
-    "description": "República parlamentar dos Bálcãs de maioria muçulmana, a Albânia é um Estado laico com forte convivência inter-religiosa, economia de mercado após o fim do regime comunista de Enver Hoxha, membro da OTAN e candidata à União Europeia.",
+    "name": "Albania",
+    "category": "Secular parliamentary republic",
+    "description": "A Muslim-majority parliamentary republic in the Balkans, Albania is a secular state with strong interfaith coexistence, a market economy after the end of Enver Hoxha's communist regime, NATO membership, and candidacy for the European Union.",
     "flagPath": "/countries/flags/albania.gif",
     "historical": false,
     "period": "",
@@ -2267,9 +2442,9 @@
   },
   {
     "id": "califado-abassida",
-    "name": "Califado Abássida",
-    "category": "Califado islâmico",
-    "description": "Califado sunita com capital em Bagdá, os abássidas governaram do Magreb à Ásia Central sob um califa com autoridade religiosa e política, com burocracia persa, comércio de longa distância e a Casa da Sabedoria na Idade de Ouro islâmica.",
+    "name": "Abbasid Caliphate",
+    "category": "Islamic caliphate",
+    "description": "A Sunni caliphate with its capital in Baghdad, the Abbasids ruled from the Maghreb to Central Asia under a caliph with religious and political authority, with a Persian-style bureaucracy, long-distance trade, and the House of Wisdom in the Islamic Golden Age.",
     "flagPath": "/countries/flags/califado-abassida.gif",
     "historical": true,
     "period": "750–1258",
@@ -2278,35 +2453,42 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Abbasid_Dynasty.svg",
     "flagNote": "Estandarte negro da dinastia abássida; não havia bandeira nacional no sentido moderno.",
-    "religions": ["islam", "only"]
+    "religions": [
+      "islam",
+      "only"
+    ]
   },
   {
     "id": "sri-lanka",
     "name": "Sri Lanka",
-    "category": "República budista-nacional",
-    "description": "República presidencialista insular do sul da Ásia, o Sri Lanka dá primazia constitucional ao budismo, venceu em 2009 a guerra contra os separatistas tâmeis, enfrentou a crise da dívida de 2022 e elegeu uma coalizão de esquerda em 2024.",
+    "category": "Buddhist-national republic",
+    "description": "An island presidential republic in South Asia, Sri Lanka gives constitutional primacy to Buddhism, won the war against Tamil separatists in 2009, faced the 2022 debt crisis, and elected a left-wing coalition in 2024.",
     "flagPath": "/countries/flags/sri-lanka.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["buddhism"]
+    "religions": [
+      "buddhism"
+    ]
   },
   {
     "id": "mianmar",
-    "name": "Mianmar",
-    "category": "Junta militar budista",
-    "description": "País do sudeste asiático governado por uma junta militar desde o golpe de 2021, Mianmar vive guerra civil contra milícias étnicas e pró-democracia, com nacionalismo budista oficial e perseguição à minoria muçulmana rohingya.",
+    "name": "Myanmar",
+    "category": "Buddhist military junta",
+    "description": "A Southeast Asian country ruled by a military junta since the 2021 coup, Myanmar is in civil war against ethnic and pro-democracy militias, with official Buddhist nationalism and persecution of the Muslim Rohingya minority.",
     "flagPath": "/countries/flags/mianmar.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["buddhism"]
+    "religions": [
+      "buddhism"
+    ]
   },
   {
     "id": "mongolia",
-    "name": "Mongólia",
-    "category": "Democracia pós-comunista",
-    "description": "República democrática entre Rússia e China, a Mongólia deixou o regime comunista em 1990 e tem eleições competitivas, economia de mercado dependente da mineração, tradição nômade e renascimento do budismo tibetano.",
+    "name": "Mongolia",
+    "category": "Post-communist democracy",
+    "description": "A democratic republic between Russia and China, Mongolia left communist rule in 1990 and has competitive elections, a mining-dependent market economy, a nomadic tradition, and a revival of Tibetan Buddhism.",
     "flagPath": "/countries/flags/mongolia.gif",
     "historical": false,
     "period": "",
@@ -2315,9 +2497,9 @@
   },
   {
     "id": "turquia-de-ataturk",
-    "name": "Turquia de Atatürk",
-    "category": "República kemalista de partido único",
-    "description": "República fundada por Mustafa Kemal Atatürk sobre as ruínas do Império Otomano, a Turquia kemalista aboliu o califado e impôs laicismo, alfabeto latino, direitos às mulheres e estatismo econômico sob o partido único CHP.",
+    "name": "Atatürk's Turkey",
+    "category": "Single-party Kemalist republic",
+    "description": "A republic founded by Mustafa Kemal Atatürk on the ruins of the Ottoman Empire, Kemalist Turkey abolished the caliphate and imposed laicism, the Latin alphabet, women's rights, and economic statism under the single-party CHP.",
     "flagPath": "/countries/flags/turquia-de-ataturk.gif",
     "historical": true,
     "period": "1923–1938",
@@ -2330,20 +2512,22 @@
   },
   {
     "id": "daguestao",
-    "name": "Daguestão (Rússia)",
-    "category": "Região muçulmana tutelada",
-    "description": "República da Federação Russa no Cáucaso Norte, o Daguestão é multiétnico e de maioria muçulmana sunita, com forte religiosidade sufi, clãs locais, dependência de subsídios de Moscou, repressão ao islamismo radical e pouca autonomia real.",
+    "name": "Dagestan (Russia)",
+    "category": "Tutelary Muslim region",
+    "description": "A republic of the Russian Federation in the North Caucasus, Dagestan is multiethnic and Sunni Muslim-majority, with strong Sufi religiosity, local clans, dependence on subsidies from Moscow, repression of radical Islamism, and little real autonomy.",
     "flagPath": "/countries/flags/daguestao.gif",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "madrid",
-    "name": "Madrid (Espanha)",
-    "category": "Região liberal-conservadora",
-    "description": "Comunidade autônoma que abriga a capital espanhola, Madrid é governada pelo Partido Popular desde 1995 e, sob Isabel Díaz Ayuso, virou vitrine de impostos baixos, liberdade econômica, escolha escolar e atração de capital e imigrantes latino-americanos.",
+    "name": "Madrid (Spain)",
+    "category": "Liberal-conservative region",
+    "description": "The autonomous community around the Spanish capital, Madrid has been governed by the People's Party since 1995 and, under Isabel Díaz Ayuso, became a showcase of low taxes, economic freedom, school choice and attraction of capital and Latin American immigrants.",
     "flagPath": "/countries/flags/madrid.png",
     "historical": false,
     "period": "",
@@ -2352,9 +2536,9 @@
   },
   {
     "id": "japao-tokugawa",
-    "name": "Japão Tokugawa",
-    "category": "Xogunato feudal isolacionista",
-    "description": "Regime do xogunato Tokugawa, que pacificou o Japão após o Sengoku com um sistema feudal de domínios (bakuhan), hierarquia social rígida de quatro classes, neoconfucianismo oficial, proibição do cristianismo e isolamento externo (sakoku).",
+    "name": "Tokugawa Japan",
+    "category": "Isolationist feudal shogunate",
+    "description": "The Tokugawa shogunate pacified Japan after the Sengoku era with a feudal system of domains (bakuhan), a rigid four-class social hierarchy, official Neo-Confucianism, a ban on Christianity and external isolation (sakoku).",
     "flagPath": "/countries/flags/japao-tokugawa.png",
     "historical": true,
     "period": "1603–1868",
@@ -2363,46 +2547,54 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Tokugawa_family_crest.svg",
     "flagNote": "Brasão mitsuba-aoi do clã Tokugawa, símbolo do xogunato; o Japão Tokugawa não tinha bandeira nacional.",
-    "religions": ["buddhism"]
+    "religions": [
+      "buddhism"
+    ]
   },
   {
     "id": "senegal",
     "name": "Senegal",
-    "category": "República presidencialista soberanista",
-    "description": "República da África Ocidental de maioria muçulmana sufi, o Senegal é uma democracia estável e laica que, desde 2024, sob Bassirou Diomaye Faye e Ousmane Sonko, adota um soberanismo de esquerda: retirou tropas francesas e critica o franco CFA.",
+    "category": "Sovereigntist presidential republic",
+    "description": "A Sufi Muslim-majority West African republic, Senegal is a stable secular democracy that since 2024, under Bassirou Diomaye Faye and Ousmane Sonko, has pursued left-wing sovereigntism: it removed French troops and criticizes the CFA franc.",
     "flagPath": "/countries/flags/senegal.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "nigeria",
-    "name": "Nigéria",
-    "category": "República federal presidencialista",
-    "description": "País mais populoso da África, a Nigéria é uma federação dividida entre o norte muçulmano, com sharia em doze estados, e o sul cristão, dependente do petróleo e marcada pelo Boko Haram, e sob Bola Tinubu cortou o subsídio aos combustíveis.",
+    "name": "Nigeria",
+    "category": "Federal presidential republic",
+    "description": "Africa's most populous country, Nigeria is a federation split between a Muslim north, with sharia in twelve states, and a Christian south, dependent on oil and scarred by Boko Haram, and under Bola Tinubu it cut fuel subsidies.",
     "flagPath": "/countries/flags/nigeria.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "argelia",
-    "name": "Argélia",
-    "category": "República presidencialista militar",
-    "description": "Nascida da guerra de independência contra a França, a Argélia é uma república dominada pelo Exército, com o islã como religião de Estado, economia estatal dependente de petróleo e gás, política externa não alinhada e repressão ao movimento Hirak.",
+    "name": "Algeria",
+    "category": "Military-backed presidential republic",
+    "description": "Born from the war of independence against France, Algeria is an army-dominated republic with Islam as the state religion, a state-run economy dependent on oil and gas, a non-aligned foreign policy and repression of the Hirak movement.",
     "flagPath": "/countries/flags/argelia.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["islam"]
+    "religions": [
+      "islam"
+    ]
   },
   {
     "id": "china-qing",
-    "name": "China Dinastia Qing",
-    "category": "Império dinástico confuciano",
-    "description": "Última dinastia imperial da China, fundada pelos manchus, a Qing governou por uma burocracia confuciana de exames, expandiu o império ao Tibete e Xinjiang, restringiu o comércio externo a Cantão e declinou com as Guerras do Ópio e a Rebelião Taiping.",
+    "name": "Qing Dynasty China",
+    "category": "Confucian dynastic empire",
+    "description": "China's last imperial dynasty, founded by the Manchus, the Qing ruled through a Confucian examination bureaucracy, extended the empire to Tibet and Xinjiang, restricted foreign trade to Canton and declined with the Opium Wars and the Taiping Rebellion.",
     "flagPath": "/countries/flags/china-qing.png",
     "historical": true,
     "period": "1644–1912",
@@ -2411,35 +2603,41 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Qing_dynasty_(1889-1912).svg",
     "flagNote": "Bandeira do Dragão Amarelo, adotada oficialmente pela dinastia Qing em 1889.",
-    "religions": ["other"]
+    "religions": [
+      "other"
+    ]
   },
   {
     "id": "grecia",
-    "name": "Grécia",
-    "category": "República parlamentarista",
-    "description": "Democracia parlamentar do sudeste europeu com Igreja Ortodoxa reconhecida na Constituição, a Grécia superou a crise da dívida sob austeridade imposta pela UE, é governada pela Nova Democracia de Kyriakos Mitsotakis e legalizou o casamento gay em 2024.",
+    "name": "Greece",
+    "category": "Parliamentary republic",
+    "description": "A southeastern European parliamentary democracy with the Orthodox Church recognized in its constitution, Greece overcame the debt crisis under EU-imposed austerity, is governed by Kyriakos Mitsotakis's New Democracy and legalized same-sex marriage in 2024.",
     "flagPath": "/countries/flags/grecia.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "servia",
-    "name": "Sérvia",
-    "category": "República parlamentarista nacional-conservadora",
-    "description": "País balcânico de maioria ortodoxa, a Sérvia é dominada desde 2012 pelo partido de Aleksandar Vučić, candidata à UE mas próxima da Rússia e da China, militarmente neutra, não reconhece o Kosovo e enfrentou grandes protestos estudantis em 2025.",
+    "name": "Serbia",
+    "category": "National-conservative parliamentary republic",
+    "description": "An Orthodox-majority Balkan country, Serbia has been dominated since 2012 by Aleksandar Vučić's party, is an EU candidate yet close to Russia and China, militarily neutral, does not recognize Kosovo and faced massive student protests in 2025.",
     "flagPath": "/countries/flags/servia.png",
     "historical": false,
     "period": "",
     "vector": null,
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "equador",
-    "name": "Equador",
-    "category": "República presidencialista",
-    "description": "República andina dolarizada desde 2000, o Equador é governado por Daniel Noboa, que declarou conflito armado interno contra o crime organizado e pôs militares nas ruas e prisões, mas teve bases militares estrangeiras rejeitadas em referendo em 2025.",
+    "name": "Ecuador",
+    "category": "Presidential republic",
+    "description": "An Andean republic dollarized since 2000, Ecuador is governed by Daniel Noboa, who declared an internal armed conflict against organized crime and deployed soldiers in the streets and prisons, but saw foreign military bases rejected in a 2025 referendum.",
     "flagPath": "/countries/flags/equador.png",
     "historical": false,
     "period": "",
@@ -2448,9 +2646,9 @@
   },
   {
     "id": "tibete",
-    "name": "Tibete Teocrático",
-    "category": "Teocracia budista",
-    "description": "Estado de fato independente entre a queda dos Qing e a invasão chinesa, o Tibete era uma teocracia budista governada pelo Dalai Lama, com mosteiros e aristocracia donos da terra, camponeses presos a ela e isolamento deliberado do mundo moderno.",
+    "name": "Theocratic Tibet",
+    "category": "Buddhist theocracy",
+    "description": "A de facto independent state between the fall of the Qing and the Chinese invasion, Tibet was a Buddhist theocracy ruled by the Dalai Lama, with monasteries and aristocracy owning the land, peasants bound to it and deliberate isolation from the modern world.",
     "flagPath": "/countries/flags/tibete.png",
     "historical": true,
     "period": "1913–1950",
@@ -2459,13 +2657,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Tibet.svg",
     "flagNote": "Bandeira do Leão das Neves, adotada pelo 13º Dalai Lama em 1916 e usada pelo governo tibetano até 1950.",
-    "religions": ["buddhism", "only"]
+    "religions": [
+      "buddhism",
+      "only"
+    ]
   },
   {
     "id": "reino-de-israel",
-    "name": "Reino de Israel",
-    "category": "Monarquia teocrática",
-    "description": "Monarquia unificada das tribos hebraicas sob Saul, Davi e Salomão, o Reino de Israel concentrou o poder num rei ungido por profeta, com Jerusalém e o Templo como centro religioso, a lei da Torá, levas tribais armadas e expansão sobre os vizinhos.",
+    "name": "Kingdom of Israel",
+    "category": "Theocratic monarchy",
+    "description": "A monarchy uniting the Hebrew tribes under Saul, David and Solomon, the Kingdom of Israel concentrated power in a king anointed by a prophet, with Jerusalem and the Temple as its religious center, the law of the Torah, tribal levies and expansion over its neighbors.",
     "flagPath": "/countries/flags/reino-de-israel.png",
     "historical": true,
     "period": "c. 1047–930 a.C.",
@@ -2474,13 +2675,16 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/Category:Kingdom_of_Israel",
     "flagNote": "Reconstrução moderna feita por usuário do Reddit, usada por solicitação do usuário; o link aponta para a categoria do Reino de Israel no Wikimedia Commons, que não hospeda esta imagem. Não há bandeira atestada do Reino de Israel, e a estrela de seis pontas como emblema é posterior ao período.",
-    "religions": ["judaism", "only"]
+    "religions": [
+      "judaism",
+      "only"
+    ]
   },
   {
     "id": "inglaterra",
-    "name": "Inglaterra (Reino Unido)",
-    "category": "Nação constituinte liberal-conservadora",
-    "description": "Maior país constituinte do Reino Unido, a Inglaterra é governada diretamente por Westminster, sem parlamento próprio, com Igreja Anglicana oficial, serviço de saúde público (NHS), centro financeiro em Londres e maioria pelo Brexit e crescente voto populista.",
+    "name": "England (United Kingdom)",
+    "category": "Liberal-conservative constituent country",
+    "description": "The largest constituent country of the United Kingdom, England is governed directly by Westminster with no parliament of its own, with an established Church of England, a public health service (NHS), a financial centre in London, a Brexit majority and a growing populist vote.",
     "flagPath": "/countries/flags/inglaterra.png",
     "historical": false,
     "period": "",
@@ -2493,9 +2697,9 @@
   },
   {
     "id": "eua-vermont",
-    "name": "Vermont (Estados Unidos)",
-    "category": "Região progressista-comunitária",
-    "description": "Pequeno estado rural da Nova Inglaterra, Vermont combina assembleias municipais de democracia direta, política progressista de Bernie Sanders, cooperativas, laticínios e ambientalismo, com uma das populações menos religiosas do país e leis de armas permissivas.",
+    "name": "Vermont (United States)",
+    "category": "Progressive-communal region",
+    "description": "A small rural New England state, Vermont combines direct-democracy town meetings, the progressive politics of Bernie Sanders, cooperatives, dairy farming and environmentalism, with one of the least religious populations in the country and permissive gun laws.",
     "flagPath": "/countries/flags/eua-vermont.png",
     "historical": false,
     "period": "",
@@ -2508,9 +2712,9 @@
   },
   {
     "id": "eua-utah",
-    "name": "Utah (Estados Unidos)",
-    "category": "Região conservadora-comunitária",
-    "description": "Estado do oeste dos Estados Unidos de maioria mórmon, Utah combina a influência da Igreja SUD sobre família e costumes, imposto de renda de alíquota única, orçamento equilibrado, setor de tecnologia pujante, acolhida a refugiados e controle estrito do álcool.",
+    "name": "Utah (United States)",
+    "category": "Conservative-communal region",
+    "description": "A western US state with a Mormon majority, Utah combines the Latter-day Saints Church's influence over family and customs, a flat income tax, balanced budgets, a booming tech sector, a welcoming stance toward refugees and strict alcohol control.",
     "flagPath": "/countries/flags/eua-utah.png",
     "historical": false,
     "period": "",
@@ -2519,13 +2723,17 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Utah.svg",
     "flagNote": "Bandeira do estado de Utah (Estados Unidos) usada como referência visual da região.",
-    "religions": ["catholic", "protestant", "orthodox"]
+    "religions": [
+      "catholic",
+      "protestant",
+      "orthodox"
+    ]
   },
   {
     "id": "eua-alasca",
-    "name": "Alasca (Estados Unidos)",
-    "category": "Região rentista-fronteiriça",
-    "description": "Maior estado dos Estados Unidos e um dos menos povoados, o Alasca vive do petróleo, paga um dividendo anual a cada residente pelo Fundo Permanente, não cobra imposto de renda estadual e tem forte cultura de armas, corporações nativas e desconfiança do governo federal.",
+    "name": "Alaska (United States)",
+    "category": "Rentier frontier region",
+    "description": "The largest US state and one of the least densely populated, Alaska lives off oil, pays every resident an annual dividend from its Permanent Fund, levies no state income tax, and has a strong gun culture, Native corporations and distrust of the federal government.",
     "flagPath": "/countries/flags/eua-alasca.png",
     "historical": false,
     "period": "",
@@ -2538,9 +2746,9 @@
   },
   {
     "id": "treze-colonias",
-    "name": "Treze Colônias Britânicas",
-    "category": "Colônias autogovernadas-mercantis",
-    "description": "Colônias britânicas da costa atlântica norte-americana, com assembleias de proprietários brancos, governadores nomeados pela Coroa, igrejas oficiais e dissidentes, comércio sob as Leis de Navegação, escravidão no Sul e expansão sobre terras indígenas.",
+    "name": "Thirteen British Colonies",
+    "category": "Self-governing mercantile colonies",
+    "description": "British colonies on the North American Atlantic coast, with assemblies of white property owners, governors appointed by the Crown, established and dissenting churches, trade under the Navigation Acts, slavery in the South and expansion into Indigenous lands.",
     "flagPath": "/countries/flags/treze-colonias.png",
     "historical": true,
     "period": "c. 1732–1776",
@@ -2549,13 +2757,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States_(1776–1777).svg",
     "flagNote": "Grand Union Flag (Continental Colors), usada pelas colônias em 1775–1776; as colônias não tinham bandeira comum antes disso, e esta é a mais próxima do período.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "eua-pensilvania",
-    "name": "Pensilvânia (Estados Unidos)",
-    "category": "Região industrial-dividida",
-    "description": "Estado industrial do nordeste dos EUA e berço da Constituição, a Pensilvânia divide-se entre Filadélfia e Pittsburgh democratas e um interior conservador, com gás de xisto, tradição sindical, cultura de caça e monopólio estatal de vinhos e destilados.",
+    "name": "Pennsylvania (United States)",
+    "category": "Divided industrial region",
+    "description": "An industrial northeastern state and cradle of the Constitution, Pennsylvania is split between Democratic Philadelphia and Pittsburgh and a conservative interior, with shale gas, a union tradition, hunting culture and a state monopoly on wine and spirits.",
     "flagPath": "/countries/flags/eua-pensilvania.png",
     "historical": false,
     "period": "",
@@ -2568,9 +2778,9 @@
   },
   {
     "id": "eua-illinois",
-    "name": "Illinois (Estados Unidos)",
-    "category": "Região metropolitana-sindical",
-    "description": "Estado do Meio-Oeste dominado por Chicago, Illinois combina máquina política democrata e histórico de corrupção, sindicatos do setor público fortes, enorme dívida previdenciária, leis de armas rígidas, costumes liberalizados e um interior agrícola conservador.",
+    "name": "Illinois (United States)",
+    "category": "Metropolitan-union region",
+    "description": "A Midwestern state dominated by Chicago, Illinois combines a Democratic political machine with a history of corruption, strong public-sector unions, a huge pension debt, strict gun laws, liberalized social policy and a conservative agricultural interior.",
     "flagPath": "/countries/flags/eua-illinois.png",
     "historical": false,
     "period": "",
@@ -2583,9 +2793,9 @@
   },
   {
     "id": "vice-reino-da-nova-espanha",
-    "name": "Vice-reino da Nova Espanha",
-    "category": "Vice-reino católico-burocrático",
-    "description": "Vice-reino espanhol que abrangia México, América Central, o sudoeste atual dos EUA e as Filipinas, governado por vice-rei e audiências sob o patronato régio, com Inquisição, sociedade de castas, haciendas, mineração de prata e comércio monopolizado pela Coroa.",
+    "name": "Viceroyalty of New Spain",
+    "category": "Catholic-bureaucratic viceroyalty",
+    "description": "The Spanish viceroyalty covering Mexico, Central America, today's US Southwest and the Philippines, governed by a viceroy and audiencias under royal patronage, with the Inquisition, a caste society, haciendas, silver mining and Crown-monopolized trade.",
     "flagPath": "/countries/flags/vice-reino-da-nova-espanha.png",
     "historical": true,
     "period": "1535–1821",
@@ -2594,13 +2804,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Cross_of_Burgundy.svg",
     "flagNote": "Cruz de Borgonha, estandarte militar da Coroa espanhola usado em todo o império, inclusive na Nova Espanha; o vice-reino não teve bandeira própria.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "groenlandia",
-    "name": "Groenlândia (Dinamarca)",
-    "category": "Território autônomo ártico-social",
-    "description": "Território autônomo do Reino da Dinamarca, a Groenlândia tem governo e parlamento próprios, maioria inuíte, economia de pesca sustentada por subsídio dinamarquês, saúde e educação públicas, debate sobre independência e disputa ártica por minerais e bases militares.",
+    "name": "Greenland (Denmark)",
+    "category": "Arctic-social autonomous territory",
+    "description": "An autonomous territory of the Kingdom of Denmark, Greenland has its own government and parliament, an Inuit majority, a fishing economy sustained by Danish subsidies, public health and education, a debate over independence and an Arctic contest over minerals and military bases.",
     "flagPath": "/countries/flags/groenlandia.png",
     "historical": false,
     "period": "",
@@ -2613,9 +2825,9 @@
   },
   {
     "id": "lituania",
-    "name": "Lituânia",
-    "category": "República semipresidencialista atlantista",
-    "description": "República semipresidencialista báltica, a Lituânia saiu da URSS em 1990 e integra a UE, o euro e a OTAN, com forte hostilidade à Rússia, gasto militar elevado, apoio à Ucrânia, economia aberta e sociedade de maioria católica em secularização.",
+    "name": "Lithuania",
+    "category": "Atlanticist semi-presidential republic",
+    "description": "A Baltic semi-presidential republic, Lithuania left the USSR in 1990 and belongs to the EU, the euro and NATO, with strong hostility to Russia, high military spending, support for Ukraine, an open economy and a Catholic-majority society that is secularizing.",
     "flagPath": "/countries/flags/lituania.png",
     "historical": false,
     "period": "",
@@ -2628,9 +2840,9 @@
   },
   {
     "id": "letonia",
-    "name": "Letônia",
-    "category": "República parlamentarista nacional-atlantista",
-    "description": "República parlamentarista báltica, a Letônia combina UE, OTAN e economia aberta com defesa do idioma letão, cidadania negada a parte da minoria russófona, desconfiança da Rússia e uma sociedade luterana, católica e ortodoxa, muito secularizada.",
+    "name": "Latvia",
+    "category": "National-Atlanticist parliamentary republic",
+    "description": "A Baltic parliamentary republic, Latvia combines the EU, NATO and an open economy with defence of the Latvian language, citizenship withheld from part of the Russian-speaking minority, distrust of Russia and a Lutheran, Catholic and Orthodox society that is highly secular.",
     "flagPath": "/countries/flags/letonia.png",
     "historical": false,
     "period": "",
@@ -2643,9 +2855,9 @@
   },
   {
     "id": "romenia",
-    "name": "Romênia",
-    "category": "República semipresidencialista ortodoxa-atlantista",
-    "description": "República semipresidencialista de maioria ortodoxa, a Romênia herda o regime de Ceaușescu e combina UE, OTAN e bases americanas com imposto único baixo, luta anticorrupção, nacionalismo crescente, Igreja influente e a anulação da eleição presidencial de 2024.",
+    "name": "Romania",
+    "category": "Orthodox-Atlanticist semi-presidential republic",
+    "description": "A semi-presidential republic with an Orthodox majority, Romania inherits Ceaușescu's regime and combines the EU, NATO and US bases with a low flat tax, an anti-corruption drive, rising nationalism, an influential Church and the annulment of the 2024 presidential election.",
     "flagPath": "/countries/flags/romenia.png",
     "historical": false,
     "period": "",
@@ -2654,13 +2866,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Romania.svg",
     "flagNote": "Bandeira nacional da Romênia.",
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "bulgaria",
-    "name": "Bulgária",
-    "category": "República parlamentarista oligárquica-ortodoxa",
-    "description": "República parlamentarista de maioria ortodoxa, a Bulgária integra a UE e a OTAN, com imposto único baixo, instabilidade política crônica, oligarcas e corrupção, laços históricos com a Rússia, usina nuclear, minoria romani e leis conservadoras sobre gênero.",
+    "name": "Bulgaria",
+    "category": "Oligarchic-Orthodox parliamentary republic",
+    "description": "A parliamentary republic with an Orthodox majority, Bulgaria belongs to the EU and NATO, with a low flat tax, chronic political instability, oligarchs and corruption, historic ties to Russia, a nuclear plant, a Roma minority and conservative laws on gender.",
     "flagPath": "/countries/flags/bulgaria.png",
     "historical": false,
     "period": "",
@@ -2673,9 +2887,9 @@
   },
   {
     "id": "croacia",
-    "name": "Croácia",
-    "category": "República parlamentarista católico-turística",
-    "description": "República parlamentarista católica, a Croácia integra a UE, o euro, Schengen e a OTAN, com turismo adriático dominante, governos duradouros da HDZ, memória contestada da guerra de independência, minoria sérvia e Igreja influente em temas de família.",
+    "name": "Croatia",
+    "category": "Catholic-touristic parliamentary republic",
+    "description": "A Catholic parliamentary republic, Croatia belongs to the EU, the euro, Schengen and NATO, with a dominant Adriatic tourism sector, long-lasting HDZ governments, a contested memory of the war of independence, a Serb minority and a Church influential on family issues.",
     "flagPath": "/countries/flags/croacia.png",
     "historical": false,
     "period": "",
@@ -2684,13 +2898,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Croatia.svg",
     "flagNote": "Bandeira nacional da Croácia.",
-    "religions": ["catholic"]
+    "religions": [
+      "catholic"
+    ]
   },
   {
     "id": "chipre",
-    "name": "Chipre",
-    "category": "República presidencialista dividida",
-    "description": "República presidencialista da UE, dividida desde a invasão turca de 1974, com o norte ocupado reconhecido só pela Turquia, Igreja Ortodoxa influente, economia de serviços e finanças, bases britânicas soberanas, partido comunista forte e plano de paz rejeitado em 2004.",
+    "name": "Cyprus",
+    "category": "Divided presidential republic",
+    "description": "A presidential republic of the EU, divided since the Turkish invasion of 1974, with an occupied north recognized only by Turkey, an influential Orthodox Church, a services and finance economy, sovereign British bases, a strong communist party and a peace plan rejected in 2004.",
     "flagPath": "/countries/flags/chipre.png",
     "historical": false,
     "period": "",
@@ -2699,13 +2915,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg",
     "flagNote": "Bandeira nacional de Chipre (a república reconhecida internacionalmente).",
-    "religions": ["orthodox"]
+    "religions": [
+      "orthodox"
+    ]
   },
   {
     "id": "imperio-sueco",
-    "name": "Império Sueco",
-    "category": "Monarquia fiscal-militar luterana",
-    "description": "Potência luterana do Báltico na Guerra dos Trinta Anos e nas guerras de Carlos X e Carlos XII, o Império Sueco sustentou-se num Estado fiscal-militar, na monarquia com os quatro estamentos e na Igreja luterana, até Poltava e Nystad.",
+    "name": "Swedish Empire",
+    "category": "Lutheran fiscal-military monarchy",
+    "description": "A Lutheran Baltic power in the Thirty Years' War and the wars of Charles X and Charles XII, the Swedish Empire rested on a fiscal-military state, a monarchy with four estates and the Lutheran Church, until Poltava and Nystad.",
     "flagPath": "/countries/flags/imperio-sueco.png",
     "historical": true,
     "period": "1611–1721",
@@ -2714,13 +2932,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Swedish_Empire.svg",
     "flagNote": "Bandeira do Império Sueco (cruz dourada em campo azul, com cauda de andorinha) usada como referência visual para o período.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "suecia-finlandia",
-    "name": "Suécia-Finlândia",
-    "category": "Monarquia estamental e esclarecida",
-    "description": "Reino da Suécia-Finlândia após a perda do império: Era da Liberdade com o Riksdag dos quatro estamentos, liberdade de imprensa pioneira (1766), golpe absolutista de Gustavo III em 1772 e perda da Finlândia para a Rússia em 1809.",
+    "name": "Sweden-Finland",
+    "category": "Estates-based enlightened monarchy",
+    "description": "The kingdom of Sweden-Finland after the loss of empire: the Age of Liberty with a Riksdag of four estates, pioneering press freedom (1766), Gustav III's absolutist coup in 1772 and the loss of Finland to Russia in 1809.",
     "flagPath": "/countries/flags/suecia-finlandia.png",
     "historical": true,
     "period": "1721–1809",
@@ -2729,13 +2949,15 @@
     "flagSourceName": "Wikimedia Commons",
     "flagSourceUrl": "https://commons.wikimedia.org/wiki/File:Naval_Ensign_of_Sweden.svg",
     "flagNote": "Bandeira de Estado sueca com cauda de andorinha, a mesma cruz dourada sobre azul do período, usada como referência visual.",
-    "religions": ["protestant"]
+    "religions": [
+      "protestant"
+    ]
   },
   {
     "id": "shenzhen",
     "name": "Shenzhen (China)",
-    "category": "Zona econômica especial tecnológica-exportadora",
-    "description": "Primeira Zona Econômica Especial da China, criada por Deng Xiaoping em 1980, Shenzhen saiu de vila de pesca para polo global de tecnologia e manufatura (Huawei, Tencent, DJI), com mercado dinâmico sob tutela do Partido Comunista.",
+    "category": "Tech-export special economic zone",
+    "description": "China's first Special Economic Zone, created by Deng Xiaoping in 1980, Shenzhen went from fishing village to global technology and manufacturing hub (Huawei, Tencent, DJI), with a dynamic market under Communist Party oversight.",
     "flagPath": "/countries/flags/shenzhen.png",
     "historical": false,
     "period": "",
@@ -2749,8 +2971,8 @@
   {
     "id": "chongqing",
     "name": "Chongqing (China)",
-    "category": "Município industrial-dirigista",
-    "description": "Maior município sob administração direta da China, Chongqing une indústria pesada, polo automotivo e trens de carga para a Europa ao \"modelo Chongqing\" de Bo Xilai (habitação pública, campanha anticrime, \"canções vermelhas\"), encerrado em 2012.",
+    "category": "Industrial dirigiste municipality",
+    "description": "China's largest directly administered municipality, Chongqing combines heavy industry, a car-making base and freight trains to Europe with Bo Xilai's \"Chongqing model\" (public housing, anti-crime campaign, \"red songs\"), ended in 2012.",
     "flagPath": "/countries/flags/chongqing.png",
     "historical": false,
     "period": "",
@@ -2763,9 +2985,9 @@
   },
   {
     "id": "imperio-austriaco",
-    "name": "Império Austríaco (Habsburgos)",
-    "category": "Monarquia multinacional centralizada",
-    "description": "Fundado pelos Habsburgos em 1804, o Império Austríaco foi uma monarquia multinacional da Europa Central até o Compromisso de 1867. Sob Francisco I e Metternich, combinou administração centralizada, primazia católica e repressão liberal.",
+    "name": "Austrian Empire (Habsburgs)",
+    "category": "Centralized multinational monarchy",
+    "description": "Founded by the Habsburgs in 1804, the Austrian Empire was a multinational Central European monarchy until the Compromise of 1867. Under Francis I and Metternich, it combined centralized administration, Catholic primacy, and liberal repression.",
     "flagPath": "/countries/flags/imperio-austriaco.png",
     "historical": true,
     "period": "1804–1867",

@@ -30,14 +30,14 @@ class CountryMatchVariantsTest {
     // vir do seu proprio recorte do catalogo.
     @Test
     void topMatchIsAlwaysACurrentCountry() {
-        var top = matcherService.findTopMatch(axesDeTeste(), QuizDataService.LANG_PT);
+        var top = matcherService.findTopMatch(axesDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(top.historical()).isFalse();
     }
 
     @Test
     void topHistoricalMatchIsAlwaysHistorical() {
-        var top = matcherService.findTopHistoricalMatch(axesDeTeste(), QuizDataService.LANG_PT);
+        var top = matcherService.findTopHistoricalMatch(axesDeTeste(), QuizDataService.LANG_EN);
 
         assertThat(top.historical()).isTrue();
     }
@@ -45,8 +45,8 @@ class CountryMatchVariantsTest {
     @Test
     void bottomMatchesAreTheLeastCompatibleInAscendingOrder() {
         var axes = axesDeTeste();
-        var opostos = matcherService.findBottomMatches(axes, QuizDataService.LANG_PT);
-        var top = matcherService.findTopMatch(axes, QuizDataService.LANG_PT);
+        var opostos = matcherService.findBottomMatches(axes, QuizDataService.LANG_EN);
+        var top = matcherService.findTopMatch(axes, QuizDataService.LANG_EN);
 
         assertThat(opostos).hasSize(3);
         assertThat(opostos.get(0).compatibility()).isLessThanOrEqualTo(opostos.get(1).compatibility());

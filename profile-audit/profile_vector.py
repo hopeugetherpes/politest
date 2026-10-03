@@ -95,9 +95,9 @@ def archetype_prompt_block():
     ]
     for q in archetype_questions():
         lines.append("")
-        lines.append(f"[id={q['id']}] {q['text']['pt']}")
+        lines.append(f"[id={q['id']}] {q['text']['en']}")
         for o in q['options']:
-            lines.append(f"  {o['id']}) {o['text']['pt']}")
+            lines.append(f"  {o['id']}) {o['text']['en']}")
     return "\n".join(lines) + "\n"
 
 

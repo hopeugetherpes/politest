@@ -29,7 +29,7 @@ public class PersonalityMatcherService {
     }
 
     public List<PersonalityMatch> findMatches(List<AxisResult> axisResults) {
-        return findMatches(axisResults, QuizDataService.LANG_PT);
+        return findMatches(axisResults, QuizDataService.LANG_EN);
     }
 
     public List<PersonalityMatch> findMatches(List<AxisResult> axisResults, String lang) {
@@ -43,7 +43,7 @@ public class PersonalityMatcherService {
     }
 
     public PersonalityMatch findTopMatch(List<AxisResult> axisResults) {
-        return findTopMatch(axisResults, QuizDataService.LANG_PT);
+        return findTopMatch(axisResults, QuizDataService.LANG_EN);
     }
 
     public PersonalityMatch findTopMatch(List<AxisResult> axisResults, String lang) {

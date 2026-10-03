@@ -28,7 +28,7 @@ public class CompareController {
     // Perfis pesquisaveis na secao de comparacao, ja filtrados pela religiao escolhida (opcional).
     @GetMapping("/api/compare/catalog")
     public List<CompareItem> catalog(
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang,
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang,
             @RequestParam(required = false) String religion
     ) {
         return compareService.catalog(lang, ReligionFilter.normalize(religion));
@@ -40,7 +40,7 @@ public class CompareController {
             @RequestParam String type,
             @RequestParam String id,
             @RequestParam("v") String values,
-            @RequestParam(defaultValue = QuizDataService.LANG_PT) String lang
+            @RequestParam(defaultValue = QuizDataService.LANG_EN) String lang
     ) {
         var axes = scoringService.scoreFromLeftPercents(AxisValuesParser.parse(values), lang);
         return compareService.compare(type, id, scorer.userVectorFor(axes), lang);

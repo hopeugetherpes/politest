@@ -33,9 +33,8 @@ Variantes:
 
 Idiomas:
 
-- `pt` por padrao.
-- `en`, `en-us`, `en-gb` viram `en`.
-- Qualquer outro valor cai para `pt`.
+- English (`en`) is the only supported language.
+- Missing or unsupported language parameters also resolve to `en`.
 
 ### `POST /api/results`
 

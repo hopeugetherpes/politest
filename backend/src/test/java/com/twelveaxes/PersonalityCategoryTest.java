@@ -41,10 +41,10 @@ class PersonalityCategoryTest {
     // ela classifica a figura historica, nao o texto exibido.
     @Test
     void englishCatalogKeepsTheSameCategories() {
-        var pt = dataService.getPersonalities(QuizDataService.LANG_PT);
+        var defaultData = dataService.getPersonalities();
         var en = dataService.getPersonalities(QuizDataService.LANG_EN);
 
-        assertThat(en).hasSameSizeAs(pt);
+        assertThat(en).hasSameSizeAs(defaultData);
         assertThat(en).allSatisfy(personality -> assertThat(personality.category())
                 .as("Personalidade %s precisa de categoria no catalogo EN", personality.id())
                 .isIn(CATEGORIAS_VALIDAS));

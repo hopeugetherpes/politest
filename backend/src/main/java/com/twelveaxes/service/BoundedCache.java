@@ -17,7 +17,7 @@ public final class BoundedCache<K, V> {
 
     public BoundedCache(int maxEntries) {
         if (maxEntries < 1) {
-            throw new IllegalArgumentException("maxEntries deve ser positivo");
+            throw new IllegalArgumentException("maxEntries must be positive");
         }
         this.entries = new LinkedHashMap<>(16, 0.75f, true) {
             @Override

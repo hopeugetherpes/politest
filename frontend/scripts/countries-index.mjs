@@ -34,51 +34,6 @@ export function periodRange(period = '') {
 }
 
 const STR = {
-  pt: {
-    skip: 'Pular para a lista',
-    catalogNav: 'Catálogo',
-    homeAria: '12 axes, página inicial',
-    eyebrow: 'Catálogo',
-    lead: (cur, hist) => `${cur} países atuais e ${hist} regimes históricos com perfil completo nos 12 eixos. Da Antiguidade à política de hoje, descubra onde cada um se posiciona.`,
-    stats: ['perfis', 'países atuais', 'regimes históricos', 'anos de história'],
-    erasAria: 'Épocas',
-    searchLabel: 'Buscar país ou regime',
-    searchPlaceholder: 'Buscar país, regime ou época',
-    filterAria: 'Filtrar por época',
-    historicalBlock: 'Regimes históricos',
-    countCurrent: ['país', 'países'],
-    countHistorical: ['regime', 'regimes'],
-    viewProfile: 'Ver perfil',
-    dnaNote:
-      '<b>Como ler a faixa de 12 ícones:</b> cada ícone é um eixo e mostra o polo para onde o país ou regime pende. Quanto mais forte o ícone, mais intensa a posição. Passe o mouse para ver os valores.',
-    legendAria: 'Polos de cada eixo, na ordem da faixa',
-    emptyTitle: 'Nenhum país encontrado',
-    emptyText: 'Tente outro termo ou limpe os filtros.',
-    found: ['perfil encontrado', 'perfis encontrados'],
-    clear: 'Limpar filtros',
-    flagAlt: (name) => `Bandeira: ${name}`,
-    ctaTitle: 'Em que país você se encaixaria?',
-    ctaText: 'Responda ao quiz e descubra quais países e regimes históricos mais combinam com você.',
-    takeTheTest: 'Fazer o teste',
-    footer: 'Quiz político independente · 12axes.vercel.app',
-    otherLang: { label: 'English', href: '/en/countries' },
-    labels: {
-      atuais: 'Países atuais',
-      antiguidade: 'Antiguidade',
-      medieval: 'Idade Média',
-      moderna: 'Idade Moderna',
-      xix: 'Século XIX',
-      xx: 'Séculos XX e XXI'
-    },
-    descriptions: {
-      atuais: 'Estados e regiões autônomas de hoje, cada um com seu regime político e perfil nos 12 eixos.',
-      antiguidade: 'Cidades-Estado, repúblicas e impérios do mundo antigo.',
-      medieval: 'Impérios, repúblicas mercantes e comunidades medievais.',
-      moderna: 'Monarquias, impérios coloniais e repúblicas da era moderna.',
-      xix: 'Impérios, nações recém-unificadas e experiências revolucionárias do século XIX.',
-      xx: 'Regimes dos séculos XX e XXI: totalitarismos, ditaduras, revoluções e experiências democráticas.'
-    }
-  },
   en: {
     skip: 'Skip to the list',
     catalogNav: 'Catalog',
@@ -106,7 +61,6 @@ const STR = {
     ctaText: 'Take the quiz and find out which countries and historical regimes match you best.',
     takeTheTest: 'Take the test',
     footer: 'Independent political quiz · 12axes.vercel.app',
-    otherLang: { label: 'Português', href: '/countries' },
     labels: {
       atuais: 'Modern countries',
       antiguidade: 'Antiquity',
@@ -228,7 +182,7 @@ ${poleSprite(L.axes)}
   <div class="empty" id="empty"><h2>${escapeHtml(t.emptyTitle)}</h2><p>${escapeHtml(t.emptyText)}</p></div>
   <aside class="cta"><div><h2>${escapeHtml(t.ctaTitle)}</h2><p>${escapeHtml(t.ctaText)}</p></div><a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a></aside>
 </main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)} · <a href="${t.otherLang.href}">${escapeHtml(t.otherLang.label)}</a></p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)}</p></div></footer>
 <script>
 const S=${scriptStrings};
 const q=document.getElementById('q'),chips=[...document.querySelectorAll('.chip')],cats=[...document.querySelectorAll('.cat')];

@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { selectAllQuestionsBalanced, selectAndBalanceQuestions } from './utils/quizSelection';
 import { HOME_AXES } from './data/homeAxes';
 import type { ExampleResult } from './data/exampleResult';
-import { LANG, setLang, t } from './i18n';
+import { t } from './i18n';
 import { fetchQuiz, fetchSharedResult, submitResults } from './services/quizApi';
 import type { AnswerValue, ArchetypeQuestion, QuizPayload, QuizResult, QuizVariant } from './types/quiz';
 import { HomeScreen } from './components/editorial/HomeScreen';
@@ -745,17 +745,9 @@ function MainApp() {
                 <a href="#espectro-politico">{t.navSpectrum}</a>
                 <a href="#faq">{t.navFaq}</a>
                 <a href="#apoie">{t.navSupport}</a>
-                <a href={`${LANG === 'en' ? '/en' : ''}/ideologies`}>{t.navIdeologies}</a>
-                <a href={`${LANG === 'en' ? '/en' : ''}/personalities`}>{t.navPersonalities}</a>
-                <a href={`${LANG === 'en' ? '/en' : ''}/countries`}>{t.navCountries}</a>
-                <button
-                  className="e-lang"
-                  type="button"
-                  onClick={() => setLang(LANG === 'pt' ? 'en' : 'pt')}
-                  aria-label={t.langToggleAria}
-                >
-                  {t.langToggleLabel}
-                </button>
+                <a href="/ideologies">{t.navIdeologies}</a>
+                <a href="/personalities">{t.navPersonalities}</a>
+                <a href="/countries">{t.navCountries}</a>
               </nav>
               <button className="e-btn e-btn-primary e-btn-sm" type="button" onClick={openVariantChooser}>
                 {t.navStart} <ArrowIcon />

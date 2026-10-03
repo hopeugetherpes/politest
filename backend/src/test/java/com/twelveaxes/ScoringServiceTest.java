@@ -60,7 +60,7 @@ class ScoringServiceTest {
         assertThat(results).allSatisfy(axis -> {
             assertThat(axis.leftPercent()).isEqualTo(50.0);
             assertThat(axis.rightPercent()).isEqualTo(50.0);
-            assertThat(axis.intensity()).isEqualTo("Equilibrado");
+            assertThat(axis.intensity()).isEqualTo("Balanced");
         });
     }
 

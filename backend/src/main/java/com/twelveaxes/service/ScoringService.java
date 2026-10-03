@@ -26,7 +26,7 @@ public class ScoringService {
     }
 
     public List<AxisResult> score(ResultRequest request) {
-        return score(request, QuizDataService.LANG_PT);
+        return score(request, QuizDataService.LANG_EN);
     }
 
     public List<AxisResult> score(ResultRequest request, String lang) {
@@ -59,7 +59,7 @@ public class ScoringService {
         if (leftPercents.size() != axes.size()) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,
-                    "Vetor de eixos inválido: esperados " + axes.size() + " valores"
+                    "Invalid axis vector: esperados " + axes.size() + " values"
             );
         }
         return java.util.stream.IntStream.range(0, axes.size())
@@ -84,7 +84,7 @@ public class ScoringService {
             if (option == null) {
                 throw new ResponseStatusException(
                         HttpStatus.BAD_REQUEST,
-                        "Resposta de arquétipo inválida: " + questionId + "=" + optionId
+                        "Invalid archetype answer: " + questionId + "=" + optionId
                 );
             }
             option.effects().forEach((axisId, leftPercent) ->
@@ -100,7 +100,7 @@ public class ScoringService {
         if (!unknown.isEmpty()) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,
-                    "Respostas inválidas. IDs desconhecidos: " + unknown
+                    "Invalid answers. Unknown IDs: " + unknown
             );
         }
     }
@@ -128,17 +128,16 @@ public class ScoringService {
     }
 
     private String intensityFor(double distanceFromCenter, String lang) {
-        boolean en = QuizDataService.LANG_EN.equals(lang);
         if (distanceFromCenter < 7.5) {
-            return en ? "Balanced" : "Equilibrado";
+            return "Balanced";
         }
         if (distanceFromCenter < 22.5) {
-            return en ? "Leaning" : "Inclinado";
+            return "Leaning";
         }
         if (distanceFromCenter < 37.5) {
-            return en ? "Strong" : "Forte";
+            return "Strong";
         }
-        return en ? "Very strong" : "Muito forte";
+        return "Very strong";
     }
 
     private double round(double value) {

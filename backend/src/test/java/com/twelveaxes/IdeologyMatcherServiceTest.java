@@ -121,7 +121,7 @@ class IdeologyMatcherServiceTest {
         var matches = matcherService.findMatches(axes);
 
         assertThat(matches).hasSize(4);
-        assertThat(matches.get(0).category()).isEqualTo("Extrema Direita");
+        assertThat(matches.get(0).category()).isEqualTo("Far-Right");
         assertThat(matches.get(0).ideologyId()).isIn(
                 "alt-lite",
                 "aceleracionismo-de-direita",
@@ -171,7 +171,7 @@ class IdeologyMatcherServiceTest {
         var match = matcherService.findMatches(axes).get(0);
 
         assertThat(match.description()).isNotBlank();
-        assertThat(match.longDescription()).contains("compatibilidade");
+        assertThat(match.longDescription()).contains("Compatibility");
         assertThat(match.longDescription().length()).isGreaterThan(match.description().length());
     }
 
@@ -188,7 +188,7 @@ class IdeologyMatcherServiceTest {
 
         assertThat(matches).hasSize(4);
         assertThat(matches.get(0).category())
-                .isIn("Extrema Direita", "Esquerda Radical");
+                .isIn("Far-Right", "Radical Left");
         // Every top match should have meaningful compatibility (>= 60%).
         assertThat(matches).allSatisfy(m -> assertThat(m.compatibility()).isGreaterThan(50.0));
     }
@@ -204,7 +204,7 @@ class IdeologyMatcherServiceTest {
 
         assertThat(matches).hasSize(4);
         assertThat(matches.get(0).category())
-                .isIn("Anarquismo", "Libertário");
+                .isIn("Anarchist", "Libertarian");
     }
 
     private SubmittedAnswer extremeFascistAnswer(Question q) {

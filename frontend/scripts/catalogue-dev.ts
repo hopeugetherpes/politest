@@ -28,8 +28,16 @@ export function catalogueDevPlugin(): Plugin {
 
       server.middlewares.use(async (req, res, next) => {
         if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+        const legacy = (req.url ?? '/').match(/^\/en(?=\/|\?|$)(.*)$/);
+        if (legacy) {
+          res.statusCode = 308;
+          const destination = legacy[1];
+          res.setHeader('Location', destination.startsWith('/') ? destination : `/${destination}`);
+          res.end();
+          return;
+        }
         const path = (req.url ?? '/').split('?')[0].replace(/\/+$/, '');
-        const catalogue = /^\/(?:en\/)?(?:ideologies|personalities|countries)(?:\/[a-z0-9-]+)?(?:\.html)?$/.test(path);
+        const catalogue = /^\/(?:ideologies|personalities|countries)(?:\/[a-z0-9-]+)?(?:\.html)?$/.test(path);
         const stylesheet = /^\/(?:ideologies|personalities|countries|profile)\.css$/.test(path);
         if (!catalogue && !stylesheet) return next();
 

@@ -42,7 +42,7 @@ class BookRecommendationTest {
 
     @Test
     void recommendsUpToThreeBooksFromTopPersonalitiesSortedByCompatibility() throws Exception {
-        QuizResult result = result("pt");
+        QuizResult result = result("en");
         Set<String> pool = Stream.concat(result.personalityMatches().stream(), result.categoryBestMatches().stream())
                 .map(PersonalityMatch::personalityId)
                 .collect(Collectors.toSet());
@@ -59,10 +59,10 @@ class BookRecommendationTest {
     }
 
     @Test
-    void usesBrazilianStoreAndTagInPortuguese() throws Exception {
-        assertThat(result("pt").bookRecommendations()).allSatisfy(book -> {
+    void usesEnglishStoreForUnsupportedLanguage() throws Exception {
+        assertThat(result("zz").bookRecommendations()).allSatisfy(book -> {
             assertThat(book.title()).isNotBlank();
-            assertThat(book.url()).startsWith("https://www.amazon.com.br/").contains("tag=12axes-20");
+            assertThat(book.url()).startsWith("https://www.amazon.com/").contains("tag=12axes0d-20");
         });
     }
 

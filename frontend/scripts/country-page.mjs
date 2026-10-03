@@ -8,55 +8,6 @@ import { poleSprite } from './pole-icons.mjs';
 import { dimensionMatches, rank, religionVisibility } from './profile-match.mjs';
 
 const STR = {
-  pt: {
-    skip: 'Pular para o conteúdo',
-    catalogNav: 'Catálogo',
-    homeAria: '12 axes, página inicial',
-    takeTheTest: 'Fazer o teste',
-    currentCountry: 'País atual',
-    historicalRegime: 'Regime histórico',
-    kpiSpectrum: 'Espectro predominante',
-    kpiLinked: 'Ideologia ligada',
-    kpiClosestIdeology: 'Ideologia mais próxima',
-    kpiClosestPerson: 'Personalidade mais próxima',
-    portraitAlt: (name) => `Retrato de ${name}`,
-    flagAlt: (name) => `Bandeira: ${name}`,
-    tabsAria: 'Seções do país',
-    tabs: { axes: 'Eixos', ideologies: 'Ideologias', personalities: 'Personalidades', countries: 'Países' },
-    ids: { axes: 'eixos', ideologies: 'ideologias', personalities: 'personalidades', countries: 'paises' },
-    axesEyebrow: 'Eixos políticos',
-    axesTitle: 'Perfil nos 12 eixos',
-    distTitle: (name) => `O que distingue ${name}`,
-    rareTag: 'Posição mais incomum',
-    commonTag: 'Posição mais comum',
-    rareText: (pole, pct, n) => `Puxa mais para ${pole.toLowerCase()} que ${pct}% dos ${n} países e regimes do catálogo.`,
-    rareNote: (axis) => `De todos os eixos, ${axis} é onde mais se afasta do conjunto.`,
-    commonText: (axis, exact) => (exact ? `Em ${axis}, fica praticamente na mediana do catálogo.` : `Em ${axis}, fica perto da mediana do catálogo.`),
-    commonNote: 'Aqui está em terreno comum com a maioria dos países.',
-    median: 'Mediana dos países',
-    ideologyEyebrow: 'Proximidade ideológica',
-    ideologiesTitle: 'Ideologias',
-    compatibleSub: (n) => `Mais compatíveis entre as ${n} ideologias`,
-    distantIdeology: 'A ideologia mais distante',
-    personalitiesTitle: 'Personalidades',
-    mostCompatible: 'Mais compatível',
-    byDimension: 'Mais próximas, por dimensão',
-    dimensionLabels: { political: 'Politicamente', social: 'Socialmente', economic: 'Economicamente' },
-    nearSub: 'Outros perfis compatíveis',
-    farPeople: 'As mais distantes',
-    countriesTitle: 'Países parecidos',
-    countryTabsAria: 'Tipo de país',
-    currentTab: 'Países atuais',
-    historicalTab: 'Regimes históricos',
-    currentKicker: 'País atual mais parecido',
-    historicalKicker: 'Regime histórico mais parecido',
-    alsoByDimension: 'Também parecidos, por dimensão',
-    farCountries: 'Os mais diferentes',
-    matchWord: 'match',
-    ctaTitle: 'Você viveria bem aqui?',
-    ctaText: (name, n) => `Responda ao quiz e veja sua compatibilidade com ${name} e outros ${n} países e regimes nos 12 eixos.`,
-    footer: 'Quiz político independente · 12axes.vercel.app'
-  },
   en: {
     skip: 'Skip to content',
     catalogNav: 'Catalog',
@@ -302,7 +253,7 @@ ${poleSprite(L.axes)}
 
   <aside class="panel pcta"><div><h2>${esc(t.ctaTitle)}</h2><p>${esc(t.ctaText(name, L.countries.length - 1))}</p></div><a class="btn btn-primary" href="${home}">${esc(t.takeTheTest)} ${ARR}</a></aside>
 </div></main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${home}"><b>12</b><span>axes</span></a><p>${esc(t.footer)} · <a href="${prefix === '' ? '/en' : ''}${basePath}">${prefix === '' ? 'English' : 'Português'}</a></p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${home}"><b>12</b><span>axes</span></a><p>${esc(t.footer)}</p></div></footer>
 ${axisSheetHtml(locale)}
 <script>
 ${PAGE_SCRIPT}</script>
