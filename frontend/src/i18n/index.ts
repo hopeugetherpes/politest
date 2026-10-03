@@ -296,7 +296,7 @@ interface Strings {
 
 const en: Strings = {
   htmlLang: 'en',
-  docTitle: '12 Axes — Political Quiz and Ideology Test across 12 Axes',
+  docTitle: 'Politest — Political Quiz and Ideology Test across 12 axes',
   loadingAnalysis: 'Loading political analysis...',
   loadingQuiz: 'Loading quiz...',
   loadingResult: 'Loading results...',
@@ -315,7 +315,7 @@ const en: Strings = {
   backToStartAria: 'Back to start',
   mainNavAria: 'Main navigation',
   navHow: 'How it works',
-  navAxes: '12 Axes',
+  navAxes: '12 axes',
   navSpectrum: 'Spectrum',
   navFaq: 'FAQ',
   navIdeologies: 'Ideologies',
@@ -499,7 +499,7 @@ const en: Strings = {
     {
       question: 'Is the test reliable?',
       answer:
-        'The 12 Axes political test is reliable as a tool for reading and comparing political positions. It uses questions spread across 12 axes to reduce single-topic bias, but it does not replace study, debate, or academic analysis.'
+        'The Politest political test is reliable as a tool for reading and comparing political positions. It uses questions spread across 12 axes to reduce single-topic bias, but it does not replace study, debate, or academic analysis.'
     },
     {
       question: 'How long does it take?',
@@ -529,7 +529,7 @@ const en: Strings = {
     {
       question: 'Is the test scientific?',
       answer:
-        '12 Axes is not a clinically validated scientific instrument. It is an educational political test, inspired by political spectrum models and ideology quizzes, useful for reflection and comparison.'
+        'Politest is not a clinically validated scientific instrument. It is an educational political test, inspired by political spectrum models and ideology quizzes, useful for reflection and comparison.'
     },
     {
       question: 'Can I share it?',
@@ -548,9 +548,9 @@ const en: Strings = {
     }
   ],
   howEyebrow: 'How it works',
-  howTitle: 'How the 12 Axes political quiz works',
+  howTitle: 'How the Politest political quiz works',
   howLead:
-    'A simple, visual political ideology test: you respond to statements, 12 Axes calculates your percentages, and shows where you stand on the political spectrum in each dimension.',
+    'A simple, visual political ideology test: you respond to statements, Politest calculates your percentages, and shows where you stand on the political spectrum in each dimension.',
   steps: [
     {
       title: 'Answer the questions',
@@ -568,7 +568,7 @@ const en: Strings = {
   axesGuideEyebrow: '12 axes',
   axesGuideTitle: 'What does each axis mean?',
   axesGuideLead:
-    'The 12 Axes ideology test analyzes federalism, political representation, democracy, elections, immigration, international trade, religion in politics, economic policy, morality, and technology in separate dimensions.',
+    'The Politest ideology test analyzes federalism, political representation, democracy, elections, immigration, international trade, religion in politics, economic policy, morality, and technology in separate dimensions.',
   discoveryEyebrow: 'What you will discover',
   discoveryTitle: 'A complete portrait of your political convictions',
   discoveryLead:
@@ -583,7 +583,7 @@ const en: Strings = {
   ],
   exampleEyebrow: 'Real example',
   exampleTitle: "Here's what your result looks like",
-  exampleCaption: 'Illustrative example using real data from the 12 Axes catalog.',
+  exampleCaption: 'Illustrative example using real data from the Politest catalog.',
   exampleCta: 'I want to see my result',
   spectrumEyebrow: 'Political spectrum',
   spectrumTitle: 'Discover your political spectrum',
@@ -709,7 +709,7 @@ const en: Strings = {
   generatingPdf: 'Generating PDF...',
   downloadPdf: 'Download PDF',
   report: {
-    fileName: '12axes-report',
+    fileName: 'politest-report',
     docLabel: 'Full report',
     profileEyebrow: 'Your ideological profile',
     headerLabel: (ideology) => `Political profile report · ${ideology}`,
@@ -727,19 +727,19 @@ const en: Strings = {
     areasIntro: 'The figures in the catalog whose profile across the 12 axes most resembles yours.',
     booksIntro: 'One work by each of the figures closest to your results. Links in the online version of the result.',
     aboutTitle: 'About this report',
-    aboutText: '12 Axes compares your answers with profiles of ideologies, countries and figures on the same 12 axes. Compatibility measures closeness between profiles; it is not a scientific diagnosis or a definitive label. Your answers are not stored.',
+    aboutText: 'Politest compares your answers with profiles of ideologies, countries and figures on the same 12 axes. Compatibility measures closeness between profiles; it is not a scientific diagnosis or a definitive label. Your answers are not stored.',
     ctaTitle: 'Retake the quiz or share it'
   },
-  shareFilePrefix: '12axes-profile',
+  shareFilePrefix: 'politest-profile',
   shareMessage: (ideology, ideologyPct, country, countryPct, personality, personalityPct) =>
-    `I discovered my ideological profile on the 12 Axes Political Quiz!\n\n` +
+    `I discovered my ideological profile on the Politest Political Quiz!\n\n` +
     `💡 Most compatible ideology:\n` +
     `${ideology} - ${ideologyPct}% compatibility\n\n` +
     `🌎 Most compatible country/nation:\n` +
     `${country} - ${countryPct}% compatibility\n\n` +
     `👤 Most compatible personality:\n` +
     `${personality} - ${personalityPct}% compatibility\n\n` +
-    `👉 Take the test and share your result:\nhttps://12axes.vercel.app/en`,
+    `👉 Take the test and share your result:\nhttps://politest.anatole.co`,
   progress: (current, total) => `Question ${current} of ${total}`,
   progressDone: (percent) => `${percent}% complete`,
   archetypeHeader: 'Identifying your archetype',
@@ -757,7 +757,7 @@ const en: Strings = {
   portraitUnavailableAria: (name) => `Portrait unavailable for ${name}`,
   compatibilityAria: (pct) => `Compatibility: ${pct} percent`,
   matchWord: 'match',
-  shareTitle: 'My ideological profile | 12axes.vercel.app',
+  shareTitle: 'My ideological profile | politest.anatole.co',
   shareTopMatch: 'Top match',
   shareCountry: 'Most compatible country',
   sharePersonality: 'Personality',
@@ -767,12 +767,12 @@ const en: Strings = {
   shareOtherPersonalities: 'OTHER PERSONALITIES',
   shareNearbyCountries: 'NEARBY COUNTRIES',
   shareFooterCta: 'DISCOVER YOUR PROFILE',
-  shareFooterUrl: '12AXES.VERCEL.APP',
+  shareFooterUrl: 'POLITEST.ANATOLE.CO',
   supportEyebrow: 'Support the project',
   supportTitle: '',
   ossEyebrow: 'Open source',
   ossTitle: 'An independent, transparent project',
-  ossLead: "You don't have to take our word for it. The 12 Axes code is public: you can see how every answer is scored, how compatibility is calculated and where the profiles come from.",
+  ossLead: "You don't have to take our word for it. The Politest code is public: you can see how every answer is scored, how compatibility is calculated and where the profiles come from.",
   ossCards: [
     { title: 'Independent', text: 'No ties to parties, governments or campaigns. Nobody pays to appear in your result.' },
     { title: 'Auditable', text: 'Answer scoring and the compatibility calculation live in the code, with no black box.' },
@@ -787,7 +787,7 @@ const en: Strings = {
   feedbackSuggest: 'Suggest improvements',
   supportTitleEm: 'Support',
   supportLead:
-    '12 Axes is independent and free. If the quiz helped you better understand your political ideology, consider donating via Pix or crypto to help keep the project running.',
+    'Politest is independent and free. If the quiz helped you better understand your political ideology, consider donating via Pix or crypto to help keep the project running.',
   supportPrivacyNote: "We don't collect data. To donate without identifying yourself, use crypto.",
   supportCopy: 'Copy',
   supportCopied: 'Copied!',

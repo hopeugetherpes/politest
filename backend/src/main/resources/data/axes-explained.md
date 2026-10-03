@@ -1,6 +1,6 @@
 # 12 Eixos — Documentação de Referência
 
-Documento de referência dos 12 eixos do quiz político **12axes**. Cada eixo mede uma tensão entre dois polos opostos. Abaixo estão, para cada eixo: identificador técnico, rótulos em inglês, polos, cores, a descrição exibida na interface e os temas avaliados por cada polo.
+Documento de referência dos 12 eixos do quiz político **politest**. Cada eixo mede uma tensão entre dois polos opostos. Abaixo estão, para cada eixo: identificador técnico, rótulos em inglês, polos, cores, a descrição exibida na interface e os temas avaliados por cada polo.
 
 > A ordem segue a numeração oficial da interface (01–12), idêntica à do `axes.json`.
 

@@ -2,7 +2,9 @@ import type { AnswerValue, QuizPayload, QuizVariant } from '../types/quiz';
 
 // Progresso do quiz guardado no navegador: se a aba recarregar, travar ou
 // quebrar no meio, a pessoa continua de onde parou em vez de recomeçar.
-const STORAGE_KEY = '12axes-progress';
+const STORAGE_KEY = 'politest-progress';
+// Read the former key once so a rename does not discard a quiz already in progress.
+const LEGACY_STORAGE_KEY = '12axes-progress';
 const VERSION = 1;
 const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -79,7 +81,20 @@ export function parseProgress(raw: string | null, now = Date.now()): SavedProgre
 
 export function loadProgress(): SavedProgress | null {
   try {
-    return parseProgress(window.localStorage.getItem(STORAGE_KEY));
+    const current = parseProgress(window.localStorage.getItem(STORAGE_KEY));
+    if (current) {
+      return current;
+    }
+    const legacy = parseProgress(window.localStorage.getItem(LEGACY_STORAGE_KEY));
+    if (legacy) {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(legacy));
+        window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+      } catch {
+        // A full or read-only store must not prevent resuming the saved quiz.
+      }
+    }
+    return legacy;
   } catch {
     return null;
   }
@@ -89,6 +104,7 @@ export function saveProgress(progress: Omit<SavedProgress, 'v' | 'savedAt'>): vo
   try {
     const payload: SavedProgress = { ...progress, v: VERSION, savedAt: Date.now() };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    window.localStorage.removeItem(LEGACY_STORAGE_KEY);
   } catch {
     // localStorage indisponível ou cheio: o quiz segue funcionando, só sem retomada.
   }
@@ -97,6 +113,7 @@ export function saveProgress(progress: Omit<SavedProgress, 'v' | 'savedAt'>): vo
 export function clearProgress(): void {
   try {
     window.localStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(LEGACY_STORAGE_KEY);
   } catch {
     // Nada a limpar.
   }

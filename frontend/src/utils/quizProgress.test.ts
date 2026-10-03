@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { answeredCount, parseProgress, restoreQuiz, type SavedProgress } from './quizProgress';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { answeredCount, clearProgress, loadProgress, parseProgress, restoreQuiz, type SavedProgress } from './quizProgress';
 import type { QuizPayload } from '../types/quiz';
 
 const NOW = 1_800_000_000_000;
@@ -20,7 +20,7 @@ function progress(overrides: Partial<SavedProgress> = {}): SavedProgress {
 
 function payload(): QuizPayload {
   return {
-    title: '12 Axes',
+    title: 'Politest',
     description: '',
     variant: 'extreme',
     questionCount: 4,
@@ -79,5 +79,58 @@ describe('restoreQuiz', () => {
 describe('answeredCount', () => {
   it('conta só respostas de perguntas desta sequência', () => {
     expect(answeredCount(progress({ answers: { estrutura_01: 'AGREE', fora_01: 'AGREE' } }))).toBe(1);
+  });
+});
+
+describe('saved progress after renaming the app', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  function browserStorage(values: Record<string, string>) {
+    const stored = new Map(Object.entries(values));
+    const storage = {
+      getItem: (key: string) => stored.get(key) ?? null,
+      setItem: vi.fn((key: string, value: string) => stored.set(key, value)),
+      removeItem: (key: string) => stored.delete(key)
+    };
+    vi.stubGlobal('window', { localStorage: storage });
+    vi.spyOn(Date, 'now').mockReturnValue(NOW);
+    return { stored, storage };
+  }
+
+  it('resumes and migrates a quiz saved before the rename', () => {
+    const saved = progress();
+    const { stored } = browserStorage({ '12axes-progress': JSON.stringify(saved) });
+    expect(loadProgress()).toEqual(saved);
+    expect(JSON.parse(stored.get('politest-progress')!)).toEqual(saved);
+    expect(stored.has('12axes-progress')).toBe(false);
+  });
+
+  it('keeps the current quiz when both storage keys exist', () => {
+    const current = progress({ index: 1 });
+    browserStorage({
+      'politest-progress': JSON.stringify(current),
+      '12axes-progress': JSON.stringify(progress())
+    });
+    expect(loadProgress()).toEqual(current);
+  });
+
+  it('still resumes the former quiz if migration cannot write to storage', () => {
+    const saved = progress();
+    const { storage, stored } = browserStorage({ '12axes-progress': JSON.stringify(saved) });
+    storage.setItem.mockImplementation(() => { throw new Error('Storage is full'); });
+    expect(loadProgress()).toEqual(saved);
+    expect(stored.has('12axes-progress')).toBe(true);
+  });
+
+  it('does not revive a former quiz after the user discards it', () => {
+    browserStorage({
+      'politest-progress': JSON.stringify(progress()),
+      '12axes-progress': JSON.stringify(progress())
+    });
+    clearProgress();
+    expect(loadProgress()).toBeNull();
   });
 });

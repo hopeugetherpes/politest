@@ -1,18 +1,18 @@
 <div align="center">
 
-# 12 Axes
+# Politest
 
 A political quiz that places you on twelve independent axes and compares your answers with +230 ideologies, +170 countries and regimes, and +390 political figures.
 
-**[12axes.vercel.app](https://12axes.vercel.app)** · No Data collection · no sign-up
+**[politest.anatole.co](https://politest.anatole.co)** · No Data collection · no sign-up
 
-![Java](https://img.shields.io/badge/Java-21-orange) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-6DB33F) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/RomanCypherpunk/12axes/actions/workflows/ci.yml/badge.svg)
+![Java](https://img.shields.io/badge/Java-21-orange) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-6DB33F) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/hopeugetherpes/politest/actions/workflows/ci.yml/badge.svg)
 
 </div>
 
 ## Overview
 
-Most political tests reduce you to a single point on a left-right line, or to a two-axis grid. 12 Axes measures twelve dimensions separately, so someone who wants a free market and a strong state, or open borders and a religious society, sees that combination instead of an average that hides it.
+Most political tests reduce you to a single point on a left-right line, or to a two-axis grid. Politest measures twelve dimensions separately, so someone who wants a free market and a strong state, or open borders and a religious society, sees that combination instead of an average that hides it.
 
 The project is also a full-stack portfolio piece: a Spring Boot REST API with its own matching algorithm, a React and TypeScript frontend, a versioned JSON data layer, automated tests, CI, and cloud deploys.
 
@@ -36,7 +36,7 @@ People curious about politics who want more than a left-right label, students co
 
 ### The 12 axes
 
-The model is inspired by the original [12 Axes test](https://politicaltests.github.io/12axes/). Each axis runs between two poles:
+The model is inspired by the [original political spectrum test](https://politicaltests.github.io/12axes/). Each axis runs between two poles:
 
 | Axis | Pole A | Pole B |
 |------|--------|--------|
@@ -83,7 +83,7 @@ The pool has 240 statements, 20 per axis, half phrased toward each pole so agree
 
 ### Methodological note
 
-12 Axes is a tool for exploring ideas. It is not a scientific instrument. A high compatibility means your answers are close to a profile, not that you belong to a movement, should vote for someone, or share anyone's values in full. Profiles are simplified models, and the questions inevitably carry the framing of whoever wrote them.
+Politest is a tool for exploring ideas. It is not a scientific instrument. A high compatibility means your answers are close to a profile, not that you belong to a movement, should vote for someone, or share anyone's values in full. Profiles are simplified models, and the questions inevitably carry the framing of whoever wrote them.
 
 ## Features
 
@@ -138,9 +138,9 @@ On startup the backend refuses to run if any catalog entry lacks a vector or a v
 ### Repository structure
 
 ```txt
-12Axes/
+Politest/
 ├── backend/                 Spring Boot API
-│   └── src/main/java/com/twelveaxes/
+│   └── src/main/java/com/politest/
 │       ├── config/          CORS, cache headers, origin enforcement
 │       ├── controller/      REST endpoints
 │       ├── model/           records and DTOs
@@ -237,7 +237,23 @@ The backend suite covers the question pool, the three formats, every catalog vec
 | Part | Platform | Configuration |
 |------|----------|---------------|
 | Backend | Render | `render.yaml` and `backend/Dockerfile` |
-| Frontend | Vercel | `frontend/vercel.json`, output `dist` |
+| Frontend | Vercel | Root `vercel.json`, output `frontend/dist`; existing frontend-root projects can use `frontend/vercel.json` |
+
+Import this repository into Vercel with the repository root as the Root Directory. The root
+configuration installs the frontend dependencies, runs the production build and publishes
+`frontend/dist`, including every generated catalog page.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest&project-name=politest&env=VITE_API_URL&envDescription=The%20HTTPS%20base%20URL%20of%20your%20deployed%20Politest%20backend&envLink=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest%23deploy)
+
+Set `VITE_API_URL` in Vercel to the HTTPS base URL of your deployed backend (without `/api`).
+The Java API is deployed separately using `render.yaml` or `backend/Dockerfile`. Its
+`FRONTEND_ORIGINS` must include `https://politest.anatole.co`; add any other frontend deployment
+origins explicitly if needed. If the backend already has this environment variable configured,
+update it there too, because environment values override the defaults in the repository.
+
+Connect the Vercel project to this GitHub repository for automatic deployments on pushes.
+Existing projects with `frontend` as the Root Directory can keep that configuration, with access
+to the backend catalog files outside that directory enabled for the build.
 
 Every push and pull request runs the CI workflow in `.github/workflows/ci.yml`.
 
@@ -259,8 +275,8 @@ A new profile has to meet these requirements before it is merged:
 
 ### License
 
-12 Axes is source-available but not open source. The code, questions, profiles, and vectors are © 2026 Enzo Xavier Santos, all rights reserved. You may read the code and send contributions, but copying, redistributing, translating, or using any part commercially needs written permission. See [LICENSE](LICENSE) for the full terms.
+Politest is source-available but not open source. The code, questions, profiles, and vectors are © 2026 Enzo Xavier Santos, all rights reserved. You may read the code and send contributions, but copying, redistributing, translating, or using any part commercially needs written permission. See [LICENSE](LICENSE) for the full terms.
 
 ## Credit
 
-Politest is forket from Enzo Xavier Santos's (@RomanCypherpunk) **12 Axes** as a portfolio project and a practical study of full-stack architecture with Java, React, and TypeScript.
+Politest is a fork of [Enzo Xavier Santos's original project](https://github.com/RomanCypherpunk/12axes), adapted for this repository. The original author's copyright and license terms remain in [LICENSE](LICENSE).

@@ -19,7 +19,7 @@ function makePool(questionsPerAxis: number, targetPerAxisSelection: number): Qui
     }))
   );
   return {
-    title: '12 Axes',
+    title: 'Politest',
     description: 'Test',
     variant: 'short',
     questionCount: AXIS_IDS.length * targetPerAxisSelection,

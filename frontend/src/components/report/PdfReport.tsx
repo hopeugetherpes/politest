@@ -26,7 +26,7 @@ interface PdfReportProps {
 }
 
 /**
- * Relatório completo para impressão/PDF (design em docs/nova-identidade/12axes-relatorio.html).
+ * Relatório completo para impressão/PDF (design em docs/nova-identidade/politest-relatorio.html).
  * Só aparece em @media print; a paginação fica a cargo do navegador, com a capa numa página própria.
  */
 export function PdfReport({ result, axes, axisResults, answeredCount, religion }: PdfReportProps) {
@@ -108,7 +108,7 @@ export function PdfReport({ result, axes, axisResults, answeredCount, religion }
         </div>
         <footer className="pf cv-f">
           <span>
-            {t.report.generatedOn(today)} · 12axes.vercel.app
+            {t.report.generatedOn(today)} · politest.anatole.co
           </span>
         </footer>
       </section>
@@ -305,7 +305,7 @@ export function PdfReport({ result, axes, axisResults, answeredCount, religion }
           </div>
           <div className="close-cta">
             <b>{t.report.ctaTitle}</b>
-            <span>12axes.vercel.app</span>
+            <span>politest.anatole.co</span>
           </div>
         </div>
       </div>
@@ -323,7 +323,7 @@ function formatPct(value: number, decimals: number): string {
 function Logo() {
   return (
     <span className="logo">
-      <b>12</b> axes
+      <b>Politest</b>
     </span>
   );
 }

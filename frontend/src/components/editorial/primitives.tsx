@@ -3,12 +3,7 @@ import { t } from '../../i18n';
 import { NEW_ISSUE_URL } from '../../data/repo';
 
 export function Logo({ onClick }: { onClick?: () => void }) {
-  const content = (
-    <>
-      <b>12</b>
-      <span>axes</span>
-    </>
-  );
+  const content = <b>Politest</b>;
   if (!onClick) {
     return <span className="e-logo">{content}</span>;
   }

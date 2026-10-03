@@ -37,7 +37,7 @@ const STR = {
   en: {
     skip: 'Skip to the list',
     catalogNav: 'Catalog',
-    homeAria: '12 axes, home page',
+    homeAria: 'Politest, home page',
     eyebrow: 'Catalog',
     lead: (cur, hist) => `${cur} modern countries and ${hist} historical regimes with a full profile across the 12 axes. From Antiquity to today's politics, see where each one stands.`,
     stats: ['profiles', 'modern countries', 'historical regimes', 'years of history'],
@@ -60,7 +60,7 @@ const STR = {
     ctaTitle: 'Which country would you fit in?',
     ctaText: 'Take the quiz and find out which countries and historical regimes match you best.',
     takeTheTest: 'Take the test',
-    footer: 'Independent political quiz · 12axes.vercel.app',
+    footer: 'Independent political quiz · politest.anatole.co',
     labels: {
       atuais: 'Modern countries',
       antiguidade: 'Antiquity',
@@ -153,7 +153,7 @@ export function countriesIndexPage(L, { locale, site, gaSnippet, escapeHtml, pro
 ${poleSprite(L.axes)}
 <a class="skip" href="#lista">${escapeHtml(t.skip)}</a>
 <header class="nav"><div class="wrap">
-  <a class="logo" href="${prefix || '/'}" aria-label="${escapeHtml(t.homeAria)}"><b>12</b><span>axes</span></a>
+  <a class="logo" href="${prefix || '/'}" aria-label="${escapeHtml(t.homeAria)}"><b>Politest</b></a>
   <nav aria-label="${escapeHtml(t.catalogNav)}"><a href="${prefix}/ideologies">${escapeHtml(L.s.navIdeologies)}</a><a href="${prefix}/countries" aria-current="page">${escapeHtml(L.s.navCountries)}</a><a href="${prefix}/personalities">${escapeHtml(L.s.navPersonalities)}</a></nav>
   <a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a>
 </div></header>
@@ -182,7 +182,7 @@ ${poleSprite(L.axes)}
   <div class="empty" id="empty"><h2>${escapeHtml(t.emptyTitle)}</h2><p>${escapeHtml(t.emptyText)}</p></div>
   <aside class="cta"><div><h2>${escapeHtml(t.ctaTitle)}</h2><p>${escapeHtml(t.ctaText)}</p></div><a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a></aside>
 </main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)}</p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>Politest</b></a><p>${escapeHtml(t.footer)}</p></div></footer>
 <script>
 const S=${scriptStrings};
 const q=document.getElementById('q'),chips=[...document.querySelectorAll('.chip')],cats=[...document.querySelectorAll('.cat')];

@@ -1,7 +1,7 @@
-# Auditoria pergunta-a-pergunta dos perfis (12axes)
+# Auditoria pergunta-a-pergunta dos perfis (politest)
 
 Este diretório contém o processo de auditoria/reauditoria dos perfis de **personalidades**,
-**ideologias** e **países** do projeto 12axes nos 12 eixos políticos (240 perguntas no total: 20
+**ideologias** e **países** do projeto Politest nos 12 eixos políticos (240 perguntas no total: 20
 por eixo).
 
 Se você é uma IA retomando este trabalho numa sessão nova, **leia este arquivo inteiro antes de
@@ -101,7 +101,7 @@ para personality, `"ideologia política"` para ideology, `"país/nação"` para 
 disponíveis (`role`+`lifespan` só existem em personality; use `category` para ideology/country):
 
 ```
-Você está auditando, pergunta a pergunta e de forma totalmente independente, o perfil "{name}" (catálogo: {tipo de perfil}) nos 12 eixos políticos do projeto 12axes. Avalie ESTE perfil sozinho — você não tem (e não deve imaginar) as respostas dadas a nenhum outro perfil.
+Você está auditando, pergunta a pergunta e de forma totalmente independente, o perfil "{name}" (catálogo: {tipo de perfil}) nos 12 eixos políticos do projeto Politest. Avalie ESTE perfil sozinho — você não tem (e não deve imaginar) as respostas dadas a nenhum outro perfil.
 
 Dados curados deste perfil (não invente informação além disto; se precisar de contexto histórico adicional, baseie-se apenas em fatos amplamente documentados e verificáveis sobre esta entidade específica):
 id: {id}

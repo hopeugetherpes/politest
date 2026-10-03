@@ -11,7 +11,7 @@ const STR = {
   en: {
     skip: 'Skip to content',
     catalogNav: 'Catalog',
-    homeAria: '12 axes, home page',
+    homeAria: 'Politest, home page',
     takeTheTest: 'Take the test',
     currentCountry: 'Modern country',
     historicalRegime: 'Historical regime',
@@ -55,7 +55,7 @@ const STR = {
     matchWord: 'match',
     ctaTitle: 'Would you live well here?',
     ctaText: (name, n) => `Take the quiz and see your compatibility with ${name} and ${n} other countries and regimes across the 12 axes.`,
-    footer: 'Independent political quiz · 12axes.vercel.app'
+    footer: 'Independent political quiz · politest.anatole.co'
   }
 };
 
@@ -173,7 +173,7 @@ export function countryPage(L, country, ctx) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: '12 Axes', item: `${site}/` },
+        { '@type': 'ListItem', position: 1, name: 'Politest', item: `${site}/` },
         { '@type': 'ListItem', position: 2, name: L.s.navCountries, item: `${site}${prefix}/countries` },
         { '@type': 'ListItem', position: 3, name, item: `${site}${prefix}${basePath}` }
       ]
@@ -185,7 +185,7 @@ export function countryPage(L, country, ctx) {
       description,
       inLanguage: L.s.htmlLang,
       mainEntityOfPage: `${site}${prefix}${basePath}`,
-      author: { '@type': 'Organization', name: '12 Axes', url: `${site}/` }
+      author: { '@type': 'Organization', name: 'Politest', url: `${site}/` }
     }
   ];
 
@@ -196,7 +196,7 @@ export function countryPage(L, country, ctx) {
 ${poleSprite(L.axes)}
 <a class="skip" href="#main">${esc(t.skip)}</a>
 <header class="nav"><div class="wrap">
-  <a class="logo" href="${home}" aria-label="${esc(t.homeAria)}"><b>12</b><span>axes</span></a>
+  <a class="logo" href="${home}" aria-label="${esc(t.homeAria)}"><b>Politest</b></a>
   <nav class="navl" aria-label="${esc(t.catalogNav)}"><a href="${prefix}/ideologies">${esc(L.s.navIdeologies)}</a><a href="${prefix}/countries" aria-current="page">${esc(L.s.navCountries)}</a><a href="${prefix}/personalities">${esc(L.s.navPersonalities)}</a></nav>
   <a class="btn btn-primary btn-sm" href="${home}">${esc(t.takeTheTest)} ${ARR}</a>
 </div></header>
@@ -253,7 +253,7 @@ ${poleSprite(L.axes)}
 
   <aside class="panel pcta"><div><h2>${esc(t.ctaTitle)}</h2><p>${esc(t.ctaText(name, L.countries.length - 1))}</p></div><a class="btn btn-primary" href="${home}">${esc(t.takeTheTest)} ${ARR}</a></aside>
 </div></main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${home}"><b>12</b><span>axes</span></a><p>${esc(t.footer)}</p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${home}"><b>Politest</b></a><p>${esc(t.footer)}</p></div></footer>
 ${axisSheetHtml(locale)}
 <script>
 ${PAGE_SCRIPT}</script>

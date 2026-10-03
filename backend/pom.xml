@@ -10,11 +10,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.twelveaxes</groupId>
+    <groupId>com.politest</groupId>
     <artifactId>backend</artifactId>
     <version>0.1.0</version>
-    <name>12Axes Backend</name>
-    <description>Backend Java para o quiz politico 12 Axes</description>
+    <name>Politest Backend</name>
+    <description>Backend Java para o quiz politico Politest</description>
 
     <properties>
         <java.version>21</java.version>

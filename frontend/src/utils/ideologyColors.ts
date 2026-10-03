@@ -1,6 +1,6 @@
 /**
  * Par de cores (base + pastel) de cada categoria do espectro. Ver
- * docs/nova-identidade/12axes-identidade-visual.md §5.
+ * docs/nova-identidade/politest-identidade-visual.md §5.
  */
 export interface IdeologyColor {
   key: IdeologyColorKey;

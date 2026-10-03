@@ -1,4 +1,4 @@
-# Contributing to 12 Axes
+# Contributing to Politest
 
 Thanks for taking the time to help. Issues and pull requests are both welcome, and small fixes are as useful as new features.
 
@@ -48,4 +48,4 @@ Use a short subject in the `type(scope): summary` form, for example `feat(countr
 
 ## License of contributions
 
-12 Axes is not open source. By opening a pull request, you agree that your contribution is covered by the [LICENSE](LICENSE), which lets the author use, change, and publish it as part of the project. Please only submit work you wrote yourself or have the right to share.
+Politest is not open source. By opening a pull request, you agree that your contribution is covered by the [LICENSE](LICENSE), which lets the author use, change, and publish it as part of the project. Please only submit work you wrote yourself or have the right to share.

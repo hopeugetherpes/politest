@@ -14,7 +14,7 @@ const ROOT = resolve(__dirname, '..');
 const DATA_DIR = resolve(ROOT, '../backend/src/main/resources/data');
 const CATALOGUE_ONLY = process.argv.includes('--catalogue-only');
 const DIST = join(ROOT, CATALOGUE_ONLY ? 'node_modules/.cache/catalogue-pages' : 'dist');
-const SITE = 'https://12axes.vercel.app';
+const SITE = 'https://politest.anatole.co';
 const GOOGLE_ANALYTICS_SNIPPET = `<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF63DF6BNM"></script>
     <script>
@@ -51,23 +51,23 @@ const STR = {
     historicalRegime: (period) => `Historical regime${period ? ` · ${period}` : ''}`,
     flagAlt: (name) => `Flag: ${name}`,
     imageSource: 'Image source',
-    homeAria: '12 Axes — home page',
+    homeAria: 'Politest — home page',
     balanced: 'Balanced',
     intensity: ['Balanced', 'Leaning', 'Strong', 'Very strong'],
     subjectPrefix: (name) => name,
-    ideologyTitle: (name) => `${name} — what it is and its position on the 12 political axes | 12 Axes`,
-    countryTitle: (name) => `${name} — political profile across the 12 axes | 12 Axes`,
-    personalityTitle: (name) => `${name} — political position on the 12 axes | 12 Axes`,
+    ideologyTitle: (name) => `${name} — what it is and its position on the 12 political axes | Politest`,
+    countryTitle: (name) => `${name} — political profile across the 12 axes | Politest`,
+    personalityTitle: (name) => `${name} — political position on the 12 axes | Politest`,
     ideologyHeadline: (name) => `${name} — political position on the 12 axes`,
     countryHeadline: (name) => `${name} — political profile across the 12 axes`,
-    ideologiesIndexTitle: (n) => `Political ideologies: full list of ${n} currents | 12 Axes`,
-    ideologiesIndexDesc: (n) => `Explore ${n} political ideologies — from communism to libertarianism — with descriptions and positions on 12 axes. Find yours with the 12 Axes political quiz.`,
+    ideologiesIndexTitle: (n) => `Political ideologies: full list of ${n} currents | Politest`,
+    ideologiesIndexDesc: (n) => `Explore ${n} political ideologies — from communism to libertarianism — with descriptions and positions on 12 axes. Find yours with the Politest political quiz.`,
     ideologiesIndexHeading: 'Political ideologies',
-    countriesIndexTitle: (n) => `Political profiles of ${n} countries and historical regimes | 12 Axes`,
+    countriesIndexTitle: (n) => `Political profiles of ${n} countries and historical regimes | Politest`,
     countriesIndexDesc: (n) => `Compare the political profile of ${n} countries and historical regimes across 12 axes — democracy, economy, liberties, and more. Find your most compatible country.`,
     countriesIndexHeading: 'Countries and regimes',
-    personalitiesIndexTitle: (n) => `${n} political personalities and their positions | 12 Axes`,
-    personalitiesIndexDesc: (n) => `See the political position of ${n} historical and contemporary personalities across 12 axes. Discover who you resemble most with the 12 Axes quiz.`,
+    personalitiesIndexTitle: (n) => `${n} political personalities and their positions | Politest`,
+    personalitiesIndexDesc: (n) => `See the political position of ${n} historical and contemporary personalities across 12 axes. Discover who you resemble most with the Politest quiz.`,
     personalitiesIndexHeading: 'Political personalities'
   }
 };

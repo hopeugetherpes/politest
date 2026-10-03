@@ -1,4 +1,4 @@
-Você está auditando, pergunta a pergunta e de forma totalmente independente, o perfil "Sérgio Moro" (catálogo: figura histórica/pública) nos 12 eixos políticos do projeto 12axes. Avalie ESTE perfil sozinho — você não tem (e não deve imaginar) as respostas dadas a nenhum outro perfil.
+Você está auditando, pergunta a pergunta e de forma totalmente independente, o perfil "Sérgio Moro" (catálogo: figura histórica/pública) nos 12 eixos políticos do projeto Politest. Avalie ESTE perfil sozinho — você não tem (e não deve imaginar) as respostas dadas a nenhum outro perfil.
 
 Dados curados deste perfil (não invente informação além disto; se precisar de contexto histórico adicional, baseie-se apenas em fatos amplamente documentados e verificáveis sobre esta entidade específica):
 id: sergio-moro
@@ -35,7 +35,7 @@ METODOLOGIA (obrigatória):
 - `N` é só para indiferença GENUÍNA — nunca para "não falou disso" ou "é anacrônico". Conte os N antes de gravar: não deve passar de ~18% do total nem 30% em qualquer eixo isolado.
 
 SAIDA (obrigatoria): use a ferramenta Write para gravar UM arquivo JSON estrito (sem markdown, sem comentarios) exatamente neste caminho:
-C:/Users/gasometro/Documents/12Axes/profile-audit/subagent-out/personality/sergio-moro.json
+C:/Users/gasometro/Documents/Politest/profile-audit/subagent-out/personality/sergio-moro.json
 
 Formato exato do JSON (as chaves de "answers" devem ser os ids das perguntas; cada eixo com exatamente 20 respostas; todos os 12 eixos presentes):
 {

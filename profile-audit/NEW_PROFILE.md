@@ -1,7 +1,7 @@
 # Criação de um novo perfil (país, ideologia ou personalidade)
 
 Este arquivo descreve o processo completo para **criar um perfil totalmente novo** no projeto
-12axes — diferente de `profile-audit/README.md`, que reaudita perfis já existentes. Use este
+politest — diferente de `profile-audit/README.md`, que reaudita perfis já existentes. Use este
 processo quando o usuário pedir para **adicionar** um país, ideologia ou personalidade que ainda
 não existe no catálogo.
 

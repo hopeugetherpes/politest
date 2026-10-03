@@ -24,9 +24,9 @@ const STR = {
   en: {
     skip: 'Skip to the list',
     catalogNav: 'Catalog',
-    homeAria: '12 axes, home page',
+    homeAria: 'Politest, home page',
     eyebrow: 'Catalog',
-    lead: (n) => `${n} leaders, thinkers, economists and activists mapped by 12 Axes, organized by field. Each one has a photo, a short bio and a full profile across the 12 axes.`,
+    lead: (n) => `${n} leaders, thinkers, economists and activists mapped by Politest, organized by field. Each one has a photo, a short bio and a full profile across the 12 axes.`,
     stats: ['personalities', 'fields', 'axes per profile'],
     areasAria: 'Fields',
     searchLabel: 'Search personality',
@@ -46,7 +46,7 @@ const STR = {
     ctaTitle: 'Who do you resemble most?',
     ctaText: (n) => `Take the quiz and find out which of these ${n} personalities think most like you.`,
     takeTheTest: 'Take the test',
-    footer: 'Independent political quiz · 12axes.vercel.app',
+    footer: 'Independent political quiz · politest.anatole.co',
     descriptions: {
       politico: 'Heads of state, lawmakers, revolutionaries and party leaders who held power or fought for it.',
       teorico: 'Authors who formulated the doctrines, programs and concepts that guide movements and governments.',
@@ -83,7 +83,7 @@ export function catalogHead(L, { site, basePath, title, description, ogType, ogI
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta property="og:type" content="${ogType}" />
-    <meta property="og:site_name" content="12 Axes" />
+    <meta property="og:site_name" content="Politest" />
     <meta property="og:locale" content="${L.s.ogLocale}" />
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${escapeHtml(title)}" />
@@ -160,7 +160,7 @@ export function personalitiesIndexPage(L, { locale, site, gaSnippet, escapeHtml,
 ${poleSprite(L.axes)}
 <a class="skip" href="#lista">${escapeHtml(t.skip)}</a>
 <header class="nav"><div class="wrap">
-  <a class="logo" href="${prefix || '/'}" aria-label="${escapeHtml(t.homeAria)}"><b>12</b><span>axes</span></a>
+  <a class="logo" href="${prefix || '/'}" aria-label="${escapeHtml(t.homeAria)}"><b>Politest</b></a>
   <nav aria-label="${escapeHtml(t.catalogNav)}"><a href="${prefix}/ideologies">${escapeHtml(L.s.navIdeologies)}</a><a href="${prefix}/countries">${escapeHtml(L.s.navCountries)}</a><a href="${prefix}/personalities" aria-current="page">${escapeHtml(L.s.navPersonalities)}</a></nav>
   <a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a>
 </div></header>
@@ -190,7 +190,7 @@ ${poleSprite(L.axes)}
   <p class="credit">${escapeHtml(t.credit)}</p>
   <aside class="cta"><div><h2>${escapeHtml(t.ctaTitle)}</h2><p>${escapeHtml(t.ctaText(n))}</p></div><a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a></aside>
 </main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)}</p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>Politest</b></a><p>${escapeHtml(t.footer)}</p></div></footer>
 <script>
 const S=${scriptStrings};
 const q=document.getElementById('q'),chips=[...document.querySelectorAll('.chip')],cats=[...document.querySelectorAll('.cat')];

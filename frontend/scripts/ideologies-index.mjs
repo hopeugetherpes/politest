@@ -42,9 +42,9 @@ const STR = {
   en: {
     skip: 'Skip to the list',
     catalogNav: 'Catalog',
-    homeAria: '12 axes, home page',
+    homeAria: 'Politest, home page',
     eyebrow: 'Catalog',
-    lead: (n) => `The ${n} political currents mapped by 12 Axes, organized by spectrum. Each one has a description and a full profile across the 12 axes.`,
+    lead: (n) => `The ${n} political currents mapped by Politest, organized by spectrum. Each one has a description and a full profile across the 12 axes.`,
     stats: ['currents', 'spectrums', 'axes per profile'],
     distribution: 'Distribution across the spectrum',
     distributionAria: (label, n) => `${label}: ${n} ideologies`,
@@ -63,7 +63,7 @@ const STR = {
     ctaTitle: 'And you, where do you fit?',
     ctaText: (n) => `Take the quiz and see which of these ${n} ideologies you are most compatible with.`,
     takeTheTest: 'Take the test',
-    footer: 'Independent political quiz · 12axes.vercel.app',
+    footer: 'Independent political quiz · politest.anatole.co',
     descriptions: {
       'esq-radical': 'Revolutionary or one-party communism, with a planned economy and strong concentration of state power.',
       esquerda: 'Social democracy, progressivism and greater state intervention in the economy within liberal democracy.',
@@ -176,7 +176,7 @@ export function ideologiesIndexPage(L, { locale, site, gaSnippet, escapeHtml, pr
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="12 Axes" />
+    <meta property="og:site_name" content="Politest" />
     <meta property="og:locale" content="${L.s.ogLocale}" />
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${escapeHtml(title)}" />
@@ -197,7 +197,7 @@ export function ideologiesIndexPage(L, { locale, site, gaSnippet, escapeHtml, pr
 ${poleSprite(L.axes)}
 <a class="skip" href="#lista">${escapeHtml(t.skip)}</a>
 <header class="nav"><div class="wrap">
-  <a class="logo" href="${prefix || '/'}" aria-label="${escapeHtml(t.homeAria)}"><b>12</b><span>axes</span></a>
+  <a class="logo" href="${prefix || '/'}" aria-label="${escapeHtml(t.homeAria)}"><b>Politest</b></a>
   <nav aria-label="${escapeHtml(t.catalogNav)}"><a href="${prefix}/ideologies" aria-current="page">${escapeHtml(L.s.navIdeologies)}</a><a href="${prefix}/countries">${escapeHtml(L.s.navCountries)}</a><a href="${prefix}/personalities">${escapeHtml(L.s.navPersonalities)}</a></nav>
   <a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a>
 </div></header>
@@ -226,7 +226,7 @@ ${poleSprite(L.axes)}
   <div class="empty" id="empty"><h2>${escapeHtml(t.emptyTitle)}</h2><p>${escapeHtml(t.emptyText)}</p></div>
   <aside class="cta"><div><h2>${escapeHtml(t.ctaTitle)}</h2><p>${escapeHtml(t.ctaText(n))}</p></div><a class="btn" href="${prefix || '/'}">${escapeHtml(t.takeTheTest)} ${ARROW}</a></aside>
 </main>
-<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>12</b><span>axes</span></a><p>${escapeHtml(t.footer)}</p></div></footer>
+<footer class="foot"><div class="wrap"><a class="logo" href="${prefix || '/'}"><b>Politest</b></a><p>${escapeHtml(t.footer)}</p></div></footer>
 <script>
 const S=${scriptStrings};
 const q=document.getElementById('q'),chips=[...document.querySelectorAll('.chip')],cats=[...document.querySelectorAll('.cat')];

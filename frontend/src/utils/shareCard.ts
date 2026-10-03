@@ -12,7 +12,7 @@ import type { Religion } from './religion';
  *
  * O fundo é a cor base da categoria de espectro do top match; os destaques
  * usam o pastel da mesma categoria. Ver
- * docs/nova-identidade/12axes-identidade-visual.md §11.
+ * docs/nova-identidade/politest-identidade-visual.md §11.
  */
 export const SHARE_WIDTH = 1080;
 export const SHARE_HEIGHT = 1920;
@@ -216,10 +216,7 @@ function buildShareHeader(): HTMLElement {
     }, t.shareResultLabel)
   );
   const brand = header.firstChild as HTMLElement;
-  brand.append(
-    el('span', {}, '12'),
-    el('span', { fontFamily: SHARE_FONT_BODY, fontWeight: '400' }, 'axes')
-  );
+  brand.append(el('span', {}, 'Politest'));
   return header;
 }
 

@@ -1,4 +1,4 @@
-/* Relatório em PDF (docs/nova-identidade/12axes-relatorio.html). Só existe na impressão. */
+/* Relatório em PDF (docs/nova-identidade/politest-relatorio.html). Só existe na impressão. */
 .rp-root{position:fixed;left:-10000px;top:0;width:210mm;pointer-events:none}
 
 @media print{

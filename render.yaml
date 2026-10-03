@@ -1,12 +1,12 @@
 services:
   - type: web
-    name: 12axes-backend
+    name: politest-backend
     runtime: docker
     rootDir: backend
     plan: starter
     healthCheckPath: /api/health
     envVars:
       - key: FRONTEND_ORIGINS
-        value: https://12axes.vercel.app,https://12axes.enzoxavier.com.br
+        value: https://politest.anatole.co
       - key: API_ORIGIN_ENFORCEMENT
         value: "true"

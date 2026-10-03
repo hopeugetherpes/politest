@@ -1,4 +1,4 @@
-Você está auditando, pergunta a pergunta e de forma totalmente independente, o perfil "Alan Turing" (catálogo: figura histórica/pública) nos 12 eixos políticos do projeto 12axes. Avalie ESTE perfil sozinho — você não tem (e não deve imaginar) as respostas dadas a nenhum outro perfil.
+Você está auditando, pergunta a pergunta e de forma totalmente independente, o perfil "Alan Turing" (catálogo: figura histórica/pública) nos 12 eixos políticos do projeto Politest. Avalie ESTE perfil sozinho — você não tem (e não deve imaginar) as respostas dadas a nenhum outro perfil.
 
 Dados curados deste perfil (não invente informação além disto; se precisar de contexto histórico adicional, baseie-se apenas em fatos amplamente documentados e verificáveis sobre esta entidade específica):
 id: alan-turing
@@ -49,7 +49,7 @@ METODOLOGIA (obrigatória):
 - IMPORTANTE sobre neutros: `N` é só para indiferença GENUÍNA, nunca para "não documentado" quando dá para inferir razoavelmente pelo caráter/formação da pessoa. Mas para os eixos citados acima onde não há mesmo base histórica (estrutura federativa, comércio exterior, etc.), é legítimo usar N em boa parte das perguntas — não force uma posição inventada. Conte os N antes de gravar: a taxa total não deve passar de ~18%, e nenhum eixo isolado deve passar de ~30%.
 
 SAIDA (obrigatoria): use a ferramenta Write para gravar UM arquivo JSON estrito (sem markdown, sem comentarios) exatamente neste caminho:
-C:\Users\gasometro\Documents\12Axes\profile-audit\subagent-out\personality\alan-turing.json
+C:\Users\gasometro\Documents\Politest\profile-audit\subagent-out\personality\alan-turing.json
 
 Formato exato do JSON (as chaves de "answers" devem ser os ids das perguntas; cada eixo com exatamente 20 respostas; todos os 12 eixos presentes):
 {

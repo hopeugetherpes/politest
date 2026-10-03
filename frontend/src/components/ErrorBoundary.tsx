@@ -17,7 +17,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBound
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('12axes: erro de renderização', error, info.componentStack);
+    console.error('politest: erro de renderização', error, info.componentStack);
   }
 
   render() {
@@ -28,7 +28,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBound
     return (
       <main className="app-shell center-shell">
         <div className="error-panel" role="alert">
-          <h1>12 Axes</h1>
+          <h1>Politest</h1>
           <h2>{t.crashTitle}</h2>
           <p>{hasProgress ? t.crashBodyWithProgress : t.crashBody}</p>
           <button className="secondary-button" type="button" onClick={() => window.location.reload()}>

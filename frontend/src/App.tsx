@@ -145,7 +145,7 @@ function LoadingPanel({ message }: { message: string }) {
         <div className="loading-spinner" />
       </div>
       <div>
-        <h1>12 Axes</h1>
+        <h1>Politest</h1>
         <p>{message}</p>
       </div>
     </div>
@@ -708,7 +708,7 @@ function MainApp() {
     return (
       <main className="app-shell center-shell">
         <div className="error-panel">
-          <h1>12 Axes</h1>
+          <h1>Politest</h1>
           <p>{error}</p>
           <button className="secondary-button" type="button" onClick={() => window.location.reload()}>
             {t.tryAgain}

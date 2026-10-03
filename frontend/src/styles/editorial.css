@@ -1,4 +1,4 @@
-/* Identidade editorial — portado de docs/nova-identidade/12axes-{home,formato,resultados}.html.
+/* Identidade editorial — portado de docs/nova-identidade/politest-{home,formato,resultados}.html.
    Classes com prefixo e- e elementos escopados em .ed para não colidir com app.css. */
 .ed{--wrap:1200px;--r-lg:28px;--r-md:20px;--linha-escura:#2C4A3F;--cat:var(--i-anarquismo);--cat-bg:var(--i-anarquismo-bg)}
 .ed h1,.ed h2,.ed h3,.ed h4{color:inherit;margin:0}
