@@ -74,7 +74,7 @@ const ARR = '<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5
 const pct = (x) => Math.round(x);
 
 export function ideologyPage(L, ideology, ctx) {
-  const { locale, site, gaSnippet, escapeHtml, truncate, profiles } = ctx;
+  const { locale, site, escapeHtml, truncate, profiles } = ctx;
   const esc = escapeHtml;
   const t = STR[locale];
   const prefix = L.s.prefix;
@@ -213,7 +213,7 @@ export function ideologyPage(L, ideology, ctx) {
 
   const html = `<!doctype html>
 <html lang="${L.s.htmlLang}">
-  ${catalogHead(L, { site, basePath, title: L.s.ideologyTitle(name), description, ogType: 'article', ogImage: '/logo.png', css: '/profile.css', jsonLd, gaSnippet, escapeHtml })}
+  ${catalogHead(L, { site, basePath, title: L.s.ideologyTitle(name), description, ogType: 'article', ogImage: '/logo.png', css: '/profile.css', jsonLd, escapeHtml })}
   <body style="--cat:${spec.c};--cat-bg:${spec.cb}">
 ${poleSprite(L.axes)}
 <a class="skip" href="#main">${esc(t.skip)}</a>

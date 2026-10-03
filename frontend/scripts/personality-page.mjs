@@ -150,7 +150,7 @@ export function axisSheetHtml(locale) {
 }
 
 export function personalityPage(L, personality, ctx) {
-  const { locale, site, gaSnippet, escapeHtml, truncate, profiles } = ctx;
+  const { locale, site, escapeHtml, truncate, profiles } = ctx;
   const esc = escapeHtml;
   const t = STR[locale];
   const prefix = L.s.prefix;
@@ -270,7 +270,7 @@ export function personalityPage(L, personality, ctx) {
 
   const html = `<!doctype html>
 <html lang="${L.s.htmlLang}">
-  ${catalogHead(L, { site, basePath, title: L.s.personalityTitle(name), description, ogType: 'profile', ogImage: personality.imagePath, css: '/profile.css', jsonLd, gaSnippet, escapeHtml })}
+  ${catalogHead(L, { site, basePath, title: L.s.personalityTitle(name), description, ogType: 'profile', ogImage: personality.imagePath, css: '/profile.css', jsonLd, escapeHtml })}
   <body style="--cat:${spec.c};--cat-bg:${spec.cb}">
 ${poleSprite(L.axes)}
 <a class="skip" href="#main">${esc(t.skip)}</a>

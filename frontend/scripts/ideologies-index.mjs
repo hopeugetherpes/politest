@@ -102,7 +102,7 @@ export function dnaLegend(axes, escapeHtml) {
     .join('');
 }
 
-export function ideologiesIndexPage(L, { locale, site, gaSnippet, escapeHtml, profiles, title, description }) {
+export function ideologiesIndexPage(L, { locale, site, escapeHtml, profiles, title, description }) {
   const t = STR[locale];
   const prefix = L.s.prefix;
   const n = L.ideologies.length;
@@ -191,7 +191,6 @@ export function ideologiesIndexPage(L, { locale, site, gaSnippet, escapeHtml, pr
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400..800&family=Poppins:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="/ideologies.css" />
     <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
-    ${gaSnippet}
   </head>
   <body>
 ${poleSprite(L.axes)}

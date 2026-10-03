@@ -56,7 +56,9 @@ export function OpenSourceSection() {
             />
           </svg>
           <div className="e-oss-bar-txt">
-            <b>{REPO}</b>
+            <a className="e-oss-repo" href={REPO_URL} target="_blank" rel="noopener noreferrer">
+              <b>{REPO}</b>
+            </a>
             <span>{t.ossBarText}</span>
           </div>
           <div className="e-oss-actions">

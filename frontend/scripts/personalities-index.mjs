@@ -68,7 +68,7 @@ export function initials(name) {
 }
 
 // <head> comum às páginas de catálogo com a identidade nova (papel/floresta).
-export function catalogHead(L, { site, basePath, title, description, ogType, ogImage, css, jsonLd, gaSnippet, escapeHtml }) {
+export function catalogHead(L, { site, basePath, title, description, ogType, ogImage, css, jsonLd, escapeHtml }) {
   const url = `${site}${L.s.prefix}${basePath}`;
   const ld = jsonLd.map((block) => `<script type="application/ld+json">${JSON.stringify(block)}</script>`).join('\n    ');
   return `<head>
@@ -98,11 +98,10 @@ export function catalogHead(L, { site, basePath, title, description, ogType, ogI
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400..800&family=Poppins:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="${css}" />
     ${ld}
-    ${gaSnippet}
   </head>`;
 }
 
-export function personalitiesIndexPage(L, { locale, site, gaSnippet, escapeHtml, profiles, title, description }) {
+export function personalitiesIndexPage(L, { locale, site, escapeHtml, profiles, title, description }) {
   const t = STR[locale];
   const labels = AREA_LABELS[locale];
   const prefix = L.s.prefix;
@@ -155,7 +154,7 @@ export function personalitiesIndexPage(L, { locale, site, gaSnippet, escapeHtml,
 
   const html = `<!doctype html>
 <html lang="${L.s.htmlLang}">
-  ${catalogHead(L, { site, basePath, title, description, ogType: 'website', ogImage: '/logo.png', css: '/personalities.css', jsonLd: [jsonLd], gaSnippet, escapeHtml })}
+  ${catalogHead(L, { site, basePath, title, description, ogType: 'website', ogImage: '/logo.png', css: '/personalities.css', jsonLd: [jsonLd], escapeHtml })}
   <body>
 ${poleSprite(L.axes)}
 <a class="skip" href="#lista">${escapeHtml(t.skip)}</a>

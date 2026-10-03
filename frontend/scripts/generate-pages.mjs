@@ -15,14 +15,6 @@ const DATA_DIR = resolve(ROOT, '../backend/src/main/resources/data');
 const CATALOGUE_ONLY = process.argv.includes('--catalogue-only');
 const DIST = join(ROOT, CATALOGUE_ONLY ? 'node_modules/.cache/catalogue-pages' : 'dist');
 const SITE = 'https://politest.anatole.co';
-const GOOGLE_ANALYTICS_SNIPPET = `<!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF63DF6BNM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JF63DF6BNM');
-    </script>`;
 
 const readJson = (path) => JSON.parse(readFileSync(join(DATA_DIR, path), 'utf8'));
 
@@ -106,7 +98,6 @@ function buildIndexes(L) {
     ideologiesIndexPage(L, {
       locale: L.locale,
       site: SITE,
-      gaSnippet: GOOGLE_ANALYTICS_SNIPPET,
       escapeHtml,
       profiles: ideologyProfiles,
       title: L.s.ideologiesIndexTitle(n.i),
@@ -115,7 +106,6 @@ function buildIndexes(L) {
     countriesIndexPage(L, {
       locale: L.locale,
       site: SITE,
-      gaSnippet: GOOGLE_ANALYTICS_SNIPPET,
       escapeHtml,
       profiles: countryProfiles,
       title: L.s.countriesIndexTitle(n.c),
@@ -124,7 +114,6 @@ function buildIndexes(L) {
     personalitiesIndexPage(L, {
       locale: L.locale,
       site: SITE,
-      gaSnippet: GOOGLE_ANALYTICS_SNIPPET,
       escapeHtml,
       profiles: personalityProfiles,
       title: L.s.personalitiesIndexTitle(n.p),
@@ -173,7 +162,6 @@ for (const locale of LOCALES) {
   const profileCtx = {
     locale,
     site: SITE,
-    gaSnippet: GOOGLE_ANALYTICS_SNIPPET,
     escapeHtml,
     truncate,
     profiles: { ideology: ideologyProfiles, country: countryProfiles, personality: personalityProfiles }

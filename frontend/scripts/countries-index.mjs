@@ -80,7 +80,7 @@ const STR = {
   }
 };
 
-export function countriesIndexPage(L, { locale, site, gaSnippet, escapeHtml, profiles, title, description }) {
+export function countriesIndexPage(L, { locale, site, escapeHtml, profiles, title, description }) {
   const t = STR[locale];
   const prefix = L.s.prefix;
   const collator = new Intl.Collator(L.s.htmlLang);
@@ -148,7 +148,7 @@ export function countriesIndexPage(L, { locale, site, gaSnippet, escapeHtml, pro
 
   const html = `<!doctype html>
 <html lang="${L.s.htmlLang}">
-  ${catalogHead(L, { site, basePath, title, description, ogType: 'website', ogImage: '/logo.png', css: '/countries.css', jsonLd: [jsonLd], gaSnippet, escapeHtml })}
+  ${catalogHead(L, { site, basePath, title, description, ogType: 'website', ogImage: '/logo.png', css: '/countries.css', jsonLd: [jsonLd], escapeHtml })}
   <body>
 ${poleSprite(L.axes)}
 <a class="skip" href="#lista">${escapeHtml(t.skip)}</a>
