@@ -150,8 +150,7 @@ On startup the backend refuses to run if any catalog entry lacks a vector or a v
 │   ├── src/i18n/            English UI strings
 │   └── scripts/             static page generator, image optimizer
 ├── profile-audit/           pipeline that builds the catalog vectors
-├── scripts/                 repository checks (catalogs)
-└── .claude/skills/          Claude Code skills for adding profiles
+└── scripts/                 repository checks (catalogs)
 ```
 
 ### How matching works
@@ -248,14 +247,7 @@ Bug reports, corrections to profiles, and text fixes are welcome as issues or pu
 
 ### Adding ideologies, countries, or personalities
 
-Catalog entries are not written by hand. Each new profile answers all 240 questions, one by one, in character, and its vector is computed from those answers with the same formula a user gets. The process is in [`profile-audit/NEW_PROFILE.md`](profile-audit/NEW_PROFILE.md), and the repository ships [Claude Code](https://claude.com/claude-code) skills that run it end to end:
-
-| Skill | Purpose |
-|-------|---------|
-| `/new_ideology <name>` | Create an ideology |
-| `/new_country <name>` | Create a country or historical regime |
-| `/new_personality <name>` | Create a personality |
-| `/audit_ideology`, `/audit_country`, `/audit_personality` | Re-audit an existing profile |
+Catalog entries are not written by hand. Each new profile answers all 240 questions, one by one, in character, and its vector is computed from those answers with the same formula a user gets. Follow [`profile-audit/NEW_PROFILE.md`](profile-audit/NEW_PROFILE.md) to add a profile, or [`profile-audit/README.md`](profile-audit/README.md) to re-audit an existing one, using the audit scripts in `profile-audit/`.
 
 A new profile has to meet these requirements before it is merged:
 

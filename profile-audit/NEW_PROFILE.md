@@ -489,7 +489,7 @@ para um único perfil novo (não um lote de 15):
    responde as 240 perguntas **e** o arquétipo, como um usuário do quiz, e as duas partes entram no
    vetor (ver "Perguntas de arquétipo" no README).
 3. Dispare **um único subagente** (não precisa ser em lote de 15 — é só um perfil) com esse prompt,
-   usando um modelo de qualidade (Sonnet ou superior — nunca Haiku ou modelo rápido/barato).
+   usando um modelo de qualidade — nunca um modelo rápido/barato.
 4. Valide a saída rodando **`python profile-audit/validate.py <catalog> <id>`**. Ele checa forma,
    taxa de neutros e conteúdo (direção dos eixos, duplicata, coerência com o perfil declarado) e
    bloqueia o merge se algo grave falhar. **Leia os avisos, não só o código de saída** — validação
@@ -614,11 +614,11 @@ Feche o processo com um resumo direto ao usuário contendo:
 - **Nunca** invente/estime um vetor sem rodar o processo de auditoria pergunta-a-pergunta do passo
   5 — é a mesma regra do `profile-audit/README.md`: cada perfil precisa das 240 respostas reais
   simuladas por um modelo de qualidade, nunca um atalho.
-- **Nunca** use um modelo fraco/rápido (tipo Haiku) para gerar as respostas de auditoria.
+- **Nunca** use um modelo fraco/rápido para gerar as respostas de auditoria.
 - **Nunca** deixe um `id` duplicado no catálogo principal, ou entre um catálogo e outro.
 - **Nunca** afirme que uma imagem foi baixada ou que testes passaram sem de fato ter feito isso —
   se algo não pôde ser verificado neste ambiente, diga isso claramente ao usuário.
 - **Nunca** apague nem sobrescreva arquivos dentro de `profile-audit/answers/<catalog>/` — mesma
   regra do processo de auditoria.
 - Sempre que possível, **rode os testes de verdade** antes de declarar a criação do perfil como
-  concluída — ver `superpowers:verification-before-completion` se disponível como skill.
+  concluída.

@@ -14,8 +14,6 @@ frontend/.npm-cache/
 frontend/.env
 frontend/.env.local
 *.log
-.claude/*.json
-.claude/*.lock
 
 # OS/editor
 .DS_Store
@@ -32,7 +30,6 @@ __pycache__/
 
 # Superpowers (specs/plans gerados pelo plugin)
 docs/superpowers/
-.claude/skills/superpowers*/
 .codex-run
 
 # Materiais de referência visual

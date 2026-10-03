@@ -32,7 +32,7 @@ CI runs the same checks on every pull request, and `main` only receives changes 
 
 ## Adding or re-auditing a profile
 
-Profiles are never placed on the axes by hand. Each one answers the 240 questions, and its vector comes from those answers. Read [`profile-audit/NEW_PROFILE.md`](profile-audit/NEW_PROFILE.md) before you start. The `/new_ideology`, `/new_country`, and `/new_personality` skills in `.claude/skills/` run the whole process in [Claude Code](https://claude.com/claude-code).
+Profiles are never placed on the axes by hand. Each one answers the 240 questions, and its vector comes from those answers. Read [`profile-audit/NEW_PROFILE.md`](profile-audit/NEW_PROFILE.md) before you start, or [`profile-audit/README.md`](profile-audit/README.md) to re-audit an existing profile. Use the scripts in `profile-audit/` to validate the answers and calculate the vector.
 
 A profile pull request needs:
 

@@ -13,7 +13,7 @@ para entender o processo, só os listados abaixo.
 Perfis antigos foram auditados com atalhos (respostas copiadas entre perfis parecidos, ou geradas
 por um modelo fraco) e ficaram com qualidade ruim. O processo atual reaudita cada perfil do zero,
 de forma isolada, respondendo as 240 perguntas uma a uma com um modelo de qualidade (não use modelos
-rápidos/baratos tipo Haiku — a qualidade cai visivelmente).
+rápidos/baratos — a qualidade cai visivelmente).
 
 ## Os três catálogos
 
@@ -147,7 +147,7 @@ qualquer mudança nas perguntas de arquétipo. Ver a seção "Perguntas de arqu�
 
 **Regra crítica:** os 15 subagentes do lote devem ser disparados na mesma mensagem/turno (15 chamadas
 de ferramenta de agente em paralelo), nunca um de cada vez esperando o anterior terminar. Use um modelo
-de qualidade (ex.: Sonnet), não um modelo rápido/barato — perfis feitos com modelo fraco saem ruins
+de qualidade, não um modelo rápido/barato — perfis feitos com modelo fraco saem ruins
 e precisam ser refeitos.
 
 Cada subagente recebe o prompt de `prompts/<catalog>/<id>.txt` e deve gravar sua saída em
