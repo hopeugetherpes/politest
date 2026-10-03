@@ -99,7 +99,7 @@ The pool has 240 statements, 20 per axis, half phrased toward each pole so agree
 ## Demo
 
 <div align="center">
-<img src=".github/assets/result-card.png" alt="12 Axes result card" width="360">
+<img src=".github/assets/result-card.png" alt="Politest result card" width="360">
 </div>
 
 The share card sums up a result: the main ideology and its family, the most compatible personality, the dominant pole on each of the twelve axes, and the closest personalities and countries.
