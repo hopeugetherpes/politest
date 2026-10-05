@@ -1,20 +1,37 @@
 import { LANG, t } from '../i18n';
 import type { CompareDetail, CompareItem, CompareType, QuizPayload, QuizResult, QuizVariant, SubmittedAnswer } from '../types/quiz';
 
-const API_URL = (import.meta.env.VITE_API_URL ?? '').replace(/\/$/, '');
+const API_URL = (import.meta.env.VITE_API_URL ?? '').trim().replace(/\/+$/, '');
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   // Content-Type só quando há corpo: num GET ele transforma a chamada entre origens em uma
   // requisição "não simples", e o navegador gasta uma ida e volta extra (preflight OPTIONS).
   const headers = options?.body ? { 'Content-Type': 'application/json', ...options.headers } : options?.headers;
-  const response = await fetch(`${API_URL}${path}`, { ...options, headers });
-
-  if (!response.ok) {
-    const message = await response.text();
-    throw new Error(formatApiError(message, response.status));
+  let response: Response;
+  try {
+    response = await fetch(`${API_URL}${path}`, { ...options, headers });
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error(t.errApiUnavailable);
+    }
+    throw error;
   }
 
-  return response.json() as Promise<T>;
+  const body = await response.text();
+  // A missing API URL can route the request to Vercel's HTML fallback instead of Java.
+  if (response.headers.get('Content-Type')?.includes('text/html') || /^\s*</.test(body)) {
+    throw new Error(t.errApiUnavailable);
+  }
+
+  if (!response.ok) {
+    throw new Error(formatApiError(body, response.status));
+  }
+
+  try {
+    return JSON.parse(body) as T;
+  } catch {
+    throw new Error(t.errApiUnavailable);
+  }
 }
 
 function formatApiError(message: string, status: number): string {

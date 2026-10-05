@@ -135,6 +135,7 @@ interface Strings {
   archetypeSkip: string;
   errMissingAnswer: string;
   errLoadQuiz: string;
+  errApiUnavailable: string;
   errCalc: string;
   errImage: string;
   errHttp: (status: number) => string;
@@ -618,6 +619,7 @@ const en: Strings = {
   archetypeSkip: 'Skip',
   errMissingAnswer: 'You still need to answer this question before seeing the result.',
   errLoadQuiz: 'Could not load the quiz.',
+  errApiUnavailable: 'The quiz service is unavailable. Please try again later.',
   errCalc: 'Could not calculate the result.',
   errImage: 'Could not generate the result image.',
   errHttp: (status) => `HTTP error ${status}`,

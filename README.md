@@ -213,14 +213,16 @@ npm install
 npm run dev
 ```
 
-To point the local frontend at the production API instead, create `frontend/.env.local` with `VITE_API_URL=https://one2axes-backend.onrender.com`.
+To point the local frontend at your own deployed API instead, create `frontend/.env.local` with
+`VITE_API_URL=https://your-backend-hostname.onrender.com`, using the actual URL shown by your
+hosting provider. Add your local frontend origin to that backend's `FRONTEND_ORIGINS` too.
 
 | Variable | Side | Default | Purpose |
 |----------|------|---------|---------|
 | `PORT` | Backend | `8080` | HTTP port |
 | `FRONTEND_ORIGINS` | Backend | localhost + Vercel | Allowed origins for CORS and the API |
 | `API_ORIGIN_ENFORCEMENT` | Backend | `true` | Set to `false` to turn off the origin check |
-| `VITE_API_URL` | Frontend | empty | API base URL in production |
+| `VITE_API_URL` | Frontend | empty for local development | Required API base URL for this Vercel deployment |
 
 ### Tests
 
@@ -234,10 +236,40 @@ The backend suite covers the question pool, the three formats, every catalog vec
 
 ### Deploy
 
+**Both services are required for the tests to work.** Vercel publishes the frontend; the
+Java backend serves the questions and calculates the results. A successful Vercel build
+does not deploy the Java API. Without `VITE_API_URL`, `/api/quiz` reaches the frontend's HTML
+fallback instead of the backend, so none of the test formats can start.
+
 | Part | Platform | Configuration |
 |------|----------|---------------|
 | Backend | Render | `render.yaml` and `backend/Dockerfile` |
 | Frontend | Vercel | Root `vercel.json`, output `frontend/dist`; existing frontend-root projects can use `frontend/vercel.json` |
+
+1. **Deploy the Java backend first.** Use the button below, sign in to your Render account,
+   review the `politest-backend` service, and deploy the Blueprint. It uses `backend/Dockerfile`,
+   a Free web service in Frankfurt, `/api/health` for health checks, and
+   `FRONTEND_ORIGINS=https://politest.anatole.co`. It automatically redeploys backend changes
+   pushed to `main` once your Render/GitHub connection is authorized.
+
+   [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest)
+
+   Wait for the service to become Live, then copy its actual HTTPS URL from Render.
+   Opening `<backend URL>/api/health` must return JSON. The service name is not a guarantee
+   of its public hostname: copy the URL Render gives you.
+
+   Render Free services sleep after 15 minutes of inactivity and can take about a minute
+   to wake up. Allow that delay when testing, or choose a paid instance if you need a service
+   that stays awake. See [Render's Free service limitations](https://render.com/docs/free).
+
+2. **Connect Vercel to that backend.** In the Politest project's Settings → Environment
+   Variables, set `VITE_API_URL` for Production to the backend's HTTPS URL **without `/api`**.
+   Redeploy the frontend after setting or changing it: Vite embeds this value during the build.
+
+3. **Verify the complete flow on `https://politest.anatole.co`.** Start each of the Short,
+   Full, and Extreme formats and confirm questions appear. Complete a test and confirm a
+   result with all 12 axes appears. If API requests are blocked with `403`, check that Render's
+   `FRONTEND_ORIGINS` includes the exact frontend origin you are testing.
 
 Import this repository into Vercel with the repository root as the Root Directory. The root
 configuration installs the frontend dependencies, runs the production build and publishes

@@ -3,7 +3,9 @@ services:
     name: politest-backend
     runtime: docker
     rootDir: backend
-    plan: starter
+    plan: free
+    region: frankfurt
+    autoDeployTrigger: commit
     healthCheckPath: /api/health
     envVars:
       - key: FRONTEND_ORIGINS
