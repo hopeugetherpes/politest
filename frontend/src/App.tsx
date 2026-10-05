@@ -744,7 +744,6 @@ function MainApp() {
                 <a href="#guia-eixos">{t.navAxes}</a>
                 <a href="#espectro-politico">{t.navSpectrum}</a>
                 <a href="#faq">{t.navFaq}</a>
-                <a href="#apoie">{t.navSupport}</a>
                 <a href="/ideologies">{t.navIdeologies}</a>
                 <a href="/personalities">{t.navPersonalities}</a>
                 <a href="/countries">{t.navCountries}</a>

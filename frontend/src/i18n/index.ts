@@ -39,7 +39,6 @@ interface Strings {
   navIdeologies: string;
   navPersonalities: string;
   navCountries: string;
-  navSupport: string;
   redoQuiz: string;
   religionLabel: string;
   religionQuestion: string;
@@ -269,8 +268,6 @@ interface Strings {
   shareNearbyCountries: string;
   shareFooterCta: string;
   shareFooterUrl: string;
-  supportEyebrow: string;
-  supportTitle: string;
   ossEyebrow: string;
   ossTitle: string;
   ossLead: string;
@@ -281,18 +278,6 @@ interface Strings {
   feedbackTitle: string;
   feedbackReport: string;
   feedbackSuggest: string;
-  supportTitleEm: string;
-  supportLead: string;
-  supportPrivacyNote: string;
-  supportCopy: string;
-  supportCopied: string;
-  supportCopyAria: (label: string) => string;
-  supportCoins: {
-    id: string;
-    name: string;
-    network: string;
-    address: string;
-  }[];
 }
 
 const en: Strings = {
@@ -322,7 +307,6 @@ const en: Strings = {
   navIdeologies: 'Ideologies',
   navPersonalities: 'Personalities',
   navCountries: 'Countries',
-  navSupport: 'Support',
   redoQuiz: 'Retake quiz',
   religionLabel: 'Religion',
   religionQuestion: 'Do you follow a religion? We only use this to tailor your recommendations.',
@@ -770,8 +754,6 @@ const en: Strings = {
   shareNearbyCountries: 'NEARBY COUNTRIES',
   shareFooterCta: 'DISCOVER YOUR PROFILE',
   shareFooterUrl: 'POLITEST.ANATOLE.CO',
-  supportEyebrow: 'Support the project',
-  supportTitle: '',
   ossEyebrow: 'Open source',
   ossTitle: 'An independent, transparent project',
   ossLead: "You don't have to take our word for it. The Politest code is public: you can see how every answer is scored, how compatibility is calculated and where the profiles come from.",
@@ -786,47 +768,7 @@ const en: Strings = {
   ossIssueCta: 'Suggest an improvement',
   feedbackTitle: 'Found a problem or have an idea?',
   feedbackReport: 'Report a problem',
-  feedbackSuggest: 'Suggest improvements',
-  supportTitleEm: 'Support',
-  supportLead:
-    'Politest is independent and free. If the quiz helped you better understand your political ideology, consider donating via Pix or crypto to help keep the project running.',
-  supportPrivacyNote: "We don't collect data. To donate without identifying yourself, use crypto.",
-  supportCopy: 'Copy',
-  supportCopied: 'Copied!',
-  supportCopyAria: (label) => `Copy ${label} address`,
-  supportCoins: [
-    {
-      id: 'pix',
-      name: 'Pix',
-      network: 'Random key',
-      address: 'bf3e8e0b-27fe-4845-b5e2-358ca0281847'
-    },
-    {
-      id: 'btc',
-      name: 'Bitcoin',
-      network: 'On-chain',
-      address: 'bc1qsuy8r8gvl39apjykqzlgh7hku79ecarezhz2zj'
-    },
-    {
-      id: 'lightning',
-      name: 'Bitcoin',
-      network: 'Lightning',
-      address: 'lnurl1dp68gurn8ghj7ampd3kx2ar0veekzar0wd5xjtnrdakj7tnhv4kxctttdehhwm30d3h82unvwqhk2ctnw3jhymnsv96kcwfsa0gczg'
-    },
-    {
-      id: 'eth',
-      name: 'Ethereum',
-      network: 'ERC-20',
-      address: '0xDe821e55D6101AA42D05DBf2C07ad0BB866C23a5'
-    },
-    {
-      id: 'xmr',
-      name: 'Monero',
-      network: 'XMR',
-      address:
-        '85Du1EuRPkybMVXTVptC6z31dsGPpTthsiMKM3yjY7YE24BUCkyNMd9Q82kwe5CvE7BegtDTNxaG8VwYdVvTgbjDU6DpuN1'
-    }
-  ]
+  feedbackSuggest: 'Suggest improvements'
 };
 
 export const t: Strings = en;

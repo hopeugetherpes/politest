@@ -24,7 +24,7 @@ const CARD_ICONS = [
   </>
 ];
 
-/** Seção "Código aberto" da home: fica logo abaixo de "Apoie". */
+/** Open-source information and contribution links on the home page. */
 export function OpenSourceSection() {
   return (
     <section className="e-oss" id="codigo-aberto" aria-labelledby="oss-titulo">
