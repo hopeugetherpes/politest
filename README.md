@@ -6,7 +6,7 @@ A political quiz that places you on twelve independent axes and compares your an
 
 **[politest.anatole.co](https://politest.anatole.co)** · No Data collection · no sign-up
 
-![Java](https://img.shields.io/badge/Java-21-orange) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-6DB33F) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/hopeugetherpes/politest/actions/workflows/ci.yml/badge.svg)
+![Node.js](https://img.shields.io/badge/Node.js-22-339933) ![Vercel](https://img.shields.io/badge/Vercel-Functions-black) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/hopeugetherpes/politest/actions/workflows/ci.yml/badge.svg)
 
 </div>
 
@@ -14,7 +14,7 @@ A political quiz that places you on twelve independent axes and compares your an
 
 Most political tests reduce you to a single point on a left-right line, or to a two-axis grid. Politest measures twelve dimensions separately, so someone who wants a free market and a strong state, or open borders and a religious society, sees that combination instead of an average that hides it.
 
-The project is also a full-stack portfolio piece: a Spring Boot REST API with its own matching algorithm, a React and TypeScript frontend, a versioned JSON data layer, automated tests, CI, and cloud deploys.
+The frontend and quiz API deploy together on Vercel. The integrated Node.js engine preserves the original matching algorithm and uses the same versioned JSON catalogs. The original Java engine remains in the repository as a reference for parity tests.
 
 ## About the project
 
@@ -110,14 +110,15 @@ The share card sums up a result: the main ideology and its family, the most comp
 
 | Layer | Technology |
 |-------|------------|
-| Backend | Java 21, Spring Boot 3.3, Maven |
-| Frontend | React 18, TypeScript, Vite 5 |
+| API | Node.js 22, Vercel Functions, no third-party runtime dependencies |
+| Reference engine | Java 21, Spring Boot 3.3, Maven (optional) |
+| Frontend | React 18, TypeScript, Vite 8 |
 | Data | Versioned JSON, loaded into memory at startup |
-| Tests | JUnit 5, MockMvc, AssertJ, Vitest |
-| CI | GitHub Actions (backend tests, catalog check, frontend tests and build) |
-| Deploy | Backend on Render (Docker), frontend on Vercel |
+| Tests | Node.js test runner, Java reference fixtures, Vitest, JUnit 5 |
+| CI | GitHub Actions (API parity, Java reference tests, catalog check, frontend tests and build) |
+| Deploy | Frontend and API together on Vercel |
 
-There is no database. The catalogs change only through reviewed commits, so the backend reads the JSON once at startup, validates it, and scores every request in memory.
+There is no database. The catalogs change through commits. Each function instance loads the JSON once, validates the catalog vectors, and scores requests in memory. Answers are used for computation and are not written to a database or logged by the application.
 
 ### Project data
 
@@ -133,13 +134,15 @@ All data lives in `backend/src/main/resources/data/`, in English.
 | `personalities.json` / `personality-profiles.json` | Political figures and intellectuals |
 | `books.json` | Book recommendations |
 
-On startup the backend refuses to run if any catalog entry lacks a vector or a vector does not have exactly the 12 known axes.
+The API refuses to start if any catalog entry lacks a valid vector for the 12 axes.
 
 ### Repository structure
 
 ```txt
 Politest/
-├── backend/                 Spring Boot API
+├── api/                     Vercel Function entry point
+├── server/                  Integrated scoring, rankings, comparisons and API tests
+├── backend/                 Canonical JSON catalogs and original Java reference
 │   └── src/main/java/com/politest/
 │       ├── config/          CORS, cache headers, origin enforcement
 │       ├── controller/      REST endpoints
@@ -177,8 +180,10 @@ Each catalog is ranked separately. A match also reports a percentile inside its 
 | `GET` | `/api/ideologies[/{id}]` | Ideology catalog |
 | `GET` | `/api/countries[/{id}]` | Country catalog |
 | `GET` | `/api/personalities[/{id}]` | Personality catalog |
+| `GET` | `/api/compare/catalog` | Searchable profiles, with an optional religion filter |
+| `GET` | `/api/compare?type=...&id=...&v=...` | Compare a result with a selected profile |
 
-English is the only supported language. The optional `lang` parameter always resolves to `en`, and the result endpoints accept `religion` for the filter. `/api/**` answers only requests whose `Origin` or `Referer` is in `FRONTEND_ORIGINS`, and returns `403` otherwise. `/api/health` stays open for the Render health check.
+English is the only supported language. The optional `lang` parameter resolves to `en`, and result endpoints accept `religion` for the filter. The frontend calls `/api/**` on its own domain, so custom domains and Vercel previews work without CORS configuration. Result responses use `Cache-Control: no-store`.
 
 <details>
 <summary>Example request</summary>
@@ -200,98 +205,75 @@ POST /api/results?lang=en
 
 ### Running locally
 
-You need Java 21, Maven 3.9+, Node.js 20+, and npm.
+You need Node.js 22 and npm. Java and a separate hosting account are not needed.
 
 ```bash
-# Backend: http://localhost:8080
-cd backend
-mvn spring-boot:run
-
-# Frontend: http://localhost:5173 (proxies /api to the backend)
-cd frontend
-npm install
-npm run dev
+npm --prefix frontend ci
+npm run api:dev                 # http://127.0.0.1:8080
 ```
 
-To point the local frontend at your own deployed API instead, create `frontend/.env.local` with
-`VITE_API_URL=https://your-backend-hostname.onrender.com`, using the actual URL shown by your
-hosting provider. Add your local frontend origin to that backend's `FRONTEND_ORIGINS` too.
+In another terminal:
 
-| Variable | Side | Default | Purpose |
-|----------|------|---------|---------|
-| `PORT` | Backend | `8080` | HTTP port |
-| `FRONTEND_ORIGINS` | Backend | localhost + Vercel | Allowed origins for CORS and the API |
-| `API_ORIGIN_ENFORCEMENT` | Backend | `true` | Set to `false` to turn off the origin check |
-| `VITE_API_URL` | Frontend | empty for local development | Required API base URL for this Vercel deployment |
+```bash
+npm --prefix frontend run dev   # http://localhost:5173, proxies /api to the Node API
+```
+
+To preview the production build with its API on one origin:
+
+```bash
+npm run build
+npm run preview                 # http://127.0.0.1:8080
+```
+
+`PORT` changes the local API/preview port. Leave `VITE_API_URL` empty for normal use:
+the deployed frontend calls the API on the same domain. This variable remains available
+only for maintainers deliberately using a separately hosted compatible API.
 
 ### Tests
 
 ```bash
-cd backend && mvn test          # 129 tests
-cd frontend && npm test         # Vitest
-cd frontend && npm run build    # type check, build, static pages
+npm run test:api                # complete responses compared with Java reference fixtures
+npm --prefix frontend test     # frontend behavior and API error handling
+npm run build                  # type checking, production bundle and static catalog pages
 ```
 
-The backend suite covers the question pool, the three formats, every catalog vector, links between catalogs, the religion filter, the REST endpoints, and matching regressions. The frontend suite covers question selection and browser translation compatibility. `RandomQuizSimulationTest` simulates users of a given leaning, for example `mvn -Dtest=RandomQuizSimulationTest "-Dquiz.mode=traditional" test`.
+The API parity suite checks complete results for every catalog vector, all three quiz
+formats, archetype options, religious preferences, edge cases and deterministic random
+inputs. It covers rankings, dimensions, outliers, tensions, recommendations, shared
+results and comparisons. HTTP tests verify successful requests and JSON error responses.
+
+The original Java test suite is also retained (`cd backend && mvn test`, Java 21 and
+Maven required for that optional reference check). Maintainers can regenerate the
+fixtures with `scripts/export-java-reference.mjs` against the local Java engine.
 
 ### Deploy
 
-**Both services are required for the tests to work.** Vercel publishes the frontend; the
-Java backend serves the questions and calculates the results. A successful Vercel build
-does not deploy the Java API. Without `VITE_API_URL`, `/api/quiz` reaches the frontend's HTML
-fallback instead of the backend, so none of the test formats can start.
+**Import the repository root into Vercel. The frontend and quiz API deploy together.**
+No Render account, Java server, database or API URL is required.
 
-| Part | Platform | Configuration |
-|------|----------|---------------|
-| Backend | Render | `render.yaml` and `backend/Dockerfile` |
-| Frontend | Vercel | Root `vercel.json`, output `frontend/dist`; existing frontend-root projects can use `frontend/vercel.json` |
+1. Import [this repository](https://github.com/hopeugetherpes/politest) into Vercel.
+2. Keep **Root Directory** at the repository root and **Framework Preset** at **Other**.
+   The root `vercel.json` supplies the install command, build command, output directory,
+   API routing and catalog files bundled with the function.
+3. Leave `VITE_API_URL` unset or empty. If an old value is present, remove it and redeploy.
+4. Deploy, then connect your custom domain if desired. Short (36), Full (60) and Extreme
+   (240) tests use `/api/quiz` and `/api/results` on that same domain.
 
-1. **Deploy the Java backend first.** Use the button below, sign in to your Render account,
-   review the `politest-backend` service, and deploy the Blueprint. It uses `backend/Dockerfile`,
-   a Free web service in Frankfurt, `/api/health` for health checks, and
-   `FRONTEND_ORIGINS=https://politest.anatole.co`. It automatically redeploys backend changes
-   pushed to `main` once your Render/GitHub connection is authorized.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest&project-name=politest)
 
-   [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest)
+The deployment installs frontend dependencies, runs the production build, publishes
+`frontend/dist` with all generated catalog pages, and bundles `api/handler.js` as a Node.js
+function with the canonical JSON catalogs. It does not compile or launch Java.
 
-   Wait for the service to become Live, then copy its actual HTTPS URL from Render.
-   Opening `<backend URL>/api/health` must return JSON. The service name is not a guarantee
-   of its public hostname: copy the URL Render gives you.
+Connect Vercel to this GitHub repository for automatic deployments on pushes. Use the
+repository root, rather than `frontend`, so Vercel includes the API function. The retained
+Java/Docker files are optional reference infrastructure and are not used by this deployment.
 
-   Render Free services sleep after 15 minutes of inactivity and can take about a minute
-   to wake up. Allow that delay when testing, or choose a paid instance if you need a service
-   that stays awake. See [Render's Free service limitations](https://render.com/docs/free).
-
-2. **Connect Vercel to that backend.** In the Politest project's Settings → Environment
-   Variables, set `VITE_API_URL` for Production to the backend's HTTPS URL **without `/api`**.
-   Redeploy the frontend after setting or changing it: Vite embeds this value during the build.
-
-3. **Verify the complete flow on `https://politest.anatole.co`.** Start each of the Short,
-   Full, and Extreme formats and confirm questions appear. Complete a test and confirm a
-   result with all 12 axes appears. If API requests are blocked with `403`, check that Render's
-   `FRONTEND_ORIGINS` includes the exact frontend origin you are testing.
-
-Import this repository into Vercel with the repository root as the Root Directory. The root
-configuration installs the frontend dependencies, runs the production build and publishes
-`frontend/dist`, including every generated catalog page.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest&project-name=politest&env=VITE_API_URL&envDescription=The%20HTTPS%20base%20URL%20of%20your%20deployed%20Politest%20backend&envLink=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest%23deploy)
-
-Set `VITE_API_URL` in Vercel to the HTTPS base URL of your deployed backend (without `/api`).
-The Java API is deployed separately using `render.yaml` or `backend/Dockerfile`. Its
-`FRONTEND_ORIGINS` must include `https://politest.anatole.co`; add any other frontend deployment
-origins explicitly if needed. If the backend already has this environment variable configured,
-update it there too, because environment values override the defaults in the repository.
-
-Connect the Vercel project to this GitHub repository for automatic deployments on pushes.
-Existing projects with `frontend` as the Root Directory can keep that configuration, with access
-to the backend catalog files outside that directory enabled for the build.
-
-Every push and pull request runs the CI workflow in `.github/workflows/ci.yml`.
+Every push and pull request runs `.github/workflows/ci.yml`.
 
 ## Contributing
 
-Bug reports, corrections to profiles, and text fixes are welcome as issues or pull requests. Keep each pull request to one change, run the backend and frontend tests, and describe how you tested it. [CONTRIBUTING.md](CONTRIBUTING.md) has the full checklist.
+Bug reports, corrections to profiles, and text fixes are welcome as issues or pull requests. Keep each pull request to one change, run the integrated API and frontend tests, and describe how you tested it. [CONTRIBUTING.md](CONTRIBUTING.md) has the full checklist.
 
 ### Adding ideologies, countries, or personalities
 

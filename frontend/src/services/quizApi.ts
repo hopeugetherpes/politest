@@ -18,7 +18,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
   }
 
   const body = await response.text();
-  // A missing API URL can route the request to Vercel's HTML fallback instead of Java.
+  // Detect a misrouted API request or an HTML error page from the hosting platform.
   if (response.headers.get('Content-Type')?.includes('text/html') || /^\s*</.test(body)) {
     throw new Error(t.errApiUnavailable);
   }

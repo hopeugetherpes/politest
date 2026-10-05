@@ -39,6 +39,8 @@ jobs:
       - name: Install dependencies
         working-directory: frontend
         run: npm ci
+      - name: Test integrated Vercel API against Java reference fixtures
+        run: npm run test:api
       - name: Test frontend
         working-directory: frontend
         run: npm test

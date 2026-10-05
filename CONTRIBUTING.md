@@ -16,17 +16,17 @@ For anything larger than a fix, open an issue first so we can agree on the appro
 
 ## Setting up
 
-The [README](README.md#running-locally) covers the requirements and how to run the backend and frontend locally.
+The [README](README.md#running-locally) covers how to run the integrated Node.js API and frontend locally. Java is only needed when working on the reference engine or regenerating its fixtures.
 
 ## Pull request checklist
 
 Keep each pull request to one change. Before asking for a review:
 
-1. After backend or catalog changes, run `mvn test` in `backend/`.
+1. After API or catalog changes, run `npm run test:api` from the repository root. After changing the Java reference or catalog vectors, also run `mvn test` in `backend/` and regenerate the Java reference fixtures with `scripts/export-java-reference.mjs`.
 2. After catalog text changes, run `python scripts/check_catalogs.py` from the repository root to validate catalog fields and English text.
 3. After frontend or text changes, run `npm ci`, `npm test`, and `npm run build` in `frontend/`. The build also generates the static catalog pages, so it catches broken profile data.
 4. In the description, say what changed, how you tested it, and which catalog entries were affected.
-5. For text changes, check the quiz, the results screen, the share card, and the generated pages in both languages.
+5. For text changes, check the English quiz, results screen, share card, and generated pages.
 
 CI runs the same checks on every pull request, and `main` only receives changes through reviewed pull requests with passing CI.
 

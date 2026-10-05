@@ -28,10 +28,7 @@ export default defineConfig(({ mode }) => {
       environment: 'node',
     },
     server: {
-      // The backend's OriginEnforcementFilter allowlists http://localhost:5173 and
-      // http://127.0.0.1:5173 and rejects /api requests without Origin/Referer, so
-      // the dev server must stay on 5173 and the proxy must forward the browser's
-      // own Origin/Referer headers untouched.
+      // Run `npm run api:dev` at the repository root to serve the integrated API.
       port: 5173,
       strictPort: true,
       proxy: {
