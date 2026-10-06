@@ -4,7 +4,7 @@
 
 A political quiz that places you on twelve independent axes and compares your answers with +230 ideologies, +170 countries and regimes, and +390 political figures.
 
-**[politest.anatole.co](https://politest.anatole.co)** · No Data collection · no sign-up
+**[politest.anatole.co](https://politest.anatole.co)** · no data collection · no sign-up
 
 ![Node.js](https://img.shields.io/badge/Node.js-22-339933) ![Vercel](https://img.shields.io/badge/Vercel-Functions-black) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/hopeugetherpes/politest/actions/workflows/ci.yml/badge.svg)
 
@@ -287,10 +287,4 @@ A new profile has to meet these requirements before it is merged:
 - Portraits and historical flags come from Wikimedia Commons, with their source recorded, and are compressed with `npm run optimize:images`.
 - `mvn test` passes.
 
-### License
 
-Politest is source-available but not open source. The code, questions, profiles, and vectors are © 2026 Enzo Xavier Santos, all rights reserved. You may read the code and send contributions, but copying, redistributing, translating, or using any part commercially needs written permission. See [LICENSE](LICENSE) for the full terms.
-
-## Credit
-
-Politest is a fork of [Enzo Xavier Santos's original project](https://github.com/RomanCypherpunk/12axes), adapted for this repository. The original author's copyright and license terms remain in [LICENSE](LICENSE).
