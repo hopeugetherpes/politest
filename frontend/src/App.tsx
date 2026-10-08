@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { selectAllQuestionsBalanced, selectAndBalanceQuestions } from './utils/quizSelection';
 import { HOME_AXES } from './data/homeAxes';
 import type { ExampleResult } from './data/exampleResult';
-import { t } from './i18n';
+import { t, LANG, localePath, languageSwitchUrl, unprefixedPath } from './i18n';
 import { fetchQuiz, fetchSharedResult, submitResults } from './services/quizApi';
 import type { AnswerValue, ArchetypeQuestion, QuizPayload, QuizResult, QuizVariant } from './types/quiz';
 import { HomeScreen } from './components/editorial/HomeScreen';
@@ -47,7 +47,7 @@ function parseSharedResultUrl(): number[] | null {
   if (typeof window === 'undefined') {
     return null;
   }
-  const path = window.location.pathname.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+  const path = unprefixedPath(window.location.pathname);
   if (path !== '/results') {
     return null;
   }
@@ -74,7 +74,7 @@ function sharedResultUrl(result: QuizResult, religion: Religion | null = null): 
   const query = result.axes
     .map((axis, index) => `${AXIS_URL_KEYS[index] ?? `x${index}`}=${axis.leftPercent}`)
     .join('&');
-  return `/results?${query}${religion ? `&religion=${religion}` : ''}`;
+  return `${localePath('/results')}?${query}${religion ? `&religion=${religion}` : ''}`;
 }
 
 // Últimas perguntas do bloco de arquétipos: religião (letras A-D + "sem religião") e, só para
@@ -268,12 +268,13 @@ function MainApp() {
   // pelo resto da sessão assim que o módulo resolve.
   useEffect(() => {
     let cancelled = false;
-    import('./data/exampleResult').then(({ EXAMPLE_RESULTS }) => {
+    import('./data/exampleResult').then(async ({ EXAMPLE_RESULTS }) => {
+      const examples = LANG === 'fr' ? (await import('./i18n/catalog.mjs')).localize(EXAMPLE_RESULTS) : EXAMPLE_RESULTS;
       if (cancelled) {
         return;
       }
-      const index = randomExampleIndex(EXAMPLE_RESULTS.length);
-      setCurrentExample(EXAMPLE_RESULTS[index] ?? null);
+      const index = randomExampleIndex(examples.length);
+      setCurrentExample(examples[index] ?? null);
     });
     return () => {
       cancelled = true;
@@ -353,13 +354,14 @@ function MainApp() {
   }, [screen]);
 
   function goHome() {
+    resetSharedUrl();
     setIsMenuOpen(false);
     setScreen('home');
   }
 
   function resetSharedUrl() {
-    if (window.location.pathname.replace(/\.html$/, '').replace(/\/+$/, '') === '/results') {
-      window.history.replaceState(null, '', '/');
+    if (unprefixedPath(window.location.pathname) === '/results') {
+      window.history.replaceState(null, '', localePath('/'));
     }
     setIsSharedView(false);
   }
@@ -744,9 +746,10 @@ function MainApp() {
                 <a href="#guia-eixos">{t.navAxes}</a>
                 <a href="#espectro-politico">{t.navSpectrum}</a>
                 <a href="#faq">{t.navFaq}</a>
-                <a href="/ideologies">{t.navIdeologies}</a>
-                <a href="/personalities">{t.navPersonalities}</a>
-                <a href="/countries">{t.navCountries}</a>
+                <a href={localePath('/ideologies')}>{t.navIdeologies}</a>
+                <a href={localePath('/personalities')}>{t.navPersonalities}</a>
+                <a href={localePath('/countries')}>{t.navCountries}</a>
+                <a href={languageSwitchUrl()} hrefLang={LANG === 'fr' ? 'en' : 'fr'} lang={LANG === 'fr' ? 'en' : 'fr'}>{LANG === 'fr' ? 'English 🇬🇧' : 'Français 🇫🇷'}</a>
               </nav>
               <button className="e-btn e-btn-primary e-btn-sm" type="button" onClick={openVariantChooser}>
                 {t.navStart} <ArrowIcon />
@@ -764,6 +767,7 @@ function MainApp() {
               </button>
             </>
           )}
+          {screen !== 'home' && <a className="e-language-link" href={languageSwitchUrl()} hrefLang={LANG === 'fr' ? 'en' : 'fr'} lang={LANG === 'fr' ? 'en' : 'fr'}>{LANG === 'fr' ? 'English 🇬🇧' : 'Français 🇫🇷'}</a>}
           {screen === 'variant' && (
             <button className="e-back" type="button" onClick={goHome}>
               <ArrowIcon />

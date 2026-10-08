@@ -1,61 +1,25 @@
 import { LANG, t } from '../i18n';
 import type { CompareDetail, CompareItem, CompareType, QuizPayload, QuizResult, QuizVariant, SubmittedAnswer } from '../types/quiz';
 
-const API_URL = (import.meta.env.VITE_API_URL ?? '').trim().replace(/\/+$/, '');
+// Load the versioned engine only when a quiz starts or a result is opened.
+// All calculations stay in this browser; there is no API or environment variable.
+const loadEngine = () => import('../../../server/engine.mjs');
+let enginePromise: ReturnType<typeof loadEngine> | undefined;
 
-async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  // Content-Type só quando há corpo: num GET ele transforma a chamada entre origens em uma
-  // requisição "não simples", e o navegador gasta uma ida e volta extra (preflight OPTIONS).
-  const headers = options?.body ? { 'Content-Type': 'application/json', ...options.headers } : options?.headers;
-  let response: Response;
+async function run<T>(operation: (engine: Awaited<ReturnType<typeof loadEngine>>) => T, errorMessage: string): Promise<T> {
   try {
-    response = await fetch(`${API_URL}${path}`, { ...options, headers });
-  } catch (error) {
-    if (error instanceof TypeError) {
-      throw new Error(t.errApiUnavailable);
-    }
-    throw error;
-  }
-
-  const body = await response.text();
-  // Detect a misrouted API request or an HTML error page from the hosting platform.
-  if (response.headers.get('Content-Type')?.includes('text/html') || /^\s*</.test(body)) {
-    throw new Error(t.errApiUnavailable);
-  }
-
-  if (!response.ok) {
-    throw new Error(formatApiError(body, response.status));
-  }
-
-  try {
-    return JSON.parse(body) as T;
+    const engine = await (enginePromise ??= loadEngine());
+    const value = operation(engine);
+    if (LANG === 'en') return value;
+    const { localize } = await import('../i18n/catalog.mjs');
+    return localize(value);
   } catch {
-    throw new Error(t.errApiUnavailable);
+    throw new Error(errorMessage);
   }
-}
-
-function formatApiError(message: string, status: number): string {
-  if (!message) {
-    return t.errHttp(status);
-  }
-
-  try {
-    const payload = JSON.parse(message) as { error?: unknown; message?: unknown };
-    if (typeof payload.message === 'string' && payload.message.trim()) {
-      return payload.message;
-    }
-    if (typeof payload.error === 'string' && payload.error.trim()) {
-      return payload.error;
-    }
-  } catch {
-    // The backend may return plain text for non-Spring errors.
-  }
-
-  return message;
 }
 
 export function fetchQuiz(variant: QuizVariant = 'short'): Promise<QuizPayload> {
-  return request<QuizPayload>(`/api/quiz?variant=${variant}&lang=${LANG}`);
+  return run(engine => engine.quiz(variant), t.errLoadQuiz);
 }
 
 export function submitResults(
@@ -64,27 +28,17 @@ export function submitResults(
   archetype: Record<string, string> = {},
   religion: string | null = null
 ): Promise<QuizResult> {
-  const religionParam = religion ? `&religion=${encodeURIComponent(religion)}` : '';
-  return request<QuizResult>(`/api/results?lang=${LANG}${religionParam}`, {
-    method: 'POST',
-    body: JSON.stringify({ variant, answers, archetype })
-  });
+  return run(engine => engine.resultByAnswers({ variant, answers, archetype }, religion), t.errCalc);
 }
 
 export function fetchSharedResult(leftPercents: number[], religion: string | null = null): Promise<QuizResult> {
-  const religionParam = religion ? `&religion=${encodeURIComponent(religion)}` : '';
-  return request<QuizResult>(`/api/results/by-axes?v=${leftPercents.join(',')}&lang=${LANG}${religionParam}`);
+  return run(engine => engine.resultByValues(leftPercents, religion), t.errCalc);
 }
 
-
 export function fetchCompareCatalog(religion: string | null = null): Promise<CompareItem[]> {
-  const religionParam = religion ? `&religion=${encodeURIComponent(religion)}` : '';
-  return request<CompareItem[]>(`/api/compare/catalog?lang=${LANG}${religionParam}`);
+  return run(engine => engine.compareCatalog(religion), t.compareLoadError);
 }
 
 export function fetchCompare(type: CompareType, id: string, leftPercents: number[]): Promise<CompareDetail> {
-  const values = leftPercents.map((value) => Math.round(value * 10) / 10).join(',');
-  return request<CompareDetail>(
-    `/api/compare?type=${type}&id=${encodeURIComponent(id)}&v=${values}&lang=${LANG}`
-  );
+  return run(engine => engine.compare(type, id, leftPercents), t.compareLoadError);
 }

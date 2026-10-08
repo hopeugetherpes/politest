@@ -1,7 +1,9 @@
-// Generate English catalog pages from the backend data after the Vite build.
+// Generate English and French catalog pages from the backend data after the Vite build.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { localize } from '../src/i18n/catalog.mjs';
+import { APP_STRINGS } from './app-strings.mjs';
 import { ideologiesIndexPage, IDEOLOGIES_CSS } from './ideologies-index.mjs';
 import { personalitiesIndexPage, PERSONALITIES_CSS } from './personalities-index.mjs';
 import { personalityPage, PROFILE_CSS } from './personality-page.mjs';
@@ -61,10 +63,45 @@ const STR = {
     personalitiesIndexTitle: (n) => `${n} political personalities and their positions | Politest`,
     personalitiesIndexDesc: (n) => `See the political position of ${n} historical and contemporary personalities across 12 axes. Discover who you resemble most with the Politest quiz.`,
     personalitiesIndexHeading: 'Political personalities'
+  },
+  fr: {
+    htmlLang: 'fr',
+    ogLocale: 'fr_FR',
+    prefix: '/fr',
+    home: "Accueil",
+    navIdeologies: "Idéologies",
+    navCountries: "Pays",
+    navPersonalities: "Personnalités",
+    takeTheTest: "Passer le test",
+    axesTitle: "Profil sur les 12 axes",
+    ctaTitle: "Où en êtes-vous sur le spectre politique ?",
+    ctaText: "Passez le test pour découvrir votre compatibilité avec les idéologies, les pays et les personnalités sur les 12 axes.",
+    currentCountry: "Pays actuel",
+    historicalRegime: (period) => `Régime historique${period ? ` · ${period}` : ''}`,
+    flagAlt: (name) => `Drapeau: ${name}`,
+    imageSource: "Source de l'image",
+    homeAria: "Politest — page d'accueil",
+    balanced: "Équilibré",
+    intensity: ["Équilibré", "Tendance", "Forte", "Très forte"],
+    subjectPrefix: (name) => name,
+    ideologyTitle: (name) => `${name} — définition et position sur les 12 axes politiques | Politest`,
+    countryTitle: (name) => `${name} — profil politique sur les 12 axes | Politest`,
+    personalityTitle: (name) => `${name} — position sur les 12 axes politiques | Politest`,
+    ideologyHeadline: (name) => `${name} — Position politique sur les 12 axes`,
+    countryHeadline: (name) => `${name} — profil politique sur les 12 axes`,
+    ideologiesIndexTitle: (n) => `Idéologies politiques : liste complète des ${n} courants | Politest`,
+    ideologiesIndexDesc: (n) => `Explorez ${n} idéologies politiques, du communisme au libertarianisme, avec leurs descriptions et leurs positions sur 12 axes. Découvrez la vôtre avec Politest.`,
+    ideologiesIndexHeading: "Idéologies politiques",
+    countriesIndexTitle: (n) => `Profils politiques de ${n} pays et régimes historiques | Politest`,
+    countriesIndexDesc: (n) => `Comparez les profils de ${n} pays et régimes historiques sur 12 axes : démocratie, économie, libertés et bien plus. Découvrez le pays le plus compatible avec vous.`,
+    countriesIndexHeading: "Pays et régimes",
+    personalitiesIndexTitle: (n) => `${n} personnalités politiques et leurs positions | Politest`,
+    personalitiesIndexDesc: (n) => `Découvrez les positions de ${n} personnalités historiques et contemporaines sur 12 axes. Voyez qui vous ressemble le plus avec Politest.`,
+    personalitiesIndexHeading: "Personnalités politiques"
   }
 };
 
-const LOCALES = ['en'];
+const LOCALES = ['en', 'fr'];
 
 function groupBy(list, keyFn) {
   const map = new Map();
@@ -124,13 +161,13 @@ function buildIndexes(L) {
 
 // ── Montagem por locale ─────────────────────────────────────────────────────
 function buildLocaleContext(locale) {
-  const ideologies = baseIdeologies;
-  const countries = baseCountries;
-  const personalities = basePersonalities;
+  const ideologies = locale === 'fr' ? localize(baseIdeologies) : baseIdeologies;
+  const countries = locale === 'fr' ? localize(baseCountries) : baseCountries;
+  const personalities = locale === 'fr' ? localize(basePersonalities) : basePersonalities;
   return {
     locale,
     s: STR[locale],
-    axes: baseAxes,
+    axes: locale === 'fr' ? localize(baseAxes) : baseAxes,
     ideologies,
     countries,
     personalities,
@@ -144,6 +181,11 @@ function buildLocaleContext(locale) {
 function writePage(prefix, { basePath, html }) {
   const file = join(DIST, `${(prefix + basePath).replace(/^\//, '')}.html`);
   mkdirSync(dirname(file), { recursive: true });
+  const languagePath = prefix ? basePath : `/fr${basePath}`;
+  const languageLabel = prefix ? 'English 🇬🇧' : 'Français 🇫🇷';
+  const otherLang = prefix ? 'en' : 'fr';
+  html = html.replace('</nav>', `<a href="${languagePath}" hreflang="${otherLang}" lang="${otherLang}">${languageLabel}</a></nav>`);
+  html = html.replace('</head>', `<link rel="alternate" hreflang="en" href="${SITE}${basePath}" /><link rel="alternate" hreflang="fr" href="${SITE}/fr${basePath}" /></head>`);
   writeFileSync(file, html);
   return prefix + basePath;
 }
@@ -151,9 +193,37 @@ function writePage(prefix, { basePath, html }) {
 // App routes keep the English home metadata; shared results have their own URL.
 function buildAppRoutes() {
   const index = readFileSync(join(DIST, 'index.html'), 'utf8');
+  const alternates = `<link rel="alternate" hreflang="en" href="${SITE}/" /><link rel="alternate" hreflang="fr" href="${SITE}/fr" />`;
+  writeFileSync(join(DIST, 'index.html'), index.replace('</head>', alternates + '</head>'));
   writeFileSync(join(DIST, '240questions.html'), index);
-  const results = index.replace(/^\s*<link rel="canonical"[^\n]*\n/m, '');
-  writeFileSync(join(DIST, 'results.html'), results);
+  writeFileSync(join(DIST, 'results.html'), index.replace(/<link rel="canonical"[^>]*>/, ''));
+  const s = APP_STRINGS.fr;
+  let fr = index.replace('<html lang="en">', '<html lang="fr">')
+    .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(s.docTitle)}</title>`)
+    .replace(/(<meta[^>]*content=")[^"]*("[^>]*(?:name|property)="(?:description|og:description|twitter:description)"[^>]*>)/g, `$1${escapeHtml(s.introLead)}$2`)
+    .replace(/(<meta[^>]*(?:name|property)="(?:description|og:description|twitter:description)"[^>]*content=")[^"]*(")/g, `$1${escapeHtml(s.introLead)}$2`)
+    .replace(/(<meta[^>]*(?:name|property)="(?:og:title|twitter:title)"[^>]*content=")[^"]*(")/g, `$1${escapeHtml(s.docTitle)}$2`)
+    .replace(/(<meta[^>]*name="keywords"[^>]*content=")[^"]*(")/g, '$1test politique, idéologie politique, spectre politique, gauche, droite, centre, démocratie, économie, 12 axes, Politest$2')
+    .replace('name="language" content="English"', 'name="language" content="Français"')
+    .replace('property="og:locale" content="en_US"', 'property="og:locale" content="fr_FR"')
+    .replaceAll(`href="${SITE}/"`, `href="${SITE}/fr"`)
+    .replaceAll(`content="${SITE}/"`, `content="${SITE}/fr"`)
+    .replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (_all, text) => {
+      const block = JSON.parse(text);
+      if (block['@type'] === 'FAQPage') block.mainEntity = s.faqItems.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } }));
+      else {
+        block.alternateName = ['Politest — test politique', 'Politest — test d’idéologie'];
+        block.url = SITE + '/fr'; block.inLanguage = 'fr'; block.description = s.introLead;
+        block.keywords = 'test politique, idéologie politique, 12 axes';
+        block.about = Object.values(s.homeAxes).map(axis => axis.label);
+      }
+      return '<script type="application/ld+json">' + JSON.stringify(block) + '</script>';
+    });
+  fr = fr.replace('</head>', alternates + '</head>');
+  mkdirSync(join(DIST, 'fr'), { recursive: true });
+  writeFileSync(join(DIST, 'fr.html'), fr);
+  writeFileSync(join(DIST, 'fr/240questions.html'), fr);
+  writeFileSync(join(DIST, 'fr/results.html'), fr.replace(/<link rel="canonical"[^>]*>/, ''));
 }
 
 const allPaths = [];
@@ -183,7 +253,7 @@ writeFileSync(join(DIST, 'profile.css'), PROFILE_CSS + COUNTRY_PAGE_CSS);
 writeFileSync(join(DIST, 'countries.css'), COUNTRIES_CSS);
 
 const today = new Date().toISOString().slice(0, 10);
-const sitemapUrls = ['/', ...allPaths]
+const sitemapUrls = ['/', '/fr', ...allPaths]
   .map((p) => `  <url><loc>${SITE}${p}</loc><lastmod>${today}</lastmod></url>`)
   .join('\n');
 writeFileSync(

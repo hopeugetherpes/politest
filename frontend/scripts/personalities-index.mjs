@@ -17,6 +17,16 @@ export const AREA_LABELS = {
     empresario: 'Business',
     intelectual: 'Intellectual life',
     ativista: 'Activism'
+  },
+  fr: {
+    politico: "Politique",
+    religioso: "Religion",
+    economista: "Économie",
+    filosofo: "Philosophie",
+    teorico: "Théorie politique",
+    empresario: "Entreprise",
+    intelectual: "Vie intellectuelle",
+    ativista: "Militantisme"
   }
 };
 
@@ -56,6 +66,47 @@ const STR = {
       ativista: 'Militants and leaders of social, civil rights, labor and single-issue movements.',
       religioso: 'Religious leaders and thinkers with direct influence on political and moral life.',
       empresario: 'Entrepreneurs and executives with a relevant role or influence in politics.'
+    }
+  },
+  fr: {
+    skip: "Passer à la liste",
+    catalogNav: "Catalogue",
+    homeAria: "Politest, page d'accueil",
+    eyebrow: "Catalogue",
+    lead: (n) => `${n} dirigeants, penseurs, économistes et militants recensés par Politest, classés par domaine. Chacun dispose d’une photo, d’une courte biographie et d’un profil complet sur les 12 axes.`,
+    stats: [
+  "personnalités",
+  "domaines",
+  "axes par profil"
+],
+    areasAria: "Domaines",
+    searchLabel: "Rechercher une personnalité",
+    searchPlaceholder: "Rechercher un nom, un rôle ou une époque",
+    filterAria: "Filtrer par domaine",
+    count: ["personnalité", "personnalités"],
+    viewProfile: "Voir le profil",
+    dnaNote:
+      "<b>Comment lire la bande de 12 icônes :</b> chaque icône représente un axe et indique le pôle vers lequel le profil tend. Plus l’icône est marquée, plus la position est intense. Survolez-la pour voir les valeurs.",
+    legendAria: "Pôles de chaque axe, dans l’ordre de la bande d’icônes",
+    emptyTitle: "Aucune personnalité trouvée",
+    emptyText: "Essayez un autre terme ou effacez les filtres.",
+    found: ["personnalité trouvée", "personnalités trouvées"],
+    clear: "Effacer les filtres",
+    credit: "Portraits : Wikipédia et Wikimedia Commons, selon les crédits indiqués sur chaque fiche.",
+    portraitAlt: (name) => `Portrait de ${name}`,
+    ctaTitle: "À qui ressemblez-vous le plus ?",
+    ctaText: (n) => `Passez le test pour découvrir, parmi ces ${n} personnalités, celles dont les idées sont les plus proches des vôtres.`,
+    takeTheTest: "Passer le test",
+    footer: "Test politique indépendant · politest.anatole.co",
+    descriptions: {
+      politico: "Les chefs d'État, les législateurs, les révolutionnaires et les chefs de parti qui ont occupé le pouvoir ou qui se sont battus pour cela.",
+      teorico: "Auteurs qui ont formulé les doctrines, les programmes et les concepts qui guident les mouvements et les gouvernements.",
+      filosofo: "Des penseurs qui ont débattu de la justice, de la liberté, de l'autorité et de la nature de l'État.",
+      economista: "Les économistes dont les idées ont façonné la politique monétaire et fiscale et le débat sur le marché contre l'État.",
+      intelectual: "Écrivains, historiens, journalistes et universitaires qui ont façonné le débat public.",
+      ativista: "Militants et dirigeants de mouvements sociaux, de défense des droits civils, de travailleurs ou consacrés à une cause particulière.",
+      religioso: "Chefs religieux et penseurs ayant une influence directe sur la vie politique et morale.",
+      empresario: "Entrepreneurs et cadres ayant un rôle ou une influence pertinent en politique."
     }
   }
 };

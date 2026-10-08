@@ -1,8 +1,10 @@
-// English is the only supported language.
+// Local dictionaries; language comes from the URL so shared links retain it.
 import type { PersonalityCategory, ProfileDimension } from '../types/quiz';
 
-export type Lang = 'en';
-export const LANG: Lang = 'en';
+import { LANG } from './locale';
+import { fr } from './fr';
+export { LANG, localePath, languageSwitchUrl, unprefixedPath } from './locale';
+export type { Lang } from './locale';
 
 interface QuizFormatStrings {
   label: string;
@@ -12,7 +14,7 @@ interface QuizFormatStrings {
   action: string;
 }
 
-interface Strings {
+export interface Strings {
   htmlLang: string;
   docTitle: string;
   loadingAnalysis: string;
@@ -771,4 +773,4 @@ const en: Strings = {
   feedbackSuggest: 'Suggest improvements'
 };
 
-export const t: Strings = en;
+export const t: Strings = LANG === 'fr' ? fr : en;

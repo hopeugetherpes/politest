@@ -53,6 +53,50 @@ const STR = {
     ctaTitle: 'And you, who do you resemble?',
     ctaText: (name) => `Take the quiz and see your compatibility with ${name}, ideologies, countries and other personalities across the 12 axes.`,
     footer: 'Independent political quiz · politest.anatole.co'
+  },
+  fr: {
+    skip: "Passer au contenu",
+    catalogNav: "Catalogue",
+    homeAria: "Politest, page d'accueil",
+    takeTheTest: "Passer le test",
+    kpiSpectrum: "Spectre le plus proche",
+    kpiClosestIdeology: "Idéologie la plus proche",
+    kpiClosestPerson: "Personnalité la plus proche",
+    portraitAlt: (name) => `Portrait de ${name}`,
+    flagAlt: (name) => `Drapeau: ${name}`,
+    tabsAria: "Sections du profil",
+    tabs: { axes: "Axes", ideologies: "Idéologies", personalities: "Personnalités", countries: "Pays" },
+    ids: { axes: 'axes', ideologies: 'ideologies', personalities: 'personalities', countries: 'countries' },
+    axesEyebrow: "Axes politiques",
+    axesTitle: "Profil sur les 12 axes",
+    distTitle: (name) => `Ce qui distingue ${name}`,
+    rareTag: "Position la plus inhabituelle",
+    commonTag: "Position la plus courante",
+    rareText: (name, pole, pct, n) => `${name} tend davantage vers le pôle « ${pole.toLowerCase()} » que ${pct} % des ${n} personnalités du catalogue.`,
+    rareNote: (axis, name) => `Parmi les 12 axes, ${axis} est celui sur lequel ${name} s’écarte le plus du catalogue.`,
+    commonText: (axis, exact) => exact ? `Sur l’axe ${axis}, ce profil se situe presque exactement à la médiane du catalogue.` : `Sur l’axe ${axis}, ce profil est proche de la médiane du catalogue.`,
+    commonNote: "Ce profil partage ici une position commune à la plupart des profils du catalogue.",
+    median: "Médiane du catalogue",
+    ideologyEyebrow: "Proximité idéologique",
+    ideologyTitle: (name) => `Les idéologies de ${name}`,
+    closestIdeologies: (n) => `Les plus proches parmi les ${n} idéologies`,
+    distantIdeology: "L’idéologie la plus éloignée",
+    matchWord: "compatibilité",
+    personalitiesTitle: "Personnalités les plus proches",
+    mostCompatible: "Profil le plus compatible",
+    alsoByDimension: "D’autres profils proches, par dimension",
+    dimensionLabels: { political: "Sur le plan politique", social: "Sur le plan social", economic: "Sur le plan économique" },
+    nearSub: "Autres profils similaires",
+    farSub: (name) => `Les profils les plus éloignés de ${name}`,
+    countriesTitle: "Pays les plus proches",
+    countryTabsAria: "Type de pays",
+    currentTab: "Pays actuels",
+    historicalTab: "Régimes historiques",
+    currentKicker: "Pays actuel le plus compatible",
+    historicalKicker: "Régime historique le plus compatible",
+    ctaTitle: "Et vous, à qui ressemblez-vous ?",
+    ctaText: (name) => `Passez le test pour mesurer votre compatibilité avec ${name}, les idéologies, les pays et les autres personnalités sur les 12 axes.`,
+    footer: "Test politique indépendant · politest.anatole.co"
   }
 };
 
@@ -115,7 +159,8 @@ export function mbarHtml(d, strong, medianLabel, youLabel, esc) {
 const INFO_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16m-1-4h2v2h-2zm0-1.992s2-.008 2 0C13 13.006 16 12 16 10c0-2.21-1.773-4-3.991-4A4 4 0 0 0 8 10h2c0-1.1.9-2 2-2s2 .9 2 2c0 .9-3 2.367-3 4.008"/></svg>';
 const BALANCED_COLOR = '#9C988C';
 const AXIS_INFO = {
-  en: { aria: (label) => `What does the ${label} axis mean?`, close: 'Close' }
+  en: { aria: (label) => `What does the ${label} axis mean?`, close: 'Close' },
+  fr: { aria: (label) => `Que signifie l’axe ${label} ?`, close: "Fermer" }
 };
 
 // Barras dos 12 eixos, iguais às da tela de resultados (AxesSection.tsx):

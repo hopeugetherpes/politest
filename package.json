@@ -8,7 +8,7 @@
     "test": "npm run test:api && npm --prefix frontend test",
     "test:api": "node --test server/test/*.test.mjs",
     "api:dev": "node server/serve.mjs",
-    "preview": "node server/serve.mjs"
+    "preview": "npm --prefix frontend run preview"
   },
   "engines": {
     "node": "22.x"

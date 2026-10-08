@@ -1,7 +1,21 @@
-import { readFileSync } from 'node:fs';
+import axesData from '../backend/src/main/resources/data/axes.json' with { type: 'json' };
+import questionsData from '../backend/src/main/resources/data/questions-pool.json' with { type: 'json' };
+import archetypesData from '../backend/src/main/resources/data/archetype-questions.json' with { type: 'json' };
+import ideologiesData from '../backend/src/main/resources/data/ideologies.json' with { type: 'json' };
+import countriesData from '../backend/src/main/resources/data/countries.json' with { type: 'json' };
+import personalitiesData from '../backend/src/main/resources/data/personalities.json' with { type: 'json' };
+import ideologyProfilesData from '../backend/src/main/resources/data/ideology-profiles.json' with { type: 'json' };
+import countryProfilesData from '../backend/src/main/resources/data/countries-profiles.json' with { type: 'json' };
+import personalityProfilesData from '../backend/src/main/resources/data/personality-profiles.json' with { type: 'json' };
+import booksData from '../backend/src/main/resources/data/books.json' with { type: 'json' };
 
 // Use the original, versioned catalogs as the single source of data for both engines.
-const read = name => JSON.parse(readFileSync(new URL(`../backend/src/main/resources/data/${name}.json`, import.meta.url), 'utf8'));
+// Static JSON imports let the same tested engine run in Node and in the browser.
+const sources = { axes: axesData, 'questions-pool': questionsData, 'archetype-questions': archetypesData,
+  ideologies: ideologiesData, countries: countriesData, personalities: personalitiesData,
+  'ideology-profiles': ideologyProfilesData, 'countries-profiles': countryProfilesData,
+  'personality-profiles': personalityProfilesData, books: booksData };
+const read = name => sources[name];
 const fields = (item, names) => Object.fromEntries(names.map(name => [name, item[name] ?? null]));
 const index = (items, key = 'id') => new Map(items.map(item => [item[key], item]));
 

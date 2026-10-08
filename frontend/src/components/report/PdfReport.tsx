@@ -43,7 +43,7 @@ export function PdfReport({ result, axes, axisResults, answeredCount, religion }
     t.otherMatches
   ];
   const num = (title: string) => String(sections.indexOf(title) + 1).padStart(2, '0');
-  const today = new Date().toLocaleDateString('en-US', {
+  const today = new Date().toLocaleDateString(t.htmlLang, {
     day: 'numeric',
     month: 'long',
     year: 'numeric'

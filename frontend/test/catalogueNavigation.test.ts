@@ -39,6 +39,16 @@ describe('local catalogue navigation', () => {
       expect(html).toContain(`/${catalogue}/`);
   });
 
+  it.each(['ideologies', 'personalities', 'countries'])('serves the French %s catalog and preserves localized navigation', async catalogue => {
+    const response = await fetch(`${base}fr/${catalogue}`);
+    const html = await response.text();
+    expect(response.status).toBe(200);
+    expect(html).toContain('<html lang="fr">');
+    expect(html).toContain(`href="/fr/${catalogue}/`);
+    expect(html).toContain('English 🇬🇧');
+    expect(html).not.toContain('/src/main.tsx');
+  });
+
   it('redirects former English paths and preserves query parameters', async () => {
     for (const path of ['en', 'en/personalities/donald-trump', 'en/countries?search=test']) {
       const response = await fetch(base + path, { redirect: 'manual' });

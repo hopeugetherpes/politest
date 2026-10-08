@@ -737,3 +737,8 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   .e-cmp-sheet .e-axis-sheet-close{position:sticky;top:8px;right:auto;margin:0 0 -36px auto;z-index:3;box-shadow:0 2px 8px rgba(16,16,16,.14)}
   .e-cmp-sheet .e-axis-sheet-handle{margin-bottom:6px}
 }
+
+/* Language links use the same navigation and remain available during the quiz. */
+.e-language-link{margin-left:auto;color:inherit;font-size:.8rem;text-decoration:none;white-space:nowrap;padding:.5rem}
+.e-nav-links{gap:clamp(.65rem,1.1vw,1.2rem)}
+@media(max-width:600px){.e-language-link{font-size:.7rem;padding:.2rem}.e-nav>.e-wrap{gap:.6rem}}

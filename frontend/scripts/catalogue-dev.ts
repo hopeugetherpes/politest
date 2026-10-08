@@ -15,12 +15,13 @@ export function catalogueDevPlugin(): Plugin {
       const root = server.config.root;
       const scripts = join(root, 'scripts');
       const data = resolve(root, '../backend/src/main/resources/data');
+      const translations = resolve(root, 'src/i18n');
       const output = join(root, 'node_modules/.cache/catalogue-pages');
       let generation: Promise<unknown> | undefined;
 
-      server.watcher.add([scripts, data]);
+      server.watcher.add([scripts, data, translations]);
       server.watcher.on('all', (_event, path) => {
-        if (path.startsWith(scripts + sep) || path.startsWith(data + sep)) {
+        if (path.startsWith(scripts + sep) || path.startsWith(data + sep) || path.startsWith(translations + sep)) {
           generation = undefined;
           server.ws.send({ type: 'full-reload' });
         }
@@ -37,7 +38,7 @@ export function catalogueDevPlugin(): Plugin {
           return;
         }
         const path = (req.url ?? '/').split('?')[0].replace(/\/+$/, '');
-        const catalogue = /^\/(?:ideologies|personalities|countries)(?:\/[a-z0-9-]+)?(?:\.html)?$/.test(path);
+        const catalogue = /^\/(?:fr\/)?(?:ideologies|personalities|countries)(?:\/[a-z0-9-]+)?(?:\.html)?$/.test(path);
         const stylesheet = /^\/(?:ideologies|personalities|countries|profile)\.css$/.test(path);
         if (!catalogue && !stylesheet) return next();
 

@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { catalogueDevPlugin } from './scripts/catalogue-dev';
 
@@ -16,28 +16,8 @@ function asyncCssLinkPlugin() {
   };
 }
 
-export default defineConfig(({ mode }) => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const cwd = (globalThis as { process?: { cwd: () => string } }).process?.cwd?.() ?? '.';
-  const env = loadEnv(mode, cwd, '');
-  const proxyTarget = env.VITE_API_PROXY_TARGET || 'http://localhost:8080';
-
-  return {
-    plugins: [react(), asyncCssLinkPlugin(), catalogueDevPlugin()],
-    test: {
-      environment: 'node',
-    },
-    server: {
-      // Run `npm run api:dev` at the repository root to serve the integrated API.
-      port: 5173,
-      strictPort: true,
-      proxy: {
-        '/api': {
-          target: proxyTarget,
-          changeOrigin: true,
-          secure: true
-        }
-      }
-    }
-  };
+export default defineConfig({
+  plugins: [react(), asyncCssLinkPlugin(), catalogueDevPlugin()],
+  test: { environment: 'node' },
+  server: { port: 5173, strictPort: true }
 });

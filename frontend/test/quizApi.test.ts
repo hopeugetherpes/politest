@@ -1,69 +1,68 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { t } from '../src/i18n';
+import { quiz, resultByValues } from '../../server/engine.mjs';
 
-let api: typeof import('../src/services/quizApi');
-const fetchMock = vi.fn<typeof fetch>();
+const fetchMock = vi.fn(() => { throw new Error('No API requests are allowed'); });
 
-beforeEach(async () => {
+beforeEach(() => {
   vi.resetModules();
-  vi.stubEnv('VITE_API_URL', '');
   vi.stubGlobal('fetch', fetchMock);
-  fetchMock.mockReset();
-  api = await import('../src/services/quizApi');
+  fetchMock.mockClear();
 });
+afterEach(() => vi.unstubAllGlobals());
 
-afterEach(() => {
-  vi.unstubAllGlobals();
-  vi.unstubAllEnvs();
-});
-
-describe('quiz API connection', () => {
-  it.each(['short', 'extended', 'extreme'] as const)('loads the %s format from the API', async (variant) => {
-    const payload = { variant, questions: [] };
-    fetchMock.mockResolvedValue(new Response(JSON.stringify(payload), { headers: { 'Content-Type': 'application/json' } }));
-    await expect(api.fetchQuiz(variant)).resolves.toEqual(payload);
-    expect(fetchMock).toHaveBeenCalledWith(`/api/quiz?variant=${variant}&lang=en`, { headers: undefined });
+describe('local quiz service', () => {
+  it.each(['short', 'extended', 'extreme'] as const)('loads the %s format without an API', async variant => {
+    const service = await import('../src/services/quizApi');
+    const result = await service.fetchQuiz(variant);
+    expect(result).toEqual(quiz(variant));
+    expect(result.questionCount).toBe(variant === 'short' ? 36 : variant === 'extended' ? 60 : 240);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('uses the configured backend origin without surrounding spaces or trailing slashes', async () => {
-    vi.stubEnv('VITE_API_URL', ' https://backend.example.test/// ');
-    vi.resetModules();
-    api = await import('../src/services/quizApi');
-    fetchMock.mockResolvedValue(new Response('{}'));
-    await api.fetchQuiz();
-    expect(fetchMock).toHaveBeenCalledWith('https://backend.example.test/api/quiz?variant=short&lang=en', { headers: undefined });
+  it('reconstructs shared results and comparisons without network requests', async () => {
+    const service = await import('../src/services/quizApi');
+    const values = [65, 80, 35, 30, 20, 75, 40, 70, 35, 15, 75, 60];
+    const result = await service.fetchSharedResult(values, 'judaism');
+    expect(result).toEqual(resultByValues(values, 'judaism'));
+    const catalog = await service.fetchCompareCatalog('judaism');
+    expect(catalog.length).toBeGreaterThan(500);
+    const detail = await service.fetchCompare(catalog[0].type, catalog[0].id, values);
+    expect(detail.item.id).toBe(catalog[0].id);
+    expect(detail.compatibility).toBeGreaterThanOrEqual(0);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('submits answers and the selected variant to the results endpoint', async () => {
-    const answers = [{ questionId: 'question-1', answer: 'AGREE' as const }];
-    const result = { axes: [], topMatch: { ideologyId: 'example' } };
-    fetchMock.mockResolvedValue(new Response(JSON.stringify(result)));
-    await expect(api.submitResults('short', answers)).resolves.toEqual(result);
-    expect(fetchMock).toHaveBeenCalledWith('/api/results?lang=en', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ variant: 'short', answers, archetype: {} })
-    });
+  it('scores all 240 answers locally', async () => {
+    const service = await import('../src/services/quizApi');
+    const payload = await service.fetchQuiz('extreme');
+    const answers = payload.questions.map(question => ({ questionId: question.id, answer: 'AGREE' as const }));
+    const result = await service.submitResults('extreme', answers, { sociedade: 'A' });
+    expect(result.axes).toHaveLength(12);
+    expect(result.matches).toHaveLength(4);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it.each([200, 503])('reports a service error for an HTML response with status %s', async (status) => {
-    fetchMock.mockResolvedValue(new Response('<!doctype html><html>Frontend fallback</html>', {
-      status, headers: { 'Content-Type': 'text/html; charset=utf-8' }
-    }));
-    await expect(api.fetchQuiz()).rejects.toThrow(t.errApiUnavailable);
+  it('returns a localized error for invalid input', async () => {
+    vi.stubGlobal('window', { location: { pathname: '/fr' } });
+    const service = await import('../src/services/quizApi');
+    await expect(service.fetchSharedResult([101])).rejects.toThrow('Impossible de calculer le résultat.');
   });
 
-  it('reports a service error for malformed JSON', async () => {
-    fetchMock.mockResolvedValue(new Response('{not JSON}', { headers: { 'Content-Type': 'application/json' } }));
-    await expect(api.fetchQuiz()).rejects.toThrow(t.errApiUnavailable);
-  });
-
-  it('reports a service error when the network or CORS blocks the request', async () => {
-    fetchMock.mockRejectedValue(new TypeError('Failed to fetch'));
-    await expect(api.fetchQuiz()).rejects.toThrow(t.errApiUnavailable);
-  });
-
-  it('preserves a useful JSON error returned by the backend', async () => {
-    fetchMock.mockResolvedValue(new Response(JSON.stringify({ message: 'Origin is not allowed' }), { status: 403 }));
-    await expect(api.fetchQuiz()).rejects.toThrow('Origin is not allowed');
+  it('translates questions, answer options, comparisons and results on French paths', async () => {
+    vi.stubGlobal('window', { location: { pathname: '/fr/240questions' } });
+    const service = await import('../src/services/quizApi');
+    const payload = await service.fetchQuiz('extreme');
+    expect(payload.questions[0].text).toContain('gouvernements régionaux');
+    expect(payload.answerOptions.map(option => option.label)).toEqual(['Tout à fait d’accord', 'D’accord', 'Neutre ou cela dépend', 'Pas d’accord', 'Pas du tout d’accord']);
+    const result = await service.fetchSharedResult(Array(12).fill(50));
+    expect(result.axes[0].intensity).toBe('Équilibré');
+    expect(result.axes[1].label).toBe('Représentation');
+    expect(result.topMatch.longDescription).toContain('La compatibilité indique');
+    const catalog = await service.fetchCompareCatalog();
+    const netherlands = catalog.find(item => item.name === 'Pays-Bas')!;
+    expect(netherlands.type).toBe('country');
+    const detail = await service.fetchCompare(netherlands.type, netherlands.id, Array(12).fill(50));
+    expect(detail.item.name).toBe('Pays-Bas');
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 });

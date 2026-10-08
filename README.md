@@ -6,7 +6,7 @@ A political quiz that places you on twelve independent axes and compares your an
 
 **[politest.anatole.co](https://politest.anatole.co)** · no data collection · no sign-up
 
-![Node.js](https://img.shields.io/badge/Node.js-22-339933) ![Vercel](https://img.shields.io/badge/Vercel-Functions-black) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/hopeugetherpes/politest/actions/workflows/ci.yml/badge.svg)
+![Node.js](https://img.shields.io/badge/Node.js-22-339933) ![Vercel](https://img.shields.io/badge/Vercel-Static-black) ![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6) ![CI](https://github.com/hopeugetherpes/politest/actions/workflows/ci.yml/badge.svg)
 
 </div>
 
@@ -14,7 +14,7 @@ A political quiz that places you on twelve independent axes and compares your an
 
 Most political tests reduce you to a single point on a left-right line, or to a two-axis grid. Politest measures twelve dimensions separately, so someone who wants a free market and a strong state, or open borders and a religious society, sees that combination instead of an average that hides it.
 
-The frontend and quiz API deploy together on Vercel. The integrated Node.js engine preserves the original matching algorithm and uses the same versioned JSON catalogs. The original Java engine remains in the repository as a reference for parity tests.
+Politest is a static website: quizzes, results, shared links and comparisons are computed directly in the browser. The same tested JavaScript engine preserves the original matching algorithm and versioned JSON catalogs. English is available at `/` and French at `/fr`, including all 240 questions, results, catalogs, PNG sharing and PDF reports. The original Java engine remains as a reference for parity tests.
 
 ## About the project
 
@@ -110,19 +110,19 @@ The share card sums up a result: the main ideology and its family, the most comp
 
 | Layer | Technology |
 |-------|------------|
-| API | Node.js 22, Vercel Functions, no third-party runtime dependencies |
+| Calculation | Shared JavaScript engine, executed locally in the browser |
 | Reference engine | Java 21, Spring Boot 3.3, Maven (optional) |
 | Frontend | React 18, TypeScript, Vite 8 |
-| Data | Versioned JSON, loaded into memory at startup |
+| Data | Versioned JSON, bundled as static assets and loaded on demand |
 | Tests | Node.js test runner, Java reference fixtures, Vitest, JUnit 5 |
 | CI | GitHub Actions (API parity, Java reference tests, catalog check, frontend tests and build) |
-| Deploy | Frontend and API together on Vercel |
+| Deploy | Static assets on Vercel, no backend or API |
 
-There is no database. The catalogs change through commits. Each function instance loads the JSON once, validates the catalog vectors, and scores requests in memory. Answers are used for computation and are not written to a database or logged by the application.
+There is no database or deployed API. Catalogs change through commits. The browser loads the scoring engine on demand and calculates results locally. Answers never leave the browser; an unfinished quiz is saved locally so it can be resumed. Shared links contain only the 12 percentages and the optional recommendation filter.
 
 ### Project data
 
-All data lives in `backend/src/main/resources/data/`, in English.
+The canonical English data lives in `backend/src/main/resources/data/`. French text snapshots live in `frontend/src/i18n/catalog-fr.json`, and the UI dictionaries in `frontend/src/i18n/index.ts` and `fr.ts`. French text never changes identifiers, answer polarity, weights, vectors or rankings. No translation service is used at runtime.
 
 | File | Contents |
 |------|----------|
@@ -134,14 +134,13 @@ All data lives in `backend/src/main/resources/data/`, in English.
 | `personalities.json` / `personality-profiles.json` | Political figures and intellectuals |
 | `books.json` | Book recommendations |
 
-The API refuses to start if any catalog entry lacks a valid vector for the 12 axes.
+The shared engine validates every catalog vector before calculating results.
 
 ### Repository structure
 
 ```txt
 Politest/
-├── api/                     Vercel Function entry point
-├── server/                  Integrated scoring, rankings, comparisons and API tests
+├── server/                  Browser-compatible scoring, rankings, comparisons and reference tests
 ├── backend/                 Canonical JSON catalogs and original Java reference
 │   └── src/main/java/com/politest/
 │       ├── config/          CORS, cache headers, origin enforcement
@@ -150,7 +149,7 @@ Politest/
 │       └── service/         data loading, scoring, matchers, religion filter
 ├── frontend/                React + Vite app
 │   ├── src/components/      home, quiz, results, report
-│   ├── src/i18n/            English UI strings
+│   ├── src/i18n/            English and French UI and catalog text
 │   └── scripts/             static page generator, image optimizer
 ├── profile-audit/           pipeline that builds the catalog vectors
 └── scripts/                 repository checks (catalogs)
@@ -169,71 +168,33 @@ A result is a vector of twelve values from 0 to 100. The `ProfileMatchScorer` co
 
 Each catalog is ranked separately. A match also reports a percentile inside its own catalog, because ideologies tend to be more extreme than real countries and the raw scores are not comparable across catalogs. `ScorerBenchmarkTest` guards the calibration: it checks that noisy answers generated from a profile still find that profile.
 
-### API
+### Languages and local calculation
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/health` | Health check |
-| `GET` | `/api/quiz?variant=short\|extended\|extreme` | Quiz metadata and the question pool |
-| `POST` | `/api/results` | Scores answers and returns axes and matches |
-| `GET` | `/api/results/by-axes?v=...` | Rebuilds a result from 12 values, for shared links |
-| `GET` | `/api/ideologies[/{id}]` | Ideology catalog |
-| `GET` | `/api/countries[/{id}]` | Country catalog |
-| `GET` | `/api/personalities[/{id}]` | Personality catalog |
-| `GET` | `/api/compare/catalog` | Searchable profiles, with an optional religion filter |
-| `GET` | `/api/compare?type=...&id=...&v=...` | Compare a result with a selected profile |
+The navigation offers **Français 🇫🇷** and **English 🇬🇧**. French routes use `/fr`, `/fr/results`, `/fr/240questions` and `/fr/{ideologies,personalities,countries}`. Internal links and shared results retain the selected language. Switching language preserves the percentages in shared links; a saved quiz can be resumed in either language because question IDs are identical.
 
-English is the only supported language. The optional `lang` parameter resolves to `en`, and result endpoints accept `religion` for the filter. The frontend calls `/api/**` on its own domain, so custom domains and Vercel previews work without CORS configuration. Result responses use `Cache-Control: no-store`.
-
-<details>
-<summary>Example request</summary>
-
-```json
-POST /api/results?lang=en
-{
-  "variant": "short",
-  "answers": [
-    { "questionId": "estrutura_01", "answer": "STRONGLY_AGREE" },
-    { "questionId": "poder_03", "answer": "DISAGREE" }
-  ]
-}
-```
-
-`answer` is one of `STRONGLY_AGREE`, `AGREE`, `NEUTRAL`, `DISAGREE`, `STRONGLY_DISAGREE`.
-
-</details>
+`frontend/src/services/quizApi.ts` retains its existing frontend interface but now loads `server/engine.mjs` locally. It makes no API requests and ignores old `VITE_API_URL` settings. Questions, archetypes, scores, religion filters, comparisons and book recommendations all work on a static deployment.
 
 ### Running locally
 
-You need Node.js 22 and npm. Java and a separate hosting account are not needed.
+You need Node.js 22 and npm. No environment variables, Java server or API keys are needed.
 
 ```bash
 npm --prefix frontend ci
-npm run api:dev                 # http://127.0.0.1:8080
+npm --prefix frontend run dev   # http://localhost:5173
 ```
 
-In another terminal:
-
-```bash
-npm --prefix frontend run dev   # http://localhost:5173, proxies /api to the Node API
-```
-
-To preview the production build with its API on one origin:
+To preview the static production build:
 
 ```bash
 npm run build
-npm run preview                 # http://127.0.0.1:8080
+npm run preview                # http://localhost:4173
 ```
-
-`PORT` changes the local API/preview port. Leave `VITE_API_URL` empty for normal use:
-the deployed frontend calls the API on the same domain. This variable remains available
-only for maintainers deliberately using a separately hosted compatible API.
 
 ### Tests
 
 ```bash
 npm run test:api                # complete responses compared with Java reference fixtures
-npm --prefix frontend test     # frontend behavior and API error handling
+npm --prefix frontend test     # frontend behavior, translation coverage and local calculation
 npm run build                  # type checking, production bundle and static catalog pages
 ```
 
@@ -248,26 +209,19 @@ fixtures with `scripts/export-java-reference.mjs` against the local Java engine.
 
 ### Deploy
 
-**Import the repository root into Vercel. The frontend and quiz API deploy together.**
-No Render account, Java server, database or API URL is required.
+**Import the repository root into Vercel. The entire site deploys as static files.**
+No backend, API, database, translation service or environment variable is required.
 
 1. Import [this repository](https://github.com/hopeugetherpes/politest) into Vercel.
 2. Keep **Root Directory** at the repository root and **Framework Preset** at **Other**.
-   The root `vercel.json` supplies the install command, build command, output directory,
-   API routing and catalog files bundled with the function.
-3. Leave `VITE_API_URL` unset or empty. If an old value is present, remove it and redeploy.
-4. Deploy, then connect your custom domain if desired. Short (36), Full (60) and Extreme
-   (240) tests use `/api/quiz` and `/api/results` on that same domain.
+   The root `vercel.json` supplies the installation command, build command and output directory.
+3. Deploy and connect your custom domain if desired. All three quiz formats and both languages are included.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhopeugetherpes%2Fpolitest&project-name=politest)
 
-The deployment installs frontend dependencies, runs the production build, publishes
-`frontend/dist` with all generated catalog pages, and bundles `api/handler.js` as a Node.js
-function with the canonical JSON catalogs. It does not compile or launch Java.
+The deployment installs the frontend dependencies, builds the React app and generates the English and French catalog pages in `frontend/dist`. The shared scoring engine and catalog data are bundled as static JavaScript assets. Vercel does not compile Java or deploy functions.
 
-Connect Vercel to this GitHub repository for automatic deployments on pushes. Use the
-repository root, rather than `frontend`, so Vercel includes the API function. The retained
-Java/Docker files are optional reference infrastructure and are not used by this deployment.
+Connect Vercel to this GitHub repository for automatic deployments on pushes. The retained Java, Docker and reference HTTP files are optional development infrastructure and are not used by the deployed site.
 
 Every push and pull request runs `.github/workflows/ci.yml`.
 
@@ -281,7 +235,7 @@ Catalog entries are not written by hand. Each new profile answers all 240 questi
 
 A new profile has to meet these requirements before it is merged:
 
-- English metadata, with questions free of country-specific references.
+- English and French metadata, with questions free of country-specific references.
 - A full 240-answer audit, archived in `profile-audit/answers/`.
 - `python profile-audit/validate.py <catalog> <id>` passes. It blocks vectors that are near duplicates of an existing profile, too many neutral answers, and a religious vector with no religion tag.
 - Portraits and historical flags come from Wikimedia Commons, with their source recorded, and are compressed with `npm run optimize:images`.

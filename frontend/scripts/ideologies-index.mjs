@@ -18,6 +18,14 @@ export const SPECTRUM = [
 ];
 
 export const CATEGORY_KEY = {
+  'gauche radicale': 'esq-radical',
+  gauche: 'esquerda',
+  centre: 'centro',
+  droite: 'direita',
+  'extrême droite': 'ext-direita',
+  'troisième position': 'terceira',
+  libertarien: 'libertario',
+  anarchiste: 'anarquismo',
   'esquerda radical': 'esq-radical',
   'radical left': 'esq-radical',
   esquerda: 'esquerda',
@@ -74,6 +82,42 @@ const STR = {
       libertario: 'Minimal state, free market, private property and individual liberties, without abolishing the state.',
       anarquismo: 'Rejection of the state and of all coercive authority, with free and voluntary social organization.'
     }
+  },
+  fr: {
+    skip: "Passer à la liste",
+    catalogNav: "Catalogue",
+    homeAria: "Politest, page d'accueil",
+    eyebrow: "Catalogue",
+    lead: (n) => `Les ${n} courants politiques recensés par Politest, classés par spectre. Chacun dispose d’une description et d’un profil complet sur les 12 axes.`,
+    stats: ["courants", "spectres", "axes par profil"],
+    distribution: "Répartition sur le spectre",
+    distributionAria: (label, n) => `${label} : ${n} idéologies`,
+    searchLabel: "Rechercher une idéologie",
+    searchPlaceholder: "Rechercher une idéologie… ( / )",
+    filterAria: "Filtrer par spectre",
+    count: "courants",
+    viewProfile: "Voir le profil",
+    dnaNote:
+      "<b>Comment lire la bande de 12 icônes :</b> chaque icône représente un axe et indique le pôle vers lequel le profil tend. Plus l’icône est marquée, plus la position est intense. Survolez-la pour voir les valeurs.",
+    legendAria: "Pôles de chaque axe, dans l’ordre de la bande d’icônes",
+    emptyTitle: "Aucune idéologie trouvée",
+    emptyText: "Essayez un autre terme ou effacez les filtres.",
+    found: ["idéologie trouvée", "idéologies trouvées"],
+    clear: "Effacer les filtres",
+    ctaTitle: "Et vous, où vous situez-vous ?",
+    ctaText: (n) => `Passez le test pour découvrir, parmi ces ${n} idéologies, celles qui vous correspondent le plus.`,
+    takeTheTest: "Passer le test",
+    footer: "Test politique indépendant · politest.anatole.co",
+    descriptions: {
+  "esq-radical": "Communisme révolutionnaire ou à parti unique, avec une économie planifiée et une forte concentration du pouvoir d’État.",
+  "esquerda": "Social-démocratie, progressisme et intervention accrue de l’État dans l’économie, dans le cadre de la démocratie libérale.",
+  "centro": "Équilibre entre marché et État, réforme et stabilité, avec une position modérée ou pragmatique.",
+  "direita": "Conservatisme, libéralisme économique et nationalisme modéré, dans le cadre de la démocratie libérale.",
+  "ext-direita": "Rejet explicite de la démocratie libérale, nationalisme radical et concentration autoritaire du pouvoir.",
+  "terceira": "Synthèse nationaliste et corporatiste qui rejette le capitalisme libéral et le marxisme.",
+  "libertario": "État minimal, libre marché, propriété privée et libertés individuelles, sans abolition de l’État.",
+  "anarquismo": "Rejet de l’État et de toute autorité coercitive, avec une organisation sociale libre et volontaire."
+}
   }
 };
 

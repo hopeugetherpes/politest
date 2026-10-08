@@ -1,31 +1,27 @@
-// Textos do app reaproveitados pelas páginas estáticas, lidos direto de
-// src/i18n/index.ts (explicação de cada eixo, usada no helper "?" das barras),
-// para não manter uma cópia própria.
+// Reuse the app's dictionaries in generated pages without a second copy of text.
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 
-// Normaliza CRLF: num checkout no Windows o arquivo vem com \r\n e os marcadores abaixo não casariam.
-const source = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../src/i18n/index.ts'), 'utf8').replace(/\r\n/g, '\n');
-
-// The English dictionary has one axisExplanations block with id-to-text entries.
-function explanationBlocks() {
-  const blocks = [];
-  const marker = 'axisExplanations: {\n';
-  let from = 0;
-  for (;;) {
-    const start = source.indexOf(marker, from);
-    if (start === -1) break;
-    const end = source.indexOf('\n  },', start);
-    const body = source.slice(start + marker.length, end);
-    const entries = {};
-    for (const m of body.matchAll(/(\w+):\s*'((?:[^'\\]|\\.)*)'/g)) entries[m[1]] = m[2].replace(/\\'/g, "'");
-    blocks.push(entries);
-    from = end;
-  }
-  if (blocks.length !== 1) throw new Error(`app-strings: expected one axisExplanations block, found ${blocks.length}`);
-  return blocks;
+async function readDictionary(file, variable) {
+  const content = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../src/i18n', file), 'utf8');
+  const source = ts.createSourceFile(file, content, ts.ScriptTarget.Latest, true);
+  let initializer;
+  const visit = node => {
+    if (ts.isVariableDeclaration(node) && node.name.getText(source) === variable) initializer = node.initializer;
+    ts.forEachChild(node, visit);
+  };
+  visit(source);
+  if (!initializer) throw new Error(`Dictionary not found: ${file}/${variable}`);
+  const code = ts.transpileModule(`export default ${initializer.getText(source)};`, {
+    compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2020 }
+  }).outputText;
+  return (await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'))).default;
 }
 
-const [en] = explanationBlocks();
-export const AXIS_EXPLANATIONS = { en };
+export const APP_STRINGS = {
+  en: await readDictionary('index.ts', 'en'),
+  fr: await readDictionary('fr.ts', 'fr')
+};
+export const AXIS_EXPLANATIONS = { en: APP_STRINGS.en.axisExplanations, fr: APP_STRINGS.fr.axisExplanations };
